@@ -1,0 +1,3737 @@
+[
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "/opt/arduino-1.8.15/hardware/arduino/avr/cores/arduino"
+  },
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "/opt/arduino-1.8.15/hardware/arduino/avr/variants/mega"
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/Marlin.ino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/AVR/HAL.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/AVR/HAL_SPI.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/AVR/MarlinSerial.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/AVR/Servo.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/AVR/eeprom.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/AVR/fast_pwm.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/AVR/fastio.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/AVR/u8g_com_HAL_AVR_sw_spi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/AVR/watchdog.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/HAL.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/HAL_MinSerial.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/HAL_SPI.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/InterruptVectors.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/MarlinSerial.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/MarlinSerialUSB.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/Servo.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/Tone.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/dogm/u8g_com_HAL_DUE_shared_hw_spi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/dogm/u8g_com_HAL_DUE_st7920_sw_spi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/dogm/u8g_com_HAL_DUE_sw_spi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/dogm/u8g_com_HAL_DUE_sw_spi_shared.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/eeprom_flash.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/eeprom_wired.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/fastio/G2_PWM.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/timers.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/usb/ctrl_access.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/usb/sd_mmc_spi_mem.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/usb/sysclk.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/usb/udc.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/usb/udi_cdc.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/usb/udi_cdc_desc.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/usb/udi_composite_desc.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/usb/udi_msc.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/usb/uotghs_device_due.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/usb/usb_task.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/DUE/watchdog.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/ESP32/FlushableHardwareSerial.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/ESP32/HAL.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/ESP32/HAL_SPI.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/ESP32/Servo.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/ESP32/Tone.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/ESP32/WebSocketSerial.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/ESP32/eeprom.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/ESP32/i2s.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/ESP32/ota.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/ESP32/spiffs.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/ESP32/timers.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/ESP32/watchdog.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/ESP32/web.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/ESP32/wifi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LINUX/HAL.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LINUX/arduino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LINUX/eeprom.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LINUX/hardware/Clock.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LINUX/hardware/Gpio.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LINUX/hardware/Heater.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LINUX/hardware/IOLoggerCSV.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LINUX/hardware/LinearAxis.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LINUX/hardware/Timer.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LINUX/include/pinmapping.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LINUX/main.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LINUX/timers.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LINUX/watchdog.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/HAL.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/HAL_MinSerial.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/HAL_SPI.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/MarlinSerial.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/eeprom_flash.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/eeprom_sdcard.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/eeprom_wired.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/fast_pwm.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/include/digipot_mcp4451_I2C_routines.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/include/i2c_util.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/main.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/tft/tft_spi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/tft/xpt2046.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/timers.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/u8g/LCD_I2C_routines.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/u8g/LCD_pin_routines.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/u8g/u8g_com_HAL_LPC1768_hw_spi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/u8g/u8g_com_HAL_LPC1768_ssd_hw_i2c.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/u8g/u8g_com_HAL_LPC1768_st7920_hw_spi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/u8g/u8g_com_HAL_LPC1768_st7920_sw_spi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/u8g/u8g_com_HAL_LPC1768_sw_spi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/usb_serial.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/LPC1768/watchdog.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/SAMD51/HAL.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/SAMD51/HAL_SPI.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/SAMD51/MarlinSerial_AGCM4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/SAMD51/QSPIFlash.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/SAMD51/Servo.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/SAMD51/eeprom_flash.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/SAMD51/eeprom_qspi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/SAMD51/eeprom_wired.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/SAMD51/timers.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/SAMD51/watchdog.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/HAL.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/HAL_MinSerial.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/HAL_SPI.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/MarlinSPI.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/MarlinSerial.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/Sd2Card_sdio_stm32duino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/Servo.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/eeprom_flash.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/eeprom_sdcard.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/eeprom_sram.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/eeprom_wired.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/fast_pwm.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/fastio.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/msc_sd.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/tft/gt911.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/tft/tft_fsmc.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/tft/tft_ltdc.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/tft/tft_spi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/tft/xpt2046.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/timers.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/usb_host.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/usb_serial.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32/watchdog.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32F1/HAL.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32F1/HAL_MinSerial.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32F1/HAL_SPI.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32F1/MarlinSerial.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32F1/SPI.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32F1/Servo.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32F1/dogm/u8g_com_stm32duino_swspi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32F1/eeprom_bl24cxx.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32F1/eeprom_flash.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32F1/eeprom_if_iic.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32F1/eeprom_sdcard.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32F1/eeprom_wired.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32F1/fast_pwm.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32F1/msc_sd.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32F1/onboard_sd.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32F1/sdio.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32F1/tft/tft_fsmc.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32F1/tft/tft_spi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32F1/tft/xpt2046.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32F1/timers.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/STM32F1/watchdog.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/TEENSY31_32/HAL.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/TEENSY31_32/HAL_SPI.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/TEENSY31_32/Servo.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/TEENSY31_32/eeprom.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/TEENSY31_32/timers.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/TEENSY31_32/watchdog.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/TEENSY35_36/HAL.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/TEENSY35_36/HAL_SPI.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/TEENSY35_36/Servo.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/TEENSY35_36/eeprom.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/TEENSY35_36/timers.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/TEENSY35_36/watchdog.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/TEENSY40_41/HAL.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/TEENSY40_41/HAL_SPI.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/TEENSY40_41/Servo.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/TEENSY40_41/eeprom.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/TEENSY40_41/timers.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/TEENSY40_41/watchdog.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/shared/Delay.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/shared/HAL_MinSerial.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/shared/HAL_spi_L6470.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/shared/backtrace/backtrace.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/shared/backtrace/unwarm.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/shared/backtrace/unwarm_arm.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/shared/backtrace/unwarm_thumb.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/shared/backtrace/unwarmbytab.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/shared/backtrace/unwarmmem.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/shared/backtrace/unwinder.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/shared/backtrace/unwmemaccess.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/shared/cpu_exception/exception_arm.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/shared/cpu_exception/exception_hook.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/shared/eeprom_api.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/shared/eeprom_if_i2c.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/shared/eeprom_if_spi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/shared/esp_wifi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/HAL/shared/servo.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/MarlinCore.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/core/serial.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/core/utility.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/babystep.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/backlash.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/baricuda.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/bedlevel/abl/abl.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/bedlevel/bedlevel.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/bedlevel/hilbert_curve.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/bedlevel/mbl/mesh_bed_leveling.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/bedlevel/ubl/ubl.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/bedlevel/ubl/ubl_G29.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/bedlevel/ubl/ubl_motion.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/binary_stream.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/bltouch.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/cancel_object.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/caselight.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/closedloop.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/controllerfan.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/cooler.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/dac/dac_dac084s085.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/dac/dac_mcp4728.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/dac/stepper_dac.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/digipot/digipot_mcp4018.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/digipot/digipot_mcp4451.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/direct_stepping.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/e_parser.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/encoder_i2c.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/ethernet.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/fanmux.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/filwidth.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/fwretract.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/host_actions.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/hotend_idle.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/joystick.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/leds/blinkm.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/leds/leds.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/leds/neopixel.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/leds/pca9533.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/leds/pca9632.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/leds/printer_event_leds.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/leds/tempstat.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/max7219.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/meatpack.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/mixing.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/mmu/mmu.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/mmu/mmu2.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/password/password.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/pause.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/power.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/power_monitor.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/powerloss.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/probe_temp_comp.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/repeat.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/runout.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/solenoid.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/spindle_laser.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/stepper_driver_safety.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/tmc_util.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/tramming.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/twibus.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/feature/z_stepper_align.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/bedlevel/G26.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/bedlevel/G35.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/bedlevel/G42.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/bedlevel/M420.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/bedlevel/abl/G29.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/bedlevel/abl/M421.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/bedlevel/mbl/G29.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/bedlevel/mbl/M421.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/bedlevel/ubl/G29.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/bedlevel/ubl/M421.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/calibrate/G28.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/calibrate/G33.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/calibrate/G34.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/calibrate/G34_M422.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/calibrate/G425.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/calibrate/G76_M192_M871.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/calibrate/M100.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/calibrate/M12.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/calibrate/M425.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/calibrate/M48.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/calibrate/M665.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/calibrate/M666.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/calibrate/M852.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/config/M200-M205.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/config/M217.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/config/M218.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/config/M220.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/config/M221.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/config/M281.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/config/M301.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/config/M302.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/config/M304.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/config/M305.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/config/M309.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/config/M43.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/config/M540.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/config/M575.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/config/M672.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/config/M92.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/control/M10-M11.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/control/M108_M112_M410.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/control/M111.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/control/M120_M121.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/control/M17_M18_M84.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/control/M211.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/control/M226.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/control/M280.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/control/M3-M5.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/control/M350_M351.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/control/M380_M381.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/control/M400.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/control/M42.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/control/M605.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/control/M7-M9.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/control/M80_M81.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/control/M85.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/control/M993_M994.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/control/M997.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/control/M999.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/control/T.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/eeprom/M500-M504.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/L6470/M122.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/L6470/M906.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/L6470/M916-918.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/advance/M900.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/baricuda/M126-M129.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/camera/M240.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/cancel/M486.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/caselight/M355.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/clean/G12.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/controllerfan/M710.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/digipot/M907-M910.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/filwidth/M404-M407.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/fwretract/G10_G11.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/fwretract/M207-M209.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/i2c/M260_M261.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/leds/M150.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/leds/M7219.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/macro/M810-M819.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/mixing/M163-M165.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/mixing/M166.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/network/M552-M554.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/password/M510-M512.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/pause/G27.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/pause/G60.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/pause/G61.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/pause/M125.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/pause/M600.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/pause/M603.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/pause/M701_M702.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/power_monitor/M430.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/powerloss/M1000.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/powerloss/M413.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/prusa_MMU2/M403.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/runout/M412.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/trinamic/M122.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/trinamic/M569.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/trinamic/M906.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/feature/trinamic/M911-M914.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/gcode.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/gcode_d.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/geometry/G17-G19.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/geometry/G53-G59.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/geometry/G92.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/geometry/M206_M428.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/host/M110.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/host/M113.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/host/M114.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/host/M115.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/host/M118.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/host/M119.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/host/M154.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/host/M16.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/host/M360.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/host/M876.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/lcd/M0_M1.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/lcd/M117.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/lcd/M145.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/lcd/M250.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/lcd/M300.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/lcd/M414.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/lcd/M73.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/lcd/M995.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/motion/G0_G1.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/motion/G2_G3.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/motion/G4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/motion/G5.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/motion/G6.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/motion/G80.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/motion/M290.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/parser.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/probe/G30.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/probe/G31_G32.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/probe/G38.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/probe/M401_M402.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/probe/M851.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/probe/M951.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/queue.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/scara/M360-M364.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/sd/M1001.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/sd/M20.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/sd/M21_M22.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/sd/M23.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/sd/M24_M25.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/sd/M26.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/sd/M27.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/sd/M28_M29.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/sd/M30.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/sd/M32.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/sd/M33.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/sd/M34.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/sd/M524.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/sd/M808.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/sd/M928.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/stats/M31.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/stats/M75-M78.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/temp/M104_M109.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/temp/M105.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/temp/M106_M107.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/temp/M140_M190.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/temp/M141_M191.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/temp/M143_M193.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/temp/M155.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/temp/M303.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/units/G20_G21.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/units/M149.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/gcode/units/M82_M83.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/HD44780/lcdprint_hd44780.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/HD44780/marlinui_HD44780.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/TFTGLCD/lcdprint_TFTGLCD.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/TFTGLCD/marlinui_TFTGLCD.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/dogm/lcdprint_u8g.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/dogm/marlinui_DOGM.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/dogm/status_screen_DOGM.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/dogm/status_screen_lite_ST7920.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/dogm/u8g_dev_ssd1306_sh1106_128x64_I2C.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/dogm/u8g_dev_ssd1309_12864.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/dogm/u8g_dev_st7565_64128n_HAL.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/dogm/u8g_dev_st7920_128x64_HAL.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/dogm/u8g_dev_tft_upscale_from_128x64.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/dogm/u8g_dev_uc1701_mini12864_HAL.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/dogm/u8g_fontutf8.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/dogm/ultralcd_st7920_u8glib_rrd_AVR.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/dwin/dwin_lcd.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/dwin/e3v2/dwin.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/dwin/e3v2/rotary_encoder.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/anycubic_chiron/FileNavigator.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/anycubic_chiron/Tunes.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/anycubic_chiron/chiron_extui.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/anycubic_chiron/chiron_tft.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/anycubic_i3mega/anycubic_extui.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/anycubic_i3mega/anycubic_i3mega_lcd.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/dgus/DGUSDisplay.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/dgus/DGUSScreenHandler.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/dgus/dgus_extui.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/dgus/fysetc/DGUSDisplayDef.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/dgus/fysetc/DGUSScreenHandler.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/dgus/hiprecy/DGUSDisplayDef.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/dgus/hiprecy/DGUSScreenHandler.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/dgus/mks/DGUSDisplayDef.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/dgus/mks/DGUSScreenHandler.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/dgus/origin/DGUSDisplayDef.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/dgus/origin/DGUSScreenHandler.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/dgus/sunlu/DGUSDisplayDef.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/dgus/sunlu/DGUSScreenHandler.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/example/example.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/archim2-flash/flash_storage.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/archim2-flash/media_file_reader.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_extui.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/basic/commands.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/basic/spi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/adjuster_widget.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/circular_progress.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/command_processor.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/dl_cache.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/event_loop.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/screen_types.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/sound_player.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/text_box.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/text_ellipsis.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/tiny_timer.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/unicode/cyrillic_char_set.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/unicode/font_bitmaps.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/unicode/font_size_t.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/unicode/standard_char_set.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/unicode/unicode.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/unicode/western_char_set.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/language/language.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/about_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/advanced_settings_menu.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/alert_dialog_box.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/backlash_compensation_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/base_numeric_adjustment_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/base_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/bed_mesh_base.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/bed_mesh_edit_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/bed_mesh_view_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/bio_advanced_settings.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/bio_confirm_home_e.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/bio_confirm_home_xyz.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/bio_main_menu.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/bio_printing_dialog_box.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/bio_status_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/bio_tune_menu.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/boot_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/case_light_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/change_filament_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/cocoa_press_advanced_settings_menu.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/cocoa_press_load_chocolate.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/cocoa_press_main_menu.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/cocoa_press_move_e_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/cocoa_press_move_xyz_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/cocoa_press_preheat_menu.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/cocoa_press_preheat_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/cocoa_press_status_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/cocoa_press_unload_cartridge.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/confirm_abort_print_dialog_box.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/confirm_auto_calibration_dialog_box.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/confirm_erase_flash_dialog_box.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/confirm_start_print_dialog_box.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/confirm_user_request_alert_box.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/custom_user_menus.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/default_acceleration_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/developer_menu.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/dialog_box_base_class.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/display_tuning_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/endstop_state_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/feedrate_percent_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/filament_menu.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/filament_runout_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/files_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/flow_percent_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/interface_settings_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/interface_sounds_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/jerk_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/junction_deviation_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/kill_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/language_menu.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/leveling_menu.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/linear_advance_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/lock_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/main_menu.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/max_acceleration_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/max_velocity_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/media_player_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/move_axis_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/nozzle_offsets_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/nudge_nozzle_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/restore_failsafe_dialog_box.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/save_settings_dialog_box.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/screens.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/spinner_dialog_box.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/statistics_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/status_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/stepper_bump_sensitivity_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/stepper_current_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/steps_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/stress_test_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/string_format.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/temperature_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/touch_calibration_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/touch_registers_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/tune_menu.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/widget_demo_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/screens/z_offset_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ftdi_eve_touch_ui/theme/sounds.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/malyan/malyan.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/malyan/malyan_extui.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/SPIFlashStorage.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/SPI_TFT.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_about.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_acceleration_settings.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_advance_settings.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_auto_level_offset_settings.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_baby_stepping.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_change_speed.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_cloud_bind.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_dialog.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_eeprom_settings.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_encoder_settings.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_error_message.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_extrusion.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_fan.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_filament_change.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_filament_settings.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_gcode.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_home.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_homing_sensitivity_settings.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_jerk_settings.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_keyboard.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_language.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_level_settings.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_machine_para.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_machine_settings.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_manuaLevel.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_max_feedrate_settings.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_media_select.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_more.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_motor_settings.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_move_motor.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_number_key.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_operation.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_pause_message.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_pause_position.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_preHeat.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_print_file.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_printing.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_ready_print.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_set.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_step_settings.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_tmc_current_settings.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_tmc_step_mode_settings.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_tool.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_touch_calibration.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_tramming_pos_settings.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_ui.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_wifi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_wifi_list.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_wifi_settings.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/draw_wifi_tips.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/gb2312_puhui16.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/irq_overrid.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/mks_hardware_test.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/pic_manager.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/printer_operation.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/tft_lvgl_configuration.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/tft_multi_language.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/wifiSerial.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/wifi_module.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/mks_ui/wifi_upload.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/nextion/FileNavigator.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/nextion/nextion_extui.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/nextion/nextion_tft.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/extui/ui_api.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/fontutils.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/lcdprint.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/marlinui.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/game/brickout.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/game/game.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/game/invaders.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/game/maze.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/game/snake.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_advanced.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_backlash.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_bed_corners.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_bed_leveling.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_cancelobject.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_configuration.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_delta_calibrate.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_filament.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_game.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_info.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_job_recovery.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_language.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_led.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_main.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_media.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_mixer.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_mmu2.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_motion.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_password.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_power_monitor.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_probe_offset.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_spindle_laser.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_temperature.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_tmc.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_touch_screen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_tramming.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_tune.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/menu/menu_ubl.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/canvas.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/fontdata/fontdata_10x20.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/fontdata/fontdata_ISO10646_1.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/fontdata/helvetica_12_bold.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/fontdata/helvetica_14.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/fontdata/helvetica_18.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/fontdata/profont_22.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/back_32x32x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/background_320x30x16.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/bootscreen_112x38x1.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/bootscreen_195x59x16.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/bootscreen_228x255x2.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/bootscreen_228x255x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/bootscreen_320x240x16.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/bootscreen_480x320x16.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/btn_rounded_42x39x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/btn_rounded_64x52x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/cancel_64x64x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/chamber_64x64x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/confirm_64x64x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/decrease_64x64x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/directory_32x32x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/down_32x32x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/fan_64x64x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/fan_fast_64x64x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/fan_slow_64x64x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/feedrate_32x32x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/flowrate_32x32x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/heated_bed_64x64x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/home_64x64x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/hotend_64x64x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/increase_64x64x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/left_32x32x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/leveling_32x32x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/menu_64x64x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/pause_64x64x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/refresh_32x32x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/right_32x32x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/sd_64x64x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/settings_64x64x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/slider_8x16x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/images/up_32x32x4.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/tft.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/tft_image.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/tft_queue.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/tft_string.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/touch.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/ui_1024x600.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/ui_320x240.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/ui_480x320.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft/ui_common.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft_io/tft_io.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/tft_io/touch_calibration.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/lcd/touch/touch_buttons.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/libs/BL24CXX.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/libs/L64XX/L64XX_Marlin.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/libs/W25Qxx.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/libs/buzzer.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/libs/crc16.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/libs/heatshrink/heatshrink_decoder.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/libs/hex_print.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/libs/least_squares_fit.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/libs/nozzle.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/libs/numtostr.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/libs/stopwatch.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/libs/vector_3.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/module/delta.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/module/endstops.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/module/motion.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/module/planner.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/module/planner_bezier.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/module/printcounter.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/module/probe.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/module/scara.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/module/servo.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/module/settings.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/module/stepper/L64xx.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/module/stepper/TMC26X.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/module/stepper/indirection.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/module/stepper/trinamic.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/module/stepper.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/module/temperature.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/module/tool_change.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/sd/Sd2Card.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/sd/SdBaseFile.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/sd/SdFatUtil.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/sd/SdFile.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/sd/SdVolume.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/sd/cardreader.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/sd/usb_flashdrive/Sd2Card_FlashDrive.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/sd/usb_flashdrive/lib-uhs2/Usb.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/sd/usb_flashdrive/lib-uhs2/masstorage.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/sd/usb_flashdrive/lib-uhs2/message.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/sd/usb_flashdrive/lib-uhs2/parsetools.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/mnt/hgfs/SVN/Marlin-2.0.x/hex/sketch/src/sd/usb_flashdrive/lib-uhs2/usbhost.cpp",
+    "Include": "",
+    "Includepath": null
+  }
+]
