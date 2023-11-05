@@ -22,5 +22,5 @@
 #pragma once
 
 #if HAS_SPI_TFT || HAS_FSMC_TFT
-  #error "Sorry! TFT displays are not available for HAL/TEENSY31_32."
+    #error "Sorry! TFT displays are not available for HAL/TEENSY31_32."
 #endif

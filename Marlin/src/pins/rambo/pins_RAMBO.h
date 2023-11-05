@@ -44,18 +44,18 @@
 #include "env_validate.h"
 
 #ifndef BOARD_INFO_NAME
-  #define BOARD_INFO_NAME "Rambo"
+    #define BOARD_INFO_NAME "Rambo"
 #endif
 
 //
 // Servos
 //
 #ifndef SERVO0_PIN
-  #define SERVO0_PIN                          22  // Motor header MX1
+    #define SERVO0_PIN                          22  // Motor header MX1
 #endif
 #define SERVO1_PIN                            23  // Motor header MX2
 #ifndef SERVO2_PIN
-  #define SERVO2_PIN                          24  // Motor header MX3
+    #define SERVO2_PIN                          24  // Motor header MX3
 #endif
 #define SERVO3_PIN                            2//5  sanlu -- 2 5  // PWM header pin 5
 
@@ -67,7 +67,7 @@
 #define Y_MIN_PIN                             11
 #define Y_MAX_PIN                             23
 #ifndef Z_MIN_PIN
-  #define Z_MIN_PIN                           10
+    #define Z_MIN_PIN                           10
 #endif
 #define Z_MAX_PIN                             30
 
@@ -75,11 +75,11 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     30
+    #define Z_MIN_PROBE_PIN                     30
 #endif
 
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN                       2//5  sanlu -- 2
+    #define FIL_RUNOUT_PIN                       2//5  sanlu -- 2
 #endif
 
 //
@@ -120,7 +120,7 @@
 #define DIGIPOTSS_PIN                         38
 #define DIGIPOT_CHANNELS { 4, 5, 3, 0, 1 }        // X Y Z E0 E1 digipot channels to stepper driver mapping
 #ifndef DIGIPOT_MOTOR_CURRENT
-  #define DIGIPOT_MOTOR_CURRENT { 135,135,135,135,135 }   // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A)
+    #define DIGIPOT_MOTOR_CURRENT { 135,135,135,135,135 }   // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A)
 #endif
 
 //
@@ -139,13 +139,13 @@
 #define HEATER_BED_PIN                         3
 
 #ifndef FAN_PIN
-  #define FAN_PIN                              8
+    #define FAN_PIN                              8
 #endif
 #ifndef FAN1_PIN
-  #define FAN1_PIN                             6
+    #define FAN1_PIN                             6
 #endif
 #ifndef FAN2_PIN
-  #define FAN2_PIN                             2
+    #define FAN2_PIN                             2
 #endif
 
 //
@@ -156,11 +156,11 @@
 #define PS_ON_PIN                              4
 
 #ifndef CASE_LIGHT_PIN
-  #define CASE_LIGHT_PIN                      46
+    #define CASE_LIGHT_PIN                      46
 #endif
 
 #ifndef FILWIDTH_PIN
-  #define FILWIDTH_PIN                         3  // Analog Input
+    #define FILWIDTH_PIN                         3  // Analog Input
 #endif
 
 //
@@ -174,7 +174,7 @@
 // SPI for Max6675 or Max31855 Thermocouple
 //
 #ifndef MAX6675_SS_PIN
-  #define MAX6675_SS_PIN                      32  // SPINDLE_DIR_PIN / STAT_LED_BLUE_PIN
+    #define MAX6675_SS_PIN                      32  // SPINDLE_DIR_PIN / STAT_LED_BLUE_PIN
 #endif
 
 //
@@ -194,77 +194,77 @@
 // LCD / Controller
 //
 #if HAS_WIRED_LCD || TOUCH_UI_ULTIPANEL
-
-  #define KILL_PIN                            80
-
-  #if IS_ULTIPANEL || TOUCH_UI_ULTIPANEL
-
-    #define LCD_PINS_RS                       70
-    #define LCD_PINS_ENABLE                   71
-    #define LCD_PINS_D4                       72
-    #define LCD_PINS_D5                       73
-    #define LCD_PINS_D6                       74
-    #define LCD_PINS_D7                       75
-
-    #if ANY(VIKI2, miniVIKI)
-      #define BEEPER_PIN                      44
-      // NB: Panucatt's Viki 2.0 wiring diagram (v1.2) indicates that the
-      //     beeper/buzzer is connected to pin 33; however, the pin used in the
-      //     diagram is actually pin 44, so this is correct.
-
-      #define DOGLCD_A0                       70
-      #define DOGLCD_CS                       71
-      #define LCD_SCREEN_ROT_180
-
-      #define BTN_EN1                         85
-      #define BTN_EN2                         84
-      #define BTN_ENC                         83
-
-      #define SD_DETECT_PIN                   -1  // Pin 72 if using easy adapter board
-
-      #define STAT_LED_RED_PIN                22
-      #define STAT_LED_BLUE_PIN               32
-
-    #else                                         // !VIKI2 && !miniVIKI
-
-      #define BEEPER_PIN                      79  // AUX-4
-
-      // AUX-2
-      #ifndef BTN_EN1
-        #define BTN_EN1                       76
-      #endif
-      #ifndef BTN_EN2
-        #define BTN_EN2                       77
-      #endif
-      #define BTN_ENC                         78
-
-      #define SD_DETECT_PIN                   81
-
-    #endif // !VIKI2 && !miniVIKI
-
-    #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
-      #define BTN_ENC_EN             LCD_PINS_D7  // Detect the presence of the encoder
-    #endif
-
-  #else                                           // !IS_NEWPANEL - old style panel with shift register
-
-    // No Beeper added
-    #define BEEPER_PIN                        33
-
-    // Buttons attached to a shift register
-    // Not wired yet
-    //#define SHIFT_CLK_PIN                   38
-    //#define SHIFT_LD_PIN                    42
-    //#define SHIFT_OUT_PIN                   40
-    //#define SHIFT_EN_PIN                    17
-
-    #define LCD_PINS_RS                       75
-    #define LCD_PINS_ENABLE                   17
-    #define LCD_PINS_D4                       23
-    #define LCD_PINS_D5                       25
-    #define LCD_PINS_D6                       27
-    #define LCD_PINS_D7                       29
-
-  #endif // !IS_NEWPANEL
-
+  
+    #define KILL_PIN                            80
+  
+    #if IS_ULTIPANEL || TOUCH_UI_ULTIPANEL
+    
+        #define LCD_PINS_RS                       70
+        #define LCD_PINS_ENABLE                   71
+        #define LCD_PINS_D4                       72
+        #define LCD_PINS_D5                       73
+        #define LCD_PINS_D6                       74
+        #define LCD_PINS_D7                       75
+    
+        #if ANY(VIKI2, miniVIKI)
+            #define BEEPER_PIN                      44
+            // NB: Panucatt's Viki 2.0 wiring diagram (v1.2) indicates that the
+            //     beeper/buzzer is connected to pin 33; however, the pin used in the
+            //     diagram is actually pin 44, so this is correct.
+      
+            #define DOGLCD_A0                       70
+            #define DOGLCD_CS                       71
+            #define LCD_SCREEN_ROT_180
+      
+            #define BTN_EN1                         85
+            #define BTN_EN2                         84
+            #define BTN_ENC                         83
+      
+            #define SD_DETECT_PIN                   -1  // Pin 72 if using easy adapter board
+      
+            #define STAT_LED_RED_PIN                22
+            #define STAT_LED_BLUE_PIN               32
+      
+        #else                                         // !VIKI2 && !miniVIKI
+      
+            #define BEEPER_PIN                      79  // AUX-4
+      
+            // AUX-2
+            #ifndef BTN_EN1
+                #define BTN_EN1                       76
+            #endif
+            #ifndef BTN_EN2
+                #define BTN_EN2                       77
+            #endif
+            #define BTN_ENC                         78
+      
+            #define SD_DETECT_PIN                   81
+      
+        #endif // !VIKI2 && !miniVIKI
+    
+        #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
+            #define BTN_ENC_EN             LCD_PINS_D7  // Detect the presence of the encoder
+        #endif
+    
+    #else                                           // !IS_NEWPANEL - old style panel with shift register
+    
+        // No Beeper added
+        #define BEEPER_PIN                        33
+    
+        // Buttons attached to a shift register
+        // Not wired yet
+        //#define SHIFT_CLK_PIN                   38
+        //#define SHIFT_LD_PIN                    42
+        //#define SHIFT_OUT_PIN                   40
+        //#define SHIFT_EN_PIN                    17
+    
+        #define LCD_PINS_RS                       75
+        #define LCD_PINS_ENABLE                   17
+        #define LCD_PINS_D4                       23
+        #define LCD_PINS_D5                       25
+        #define LCD_PINS_D6                       27
+        #define LCD_PINS_D7                       29
+    
+    #endif // !IS_NEWPANEL
+  
 #endif // HAS_WIRED_LCD

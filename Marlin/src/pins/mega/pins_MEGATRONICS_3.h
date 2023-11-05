@@ -28,11 +28,11 @@
 #include "env_validate.h"
 
 #if MB(MEGATRONICS_32)
-  #define BOARD_INFO_NAME "Megatronics v3.2"
+    #define BOARD_INFO_NAME "Megatronics v3.2"
 #elif MB(MEGATRONICS_31)
-  #define BOARD_INFO_NAME "Megatronics v3.1"
+    #define BOARD_INFO_NAME "Megatronics v3.1"
 #else
-  #define BOARD_INFO_NAME "Megatronics v3.0"
+    #define BOARD_INFO_NAME "Megatronics v3.0"
 #endif
 
 //
@@ -57,7 +57,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     19
+    #define Z_MIN_PROBE_PIN                     19
 #endif
 
 //
@@ -91,24 +91,24 @@
 // Temperature Sensors
 //
 #if TEMP_SENSOR_0 == -1
-  #define TEMP_0_PIN                          11  // Analog Input
+    #define TEMP_0_PIN                          11  // Analog Input
 #else
-  #define TEMP_0_PIN                          15  // Analog Input
+    #define TEMP_0_PIN                          15  // Analog Input
 #endif
 #if TEMP_SENSOR_1 == -1
-  #define TEMP_1_PIN                          10  // Analog Input
+    #define TEMP_1_PIN                          10  // Analog Input
 #else
-  #define TEMP_1_PIN                          13  // Analog Input
+    #define TEMP_1_PIN                          13  // Analog Input
 #endif
 #if TEMP_SENSOR_2 == -1
-  #define TEMP_2_PIN                           9  // Analog Input
+    #define TEMP_2_PIN                           9  // Analog Input
 #else
-  #define TEMP_2_PIN                          12  // Analog Input
+    #define TEMP_2_PIN                          12  // Analog Input
 #endif
 #if TEMP_SENSOR_BED == -1
-  #define TEMP_BED_PIN                         8  // Analog Input
+    #define TEMP_BED_PIN                         8  // Analog Input
 #else
-  #define TEMP_BED_PIN                        14  // Analog Input
+    #define TEMP_BED_PIN                        14  // Analog Input
 #endif
 
 //
@@ -120,7 +120,7 @@
 #define HEATER_BED_PIN                        10
 
 #ifndef FAN_PIN
-  #define FAN_PIN                              6
+    #define FAN_PIN                              6
 #endif
 #define FAN1_PIN                               7
 
@@ -132,7 +132,7 @@
 #define PS_ON_PIN                             12
 
 #ifndef CASE_LIGHT_PIN
-  #define CASE_LIGHT_PIN                      45  // Try the keypad connector
+    #define CASE_LIGHT_PIN                      45  // Try the keypad connector
 #endif
 
 //
@@ -145,52 +145,52 @@
 #define BTN_ENC                               33
 
 #if ENABLED(REPRAPWORLD_GRAPHICAL_LCD)
-
-  #define LCD_PINS_RS                         56  // CS chip select / SS chip slave select
-  #define LCD_PINS_ENABLE                     51  // SID (MOSI)
-  #define LCD_PINS_D4                         52  // SCK (CLK) clock
-  #define SD_DETECT_PIN                       35
-
+  
+    #define LCD_PINS_RS                         56  // CS chip select / SS chip slave select
+    #define LCD_PINS_ENABLE                     51  // SID (MOSI)
+    #define LCD_PINS_D4                         52  // SCK (CLK) clock
+    #define SD_DETECT_PIN                       35
+  
 #else
-
-  #define LCD_PINS_RS                         32
-  #define LCD_PINS_ENABLE                     31
-  #define LCD_PINS_D4                         14
-  #define LCD_PINS_D5                         30
-  #define LCD_PINS_D6                         39
-  #define LCD_PINS_D7                         15
-
-  #define SHIFT_CLK_PIN                       43
-  #define SHIFT_LD_PIN                        35
-  #define SHIFT_OUT_PIN                       34
-  #define SHIFT_EN_PIN                        44
-
-  #if MB(MEGATRONICS_31, MEGATRONICS_32)
-    #define SD_DETECT_PIN                     56
-  #endif
-
+  
+    #define LCD_PINS_RS                         32
+    #define LCD_PINS_ENABLE                     31
+    #define LCD_PINS_D4                         14
+    #define LCD_PINS_D5                         30
+    #define LCD_PINS_D6                         39
+    #define LCD_PINS_D7                         15
+  
+    #define SHIFT_CLK_PIN                       43
+    #define SHIFT_LD_PIN                        35
+    #define SHIFT_OUT_PIN                       34
+    #define SHIFT_EN_PIN                        44
+  
+    #if MB(MEGATRONICS_31, MEGATRONICS_32)
+        #define SD_DETECT_PIN                     56
+    #endif
+  
 #endif
 
 //
 // M3/M4/M5 - Spindle/Laser Control
 //
 #if DISABLED(REPRAPWORLD_KEYPAD)                  // try to use the keypad connector first
-  #define SPINDLE_LASER_PWM_PIN               44  // Hardware PWM
-  #define SPINDLE_LASER_ENA_PIN               43  // Pullup!
-  #define SPINDLE_DIR_PIN                     42
+    #define SPINDLE_LASER_PWM_PIN               44  // Hardware PWM
+    #define SPINDLE_LASER_ENA_PIN               43  // Pullup!
+    #define SPINDLE_DIR_PIN                     42
 #elif EXTRUDERS <= 2
-  // Hijack the last extruder so that we can get the PWM signal off the Y breakout
-  // Move Y to the E2 plug. This makes dual Y steppers harder
-  #undef Y_ENABLE_PIN                             //  4
-  #undef Y_STEP_PIN                               //  5
-  #undef Y_DIR_PIN                                // 17
-  #undef E2_ENABLE_PIN                            // 23
-  #undef E2_STEP_PIN                              // 22
-  #undef E2_DIR_PIN                               // 60
-  #define Y_ENABLE_PIN                        23
-  #define Y_STEP_PIN                          22
-  #define Y_DIR_PIN                           60
-  #define SPINDLE_LASER_PWM_PIN                4  // Hardware PWM
-  #define SPINDLE_LASER_ENA_PIN               17  // Pullup!
-  #define SPINDLE_DIR_PIN                      5
+    // Hijack the last extruder so that we can get the PWM signal off the Y breakout
+    // Move Y to the E2 plug. This makes dual Y steppers harder
+    #undef Y_ENABLE_PIN                             //  4
+    #undef Y_STEP_PIN                               //  5
+    #undef Y_DIR_PIN                                // 17
+    #undef E2_ENABLE_PIN                            // 23
+    #undef E2_STEP_PIN                              // 22
+    #undef E2_DIR_PIN                               // 60
+    #define Y_ENABLE_PIN                        23
+    #define Y_STEP_PIN                          22
+    #define Y_DIR_PIN                           60
+    #define SPINDLE_LASER_PWM_PIN                4  // Hardware PWM
+    #define SPINDLE_LASER_ENA_PIN               17  // Pullup!
+    #define SPINDLE_DIR_PIN                      5
 #endif

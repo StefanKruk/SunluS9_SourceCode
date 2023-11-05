@@ -25,7 +25,7 @@
 #pragma once
 
 #ifndef _usb_h_
-  #error "Never include max3421e.h directly; include Usb.h instead"
+    #error "Never include max3421e.h directly; include Usb.h instead"
 #endif
 
 /* MAX3421E register/bit names and bitmasks */

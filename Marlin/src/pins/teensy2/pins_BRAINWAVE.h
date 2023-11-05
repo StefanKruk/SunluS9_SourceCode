@@ -69,7 +69,7 @@
  */
 
 #if NOT_TARGET(__AVR_AT90USB646__)
-  #error "Oops! Select 'Brainwave' in 'Tools > Board.'"
+    #error "Oops! Select 'Brainwave' in 'Tools > Board.'"
 #endif
 
 #define BOARD_INFO_NAME "Brainwave"
@@ -117,7 +117,7 @@
 #define HEATER_BED_PIN                        18  // E6 Bed
 
 #ifndef FAN_PIN
-  #define FAN_PIN                             31  // A3 Fan
+    #define FAN_PIN                             31  // A3 Fan
 #endif
 
 //

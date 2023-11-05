@@ -23,39 +23,39 @@
 #include "screens.h"
 
 #ifdef FTDI_CASE_LIGHT_SCREEN
-
-using namespace FTDI;
-using namespace ExtUI;
-using namespace Theme;
-
-void CaseLightScreen::onRedraw(draw_mode_t what) {
-  widgets_t w(what);
-  w.heading(   GET_TEXT_F(MSG_CASE_LIGHT));
-  w.toggle( 2, GET_TEXT_F(MSG_LEDS), getCaseLightState());
-  #if DISABLED(CASE_LIGHT_NO_BRIGHTNESS)
-  w.precision(0).units(GET_TEXT_F(MSG_UNITS_PERCENT))
-                .adjuster(10, GET_TEXT_F(MSG_CASE_LIGHT_BRIGHTNESS), getCaseLightBrightness_percent());
-  w.precision(0).increments();
-  #endif
-}
-
-bool CaseLightScreen::onTouchHeld(uint8_t tag) {
+  
+  using namespace FTDI;
   using namespace ExtUI;
-  #if DISABLED(CASE_LIGHT_NO_BRIGHTNESS)
-    const float increment = getIncrement();
-  #endif
-  switch (tag) {
-    case 2: setCaseLightState(!getCaseLightState()); break;
+  using namespace Theme;
+  
+  void CaseLightScreen::onRedraw(draw_mode_t what) {
+    widgets_t w(what);
+    w.heading(   GET_TEXT_F(MSG_CASE_LIGHT));
+    w.toggle( 2, GET_TEXT_F(MSG_LEDS), getCaseLightState());
     #if DISABLED(CASE_LIGHT_NO_BRIGHTNESS)
-      case  10: UI_DECREMENT(CaseLightBrightness_percent); break;
-      case  11: UI_INCREMENT(CaseLightBrightness_percent); break;
+      w.precision(0).units(GET_TEXT_F(MSG_UNITS_PERCENT))
+                    .adjuster(10, GET_TEXT_F(MSG_CASE_LIGHT_BRIGHTNESS), getCaseLightBrightness_percent());
+      w.precision(0).increments();
     #endif
-    default:
-      return false;
   }
-
-  SaveSettingsDialogBox::settingsChanged();
-  return true;
-}
-
+  
+  bool CaseLightScreen::onTouchHeld(uint8_t tag) {
+    using namespace ExtUI;
+    #if DISABLED(CASE_LIGHT_NO_BRIGHTNESS)
+        const float increment = getIncrement();
+    #endif
+    switch (tag) {
+      case 2: setCaseLightState(!getCaseLightState()); break;
+      #if DISABLED(CASE_LIGHT_NO_BRIGHTNESS)
+          case  10: UI_DECREMENT(CaseLightBrightness_percent); break;
+          case  11: UI_INCREMENT(CaseLightBrightness_percent); break;
+      #endif
+      default:
+        return false;
+    }
+  
+    SaveSettingsDialogBox::settingsChanged();
+    return true;
+  }
+  
 #endif // FTDI_CASE_LIGHT_SCREEN

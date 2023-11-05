@@ -25,16 +25,16 @@
 #include "../../../../inc/MarlinConfigPre.h"
 
 #if ENABLED(SDSUPPORT)
-  #include "../../../../sd/SdFile.h"
-  #include "../../../../sd/cardreader.h"
+    #include "../../../../sd/SdFile.h"
+    #include "../../../../sd/cardreader.h"
 #endif
 
 class MediaFileReader {
   private:
     #if ENABLED(SDSUPPORT)
-      DiskIODriver_SPI_SD card;
-      SdVolume volume;
-      SdFile   root, file;
+        DiskIODriver_SPI_SD card;
+        SdVolume volume;
+        SdFile   root, file;
     #endif
 
   public:

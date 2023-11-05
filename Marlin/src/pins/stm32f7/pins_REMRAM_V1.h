@@ -22,42 +22,42 @@
 #pragma once
 
 #if NOT_TARGET(STM32F7xx)
-  #error "Oops! Select an STM32F7 board in 'Tools > Board.'"
+    #error "Oops! Select an STM32F7 board in 'Tools > Board.'"
 #endif
 
 #define BOARD_INFO_NAME      "RemRam v1"
 #define DEFAULT_MACHINE_NAME "RemRam"
 
 #if NO_EEPROM_SELECTED
-  #define SRAM_EEPROM_EMULATION                   // Emulate the EEPROM using Backup SRAM
+    #define SRAM_EEPROM_EMULATION                   // Emulate the EEPROM using Backup SRAM
 #endif
 
 #if HOTENDS > 1 || E_STEPPERS > 1
-  #error "RemRam only supports one hotend / E-stepper. Comment out this line to continue."
+    #error "RemRam only supports one hotend / E-stepper. Comment out this line to continue."
 #endif
 
 //
 // Limit Switches
 //
 #if DISABLED(SENSORLESS_HOMING)
-  #define X_MIN_PIN                           58
-  #define X_MAX_PIN                           59
-  #define Y_MIN_PIN                           60
-  #define Y_MAX_PIN                           61
-  #define Z_MIN_PIN                           62
-  #define Z_MAX_PIN                           63
+    #define X_MIN_PIN                           58
+    #define X_MAX_PIN                           59
+    #define Y_MIN_PIN                           60
+    #define Y_MAX_PIN                           61
+    #define Z_MIN_PIN                           62
+    #define Z_MAX_PIN                           63
 #else
-  #define X_STOP_PIN                          36
-  #define Y_STOP_PIN                          39
-  #define Z_MIN_PIN                           62
-  #define Z_MAX_PIN                           42
+    #define X_STOP_PIN                          36
+    #define Y_STOP_PIN                          39
+    #define Z_MIN_PIN                           62
+    #define Z_MAX_PIN                           42
 #endif
 
 //
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     26  // EXT_D1
+    #define Z_MIN_PROBE_PIN                     26  // EXT_D1
 #endif
 
 //
@@ -97,12 +97,12 @@
 #define HEATER_BED_PIN                        31
 
 #ifndef FAN_PIN
-  #define FAN_PIN                             30  // "FAN1"
+    #define FAN_PIN                             30  // "FAN1"
 #endif
 #define FAN1_PIN                              32  // "FAN2"
 
 #ifndef E0_AUTO_FAN_PIN
-  #define E0_AUTO_FAN_PIN                     32
+    #define E0_AUTO_FAN_PIN                     32
 #endif
 
 //

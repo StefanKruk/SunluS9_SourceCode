@@ -24,27 +24,27 @@
 #include "screens.h"
 
 #ifdef FTDI_RESTORE_FAILSAFE_DIALOG_BOX
-
-using namespace ExtUI;
-
-void RestoreFailsafeDialogBox::onRedraw(draw_mode_t) {
-  drawMessage(GET_TEXT_F(MSG_EEPROM_RESET_WARNING));
-  drawYesNoButtons();
-}
-
-bool RestoreFailsafeDialogBox::onTouchEnd(uint8_t tag) {
-  switch (tag) {
-    case 1:
-      ExtUI::injectCommands_P(PSTR("M502"));
-      AlertDialogBox::show(GET_TEXT_F(MSG_EEPROM_RESET));
-      // Remove RestoreFailsafeDialogBox from the stack
-      // so the alert box doesn't return to it.
-      current_screen.forget();
-      SaveSettingsDialogBox::settingsChanged();
-      return true;
-    default:
-      return DialogBoxBaseClass::onTouchEnd(tag);
+  
+  using namespace ExtUI;
+  
+  void RestoreFailsafeDialogBox::onRedraw(draw_mode_t) {
+    drawMessage(GET_TEXT_F(MSG_EEPROM_RESET_WARNING));
+    drawYesNoButtons();
   }
-}
-
+  
+  bool RestoreFailsafeDialogBox::onTouchEnd(uint8_t tag) {
+    switch (tag) {
+      case 1:
+        ExtUI::injectCommands_P(PSTR("M502"));
+        AlertDialogBox::show(GET_TEXT_F(MSG_EEPROM_RESET));
+        // Remove RestoreFailsafeDialogBox from the stack
+        // so the alert box doesn't return to it.
+        current_screen.forget();
+        SaveSettingsDialogBox::settingsChanged();
+        return true;
+      default:
+        return DialogBoxBaseClass::onTouchEnd(tag);
+    }
+  }
+  
 #endif // FTDI_RESTORE_FAILSAFE_DIALOG_BOX

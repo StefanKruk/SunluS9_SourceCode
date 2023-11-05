@@ -54,60 +54,60 @@
  */
 
 #ifdef ARDUINO_ARCH_SAM
-
-#include "../../../inc/MarlinConfigPre.h"
-
-#if HAS_MARLINUI_U8GLIB
-
-#include "../../../inc/MarlinConfig.h"
-#include "../../shared/Delay.h"
-
-#include <U8glib.h>
-
-#include "u8g_com_HAL_DUE_sw_spi_shared.h"
-
-void u8g_SetPIOutput_DUE(u8g_t *u8g, uint8_t pin_index) {
-  PIO_Configure(g_APinDescription[u8g->pin_list[pin_index]].pPort, PIO_OUTPUT_1,
-    g_APinDescription[u8g->pin_list[pin_index]].ulPin, g_APinDescription[u8g->pin_list[pin_index]].ulPinConfiguration);  // OUTPUT
-}
-
-void u8g_SetPILevel_DUE(u8g_t *u8g, uint8_t pin_index, uint8_t level) {
-  volatile Pio* port = g_APinDescription[u8g->pin_list[pin_index]].pPort;
-  uint32_t mask = g_APinDescription[u8g->pin_list[pin_index]].ulPin;
-  if (level) port->PIO_SODR = mask; else port->PIO_CODR = mask;
-}
-
-Pio *SCK_pPio, *MOSI_pPio;
-uint32_t SCK_dwMask, MOSI_dwMask;
-
-void u8g_spiSend_sw_DUE_mode_0(uint8_t val) { // 3MHz
-  LOOP_L_N(i, 8) {
-    if (val & 0x80)
-      MOSI_pPio->PIO_SODR = MOSI_dwMask;
-    else
-      MOSI_pPio->PIO_CODR = MOSI_dwMask;
-    DELAY_NS(48);
-    SCK_pPio->PIO_SODR = SCK_dwMask;
-    DELAY_NS(905);
-    val <<= 1;
-    SCK_pPio->PIO_CODR = SCK_dwMask;
-  }
-}
-
-void u8g_spiSend_sw_DUE_mode_3(uint8_t val) { // 3.5MHz
-  LOOP_L_N(i, 8) {
-    SCK_pPio->PIO_CODR = SCK_dwMask;
-    DELAY_NS(50);
-    if (val & 0x80)
-      MOSI_pPio->PIO_SODR = MOSI_dwMask;
-    else
-      MOSI_pPio->PIO_CODR = MOSI_dwMask;
-    val <<= 1;
-    DELAY_NS(10);
-    SCK_pPio->PIO_SODR = SCK_dwMask;
-    DELAY_NS(70);
-  }
-}
-
-#endif // HAS_MARLINUI_U8GLIB
+  
+  #include "../../../inc/MarlinConfigPre.h"
+  
+  #if HAS_MARLINUI_U8GLIB
+    
+    #include "../../../inc/MarlinConfig.h"
+    #include "../../shared/Delay.h"
+    
+    #include <U8glib.h>
+    
+    #include "u8g_com_HAL_DUE_sw_spi_shared.h"
+    
+    void u8g_SetPIOutput_DUE(u8g_t *u8g, uint8_t pin_index) {
+      PIO_Configure(g_APinDescription[u8g->pin_list[pin_index]].pPort, PIO_OUTPUT_1,
+        g_APinDescription[u8g->pin_list[pin_index]].ulPin, g_APinDescription[u8g->pin_list[pin_index]].ulPinConfiguration);  // OUTPUT
+    }
+    
+    void u8g_SetPILevel_DUE(u8g_t *u8g, uint8_t pin_index, uint8_t level) {
+      volatile Pio* port = g_APinDescription[u8g->pin_list[pin_index]].pPort;
+      uint32_t mask = g_APinDescription[u8g->pin_list[pin_index]].ulPin;
+      if (level) port->PIO_SODR = mask; else port->PIO_CODR = mask;
+    }
+    
+    Pio *SCK_pPio, *MOSI_pPio;
+    uint32_t SCK_dwMask, MOSI_dwMask;
+    
+    void u8g_spiSend_sw_DUE_mode_0(uint8_t val) { // 3MHz
+      LOOP_L_N(i, 8) {
+        if (val & 0x80)
+          MOSI_pPio->PIO_SODR = MOSI_dwMask;
+        else
+          MOSI_pPio->PIO_CODR = MOSI_dwMask;
+        DELAY_NS(48);
+        SCK_pPio->PIO_SODR = SCK_dwMask;
+        DELAY_NS(905);
+        val <<= 1;
+        SCK_pPio->PIO_CODR = SCK_dwMask;
+      }
+    }
+    
+    void u8g_spiSend_sw_DUE_mode_3(uint8_t val) { // 3.5MHz
+      LOOP_L_N(i, 8) {
+        SCK_pPio->PIO_CODR = SCK_dwMask;
+        DELAY_NS(50);
+        if (val & 0x80)
+          MOSI_pPio->PIO_SODR = MOSI_dwMask;
+        else
+          MOSI_pPio->PIO_CODR = MOSI_dwMask;
+        val <<= 1;
+        DELAY_NS(10);
+        SCK_pPio->PIO_SODR = SCK_dwMask;
+        DELAY_NS(70);
+      }
+    }
+    
+  #endif // HAS_MARLINUI_U8GLIB
 #endif // ARDUINO_ARCH_SAM

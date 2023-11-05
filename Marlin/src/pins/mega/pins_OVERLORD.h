@@ -26,7 +26,7 @@
  */
 
 #if HOTENDS > 2 || E_STEPPERS > 2
-  #error "Overlord Controller supports up to 2 hotends / E-steppers. Comment out this line to continue."
+    #error "Overlord Controller supports up to 2 hotends / E-steppers. Comment out this line to continue."
 #endif
 
 #include "env_validate.h"
@@ -46,11 +46,11 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     46  // JP4, Tfeed1
+    #define Z_MIN_PROBE_PIN                     46  // JP4, Tfeed1
 #endif
 
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
-  #define FIL_RUNOUT_PIN                      44  // JP3, Tfeed2
+    #define FIL_RUNOUT_PIN                      44  // JP3, Tfeed2
 #endif
 
 //
@@ -108,34 +108,34 @@
 #define POWER_LOSS_PIN                        34  // Power check - whether hotends/steppers/fans have power
 
 #if ENABLED(BATTERY_STATUS_AVAILABLE)
-  #undef BATTERY_STATUS_PIN
-  #define BATTERY_STATUS_PIN                  26  // Status of power loss battery, whether it is charged (low) or charging (high)
+    #undef BATTERY_STATUS_PIN
+    #define BATTERY_STATUS_PIN                  26  // Status of power loss battery, whether it is charged (low) or charging (high)
 #endif
 #if ENABLED(INPUT_VOLTAGE_AVAILABLE)
-  #undef VOLTAGE_DETECTION_PIN
-  #define VOLTAGE_DETECTION_PIN               11  // Analog Input - ADC Voltage level of main input
+    #undef VOLTAGE_DETECTION_PIN
+    #define VOLTAGE_DETECTION_PIN               11  // Analog Input - ADC Voltage level of main input
 #endif
 
 //
 // LCD / Controller
 //
 #if HAS_MARLINUI_U8GLIB
-  // OVERLORD OLED pins
-  #define LCD_PINS_RS                         20
-  #define LCD_PINS_D5                         21
-  #define LCD_PINS_ENABLE                     15
-  #define LCD_PINS_D4                         14
-  #define LCD_PINS_D6                          5
-  #define LCD_PINS_D7                          6
-  #ifndef LCD_RESET_PIN
-    #define LCD_RESET_PIN                      5  // LCD_PINS_D6
-  #endif
+    // OVERLORD OLED pins
+    #define LCD_PINS_RS                         20
+    #define LCD_PINS_D5                         21
+    #define LCD_PINS_ENABLE                     15
+    #define LCD_PINS_D4                         14
+    #define LCD_PINS_D6                          5
+    #define LCD_PINS_D7                          6
+    #ifndef LCD_RESET_PIN
+        #define LCD_RESET_PIN                      5  // LCD_PINS_D6
+    #endif
 #endif
 
 #if IS_NEWPANEL
-  #define BTN_ENC                             16  // Enter Pin
-  #define BTN_UP                              19  // Button UP Pin
-  #define BTN_DWN                             17  // Button DOWN Pin
+    #define BTN_ENC                             16  // Enter Pin
+    #define BTN_UP                              19  // Button UP Pin
+    #define BTN_DWN                             17  // Button DOWN Pin
 #endif
 
 // Additional connectors/pins on the Overlord V1.X board

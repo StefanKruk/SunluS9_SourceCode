@@ -23,9 +23,9 @@
  */
 
 #if NOT_TARGET(__STM32F1__, STM32F1xx)
-  #error "Oops! Select a STM32F1 board in 'Tools > Board.'"
+    #error "Oops! Select a STM32F1 board in 'Tools > Board.'"
 #elif HOTENDS > 1 || E_STEPPERS > 1
-  #error "Longer3D only supports one hotend / E-stepper. Comment out this line to continue."
+    #error "Longer3D only supports one hotend / E-stepper. Comment out this line to continue."
 #endif
 
 #define BOARD_INFO_NAME "Longer3D"
@@ -51,7 +51,7 @@
 // Filament Sensor
 //
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN                    PC0   // XMAX plug on PCB used as filament runout sensor on Alfawise boards (inverting true)
+    #define FIL_RUNOUT_PIN                    PC0   // XMAX plug on PCB used as filament runout sensor on Alfawise boards (inverting true)
 #endif
 
 //
@@ -110,11 +110,11 @@
 // Other servo devices are not supported on this board!
 //
 #if HAS_Z_SERVO_PROBE
-  #define SERVO0_PIN                        PD13  // Open drain PWM pin on the V0G (GND or floating 5V)
-  #define SERVO0_PWM_OD                           // Comment this if using PE5
-
-  //#define SERVO0_PIN                      PE5   // Pulled up PWM pin on the V08 (3.3V or 0)
-  //#undef Z_MAX_PIN                              // Uncomment if using ZMAX connector (PE5)
+    #define SERVO0_PIN                        PD13  // Open drain PWM pin on the V0G (GND or floating 5V)
+    #define SERVO0_PWM_OD                           // Comment this if using PE5
+  
+    //#define SERVO0_PIN                      PE5   // Pulled up PWM pin on the V08 (3.3V or 0)
+    //#undef Z_MAX_PIN                              // Uncomment if using ZMAX connector (PE5)
 #endif
 
 #define TFT_RESET_PIN                       PC4   // pin 33
@@ -138,11 +138,11 @@
  * declared below.
  */
 #if NEED_TOUCH_PINS
-  #define TOUCH_CS_PIN                      PB12  // pin 51 SPI2_NSS
-  #define TOUCH_SCK_PIN                     PB13  // pin 52
-  #define TOUCH_MOSI_PIN                    PB14  // pin 53
-  #define TOUCH_MISO_PIN                    PB15  // pin 54
-  #define TOUCH_INT_PIN                     PC6   // pin 63 (PenIRQ coming from ADS7843)
+    #define TOUCH_CS_PIN                      PB12  // pin 51 SPI2_NSS
+    #define TOUCH_SCK_PIN                     PB13  // pin 52
+    #define TOUCH_MOSI_PIN                    PB14  // pin 53
+    #define TOUCH_MISO_PIN                    PB15  // pin 54
+    #define TOUCH_INT_PIN                     PC6   // pin 63 (PenIRQ coming from ADS7843)
 #endif
 
 //
@@ -150,24 +150,24 @@
 // If no option is selected below the SD Card will be used
 //
 #if NO_EEPROM_SELECTED
-  //#define SPI_EEPROM
-  #define FLASH_EEPROM_EMULATION
+    //#define SPI_EEPROM
+    #define FLASH_EEPROM_EMULATION
 #endif
 
 #if ENABLED(SPI_EEPROM)
-  // SPI1 EEPROM Winbond W25Q64 (8MB/64Mbits)
-  #define SPI_CHAN_EEPROM1                     1
-  #define SPI_EEPROM1_CS                    PC5   // pin 34
-  #define EEPROM_SCK          BOARD_SPI1_SCK_PIN  // PA5 pin 30
-  #define EEPROM_MISO        BOARD_SPI1_MISO_PIN  // PA6 pin 31
-  #define EEPROM_MOSI        BOARD_SPI1_MOSI_PIN  // PA7 pin 32
-  #define EEPROM_PAGE_SIZE               0x1000U  // 4KB (from datasheet)
-  #define MARLIN_EEPROM_SIZE 16UL * (EEPROM_PAGE_SIZE)   // Limit to 64KB for now...
+    // SPI1 EEPROM Winbond W25Q64 (8MB/64Mbits)
+    #define SPI_CHAN_EEPROM1                     1
+    #define SPI_EEPROM1_CS                    PC5   // pin 34
+    #define EEPROM_SCK          BOARD_SPI1_SCK_PIN  // PA5 pin 30
+    #define EEPROM_MISO        BOARD_SPI1_MISO_PIN  // PA6 pin 31
+    #define EEPROM_MOSI        BOARD_SPI1_MOSI_PIN  // PA7 pin 32
+    #define EEPROM_PAGE_SIZE               0x1000U  // 4KB (from datasheet)
+    #define MARLIN_EEPROM_SIZE 16UL * (EEPROM_PAGE_SIZE)   // Limit to 64KB for now...
 #elif ENABLED(FLASH_EEPROM_EMULATION)
-  // SoC Flash (framework-arduinoststm32-maple/STM32F1/libraries/EEPROM/EEPROM.h)
-  #define EEPROM_PAGE_SIZE     (0x800U)           // 2KB
-  #define EEPROM_START_ADDRESS (0x8000000UL + (STM32_FLASH_SIZE) * 1024UL - (EEPROM_PAGE_SIZE) * 2UL)
-  #define MARLIN_EEPROM_SIZE (EEPROM_PAGE_SIZE)
+    // SoC Flash (framework-arduinoststm32-maple/STM32F1/libraries/EEPROM/EEPROM.h)
+    #define EEPROM_PAGE_SIZE     (0x800U)           // 2KB
+    #define EEPROM_START_ADDRESS (0x8000000UL + (STM32_FLASH_SIZE) * 1024UL - (EEPROM_PAGE_SIZE) * 2UL)
+    #define MARLIN_EEPROM_SIZE (EEPROM_PAGE_SIZE)
 #else
-  #define MARLIN_EEPROM_SIZE              0x800U  // On SD, Limit to 2KB, require this amount of RAM
+    #define MARLIN_EEPROM_SIZE              0x800U  // On SD, Limit to 2KB, require this amount of RAM
 #endif

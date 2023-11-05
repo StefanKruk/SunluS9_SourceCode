@@ -46,10 +46,10 @@ namespace FTDI {
   inline uint32_t BITMAP_SIZE(uint8_t filter, uint8_t wrapx, uint8_t wrapy, uint16_t width, uint16_t height)
                                                                {return DL::BITMAP_SIZE|((filter&1UL)<<20)|((wrapx&1UL)<<19)|((wrapy&1UL)<<18)|((width&511UL)<<9)|(height&511UL);}
   #if FTDI_API_LEVEL >= 810
-  inline uint32_t BITMAP_LAYOUT_H(uint8_t linestride, uint8_t height)
-                                                               {return DL::BITMAP_LAYOUT_H|((linestride&3UL)<<2)|(height&3UL);}
-  inline uint32_t BITMAP_SIZE_H(uint8_t width, uint8_t height)
-                                                               {return DL::BITMAP_SIZE_H|((width&3UL)<<2)|(height&3UL);}
+    inline uint32_t BITMAP_LAYOUT_H(uint8_t linestride, uint8_t height)
+                                                                 {return DL::BITMAP_LAYOUT_H|((linestride&3UL)<<2)|(height&3UL);}
+    inline uint32_t BITMAP_SIZE_H(uint8_t width, uint8_t height)
+                                                                 {return DL::BITMAP_SIZE_H|((width&3UL)<<2)|(height&3UL);}
   #endif
   inline uint32_t BITMAP_TRANSFORM_A(uint16_t a)               {return DL::BITMAP_TRANSFORM_A|(a&131071UL);}
   inline uint32_t BITMAP_TRANSFORM_B(uint16_t b)               {return DL::BITMAP_TRANSFORM_B|(b&131071UL);}
@@ -111,8 +111,8 @@ namespace FTDI {
                                                                {return DL::VERTEX2II|((x&511UL)<<21)|((y&511UL)<<12)|((handle&31UL)<<7)|(cell&127UL);}
 
   #if FTDI_API_LEVEL >= 810
-  inline uint32_t VERTEX_FORMAT(uint8_t frac)                  {return DL::VERTEX_FORMAT|(frac&7UL);}
-  inline uint32_t VERTEX_TRANSLATE_X(int32_t x)                {return DL::VERTEX_TRANSLATE_X|(x&131071UL);}
-  inline uint32_t VERTEX_TRANSLATE_Y(int32_t y)                {return DL::VERTEX_TRANSLATE_Y|(y&131071UL);}
+    inline uint32_t VERTEX_FORMAT(uint8_t frac)                  {return DL::VERTEX_FORMAT|(frac&7UL);}
+    inline uint32_t VERTEX_TRANSLATE_X(int32_t x)                {return DL::VERTEX_TRANSLATE_X|(x&131071UL);}
+    inline uint32_t VERTEX_TRANSLATE_Y(int32_t y)                {return DL::VERTEX_TRANSLATE_Y|(y&131071UL);}
   #endif
 }

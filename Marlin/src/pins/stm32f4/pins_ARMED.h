@@ -27,11 +27,11 @@
 #include "env_validate.h"
 
 #if HOTENDS > 2 || E_STEPPERS > 2
-  #error "Arm'ed supports up to 2 hotends / E-steppers."
+    #error "Arm'ed supports up to 2 hotends / E-steppers."
 #endif
 
 #ifndef ARMED_V1_0
-  #define ARMED_V1_1
+    #define ARMED_V1_1
 #endif
 
 #undef BOARD_INFO_NAME                            // Defined on the command line by Arduino Core STM32
@@ -59,7 +59,7 @@
 // Filament Runout Sensor
 //
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN                    PA3
+    #define FIL_RUNOUT_PIN                    PA3
 #endif
 
 //
@@ -67,15 +67,15 @@
 //
 
 #ifdef ARMED_SWAP_X_E1
-  #define X_STEP_PIN                        PE4
-  #define X_DIR_PIN                         PE2
-  #define X_ENABLE_PIN                      PE3
-  #define X_CS_PIN                          PE5
+    #define X_STEP_PIN                        PE4
+    #define X_DIR_PIN                         PE2
+    #define X_ENABLE_PIN                      PE3
+    #define X_CS_PIN                          PE5
 #else
-  #define X_STEP_PIN                        PD3
-  #define X_DIR_PIN                         PD2
-  #define X_ENABLE_PIN                      PD0
-  #define X_CS_PIN                          PD1
+    #define X_STEP_PIN                        PD3
+    #define X_DIR_PIN                         PD2
+    #define X_ENABLE_PIN                      PD0
+    #define X_CS_PIN                          PD1
 #endif
 
 #define Y_STEP_PIN                          PE11
@@ -91,22 +91,22 @@
 #define E0_STEP_PIN                         PB5
 #define E0_DIR_PIN                          PB6
 #ifdef ARMED_V1_1
-  #define E0_ENABLE_PIN                     PC12
+    #define E0_ENABLE_PIN                     PC12
 #else
-  #define E0_ENABLE_PIN                     PB3
+    #define E0_ENABLE_PIN                     PB3
 #endif
 #define E0_CS_PIN                           PB4
 
 #ifdef ARMED_SWAP_X_E1
-  #define E1_STEP_PIN                       PD3
-  #define E1_DIR_PIN                        PD2
-  #define E1_ENABLE_PIN                     PD0
-  #define E1_CS_PIN                         PD1
+    #define E1_STEP_PIN                       PD3
+    #define E1_DIR_PIN                        PD2
+    #define E1_ENABLE_PIN                     PD0
+    #define E1_CS_PIN                         PD1
 #else
-  #define E1_STEP_PIN                       PE4
-  #define E1_DIR_PIN                        PE2
-  #define E1_ENABLE_PIN                     PE3
-  #define E1_CS_PIN                         PE5
+    #define E1_STEP_PIN                       PE4
+    #define E1_DIR_PIN                        PE2
+    #define E1_ENABLE_PIN                     PE3
+    #define E1_CS_PIN                         PE5
 #endif
 
 //
@@ -117,7 +117,7 @@
 #define TEMP_BED_PIN                        PC2   // Analog Input
 
 #if HOTENDS == 1 && TEMP_SENSOR_PROBE
-  #define TEMP_PROBE_PIN                    PC1
+    #define TEMP_PROBE_PIN                    PC1
 #endif
 
 //
@@ -147,41 +147,41 @@
 #define BEEPER_PIN                          PC9
 
 #if ENABLED(FYSETC_MINI_12864)
-  //
-  // See https://wiki.fysetc.com/Mini12864_Panel/?fbclid=IwAR1FyjuNdVOOy9_xzky3qqo_WeM5h-4gpRnnWhQr_O1Ef3h0AFnFXmCehK8
-  //
-  #define DOGLCD_A0                         PE9
-  #define DOGLCD_CS                         PE8
-
-  #define LCD_BACKLIGHT_PIN                 -1
-
-  #define LCD_RESET_PIN                     PB12  // Must be high or open for LCD to operate normally.
-
-  #if EITHER(FYSETC_MINI_12864_1_2, FYSETC_MINI_12864_2_0)
-    #ifndef RGB_LED_R_PIN
-      #define RGB_LED_R_PIN                 PB13
+    //
+    // See https://wiki.fysetc.com/Mini12864_Panel/?fbclid=IwAR1FyjuNdVOOy9_xzky3qqo_WeM5h-4gpRnnWhQr_O1Ef3h0AFnFXmCehK8
+    //
+    #define DOGLCD_A0                         PE9
+    #define DOGLCD_CS                         PE8
+  
+    #define LCD_BACKLIGHT_PIN                 -1
+  
+    #define LCD_RESET_PIN                     PB12  // Must be high or open for LCD to operate normally.
+  
+    #if EITHER(FYSETC_MINI_12864_1_2, FYSETC_MINI_12864_2_0)
+        #ifndef RGB_LED_R_PIN
+            #define RGB_LED_R_PIN                 PB13
+        #endif
+        #ifndef RGB_LED_G_PIN
+            #define RGB_LED_G_PIN                 PB14
+        #endif
+        #ifndef RGB_LED_B_PIN
+            #define RGB_LED_B_PIN                 PB15
+        #endif
+    #elif ENABLED(FYSETC_MINI_12864_2_1)
+        #define NEOPIXEL_PIN                    PB13
     #endif
-    #ifndef RGB_LED_G_PIN
-      #define RGB_LED_G_PIN                 PB14
-    #endif
-    #ifndef RGB_LED_B_PIN
-      #define RGB_LED_B_PIN                 PB15
-    #endif
-  #elif ENABLED(FYSETC_MINI_12864_2_1)
-    #define NEOPIXEL_PIN                    PB13
-  #endif
 #else
-  #define LCD_PINS_RS                       PE9
-  #define LCD_PINS_ENABLE                   PE8
-  #define LCD_PINS_D4                       PB12
-  #define LCD_PINS_D5                       PB13
-  #define LCD_PINS_D6                       PB14
-  #define LCD_PINS_D7                       PB15
-
-  #if ENABLED(MKS_MINI_12864)
-    #define DOGLCD_CS                       PB13
-    #define DOGLCD_A0                       PB14
-  #endif
+    #define LCD_PINS_RS                       PE9
+    #define LCD_PINS_ENABLE                   PE8
+    #define LCD_PINS_D4                       PB12
+    #define LCD_PINS_D5                       PB13
+    #define LCD_PINS_D6                       PB14
+    #define LCD_PINS_D7                       PB15
+  
+    #if ENABLED(MKS_MINI_12864)
+        #define DOGLCD_CS                       PB13
+        #define DOGLCD_A0                       PB14
+    #endif
 #endif
 
 #define BTN_EN1                             PC4
@@ -203,27 +203,27 @@
 #define EXT9_PIN                            PB11
 
 #if HAS_TMC_UART
-  // TMC2208/TMC2209 stepper drivers
-  //
-  // Software serial
-  //
-  #define X_SERIAL_TX_PIN               EXT0_PIN
-  #define X_SERIAL_RX_PIN               EXT0_PIN
-
-  #define Y_SERIAL_TX_PIN               EXT1_PIN
-  #define Y_SERIAL_RX_PIN               EXT1_PIN
-
-  #define Z_SERIAL_TX_PIN               EXT2_PIN
-  #define Z_SERIAL_RX_PIN               EXT2_PIN
-
-  #define E0_SERIAL_TX_PIN              EXT3_PIN
-  #define E0_SERIAL_RX_PIN              EXT3_PIN
-
-  #define E1_SERIAL_RX_PIN              EXT4_PIN
-  #define E1_SERIAL_TX_PIN              EXT4_PIN
-
-  #define Z2_SERIAL_RX_PIN              EXT4_PIN
-  #define Z2_SERIAL_TX_PIN              EXT4_PIN
-
-  #define TMC_BAUD_RATE                    19200
+    // TMC2208/TMC2209 stepper drivers
+    //
+    // Software serial
+    //
+    #define X_SERIAL_TX_PIN               EXT0_PIN
+    #define X_SERIAL_RX_PIN               EXT0_PIN
+  
+    #define Y_SERIAL_TX_PIN               EXT1_PIN
+    #define Y_SERIAL_RX_PIN               EXT1_PIN
+  
+    #define Z_SERIAL_TX_PIN               EXT2_PIN
+    #define Z_SERIAL_RX_PIN               EXT2_PIN
+  
+    #define E0_SERIAL_TX_PIN              EXT3_PIN
+    #define E0_SERIAL_RX_PIN              EXT3_PIN
+  
+    #define E1_SERIAL_RX_PIN              EXT4_PIN
+    #define E1_SERIAL_TX_PIN              EXT4_PIN
+  
+    #define Z2_SERIAL_RX_PIN              EXT4_PIN
+    #define Z2_SERIAL_TX_PIN              EXT4_PIN
+  
+    #define TMC_BAUD_RATE                    19200
 #endif

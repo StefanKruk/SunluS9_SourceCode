@@ -41,7 +41,7 @@
 #define Z_STOP_PIN                            62
 
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     49
+    #define Z_MIN_PROBE_PIN                     49
 #endif
 
 //
@@ -76,7 +76,7 @@
 #define TEMP_BED_PIN                           4
 
 #ifndef TEMP_CHAMBER_PIN
-  #define TEMP_CHAMBER_PIN                     5
+    #define TEMP_CHAMBER_PIN                     5
 #endif
 
 //
@@ -97,19 +97,19 @@
 //
 #define AUTO_FAN_PIN                          30
 #ifndef E0_AUTO_FAN_PIN
-  #define E0_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E0_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 #ifndef E1_AUTO_FAN_PIN
-  #define E1_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E1_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 #ifndef E2_AUTO_FAN_PIN
-  #define E2_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E2_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 #ifndef E3_AUTO_FAN_PIN
-  #define E3_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E3_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 #ifndef CHAMBER_AUTO_FAN_PIN
-  #define CHAMBER_AUTO_FAN_PIN                10
+    #define CHAMBER_AUTO_FAN_PIN                10
 #endif
 
 //
@@ -132,5 +132,5 @@
 
 // G425 CALIBRATION_GCODE default pin
 #ifndef CALIBRATION_PIN
-  #define CALIBRATION_PIN                     66
+    #define CALIBRATION_PIN                     66
 #endif

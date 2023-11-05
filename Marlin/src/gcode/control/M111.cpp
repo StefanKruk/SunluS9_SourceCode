@@ -35,7 +35,7 @@ void GcodeSuite::M111() {
   static PGMSTR(str_debug_8, STR_DEBUG_DRYRUN);
   static PGMSTR(str_debug_16, STR_DEBUG_COMMUNICATION);
   #if ENABLED(DEBUG_LEVELING_FEATURE)
-    static PGMSTR(str_debug_lvl, STR_DEBUG_LEVELING);
+      static PGMSTR(str_debug_lvl, STR_DEBUG_LEVELING);
   #endif
 
   static PGM_P const debug_strings[] PROGMEM = {
@@ -59,21 +59,21 @@ void GcodeSuite::M111() {
   else {
     SERIAL_ECHOPGM(STR_DEBUG_OFF);
     #if !defined(__AVR__) || !defined(USBCON)
-      #if ENABLED(SERIAL_STATS_RX_BUFFER_OVERRUNS)
-        SERIAL_ECHOPAIR("\nBuffer Overruns: ", MYSERIAL1.buffer_overruns());
-      #endif
-
-      #if ENABLED(SERIAL_STATS_RX_FRAMING_ERRORS)
-        SERIAL_ECHOPAIR("\nFraming Errors: ", MYSERIAL1.framing_errors());
-      #endif
-
-      #if ENABLED(SERIAL_STATS_DROPPED_RX)
-        SERIAL_ECHOPAIR("\nDropped bytes: ", MYSERIAL1.dropped());
-      #endif
-
-      #if ENABLED(SERIAL_STATS_MAX_RX_QUEUED)
-        SERIAL_ECHOPAIR("\nMax RX Queue Size: ", MYSERIAL1.rxMaxEnqueued());
-      #endif
+        #if ENABLED(SERIAL_STATS_RX_BUFFER_OVERRUNS)
+            SERIAL_ECHOPAIR("\nBuffer Overruns: ", MYSERIAL1.buffer_overruns());
+        #endif
+  
+        #if ENABLED(SERIAL_STATS_RX_FRAMING_ERRORS)
+            SERIAL_ECHOPAIR("\nFraming Errors: ", MYSERIAL1.framing_errors());
+        #endif
+  
+        #if ENABLED(SERIAL_STATS_DROPPED_RX)
+            SERIAL_ECHOPAIR("\nDropped bytes: ", MYSERIAL1.dropped());
+        #endif
+  
+        #if ENABLED(SERIAL_STATS_MAX_RX_QUEUED)
+            SERIAL_ECHOPAIR("\nMax RX Queue Size: ", MYSERIAL1.rxMaxEnqueued());
+        #endif
     #endif // !__AVR__ || !USBCON
   }
   SERIAL_EOL();

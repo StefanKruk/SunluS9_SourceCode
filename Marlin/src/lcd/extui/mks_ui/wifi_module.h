@@ -22,7 +22,7 @@
 #pragma once
 
 #ifdef __cplusplus
-  extern "C" { /* C-declarations for C++ */
+    extern "C" { /* C-declarations for C++ */
 #endif
 
 #include "../../../inc/MarlinConfigPre.h"
@@ -193,5 +193,5 @@ int readWifiBuf(int8_t *buf, int32_t len);
 void mks_wifi_firmware_update();
 
 #ifdef __cplusplus
-  } /* C-declarations for C++ */
+    } /* C-declarations for C++ */
 #endif

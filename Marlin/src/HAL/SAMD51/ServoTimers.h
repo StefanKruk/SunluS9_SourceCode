@@ -30,10 +30,10 @@
 
 typedef enum {
   #ifdef _useTimer1
-    _timer1,
+      _timer1,
   #endif
   #ifdef _useTimer2
-    _timer2,
+      _timer2,
   #endif
   _Nbr_16timers
 } timer16_Sequence_t;

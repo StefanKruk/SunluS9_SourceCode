@@ -81,9 +81,9 @@ typedef float celsius_float_t;
 // On AVR pointers are only 2 bytes so use 'const float &' for 'const float'
 //
 #ifdef __AVR__
-  typedef const float & const_float_t;
+    typedef const float & const_float_t;
 #else
-  typedef const float const_float_t;
+    typedef const float const_float_t;
 #endif
 typedef const_float_t const_feedRate_t;
 typedef const_float_t const_celsius_float_t;
@@ -200,7 +200,7 @@ struct XYval {
   FI void set(const T (&arr)[XYZ])                      { x = arr[0]; y = arr[1]; }
   FI void set(const T (&arr)[XYZE])                     { x = arr[0]; y = arr[1]; }
   #if DISTINCT_AXES > LOGICAL_AXES
-    FI void set(const T (&arr)[DISTINCT_AXES])          { x = arr[0]; y = arr[1]; }
+      FI void set(const T (&arr)[DISTINCT_AXES])          { x = arr[0]; y = arr[1]; }
   #endif
   FI void reset()                                       { x = y = 0; }
   FI T magnitude()                                const { return (T)sqrtf(x*x + y*y); }
@@ -311,7 +311,7 @@ struct XYZval {
   FI void set(const T (&arr)[XYZ])                     { x = arr[0]; y = arr[1]; z = arr[2]; }
   FI void set(const T (&arr)[XYZE])                    { x = arr[0]; y = arr[1]; z = arr[2]; }
   #if DISTINCT_AXES > XYZE
-    FI void set(const T (&arr)[DISTINCT_AXES])         { x = arr[0]; y = arr[1]; z = arr[2]; }
+      FI void set(const T (&arr)[DISTINCT_AXES])         { x = arr[0]; y = arr[1]; z = arr[2]; }
   #endif
   FI void reset()                                      { x = y = z = 0; }
   FI T magnitude()                               const { return (T)sqrtf(x*x + y*y + z*z); }
@@ -426,7 +426,7 @@ struct XYZEval {
   FI void set(const T (&arr)[XYZ])                            { x = arr[0]; y = arr[1]; z = arr[2]; }
   FI void set(const T (&arr)[XYZE])                           { x = arr[0]; y = arr[1]; z = arr[2]; e = arr[3]; }
   #if DISTINCT_AXES > XYZE
-    FI void set(const T (&arr)[DISTINCT_AXES])                { x = arr[0]; y = arr[1]; z = arr[2]; e = arr[3]; }
+      FI void set(const T (&arr)[DISTINCT_AXES])                { x = arr[0]; y = arr[1]; z = arr[2]; e = arr[3]; }
   #endif
   FI XYZEval<T>          copy()                         const { return *this; }
   FI XYZEval<T>           ABS()                         const { return { T(_ABS(x)), T(_ABS(y)), T(_ABS(z)), T(_ABS(e)) }; }

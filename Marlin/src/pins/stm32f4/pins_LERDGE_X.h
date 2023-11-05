@@ -22,7 +22,7 @@
 #include "env_validate.h"
 
 #if HOTENDS > 1 || E_STEPPERS > 1
-  #error "LERDGE X only supports one hotend / E-stepper. Comment out this line to continue."
+    #error "LERDGE X only supports one hotend / E-stepper. Comment out this line to continue."
 #endif
 
 #define BOARD_INFO_NAME      "Lerdge X"
@@ -103,7 +103,7 @@
 #define FAN2_PIN                            PA0
 
 #ifndef E0_AUTO_FAN_PIN
-  #define E0_AUTO_FAN_PIN                   PC15  // FAN1_PIN
+    #define E0_AUTO_FAN_PIN                   PC15  // FAN1_PIN
 #endif
 
 //

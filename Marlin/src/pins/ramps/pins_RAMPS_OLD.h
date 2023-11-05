@@ -46,7 +46,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     19
+    #define Z_MIN_PROBE_PIN                     19
 #endif
 
 //
@@ -76,26 +76,26 @@
 
 // SPI for Max6675 or Max31855 Thermocouple
 #if DISABLED(SDSUPPORT)
-  #define MAX6675_SS_PIN                      66  // Don't use 53 if using Display/SD card
+    #define MAX6675_SS_PIN                      66  // Don't use 53 if using Display/SD card
 #else
-  #define MAX6675_SS_PIN                      66  // Don't use 49 (SD_DETECT_PIN)
+    #define MAX6675_SS_PIN                      66  // Don't use 49 (SD_DETECT_PIN)
 #endif
 
 //
 // Heaters / Fans
 //
 #if ENABLED(RAMPS_V_1_0)
-  #define HEATER_0_PIN                        12
-  #define HEATER_BED_PIN                      -1
-  #ifndef FAN_PIN
-    #define FAN_PIN                           11
-  #endif
+    #define HEATER_0_PIN                        12
+    #define HEATER_BED_PIN                      -1
+    #ifndef FAN_PIN
+        #define FAN_PIN                           11
+    #endif
 #else                                             // RAMPS_V_1_1 or RAMPS_V_1_2
-  #define HEATER_0_PIN                        10
-  #define HEATER_BED_PIN                       8
-  #ifndef FAN_PIN
-    #define FAN_PIN                            9
-  #endif
+    #define HEATER_0_PIN                        10
+    #define HEATER_BED_PIN                       8
+    #ifndef FAN_PIN
+        #define FAN_PIN                            9
+    #endif
 #endif
 
 //
@@ -106,7 +106,7 @@
 #define LED_PIN                               13
 
 #ifndef CASE_LIGHT_PIN
-  #define CASE_LIGHT_PIN                      45  // Hardware PWM
+    #define CASE_LIGHT_PIN                      45  // Hardware PWM
 #endif
 
 //

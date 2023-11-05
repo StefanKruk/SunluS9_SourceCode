@@ -29,41 +29,41 @@
 //#define MUTE_GAMES
 
 #if ENABLED(MUTE_GAMES) || !HAS_BUZZER
-  #define _BUZZ(D,F) NOOP
+    #define _BUZZ(D,F) NOOP
 #else
-  #define _BUZZ(D,F) BUZZ(D,F)
+    #define _BUZZ(D,F) BUZZ(D,F)
 #endif
 
 #if HAS_GAME_MENU
-  void menu_game();
+    void menu_game();
 #endif
 
 #if ENABLED(MARLIN_BRICKOUT)
-  #include "brickout.h"
+    #include "brickout.h"
 #endif
 #if ENABLED(MARLIN_INVADERS)
-  #include "invaders.h"
+    #include "invaders.h"
 #endif
 #if ENABLED(MARLIN_MAZE)
-  #include "maze.h"
+    #include "maze.h"
 #endif
 #if ENABLED(MARLIN_SNAKE)
-  #include "snake.h"
+    #include "snake.h"
 #endif
 
 // Pool game data to save SRAM
 union MarlinGameData {
   #if ENABLED(MARLIN_BRICKOUT)
-    brickout_data_t brickout;
+      brickout_data_t brickout;
   #endif
   #if ENABLED(MARLIN_INVADERS)
-    invaders_data_t invaders;
+      invaders_data_t invaders;
   #endif
   #if ENABLED(MARLIN_SNAKE)
-    snake_data_t snake;
+      snake_data_t snake;
   #endif
   #if ENABLED(MARLIN_MAZE)
-    maze_data_t maze;
+      maze_data_t maze;
   #endif
 };
 

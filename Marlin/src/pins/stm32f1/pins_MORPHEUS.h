@@ -31,7 +31,7 @@
  */
 
 #if NOT_TARGET(__STM32F1__, STM32F1xx)
-  #error "Oops! Select an STM32F1 board in 'Tools > Board.'"
+    #error "Oops! Select an STM32F1 board in 'Tools > Board.'"
 #endif
 
 #define BOARD_INFO_NAME "Bluepill based board"
@@ -47,7 +47,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                   PB9
+    #define Z_MIN_PROBE_PIN                   PB9
 #endif
 
 //

@@ -84,9 +84,9 @@
 
 // SPI for Max6675 or Max31855 Thermocouple
 #if DISABLED(SDSUPPORT)
-  #define MAX6675_SS_PIN                      -1
+    #define MAX6675_SS_PIN                      -1
 #else
-  #define MAX6675_SS_PIN                      -1
+    #define MAX6675_SS_PIN                      -1
 #endif
 
 //
@@ -97,7 +97,7 @@
 #define HEATER_BED_PIN                        39  // BED MOSFET
 
 #ifndef FAN_PIN
-  #define FAN_PIN                             11  // FAN1 header on board - PRINT FAN
+    #define FAN_PIN                             11  // FAN1 header on board - PRINT FAN
 #endif
 #define FAN1_PIN                               9  // FAN2 header on board - CONTROLLER FAN
 #define FAN2_PIN                              12  // FAN3 header on board - EXTRUDER0 FAN
@@ -112,60 +112,60 @@
 // LCD / Controller
 //
 #if HAS_WIRED_LCD
-
-  #define LCD_PINS_RS                         42
-  #define LCD_PINS_ENABLE                     43
-  #define LCD_PINS_D4                         44
-  #define LCD_PINS_D5                         45
-  #define LCD_PINS_D6                         46
-  #define LCD_PINS_D7                         47
-
-  #if IS_RRD_SC
-
-    #define BEEPER_PIN                        41
-
-    #define BTN_EN1                           50
-    #define BTN_EN2                           52
-    #define BTN_ENC                           48
-
-    #define SD_DETECT_PIN                     14
-
-  #elif ENABLED(RADDS_DISPLAY)
-
-    #define BEEPER_PIN                        41
-
-    #define BTN_EN1                           50
-    #define BTN_EN2                           52
-    #define BTN_ENC                           48
-
-    #define BTN_BACK                          71
-
-    #define SD_DETECT_PIN                     14
-
-  #elif HAS_U8GLIB_I2C_OLED
-
-    #define BTN_EN1                           50
-    #define BTN_EN2                           52
-    #define BTN_ENC                           48
-    #define BEEPER_PIN                        41
-    #define LCD_SDSS                           4
-    #define SD_DETECT_PIN                     14
-
-  #elif ENABLED(SPARK_FULL_GRAPHICS)
-
-    #define LCD_PINS_D4                       29
-    #define LCD_PINS_ENABLE                   27
-    #define LCD_PINS_RS                       25
-
-    #define BTN_EN1                           35
-    #define BTN_EN2                           33
-    #define BTN_ENC                           37
-
-    #define BEEPER_PIN                        -1
-  #endif // SPARK_FULL_GRAPHICS
-
-  #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
-    #define BTN_ENC_EN               LCD_PINS_D7  // Detect the presence of the encoder
-  #endif
-
+  
+    #define LCD_PINS_RS                         42
+    #define LCD_PINS_ENABLE                     43
+    #define LCD_PINS_D4                         44
+    #define LCD_PINS_D5                         45
+    #define LCD_PINS_D6                         46
+    #define LCD_PINS_D7                         47
+  
+    #if IS_RRD_SC
+    
+        #define BEEPER_PIN                        41
+    
+        #define BTN_EN1                           50
+        #define BTN_EN2                           52
+        #define BTN_ENC                           48
+    
+        #define SD_DETECT_PIN                     14
+    
+    #elif ENABLED(RADDS_DISPLAY)
+    
+        #define BEEPER_PIN                        41
+    
+        #define BTN_EN1                           50
+        #define BTN_EN2                           52
+        #define BTN_ENC                           48
+    
+        #define BTN_BACK                          71
+    
+        #define SD_DETECT_PIN                     14
+    
+    #elif HAS_U8GLIB_I2C_OLED
+    
+        #define BTN_EN1                           50
+        #define BTN_EN2                           52
+        #define BTN_ENC                           48
+        #define BEEPER_PIN                        41
+        #define LCD_SDSS                           4
+        #define SD_DETECT_PIN                     14
+    
+    #elif ENABLED(SPARK_FULL_GRAPHICS)
+    
+        #define LCD_PINS_D4                       29
+        #define LCD_PINS_ENABLE                   27
+        #define LCD_PINS_RS                       25
+    
+        #define BTN_EN1                           35
+        #define BTN_EN2                           33
+        #define BTN_ENC                           37
+    
+        #define BEEPER_PIN                        -1
+    #endif // SPARK_FULL_GRAPHICS
+  
+    #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
+        #define BTN_ENC_EN               LCD_PINS_D7  // Detect the presence of the encoder
+    #endif
+  
 #endif // HAS_WIRED_LCD

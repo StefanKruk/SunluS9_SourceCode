@@ -24,7 +24,7 @@
  */
 
 #ifndef _usb_h_
-  #error "Never include UsbCore.h directly; include Usb.h instead"
+    #error "Never include UsbCore.h directly; include Usb.h instead"
 #endif
 
 #pragma once
@@ -36,27 +36,27 @@
 /* shield pins. First parameter - SS pin, second parameter - INT pin */
 
 #ifdef __MARLIN_FIRMWARE__
-typedef MAX3421e MAX3421E; // Marlin redefines this class in "../usb_host.h"
+  typedef MAX3421e MAX3421E; // Marlin redefines this class in "../usb_host.h"
 #elif defined(BOARD_BLACK_WIDDOW)
-typedef MAX3421e<P6, P3> MAX3421E; // Black Widow
+  typedef MAX3421e<P6, P3> MAX3421E; // Black Widow
 #elif defined(CORE_TEENSY) && (defined(__AVR_AT90USB646__) || defined(__AVR_AT90USB1286__))
-#if EXT_RAM
-typedef MAX3421e<P20, P7> MAX3421E; // Teensy++ 2.0 with XMEM2
-#else
-typedef MAX3421e<P9, P8> MAX3421E; // Teensy++ 1.0 and 2.0
-#endif
+  #if EXT_RAM
+    typedef MAX3421e<P20, P7> MAX3421E; // Teensy++ 2.0 with XMEM2
+  #else
+    typedef MAX3421e<P9, P8> MAX3421E; // Teensy++ 1.0 and 2.0
+  #endif
 #elif defined(BOARD_MEGA_ADK)
-typedef MAX3421e<P53, P54> MAX3421E; // Arduino Mega ADK
+  typedef MAX3421e<P53, P54> MAX3421E; // Arduino Mega ADK
 #elif defined(ARDUINO_AVR_BALANDUINO)
-typedef MAX3421e<P20, P19> MAX3421E; // Balanduino
+  typedef MAX3421e<P20, P19> MAX3421E; // Balanduino
 #elif defined(__ARDUINO_X86__) && PLATFORM_ID == 0x06
-typedef MAX3421e<P3, P2> MAX3421E; // The Intel Galileo supports much faster read and write speed at pin 2 and 3
+  typedef MAX3421e<P3, P2> MAX3421E; // The Intel Galileo supports much faster read and write speed at pin 2 and 3
 #elif defined(ESP8266)
-typedef MAX3421e<P15, P5> MAX3421E; // ESP8266 boards
+  typedef MAX3421e<P15, P5> MAX3421E; // ESP8266 boards
 #elif defined(ESP32)
-typedef MAX3421e<P5, P17> MAX3421E; // ESP32 boards
+  typedef MAX3421e<P5, P17> MAX3421E; // ESP32 boards
 #else
-typedef MAX3421e<P10, P9> MAX3421E; // Official Arduinos (UNO, Duemilanove, Mega, 2560, Leonardo, Due etc.), Intel Edison, Intel Galileo 2 or Teensy 2.0 and 3.x
+  typedef MAX3421e<P10, P9> MAX3421E; // Official Arduinos (UNO, Duemilanove, Mega, 2560, Leonardo, Due etc.), Intel Edison, Intel Galileo 2 or Teensy 2.0 and 3.x
 #endif
 
 /* Common setup data constant combinations  */
@@ -283,30 +283,30 @@ private:
 };
 
 #if 0 //defined(USB_METHODS_INLINE)
-//get device descriptor
-
-inline uint8_t USB::getDevDescr(uint8_t addr, uint8_t ep, uint16_t nbytes, uint8_t *dataptr) {
-  return ( ctrlReq(addr, ep, bmREQ_GET_DESCR, USB_REQUEST_GET_DESCRIPTOR, 0x00, USB_DESCRIPTOR_DEVICE, 0x0000, nbytes, dataptr));
-}
-//get configuration descriptor
-
-inline uint8_t USB::getConfDescr(uint8_t addr, uint8_t ep, uint16_t nbytes, uint8_t conf, uint8_t *dataptr) {
-  return ( ctrlReq(addr, ep, bmREQ_GET_DESCR, USB_REQUEST_GET_DESCRIPTOR, conf, USB_DESCRIPTOR_CONFIGURATION, 0x0000, nbytes, dataptr));
-}
-//get string descriptor
-
-inline uint8_t USB::getStrDescr(uint8_t addr, uint8_t ep, uint16_t nuint8_ts, uint8_t index, uint16_t langid, uint8_t *dataptr) {
-  return ( ctrlReq(addr, ep, bmREQ_GET_DESCR, USB_REQUEST_GET_DESCRIPTOR, index, USB_DESCRIPTOR_STRING, langid, nuint8_ts, dataptr));
-}
-//set address
-
-inline uint8_t USB::setAddr(uint8_t oldaddr, uint8_t ep, uint8_t newaddr) {
-  return ( ctrlReq(oldaddr, ep, bmREQ_SET, USB_REQUEST_SET_ADDRESS, newaddr, 0x00, 0x0000, 0x0000, nullptr));
-}
-//set configuration
-
-inline uint8_t USB::setConf(uint8_t addr, uint8_t ep, uint8_t conf_value) {
-  return ( ctrlReq(addr, ep, bmREQ_SET, USB_REQUEST_SET_CONFIGURATION, conf_value, 0x00, 0x0000, 0x0000, nullptr));
-}
-
+  //get device descriptor
+  
+  inline uint8_t USB::getDevDescr(uint8_t addr, uint8_t ep, uint16_t nbytes, uint8_t *dataptr) {
+    return ( ctrlReq(addr, ep, bmREQ_GET_DESCR, USB_REQUEST_GET_DESCRIPTOR, 0x00, USB_DESCRIPTOR_DEVICE, 0x0000, nbytes, dataptr));
+  }
+  //get configuration descriptor
+  
+  inline uint8_t USB::getConfDescr(uint8_t addr, uint8_t ep, uint16_t nbytes, uint8_t conf, uint8_t *dataptr) {
+    return ( ctrlReq(addr, ep, bmREQ_GET_DESCR, USB_REQUEST_GET_DESCRIPTOR, conf, USB_DESCRIPTOR_CONFIGURATION, 0x0000, nbytes, dataptr));
+  }
+  //get string descriptor
+  
+  inline uint8_t USB::getStrDescr(uint8_t addr, uint8_t ep, uint16_t nuint8_ts, uint8_t index, uint16_t langid, uint8_t *dataptr) {
+    return ( ctrlReq(addr, ep, bmREQ_GET_DESCR, USB_REQUEST_GET_DESCRIPTOR, index, USB_DESCRIPTOR_STRING, langid, nuint8_ts, dataptr));
+  }
+  //set address
+  
+  inline uint8_t USB::setAddr(uint8_t oldaddr, uint8_t ep, uint8_t newaddr) {
+    return ( ctrlReq(oldaddr, ep, bmREQ_SET, USB_REQUEST_SET_ADDRESS, newaddr, 0x00, 0x0000, 0x0000, nullptr));
+  }
+  //set configuration
+  
+  inline uint8_t USB::setConf(uint8_t addr, uint8_t ep, uint8_t conf_value) {
+    return ( ctrlReq(addr, ep, bmREQ_SET, USB_REQUEST_SET_CONFIGURATION, conf_value, 0x00, 0x0000, 0x0000, nullptr));
+  }
+  
 #endif // defined(USB_METHODS_INLINE)

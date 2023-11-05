@@ -23,30 +23,30 @@
 #include "../../../inc/MarlinConfig.h"
 
 #if ENABLED(FWRETRACT)
-
-#include "../../../feature/fwretract.h"
-#include "../../gcode.h"
-
-/**
- * M207: Set firmware retraction values
- */
-void GcodeSuite::M207() { fwretract.M207(); }
-
-/**
- * M208: Set firmware un-retraction values
- */
-void GcodeSuite::M208() { fwretract.M208(); }
-
-#if ENABLED(FWRETRACT_AUTORETRACT)
-
+  
+  #include "../../../feature/fwretract.h"
+  #include "../../gcode.h"
+  
   /**
-   * M209: Enable automatic retract (M209 S1)
-   *
-   *   For slicers that don't support G10/11, reversed
-   *   extruder-only moves can be classified as retraction.
+   * M207: Set firmware retraction values
    */
-  void GcodeSuite::M209() { fwretract.M209(); }
-
-#endif
-
+  void GcodeSuite::M207() { fwretract.M207(); }
+  
+  /**
+   * M208: Set firmware un-retraction values
+   */
+  void GcodeSuite::M208() { fwretract.M208(); }
+  
+  #if ENABLED(FWRETRACT_AUTORETRACT)
+    
+      /**
+       * M209: Enable automatic retract (M209 S1)
+       *
+       *   For slicers that don't support G10/11, reversed
+       *   extruder-only moves can be classified as retraction.
+       */
+      void GcodeSuite::M209() { fwretract.M209(); }
+    
+  #endif
+  
 #endif // FWRETRACT

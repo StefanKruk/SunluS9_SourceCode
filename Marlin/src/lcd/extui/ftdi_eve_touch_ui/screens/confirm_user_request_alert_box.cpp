@@ -25,47 +25,47 @@
 #include "screen_data.h"
 
 #ifdef FTDI_CONFIRM_USER_REQUEST_ALERT_BOX
-
-using namespace FTDI;
-
-void ConfirmUserRequestAlertBox::onRedraw(draw_mode_t mode) {
-  AlertDialogBox::onRedraw(mode); // Required for the GOTO_SCREEN function to work
-}
-
-bool ConfirmUserRequestAlertBox::onTouchEnd(uint8_t tag) {
-  switch (tag) {
-    case 1:
-      if (ExtUI::isPrintingPaused()) {
-        // The TuneMenu will call ExtUI::setUserConfirmed()
-        GOTO_SCREEN(TuneMenu);
-        current_screen.forget();
-      }
-      else {
-        ExtUI::setUserConfirmed();
-        GOTO_PREVIOUS();
-      }
-      return true;
-    case 2: GOTO_PREVIOUS(); return true;
-    default:                 return false;
+  
+  using namespace FTDI;
+  
+  void ConfirmUserRequestAlertBox::onRedraw(draw_mode_t mode) {
+    AlertDialogBox::onRedraw(mode); // Required for the GOTO_SCREEN function to work
   }
-}
-
-void ConfirmUserRequestAlertBox::onIdle() {
-  if (!ExtUI::awaitingUserConfirm()) {
-    hide();
+  
+  bool ConfirmUserRequestAlertBox::onTouchEnd(uint8_t tag) {
+    switch (tag) {
+      case 1:
+        if (ExtUI::isPrintingPaused()) {
+          // The TuneMenu will call ExtUI::setUserConfirmed()
+          GOTO_SCREEN(TuneMenu);
+          current_screen.forget();
+        }
+        else {
+          ExtUI::setUserConfirmed();
+          GOTO_PREVIOUS();
+        }
+        return true;
+      case 2: GOTO_PREVIOUS(); return true;
+      default:                 return false;
+    }
   }
-}
-
-void ConfirmUserRequestAlertBox::show(const char *msg) {
-  drawMessage(msg);
-  storeBackground();
-  screen_data.AlertDialogBox.isError = false;
-  GOTO_SCREEN(ConfirmUserRequestAlertBox);
-}
-
-void ConfirmUserRequestAlertBox::hide() {
-  if (AT_SCREEN(ConfirmUserRequestAlertBox))
-    GOTO_PREVIOUS();
-}
-
+  
+  void ConfirmUserRequestAlertBox::onIdle() {
+    if (!ExtUI::awaitingUserConfirm()) {
+      hide();
+    }
+  }
+  
+  void ConfirmUserRequestAlertBox::show(const char *msg) {
+    drawMessage(msg);
+    storeBackground();
+    screen_data.AlertDialogBox.isError = false;
+    GOTO_SCREEN(ConfirmUserRequestAlertBox);
+  }
+  
+  void ConfirmUserRequestAlertBox::hide() {
+    if (AT_SCREEN(ConfirmUserRequestAlertBox))
+      GOTO_PREVIOUS();
+  }
+  
 #endif // FTDI_CONFIRM_USER_REQUEST_ALERT_BOX

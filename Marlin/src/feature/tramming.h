@@ -25,7 +25,7 @@
 #include "../module/probe.h"
 
 #if !WITHIN(TRAMMING_SCREW_THREAD, 30, 51) || TRAMMING_SCREW_THREAD % 10 > 1
-  #error "TRAMMING_SCREW_THREAD must be equal to 30, 31, 40, 41, 50, or 51."
+    #error "TRAMMING_SCREW_THREAD must be equal to 30, 31, 40, 41, 50, or 51."
 #endif
 
 constexpr xy_pos_t screws_tilt_adjust_pos[] = TRAMMING_POINT_XY;
@@ -39,32 +39,32 @@ VALIDATE_TRAMMING_POINT(0); VALIDATE_TRAMMING_POINT(1); VALIDATE_TRAMMING_POINT(
 
 extern const char point_name_1[], point_name_2[], point_name_3[]
   #ifdef TRAMMING_POINT_NAME_4
-    , point_name_4[]
-    #ifdef TRAMMING_POINT_NAME_5
-      , point_name_5[]
-      #ifdef TRAMMING_POINT_NAME_6
-        , point_name_6[]
+      , point_name_4[]
+      #ifdef TRAMMING_POINT_NAME_5
+          , point_name_5[]
+          #ifdef TRAMMING_POINT_NAME_6
+              , point_name_6[]
+          #endif
       #endif
-    #endif
   #endif
 ;
 
 #define _NR_TRAM_NAMES 2
 #ifdef TRAMMING_POINT_NAME_3
-  #undef _NR_TRAM_NAMES
-  #define _NR_TRAM_NAMES 3
-  #ifdef TRAMMING_POINT_NAME_4
     #undef _NR_TRAM_NAMES
-    #define _NR_TRAM_NAMES 4
-    #ifdef TRAMMING_POINT_NAME_5
-      #undef _NR_TRAM_NAMES
-      #define _NR_TRAM_NAMES 5
-      #ifdef TRAMMING_POINT_NAME_6
+    #define _NR_TRAM_NAMES 3
+    #ifdef TRAMMING_POINT_NAME_4
         #undef _NR_TRAM_NAMES
-        #define _NR_TRAM_NAMES 6
-      #endif
+        #define _NR_TRAM_NAMES 4
+        #ifdef TRAMMING_POINT_NAME_5
+            #undef _NR_TRAM_NAMES
+            #define _NR_TRAM_NAMES 5
+            #ifdef TRAMMING_POINT_NAME_6
+                #undef _NR_TRAM_NAMES
+                #define _NR_TRAM_NAMES 6
+            #endif
+        #endif
     #endif
-  #endif
 #endif
 static_assert(_NR_TRAM_NAMES >= G35_PROBE_COUNT, "Define enough TRAMMING_POINT_NAME_s for all TRAMMING_POINT_XY entries.");
 #undef _NR_TRAM_NAMES
@@ -72,7 +72,7 @@ static_assert(_NR_TRAM_NAMES >= G35_PROBE_COUNT, "Define enough TRAMMING_POINT_N
 extern PGM_P const tramming_point_name[];
 
 #ifdef ASSISTED_TRAMMING_WAIT_POSITION
-  void move_to_tramming_wait_pos();
+    void move_to_tramming_wait_pos();
 #else
-  inline void move_to_tramming_wait_pos() {}
+    inline void move_to_tramming_wait_pos() {}
 #endif

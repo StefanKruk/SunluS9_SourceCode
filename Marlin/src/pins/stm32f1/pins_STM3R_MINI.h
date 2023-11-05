@@ -87,7 +87,7 @@
 //#define HEATER_BED3_PIN                   -1    // BED3
 
 #ifndef FAN_PIN
-  #define FAN_PIN                           PD14
+    #define FAN_PIN                           PD14
 #endif
 #define FAN1_PIN                            PD13
 
@@ -103,57 +103,57 @@
 
 // Laser control
 #if HAS_CUTTER
-  #define SPINDLE_LASER_PWM_PIN             PB8
-  #define SPINDLE_LASER_ENA_PIN             PD5
+    #define SPINDLE_LASER_PWM_PIN             PB8
+    #define SPINDLE_LASER_ENA_PIN             PD5
 #endif
 
 //
 // LCD Pins
 //
 #if HAS_WIRED_LCD
-
-  #if ENABLED(REPRAPWORLD_GRAPHICAL_LCD)
-    #error "REPRAPWORLD_GRAPHICAL_LCD is not supported."
-  #else
-    #define LCD_PINS_RS                     PB8
-    #define LCD_PINS_ENABLE                 PD2
-    #define LCD_PINS_D4                     PB12
-    #define LCD_PINS_D5                     PB13
-    #define LCD_PINS_D6                     PB14
-    #define LCD_PINS_D7                     PB15
-    #if !IS_NEWPANEL
-      #error "Non-NEWPANEL LCD is not supported."
-    #endif
-  #endif
-
-  #if NEED_TOUCH_PINS
-
-    #define TOUCH_CS_PIN                    PB12  // SPI2_NSS
-    #define TOUCH_SCK_PIN                   PB13
-    #define TOUCH_MOSI_PIN                  PB14
-    #define TOUCH_MISO_PIN                  PB15
-    #define TOUCH_INT_PIN                   PC6   // (PenIRQ coming from ADS7843)
-
-  #elif IS_NEWPANEL
-
-    #if IS_RRD_SC
-      #error "RRD Smart Controller is not supported."
-    #elif ENABLED(REPRAPWORLD_GRAPHICAL_LCD)
-      #error "REPRAPWORLD_GRAPHICAL_LCD is not supported."
-    #elif ENABLED(LCD_I2C_PANELOLU2)
-      #error "LCD_I2C_PANELOLU2 is not supported."
-    #elif ENABLED(LCD_I2C_VIKI)
-      #error "LCD_I2C_VIKI is not supported."
-    #elif ANY(VIKI2, miniVIKI)
-      #error "VIKI2 / miniVIKI is not supported."
-    #elif ENABLED(ELB_FULL_GRAPHIC_CONTROLLER)
-      #error "ELB_FULL_GRAPHIC_CONTROLLER is not supported."
-    #elif ENABLED(MINIPANEL)
-      #error "MINIPANEL is not supported."
+  
+    #if ENABLED(REPRAPWORLD_GRAPHICAL_LCD)
+        #error "REPRAPWORLD_GRAPHICAL_LCD is not supported."
     #else
-      #error "Other generic NEWPANEL LCD is not supported."
+        #define LCD_PINS_RS                     PB8
+        #define LCD_PINS_ENABLE                 PD2
+        #define LCD_PINS_D4                     PB12
+        #define LCD_PINS_D5                     PB13
+        #define LCD_PINS_D6                     PB14
+        #define LCD_PINS_D7                     PB15
+        #if !IS_NEWPANEL
+            #error "Non-NEWPANEL LCD is not supported."
+        #endif
     #endif
-
-  #endif
-
+  
+    #if NEED_TOUCH_PINS
+    
+        #define TOUCH_CS_PIN                    PB12  // SPI2_NSS
+        #define TOUCH_SCK_PIN                   PB13
+        #define TOUCH_MOSI_PIN                  PB14
+        #define TOUCH_MISO_PIN                  PB15
+        #define TOUCH_INT_PIN                   PC6   // (PenIRQ coming from ADS7843)
+    
+    #elif IS_NEWPANEL
+    
+        #if IS_RRD_SC
+            #error "RRD Smart Controller is not supported."
+        #elif ENABLED(REPRAPWORLD_GRAPHICAL_LCD)
+            #error "REPRAPWORLD_GRAPHICAL_LCD is not supported."
+        #elif ENABLED(LCD_I2C_PANELOLU2)
+            #error "LCD_I2C_PANELOLU2 is not supported."
+        #elif ENABLED(LCD_I2C_VIKI)
+            #error "LCD_I2C_VIKI is not supported."
+        #elif ANY(VIKI2, miniVIKI)
+            #error "VIKI2 / miniVIKI is not supported."
+        #elif ENABLED(ELB_FULL_GRAPHIC_CONTROLLER)
+            #error "ELB_FULL_GRAPHIC_CONTROLLER is not supported."
+        #elif ENABLED(MINIPANEL)
+            #error "MINIPANEL is not supported."
+        #else
+            #error "Other generic NEWPANEL LCD is not supported."
+        #endif
+    
+    #endif
+  
 #endif // HAS_WIRED_LCD

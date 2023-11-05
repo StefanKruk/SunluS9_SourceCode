@@ -38,10 +38,10 @@
 // is the index of the location from which to read.
 // 256 is the max limit due to uint8_t head and tail. Use only powers of 2. (...,16,32,64,128,256)
 #ifndef RX_BUFFER_SIZE
-  #define RX_BUFFER_SIZE 128
+    #define RX_BUFFER_SIZE 128
 #endif
 #ifndef TX_BUFFER_SIZE
-  #define TX_BUFFER_SIZE 32
+    #define TX_BUFFER_SIZE 32
 #endif
 
 //#if ENABLED(SERIAL_XON_XOFF) && RX_BUFFER_SIZE < 1024
@@ -141,16 +141,16 @@ struct MarlinSerialCfg {
 };
 
 #if defined(SERIAL_PORT) && SERIAL_PORT >= 0
-  typedef Serial1Class< MarlinSerial< MarlinSerialCfg<SERIAL_PORT> > > MSerialT1;
-  extern MSerialT1 customizedSerial1;
+    typedef Serial1Class< MarlinSerial< MarlinSerialCfg<SERIAL_PORT> > > MSerialT1;
+    extern MSerialT1 customizedSerial1;
 #endif
 
 #if defined(SERIAL_PORT_2) && SERIAL_PORT_2 >= 0
-  typedef Serial1Class< MarlinSerial< MarlinSerialCfg<SERIAL_PORT_2> > > MSerialT2;
-  extern MSerialT2 customizedSerial2;
+    typedef Serial1Class< MarlinSerial< MarlinSerialCfg<SERIAL_PORT_2> > > MSerialT2;
+    extern MSerialT2 customizedSerial2;
 #endif
 
 #if defined(SERIAL_PORT_3) && SERIAL_PORT_3 >= 0
-  typedef Serial1Class< MarlinSerial< MarlinSerialCfg<SERIAL_PORT_3> > > MSerialT3;
-  extern MSerialT3 customizedSerial3;
+    typedef Serial1Class< MarlinSerial< MarlinSerialCfg<SERIAL_PORT_3> > > MSerialT3;
+    extern MSerialT3 customizedSerial3;
 #endif

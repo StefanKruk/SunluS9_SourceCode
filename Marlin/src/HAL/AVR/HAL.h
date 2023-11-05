@@ -27,10 +27,10 @@
 //#include "../../lcd/extui/dgus/DGUSScreenHandler.h"
 
 #ifdef USBCON
-  #include <HardwareSerial.h>
+    #include <HardwareSerial.h>
 #else
-  #define HardwareSerial_h // Hack to prevent HardwareSerial.h header inclusion
-  #include "MarlinSerial.h"
+    #define HardwareSerial_h // Hack to prevent HardwareSerial.h header inclusion
+    #include "MarlinSerial.h"
 #endif
 
 #include <stdint.h>
@@ -49,15 +49,15 @@ uint32_t Fun_read_ptr(uint32_t addr)
 #define Fun_read_ptr(address_short)  do {sendkillscreen(address_short);   }while(0)
 
 #ifndef pgm_read_ptr
-  // Compatibility for avr-libc 1.8.0-4.1 included with Ubuntu for
-  // Windows Subsystem for Linux on Windows 10 as of 10/18/2019
-#define pgm_read_ptr_far(address_long) (void*)__ELPM_word((uint32_t)(address_long))
-#define pgm_read_ptr_near(address_short) (void*)__LPM_word((uint16_t)(address_short))
-#define pgm_read_ptr(address_short) pgm_read_ptr_near(address_short)
-
-
-
-
+    // Compatibility for avr-libc 1.8.0-4.1 included with Ubuntu for
+    // Windows Subsystem for Linux on Windows 10 as of 10/18/2019
+  #define pgm_read_ptr_far(address_long) (void*)__ELPM_word((uint32_t)(address_long))
+  #define pgm_read_ptr_near(address_short) (void*)__LPM_word((uint16_t)(address_short))
+  #define pgm_read_ptr(address_short) pgm_read_ptr_near(address_short)
+  
+  
+  
+  
 #endif
 
 // ------------------------
@@ -71,8 +71,8 @@ uint32_t Fun_read_ptr(uint32_t addr)
 #define PGMSTR(NAM,STR) const char NAM[] PROGMEM = STR
 
 #ifndef CRITICAL_SECTION_START
-  #define CRITICAL_SECTION_START()  unsigned char _sreg = SREG; cli()
-  #define CRITICAL_SECTION_END()    SREG = _sreg
+    #define CRITICAL_SECTION_START()  unsigned char _sreg = SREG; cli()
+    #define CRITICAL_SECTION_END()    SREG = _sreg
 #endif
 #define ISRS_ENABLED() TEST(SREG, SREG_I)
 #define ENABLE_ISRS()  sei()
@@ -95,51 +95,51 @@ typedef int8_t pin_t;
 
 // Serial ports
 #ifdef USBCON
-  #include "../../core/serial_hook.h"
-  typedef ForwardSerial1Class< decltype(Serial) > DefaultSerial1;
-  extern DefaultSerial1 MSerial0;
-  #ifdef BLUETOOTH
-    typedef ForwardSerial1Class< decltype(bluetoothSerial) > BTSerial;
-    extern BTSerial btSerial;
-  #endif
-
-  #define MYSERIAL1 TERN(BLUETOOTH, btSerial, MSerial0)
+    #include "../../core/serial_hook.h"
+    typedef ForwardSerial1Class< decltype(Serial) > DefaultSerial1;
+    extern DefaultSerial1 MSerial0;
+    #ifdef BLUETOOTH
+        typedef ForwardSerial1Class< decltype(bluetoothSerial) > BTSerial;
+        extern BTSerial btSerial;
+    #endif
+  
+    #define MYSERIAL1 TERN(BLUETOOTH, btSerial, MSerial0)
 #else
-  #if !WITHIN(SERIAL_PORT, -1, 3)
-    #error "SERIAL_PORT must be from 0 to 3, or -1 for USB Serial."
-  #endif
-  #define MYSERIAL1 customizedSerial1
-
-  #ifdef SERIAL_PORT_2
-    #if !WITHIN(SERIAL_PORT_2, -1, 3)
-      #error "SERIAL_PORT_2 must be from 0 to 3, or -1 for USB Serial."
+    #if !WITHIN(SERIAL_PORT, -1, 3)
+        #error "SERIAL_PORT must be from 0 to 3, or -1 for USB Serial."
     #endif
-    #define MYSERIAL2 customizedSerial2
-  #endif
-
-  #ifdef SERIAL_PORT_3
-    #if !WITHIN(SERIAL_PORT_3, -1, 3)
-      #error "SERIAL_PORT_3 must be from 0 to 3, or -1 for USB Serial."
+    #define MYSERIAL1 customizedSerial1
+  
+    #ifdef SERIAL_PORT_2
+        #if !WITHIN(SERIAL_PORT_2, -1, 3)
+            #error "SERIAL_PORT_2 must be from 0 to 3, or -1 for USB Serial."
+        #endif
+        #define MYSERIAL2 customizedSerial2
     #endif
-    #define MYSERIAL3 customizedSerial3
-  #endif
+  
+    #ifdef SERIAL_PORT_3
+        #if !WITHIN(SERIAL_PORT_3, -1, 3)
+            #error "SERIAL_PORT_3 must be from 0 to 3, or -1 for USB Serial."
+        #endif
+        #define MYSERIAL3 customizedSerial3
+    #endif
 #endif
 
 #ifdef MMU2_SERIAL_PORT
-  #if !WITHIN(MMU2_SERIAL_PORT, -1, 3)
-    #error "MMU2_SERIAL_PORT must be from 0 to 3, or -1 for USB Serial."
-  #endif
-  #define MMU2_SERIAL mmuSerial
+    #if !WITHIN(MMU2_SERIAL_PORT, -1, 3)
+        #error "MMU2_SERIAL_PORT must be from 0 to 3, or -1 for USB Serial."
+    #endif
+    #define MMU2_SERIAL mmuSerial
 #endif
 
 #ifdef LCD_SERIAL_PORT
-  #if !WITHIN(LCD_SERIAL_PORT, -1, 3)
-    #error "LCD_SERIAL_PORT must be from 0 to 3, or -1 for USB Serial."
-  #endif
-  #define LCD_SERIAL lcdSerial
-  #if HAS_DGUS_LCD
-    #define SERIAL_GET_TX_BUFFER_FREE() LCD_SERIAL.get_tx_buffer_free()
-  #endif
+    #if !WITHIN(LCD_SERIAL_PORT, -1, 3)
+        #error "LCD_SERIAL_PORT must be from 0 to 3, or -1 for USB Serial."
+    #endif
+    #define LCD_SERIAL lcdSerial
+    #if HAS_DGUS_LCD
+        #define SERIAL_GET_TX_BUFFER_FREE() LCD_SERIAL.get_tx_buffer_free()
+    #endif
 #endif
 
 // ------------------------
@@ -158,36 +158,36 @@ inline uint8_t HAL_get_reset_source() { return MCUSR; }
 void HAL_reboot();
 
 #if GCC_VERSION <= 50000
-  #pragma GCC diagnostic push
-  #pragma GCC diagnostic ignored "-Wunused-function"
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wunused-function"
 #endif
 
 extern "C" int freeMemory();
 
 #if GCC_VERSION <= 50000
-  #pragma GCC diagnostic pop
+    #pragma GCC diagnostic pop
 #endif
 
 // ADC
 #ifdef DIDR2
-  #define HAL_ANALOG_SELECT(ind) do{ if (ind < 8) SBI(DIDR0, ind); else SBI(DIDR2, ind & 0x07); }while(0)
+    #define HAL_ANALOG_SELECT(ind) do{ if (ind < 8) SBI(DIDR0, ind); else SBI(DIDR2, ind & 0x07); }while(0)
 #else
-  #define HAL_ANALOG_SELECT(ind) SBI(DIDR0, ind);
+    #define HAL_ANALOG_SELECT(ind) SBI(DIDR0, ind);
 #endif
 
 inline void HAL_adc_init() {
   ADCSRA = _BV(ADEN) | _BV(ADSC) | _BV(ADIF) | 0x07;
   DIDR0 = 0;
   #ifdef DIDR2
-    DIDR2 = 0;
+      DIDR2 = 0;
   #endif
 }
 
 #define SET_ADMUX_ADCSRA(ch) ADMUX = _BV(REFS0) | (ch & 0x07); SBI(ADCSRA, ADSC)
 #ifdef MUX5
-  #define HAL_START_ADC(ch) if (ch > 7) ADCSRB = _BV(MUX5); else ADCSRB = 0; SET_ADMUX_ADCSRA(ch)
+    #define HAL_START_ADC(ch) if (ch > 7) ADCSRB = _BV(MUX5); else ADCSRB = 0; SET_ADMUX_ADCSRA(ch)
 #else
-  #define HAL_START_ADC(ch) ADCSRB = 0; SET_ADMUX_ADCSRA(ch)
+    #define HAL_START_ADC(ch) ADCSRB = 0; SET_ADMUX_ADCSRA(ch)
 #endif
 
 #define HAL_ADC_VREF        5.0
@@ -202,7 +202,7 @@ inline void HAL_adc_init() {
 #define HAL_SENSITIVE_PINS 0, 1
 
 #ifdef __AVR_AT90USB1286__
-  #define JTAG_DISABLE() do{ MCUCR = 0x80; MCUCR = 0x80; }while(0)
+    #define JTAG_DISABLE() do{ MCUCR = 0x80; MCUCR = 0x80; }while(0)
 #endif
 
 // AVR compatibility

@@ -26,9 +26,9 @@
  */
 
 #if NOT_TARGET(STM32F1, STM32F1xx)
-  #error "Oops! Select an STM32F1 board in 'Tools > Board.'"
+    #error "Oops! Select an STM32F1 board in 'Tools > Board.'"
 #elif HOTENDS > 2 || E_STEPPERS > 2
-  #error "MKS Robin supports up to 2 hotends / E-steppers. Comment out this line to continue."
+    #error "MKS Robin supports up to 2 hotends / E-steppers. Comment out this line to continue."
 #endif
 
 #define BOARD_INFO_NAME "Mingda MPX_ARM_MINI"
@@ -52,10 +52,10 @@
 */
 
 #if EITHER(NO_EEPROM_SELECTED, FLASH_EEPROM_EMULATION)
-  #define FLASH_EEPROM_EMULATION
-  #define EEPROM_PAGE_SIZE                0x800U  // 2KB
-  #define EEPROM_START_ADDRESS  (0x8000000UL + (STM32_FLASH_SIZE) * 1024UL - (EEPROM_PAGE_SIZE) * 2UL)
-  #define MARLIN_EEPROM_SIZE    EEPROM_PAGE_SIZE  // 2KB
+    #define FLASH_EEPROM_EMULATION
+    #define EEPROM_PAGE_SIZE                0x800U  // 2KB
+    #define EEPROM_START_ADDRESS  (0x8000000UL + (STM32_FLASH_SIZE) * 1024UL - (EEPROM_PAGE_SIZE) * 2UL)
+    #define MARLIN_EEPROM_SIZE    EEPROM_PAGE_SIZE  // 2KB
 #endif
 
 #define SPI_DEVICE                             2
@@ -71,7 +71,7 @@
 #define Z_MAX_PIN                           PG13
 
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN                    PG11
+    #define FIL_RUNOUT_PIN                    PG11
 #endif
 
 //
@@ -117,7 +117,7 @@
 // SD Card
 //
 #ifndef SDCARD_CONNECTION
-  #define SDCARD_CONNECTION              ONBOARD
+    #define SDCARD_CONNECTION              ONBOARD
 #endif
 
 #define SDIO_SUPPORT
@@ -139,38 +139,38 @@
  * to let the bootloader init the screen.
  */
 #if HAS_FSMC_TFT
-  /**
-   * Note: MKS Robin TFT screens use various TFT controllers
-   * Supported screens are based on the ILI9341, ST7789V and ILI9328 (320x240)
-   * ILI9488 is not supported
-   * Define init sequences for other screens in u8g_dev_tft_320x240_upscale_from_128x64.cpp
-   *
-   * If the screen stays white, disable 'TFT_RESET_PIN'
-   * to let the bootloader init the screen.
-   *
-   * Setting an 'TFT_RESET_PIN' may cause a flicker when entering the LCD menu
-   * because Marlin uses the reset as a failsafe to revive a glitchy LCD.
-   */
-  #define TFT_CS_PIN                        PD7   // NE4
-  #define TFT_RS_PIN                        PG0   // A0
-
-  #define FSMC_CS_PIN                 TFT_CS_PIN
-  #define FSMC_RS_PIN                 TFT_RS_PIN
-
-  #define LCD_USE_DMA_FSMC                        // Use DMA transfers to send data to the TFT
-  #define FSMC_DMA_DEV                      DMA2
-  #define FSMC_DMA_CHANNEL               DMA_CH5
-
-  #define TFT_RESET_PIN                     PF15
-  #define TFT_BACKLIGHT_PIN                 PF11
-
-  #define TOUCH_BUTTONS_HW_SPI
-  #define TOUCH_BUTTONS_HW_SPI_DEVICE          1
+    /**
+     * Note: MKS Robin TFT screens use various TFT controllers
+     * Supported screens are based on the ILI9341, ST7789V and ILI9328 (320x240)
+     * ILI9488 is not supported
+     * Define init sequences for other screens in u8g_dev_tft_320x240_upscale_from_128x64.cpp
+     *
+     * If the screen stays white, disable 'TFT_RESET_PIN'
+     * to let the bootloader init the screen.
+     *
+     * Setting an 'TFT_RESET_PIN' may cause a flicker when entering the LCD menu
+     * because Marlin uses the reset as a failsafe to revive a glitchy LCD.
+     */
+    #define TFT_CS_PIN                        PD7   // NE4
+    #define TFT_RS_PIN                        PG0   // A0
+  
+    #define FSMC_CS_PIN                 TFT_CS_PIN
+    #define FSMC_RS_PIN                 TFT_RS_PIN
+  
+    #define LCD_USE_DMA_FSMC                        // Use DMA transfers to send data to the TFT
+    #define FSMC_DMA_DEV                      DMA2
+    #define FSMC_DMA_CHANNEL               DMA_CH5
+  
+    #define TFT_RESET_PIN                     PF15
+    #define TFT_BACKLIGHT_PIN                 PF11
+  
+    #define TOUCH_BUTTONS_HW_SPI
+    #define TOUCH_BUTTONS_HW_SPI_DEVICE          1
 #endif
 
 #if NEED_TOUCH_PINS
-  #define TOUCH_CS_PIN                      PA4   // SPI2_NSS
-  #define TOUCH_SCK_PIN                     PA5   // SPI2_SCK
-  #define TOUCH_MISO_PIN                    PA6   // SPI2_MISO
-  #define TOUCH_MOSI_PIN                    PA7   // SPI2_MOSI
+    #define TOUCH_CS_PIN                      PA4   // SPI2_NSS
+    #define TOUCH_SCK_PIN                     PA5   // SPI2_SCK
+    #define TOUCH_MISO_PIN                    PA6   // SPI2_MISO
+    #define TOUCH_MOSI_PIN                    PA7   // SPI2_MOSI
 #endif

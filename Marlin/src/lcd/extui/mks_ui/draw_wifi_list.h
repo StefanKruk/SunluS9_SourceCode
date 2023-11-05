@@ -22,7 +22,7 @@
 #pragma once
 
 #ifdef __cplusplus
-  extern "C" { /* C-declarations for C++ */
+    extern "C" { /* C-declarations for C++ */
 #endif
 
 void lv_draw_wifi_list();
@@ -72,5 +72,5 @@ typedef struct tips_menu_disp {
 extern tips_menu_def tips_menu;
 
 #ifdef __cplusplus
-  } /* C-declarations for C++ */
+    } /* C-declarations for C++ */
 #endif

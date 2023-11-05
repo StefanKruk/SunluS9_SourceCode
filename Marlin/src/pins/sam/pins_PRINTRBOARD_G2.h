@@ -28,7 +28,7 @@
 #include "env_validate.h"
 
 #ifndef BOARD_INFO_NAME
-  #define BOARD_INFO_NAME "Printrboard G2"
+    #define BOARD_INFO_NAME "Printrboard G2"
 #endif
 
 //
@@ -48,14 +48,14 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     22
+    #define Z_MIN_PROBE_PIN                     22
 #endif
 
 #ifndef FIL_RUNOUT_PIN
-  //#define FIL_RUNOUT_PIN                    57  // PA22
+    //#define FIL_RUNOUT_PIN                    57  // PA22
 #endif
 #ifndef FIL_RUNOUT2_PIN
-  //#define FIL_RUNOUT2_PIN                   21  // PB13
+    //#define FIL_RUNOUT2_PIN                   21  // PB13
 #endif
 
 //
@@ -139,7 +139,7 @@
 #define HEATER_BED_PIN                        41  // PB24
 
 #ifndef FAN_PIN
-  #define FAN_PIN                             13  //  PB27 Fan1A
+    #define FAN_PIN                             13  //  PB27 Fan1A
 #endif
 #define FAN1_PIN                              58  //  PA6  Fan1B
 

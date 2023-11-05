@@ -42,7 +42,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     19
+    #define Z_MIN_PROBE_PIN                     19
 #endif
 
 //
@@ -76,21 +76,21 @@
 // Temperature Sensors
 //
 #if TEMP_SENSOR_0 == -1
-  #define TEMP_0_PIN                           4  // Analog Input
+    #define TEMP_0_PIN                           4  // Analog Input
 #else
-  #define TEMP_0_PIN                          13  // Analog Input
+    #define TEMP_0_PIN                          13  // Analog Input
 #endif
 
 #if TEMP_SENSOR_1 == -1
-  #define TEMP_1_PIN                           8  // Analog Input
+    #define TEMP_1_PIN                           8  // Analog Input
 #else
-  #define TEMP_1_PIN                          15  // Analog Input
+    #define TEMP_1_PIN                          15  // Analog Input
 #endif
 
 #if TEMP_SENSOR_BED == -1
-  #define TEMP_BED_PIN                         8  // Analog Input
+    #define TEMP_BED_PIN                         8  // Analog Input
 #else
-  #define TEMP_BED_PIN                        14  // Analog Input
+    #define TEMP_BED_PIN                        14  // Analog Input
 #endif
 
 //
@@ -101,7 +101,7 @@
 #define HEATER_BED_PIN                        10
 
 #ifndef FAN_PIN
-  #define FAN_PIN                              7
+    #define FAN_PIN                              7
 #endif
 #define FAN1_PIN                               6
 
@@ -113,7 +113,7 @@
 #define PS_ON_PIN                             12
 
 #ifndef CASE_LIGHT_PIN
-  #define CASE_LIGHT_PIN                       2
+    #define CASE_LIGHT_PIN                       2
 #endif
 
 //
@@ -129,25 +129,25 @@
 #define BEEPER_PIN                            64
 
 #if HAS_WIRED_LCD
-
-  #define LCD_PINS_RS                         14
-  #define LCD_PINS_ENABLE                     15
-  #define LCD_PINS_D4                         30
-  #define LCD_PINS_D5                         31
-  #define LCD_PINS_D6                         32
-  #define LCD_PINS_D7                         33
-
-  #if IS_NEWPANEL
-    // Buttons are directly attached using keypad
-    #define BTN_EN1                           61
-    #define BTN_EN2                           59
-    #define BTN_ENC                           43
-  #else
-    // Buttons attached to shift register of reprapworld keypad v1.1
-    #define SHIFT_CLK_PIN                     63
-    #define SHIFT_LD_PIN                      42
-    #define SHIFT_OUT_PIN                     17
-    #define SHIFT_EN_PIN                      17
-  #endif
-
+  
+    #define LCD_PINS_RS                         14
+    #define LCD_PINS_ENABLE                     15
+    #define LCD_PINS_D4                         30
+    #define LCD_PINS_D5                         31
+    #define LCD_PINS_D6                         32
+    #define LCD_PINS_D7                         33
+  
+    #if IS_NEWPANEL
+        // Buttons are directly attached using keypad
+        #define BTN_EN1                           61
+        #define BTN_EN2                           59
+        #define BTN_ENC                           43
+    #else
+        // Buttons attached to shift register of reprapworld keypad v1.1
+        #define SHIFT_CLK_PIN                     63
+        #define SHIFT_LD_PIN                      42
+        #define SHIFT_OUT_PIN                     17
+        #define SHIFT_EN_PIN                      17
+    #endif
+  
 #endif // HAS_WIRED_LCD

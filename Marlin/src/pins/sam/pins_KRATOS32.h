@@ -33,8 +33,8 @@
 // EEPROM
 //
 #if EITHER(NO_EEPROM_SELECTED, I2C_EEPROM)
-  #define I2C_EEPROM
-  #define MARLIN_EEPROM_SIZE             0x1F400  //   16KB
+    #define I2C_EEPROM
+    #define MARLIN_EEPROM_SIZE             0x1F400  //   16KB
 #endif
 
 //
@@ -63,49 +63,49 @@
 #define X_DIR_PIN                             23
 #define X_ENABLE_PIN                          26
 #ifndef X_CS_PIN
-  #define X_CS_PIN                            25
+    #define X_CS_PIN                            25
 #endif
 
 #define Y_STEP_PIN                            17
 #define Y_DIR_PIN                             16
 #define Y_ENABLE_PIN                          22
 #ifndef Y_CS_PIN
-  #define Y_CS_PIN                            27
+    #define Y_CS_PIN                            27
 #endif
 
 #define Z_STEP_PIN                             2
 #define Z_DIR_PIN                              3
 #define Z_ENABLE_PIN                          15
 #ifndef Z_CS_PIN
-  #define Z_CS_PIN                            29
+    #define Z_CS_PIN                            29
 #endif
 
 #define E0_STEP_PIN                           61
 #define E0_DIR_PIN                            60
 #define E0_ENABLE_PIN                         62
 #ifndef E0_CS_PIN
-  #define E0_CS_PIN                           31
+    #define E0_CS_PIN                           31
 #endif
 
 #define E1_STEP_PIN                           64
 #define E1_DIR_PIN                            63
 #define E1_ENABLE_PIN                         65
 #ifndef E1_CS_PIN
-  #define E1_CS_PIN                           37
+    #define E1_CS_PIN                           37
 #endif
 
 #define E2_STEP_PIN                           68
 #define E2_DIR_PIN                            67
 #define E2_ENABLE_PIN                         69
 #ifndef E2_CS_PIN
-  #define E2_CS_PIN                           35
+    #define E2_CS_PIN                           35
 #endif
 
 #define E3_STEP_PIN                           51
 #define E3_DIR_PIN                            53
 #define E3_ENABLE_PIN                         49
 #ifndef E3_CS_PIN
-  #define E3_CS_PIN                           33
+    #define E3_CS_PIN                           33
 #endif
 
 //
@@ -127,7 +127,7 @@
 #define HEATER_BED_PIN                         7  // BED
 
 #ifndef FAN_PIN
-  #define FAN_PIN                              9
+    #define FAN_PIN                              9
 #endif
 #define FAN1_PIN                               8
 
@@ -135,45 +135,45 @@
 // Misc. Functions
 //
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN                      45  // SERVO4_PIN
+    #define FIL_RUNOUT_PIN                      45  // SERVO4_PIN
 #endif
 
 #ifndef PS_ON_PIN
-  #define PS_ON_PIN                           59
+    #define PS_ON_PIN                           59
 #endif
 
 //
 // LCD / Controller
 //
 #if HAS_WIRED_LCD
-
-  #define BTN_EN1                             48
-  #define BTN_EN2                             50
-  #define BTN_ENC                             46
-
-  #define SDSS                                 4
-  #define SD_DETECT_PIN                       14
-
-  #define BEEPER_PIN                          41
-  #define KILL_PIN                            66
-
-  #if IS_RRD_FG_SC
-
-    #define LCD_PINS_RS                       42
-    #define LCD_PINS_ENABLE                   43
-    #define LCD_PINS_D4                       44
-
-    #define BTN_BACK                          52
-
-  #elif ENABLED(K3D_242_OLED_CONTROLLER)
-
-    #define LCD_PINS_DC                       44
-    #define LCD_PINS_RS                       42
-    #define DOGLCD_CS                         52
-    #define DOGLCD_MOSI                       43
-    #define DOGLCD_SCK                        47
-    #define DOGLCD_A0                LCD_PINS_DC
-
-  #endif
-
+  
+    #define BTN_EN1                             48
+    #define BTN_EN2                             50
+    #define BTN_ENC                             46
+  
+    #define SDSS                                 4
+    #define SD_DETECT_PIN                       14
+  
+    #define BEEPER_PIN                          41
+    #define KILL_PIN                            66
+  
+    #if IS_RRD_FG_SC
+    
+        #define LCD_PINS_RS                       42
+        #define LCD_PINS_ENABLE                   43
+        #define LCD_PINS_D4                       44
+    
+        #define BTN_BACK                          52
+    
+    #elif ENABLED(K3D_242_OLED_CONTROLLER)
+    
+        #define LCD_PINS_DC                       44
+        #define LCD_PINS_RS                       42
+        #define DOGLCD_CS                         52
+        #define DOGLCD_MOSI                       43
+        #define DOGLCD_SCK                        47
+        #define DOGLCD_A0                LCD_PINS_DC
+    
+    #endif
+  
 #endif // HAS_WIRED_LCD

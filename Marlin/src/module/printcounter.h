@@ -39,13 +39,13 @@ struct printStatistics {    // 16 bytes
   uint32_t longestPrint;    // Longest successful print job
   float    filamentUsed;    // Accumulated filament consumed in mm
   #if SERVICE_INTERVAL_1 > 0
-    uint32_t nextService1;  // Service intervals (or placeholders)
+      uint32_t nextService1;  // Service intervals (or placeholders)
   #endif
   #if SERVICE_INTERVAL_2 > 0
-    uint32_t nextService2;
+      uint32_t nextService2;
   #endif
   #if SERVICE_INTERVAL_3 > 0
-    uint32_t nextService3;
+      uint32_t nextService3;
   #endif
 };
 
@@ -54,9 +54,9 @@ class PrintCounter: public Stopwatch {
     typedef Stopwatch super;
 
     #if EITHER(USE_WIRED_EEPROM, CPU_32_BIT)
-      typedef uint32_t eeprom_address_t;
+        typedef uint32_t eeprom_address_t;
     #else
-      typedef uint16_t eeprom_address_t;
+        typedef uint16_t eeprom_address_t;
     #endif
 
     static printStatistics data;
@@ -75,13 +75,13 @@ class PrintCounter: public Stopwatch {
     static constexpr millis_t updateInterval = SEC_TO_MS(10);
 
     #if PRINTCOUNTER_SAVE_INTERVAL > 0
-      /**
-       * @brief Interval in seconds between EEPROM saves
-       * @details This const value defines what will be the time between each
-       * EEPROM save cycle, the development team recommends to set this value
-       * no lower than 3600 secs (1 hour).
-       */
-      static constexpr millis_t saveInterval = MIN_TO_MS(PRINTCOUNTER_SAVE_INTERVAL);
+        /**
+         * @brief Interval in seconds between EEPROM saves
+         * @details This const value defines what will be the time between each
+         * EEPROM save cycle, the development team recommends to set this value
+         * no lower than 3600 secs (1 hour).
+         */
+        static constexpr millis_t saveInterval = MIN_TO_MS(PRINTCOUNTER_SAVE_INTERVAL);
     #endif
 
     /**
@@ -182,24 +182,24 @@ class PrintCounter: public Stopwatch {
     static void reset();
 
     #if HAS_SERVICE_INTERVALS
-      static void resetServiceInterval(const int index);
-      static bool needsService(const int index);
+        static void resetServiceInterval(const int index);
+        static bool needsService(const int index);
     #endif
 
     #if ENABLED(DEBUG_PRINTCOUNTER)
-
-      /**
-       * @brief Print a debug message
-       * @details Print a simple debug message
-       */
-      static void debug(const char func[]);
-
+  
+        /**
+         * @brief Print a debug message
+         * @details Print a simple debug message
+         */
+        static void debug(const char func[]);
+  
     #endif
 };
 
 // Global Print Job Timer instance
 #if ENABLED(PRINTCOUNTER)
-  extern PrintCounter print_job_timer;
+    extern PrintCounter print_job_timer;
 #else
-  extern Stopwatch print_job_timer;
+    extern Stopwatch print_job_timer;
 #endif

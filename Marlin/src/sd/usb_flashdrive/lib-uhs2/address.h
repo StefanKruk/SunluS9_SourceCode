@@ -25,7 +25,7 @@
 #pragma once
 
 #ifndef _usb_h_
-  #error "Never include address.h directly; include Usb.h instead"
+    #error "Never include address.h directly; include Usb.h instead"
 #endif
 
 /* NAK powers. To save space in endpoint data structure, amount of retries before giving up and returning 0x4 is stored in */

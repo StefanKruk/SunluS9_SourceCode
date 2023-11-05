@@ -29,13 +29,13 @@ typedef enum {
 
 
 #if _DISKIO_ISDIO
-/* Command structure for iSDIO ioctl command */
-typedef struct {
- BYTE    func;   /* Function number: 0..7 */
- WORD    ndata;  /* Number of bytes to transfer: 1..512, or mask + data */
- DWORD   addr;   /* Register address: 0..0x1FFFF */
- void*   data;   /* Pointer to the data (to be written | read buffer) */
-} SDIO_CMD;
+  /* Command structure for iSDIO ioctl command */
+  typedef struct {
+   BYTE    func;   /* Function number: 0..7 */
+   WORD    ndata;  /* Number of bytes to transfer: 1..512, or mask + data */
+   DWORD   addr;   /* Register address: 0..0x1FFFF */
+   void*   data;   /* Pointer to the data (to be written | read buffer) */
+  } SDIO_CMD;
 #endif
 
 /*---------------------------------------*/
@@ -45,10 +45,10 @@ DSTATUS disk_initialize(BYTE pdrv);
 DSTATUS disk_status(BYTE pdrv);
 DRESULT disk_read(BYTE pdrv, BYTE* buff, DWORD sector, UINT count);
 #if _DISKIO_WRITE
-  DRESULT disk_write(BYTE pdrv, const BYTE* buff, DWORD sector, UINT count);
+    DRESULT disk_write(BYTE pdrv, const BYTE* buff, DWORD sector, UINT count);
 #endif
 #if _DISKIO_IOCTL
-  DRESULT disk_ioctl(BYTE pdrv, BYTE cmd, void *buff);
+    DRESULT disk_ioctl(BYTE pdrv, BYTE cmd, void *buff);
 #endif
 
 /* Disk Status Bits (DSTATUS) */

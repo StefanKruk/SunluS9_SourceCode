@@ -78,7 +78,7 @@
 #define TEMP_BED_PIN                          14  // Analog Input
 
 #ifndef TEMP_CHAMBER_PIN
-  //#define TEMP_CHAMBER_PIN                  13  // Analog Input
+    //#define TEMP_CHAMBER_PIN                  13  // Analog Input
 #endif
 
 //
@@ -91,7 +91,7 @@
 #define HEATER_BED_PIN                        24
 
 #ifndef FAN_PIN
-  #define FAN_PIN                              5  // 5 is PWMtool3 -> 7 is common PWM pin for all tools
+    #define FAN_PIN                              5  // 5 is PWMtool3 -> 7 is common PWM pin for all tools
 #endif
 
 //
@@ -99,16 +99,16 @@
 //
 #define AUTO_FAN_PIN                           7
 #ifndef E0_AUTO_FAN_PIN
-  #define E0_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E0_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 #ifndef E1_AUTO_FAN_PIN
-  #define E1_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E1_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 #ifndef E2_AUTO_FAN_PIN
-  #define E2_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E2_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 #ifndef E3_AUTO_FAN_PIN
-  #define E3_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E3_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 
 //
@@ -131,7 +131,7 @@
 // Common I/O
 
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN                      18
+    #define FIL_RUNOUT_PIN                      18
 #endif
 //#define PWM_1_PIN                           12
 //#define PWM_2_PIN                           13

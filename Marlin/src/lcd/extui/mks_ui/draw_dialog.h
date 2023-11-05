@@ -22,7 +22,7 @@
 #pragma once
 
 #ifdef __cplusplus
-  extern "C" { /* C-declarations for C++ */
+    extern "C" { /* C-declarations for C++ */
 #endif
 
 enum {
@@ -81,5 +81,5 @@ void filament_dialog_handle();
 void lv_filament_setbar();
 
 #ifdef __cplusplus
-  } /* C-declarations for C++ */
+    } /* C-declarations for C++ */
 #endif

@@ -30,9 +30,9 @@
 #include "env_validate.h"
 
 #if EXTRUDERS > 1 || E_STEPPERS > 1
-  #error "FYSETC E4 only supports one E Stepper. Comment out this line to continue."
+    #error "FYSETC E4 only supports one E Stepper. Comment out this line to continue."
 #elif HOTENDS > 1
-  #error "FYSETC E4 only supports one hotend / E-stepper. Comment out this line to continue."
+    #error "FYSETC E4 only supports one hotend / E-stepper. Comment out this line to continue."
 #endif
 
 #define BOARD_INFO_NAME       "FYSETC_E4"
@@ -73,19 +73,19 @@
 #define E0_ENABLE_PIN               X_ENABLE_PIN
 
 #if HAS_TMC_UART
-  //
-  // TMC2209 stepper drivers
-  //
-
-  //
-  // Hardware serial 1
-  //
-  #define X_HARDWARE_SERIAL              Serial1
-  #define Y_HARDWARE_SERIAL              Serial1
-  #define Z_HARDWARE_SERIAL              Serial1
-  #define E0_HARDWARE_SERIAL             Serial1
-
-  #define TMC_BAUD_RATE 115200
+    //
+    // TMC2209 stepper drivers
+    //
+  
+    //
+    // Hardware serial 1
+    //
+    #define X_HARDWARE_SERIAL              Serial1
+    #define Y_HARDWARE_SERIAL              Serial1
+    #define Z_HARDWARE_SERIAL              Serial1
+    #define E0_HARDWARE_SERIAL             Serial1
+  
+    #define TMC_BAUD_RATE 115200
 #endif
 
 //
@@ -119,8 +119,8 @@
  *       but MRR ESPA does not have enough spare pins for such reassignment.
  */
 #ifndef HARDWARE_SERIAL1_RX
-  #define HARDWARE_SERIAL1_RX                 21
+    #define HARDWARE_SERIAL1_RX                 21
 #endif
 #ifndef HARDWARE_SERIAL1_TX
-  #define HARDWARE_SERIAL1_TX                 22
+    #define HARDWARE_SERIAL1_TX                 22
 #endif

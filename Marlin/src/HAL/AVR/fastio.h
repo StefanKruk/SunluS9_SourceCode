@@ -30,32 +30,32 @@
 #include <avr/io.h>
 
 #if defined(__AVR_AT90USB1287__) || defined(__AVR_AT90USB1286__) || defined(__AVR_AT90USB1286P__) || defined(__AVR_AT90USB646__) || defined(__AVR_AT90USB646P__) || defined(__AVR_AT90USB647__)
-  #define AVR_AT90USB1286_FAMILY 1
+    #define AVR_AT90USB1286_FAMILY 1
 #elif defined(__AVR_ATmega644__) || defined(__AVR_ATmega644P__) || defined(__AVR_ATmega644PA__) || defined(__AVR_ATmega1284P__)
-  #define AVR_ATmega1284_FAMILY 1
+    #define AVR_ATmega1284_FAMILY 1
 #elif defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
-  #define AVR_ATmega2560_FAMILY 1
+    #define AVR_ATmega2560_FAMILY 1
 #elif defined(__AVR_ATmega1281__) || defined(__AVR_ATmega2561__)
-  #define AVR_ATmega2561_FAMILY 1
+    #define AVR_ATmega2561_FAMILY 1
 #elif defined(__AVR_ATmega168__) || defined(__AVR_ATmega328__) || defined(__AVR_ATmega328P__)
-  #define AVR_ATmega328_FAMILY 1
+    #define AVR_ATmega328_FAMILY 1
 #endif
 
 /**
  * Include Ports and Functions
  */
 #if AVR_ATmega328_FAMILY
-  #include "fastio/fastio_168.h"
+    #include "fastio/fastio_168.h"
 #elif AVR_ATmega1284_FAMILY
-  #include "fastio/fastio_644.h"
+    #include "fastio/fastio_644.h"
 #elif AVR_ATmega2560_FAMILY
-  #include "fastio/fastio_1280.h"
+    #include "fastio/fastio_1280.h"
 #elif AVR_AT90USB1286_FAMILY
-  #include "fastio/fastio_AT90USB.h"
+    #include "fastio/fastio_AT90USB.h"
 #elif AVR_ATmega2561_FAMILY
-  #include "fastio/fastio_1281.h"
+    #include "fastio/fastio_1281.h"
 #else
-  #error "No FastIO definition for the selected AVR Board."
+    #error "No FastIO definition for the selected AVR Board."
 #endif
 
 /**
@@ -91,11 +91,11 @@
 
 // digitalRead/Write wrappers
 #ifdef FASTIO_EXT_START
-  void extDigitalWrite(const int8_t pin, const uint8_t state);
-  uint8_t extDigitalRead(const int8_t pin);
+    void extDigitalWrite(const int8_t pin, const uint8_t state);
+    uint8_t extDigitalRead(const int8_t pin);
 #else
-  #define extDigitalWrite(IO,V) digitalWrite(IO,V)
-  #define extDigitalRead(IO)    digitalRead(IO)
+    #define extDigitalWrite(IO,V) digitalWrite(IO,V)
+    #define extDigitalRead(IO)    digitalRead(IO)
 #endif
 
 #define READ(IO)              _READ(IO)
@@ -215,9 +215,9 @@ enum ClockSource2 : char {
 #define _SET_CS0(V) _SET_CS(0,V)
 #define _SET_CS1(V) _SET_CS(1,V)
 #ifdef TCCR2
-  #define _SET_CS2(V) (TCCR2 = (TCCR2 & ~(0x7 << CS20)) | (int(V) << CS20))
+    #define _SET_CS2(V) (TCCR2 = (TCCR2 & ~(0x7 << CS20)) | (int(V) << CS20))
 #else
-  #define _SET_CS2(V) _SET_CS(2,V)
+    #define _SET_CS2(V) _SET_CS(2,V)
 #endif
 #define _SET_CS3(V) _SET_CS(3,V)
 #define _SET_CS4(V) _SET_CS(4,V)
@@ -225,9 +225,9 @@ enum ClockSource2 : char {
 #define SET_CS0(V) _SET_CS0(CS_##V)
 #define SET_CS1(V) _SET_CS1(CS_##V)
 #ifdef TCCR2
-  #define SET_CS2(V) _SET_CS2(CS2_##V)
+    #define SET_CS2(V) _SET_CS2(CS2_##V)
 #else
-  #define SET_CS2(V) _SET_CS2(CS_##V)
+    #define SET_CS2(V) _SET_CS2(CS_##V)
 #endif
 #define SET_CS3(V) _SET_CS3(CS_##V)
 #define SET_CS4(V) _SET_CS4(CS_##V)
@@ -279,95 +279,95 @@ enum ClockSource2 : char {
 #define SET_FOCC(T,V) SET_FOC(T,C,V)
 
 #if 0
-
-/**
- * PWM availability macros
- */
-
-// Determine which harware PWMs are already in use
-#define _PWM_CHK_FAN_B(P) (P == E0_AUTO_FAN_PIN || P == E1_AUTO_FAN_PIN || P == E2_AUTO_FAN_PIN || P == E3_AUTO_FAN_PIN || P == E4_AUTO_FAN_PIN || P == E5_AUTO_FAN_PIN || P == E6_AUTO_FAN_PIN || P == E7_AUTO_FAN_PIN || P == CHAMBER_AUTO_FAN_PIN || P == COOLER_AUTO_FAN_PIN)
-#if PIN_EXISTS(CONTROLLER_FAN)
-  #define PWM_CHK_FAN_B(P) (_PWM_CHK_FAN_B(P) || P == CONTROLLER_FAN_PIN)
-#else
-  #define PWM_CHK_FAN_B(P) _PWM_CHK_FAN_B(P)
-#endif
-
-#if ANY_PIN(FAN, FAN1, FAN2, FAN3, FAN4, FAN5, FAN6, FAN7)
-  #if PIN_EXISTS(FAN7)
-    #define PWM_CHK_FAN_A(P) (P == FAN0_PIN || P == FAN1_PIN || P == FAN2_PIN || P == FAN3_PIN || P == FAN4_PIN || P == FAN5_PIN || P == FAN6_PIN || P == FAN7_PIN)
-  #elif PIN_EXISTS(FAN6)
-    #define PWM_CHK_FAN_A(P) (P == FAN0_PIN || P == FAN1_PIN || P == FAN2_PIN || P == FAN3_PIN || P == FAN4_PIN || P == FAN5_PIN || P == FAN6_PIN)
-  #elif PIN_EXISTS(FAN5)
-    #define PWM_CHK_FAN_A(P) (P == FAN0_PIN || P == FAN1_PIN || P == FAN2_PIN || P == FAN3_PIN || P == FAN4_PIN || P == FAN5_PIN)
-  #elif PIN_EXISTS(FAN4)
-    #define PWM_CHK_FAN_A(P) (P == FAN0_PIN || P == FAN1_PIN || P == FAN2_PIN || P == FAN3_PIN || P == FAN4_PIN)
-  #elif PIN_EXISTS(FAN3)
-    #define PWM_CHK_FAN_A(P) (P == FAN0_PIN || P == FAN1_PIN || P == FAN2_PIN || P == FAN3_PIN)
-  #elif PIN_EXISTS(FAN2)
-    #define PWM_CHK_FAN_A(P) (P == FAN0_PIN || P == FAN1_PIN || P == FAN2_PIN)
-  #elif PIN_EXISTS(FAN1)
-    #define PWM_CHK_FAN_A(P) (P == FAN0_PIN || P == FAN1_PIN)
+  
+  /**
+   * PWM availability macros
+   */
+  
+  // Determine which harware PWMs are already in use
+  #define _PWM_CHK_FAN_B(P) (P == E0_AUTO_FAN_PIN || P == E1_AUTO_FAN_PIN || P == E2_AUTO_FAN_PIN || P == E3_AUTO_FAN_PIN || P == E4_AUTO_FAN_PIN || P == E5_AUTO_FAN_PIN || P == E6_AUTO_FAN_PIN || P == E7_AUTO_FAN_PIN || P == CHAMBER_AUTO_FAN_PIN || P == COOLER_AUTO_FAN_PIN)
+  #if PIN_EXISTS(CONTROLLER_FAN)
+      #define PWM_CHK_FAN_B(P) (_PWM_CHK_FAN_B(P) || P == CONTROLLER_FAN_PIN)
   #else
-    #define PWM_CHK_FAN_A(P) (P == FAN0_PIN)
+      #define PWM_CHK_FAN_B(P) _PWM_CHK_FAN_B(P)
   #endif
-#else
-  #define PWM_CHK_FAN_A(P) false
-#endif
-
-#if HAS_MOTOR_CURRENT_PWM
-  #if PIN_EXISTS(MOTOR_CURRENT_PWM_XY)
-    #define PWM_CHK_MOTOR_CURRENT(P) (P == MOTOR_CURRENT_PWM_E || P == MOTOR_CURRENT_PWM_Z || P == MOTOR_CURRENT_PWM_XY)
-  #elif PIN_EXISTS(MOTOR_CURRENT_PWM_Z)
-    #define PWM_CHK_MOTOR_CURRENT(P) (P == MOTOR_CURRENT_PWM_E || P == MOTOR_CURRENT_PWM_Z)
+  
+  #if ANY_PIN(FAN, FAN1, FAN2, FAN3, FAN4, FAN5, FAN6, FAN7)
+      #if PIN_EXISTS(FAN7)
+          #define PWM_CHK_FAN_A(P) (P == FAN0_PIN || P == FAN1_PIN || P == FAN2_PIN || P == FAN3_PIN || P == FAN4_PIN || P == FAN5_PIN || P == FAN6_PIN || P == FAN7_PIN)
+      #elif PIN_EXISTS(FAN6)
+          #define PWM_CHK_FAN_A(P) (P == FAN0_PIN || P == FAN1_PIN || P == FAN2_PIN || P == FAN3_PIN || P == FAN4_PIN || P == FAN5_PIN || P == FAN6_PIN)
+      #elif PIN_EXISTS(FAN5)
+          #define PWM_CHK_FAN_A(P) (P == FAN0_PIN || P == FAN1_PIN || P == FAN2_PIN || P == FAN3_PIN || P == FAN4_PIN || P == FAN5_PIN)
+      #elif PIN_EXISTS(FAN4)
+          #define PWM_CHK_FAN_A(P) (P == FAN0_PIN || P == FAN1_PIN || P == FAN2_PIN || P == FAN3_PIN || P == FAN4_PIN)
+      #elif PIN_EXISTS(FAN3)
+          #define PWM_CHK_FAN_A(P) (P == FAN0_PIN || P == FAN1_PIN || P == FAN2_PIN || P == FAN3_PIN)
+      #elif PIN_EXISTS(FAN2)
+          #define PWM_CHK_FAN_A(P) (P == FAN0_PIN || P == FAN1_PIN || P == FAN2_PIN)
+      #elif PIN_EXISTS(FAN1)
+          #define PWM_CHK_FAN_A(P) (P == FAN0_PIN || P == FAN1_PIN)
+      #else
+          #define PWM_CHK_FAN_A(P) (P == FAN0_PIN)
+      #endif
   #else
-    #define PWM_CHK_MOTOR_CURRENT(P) (P == MOTOR_CURRENT_PWM_E)
+      #define PWM_CHK_FAN_A(P) false
   #endif
-#else
-  #define PWM_CHK_MOTOR_CURRENT(P) false
-#endif
-
-#ifdef NUM_SERVOS
-  #if AVR_ATmega2560_FAMILY
-    #define PWM_CHK_SERVO(P) (P == 5 || (NUM_SERVOS > 12 && P == 6) || (NUM_SERVOS > 24 && P == 46))  // PWMS 3A, 4A & 5A
-  #elif AVR_ATmega2561_FAMILY
-    #define PWM_CHK_SERVO(P)   (P == 5)  // PWM3A
-  #elif AVR_ATmega1284_FAMILY
-    #define PWM_CHK_SERVO(P)   false
-  #elif AVR_AT90USB1286_FAMILY
-    #define PWM_CHK_SERVO(P)   (P == 16) // PWM3A
-  #elif AVR_ATmega328_FAMILY
-    #define PWM_CHK_SERVO(P)   false
+  
+  #if HAS_MOTOR_CURRENT_PWM
+      #if PIN_EXISTS(MOTOR_CURRENT_PWM_XY)
+          #define PWM_CHK_MOTOR_CURRENT(P) (P == MOTOR_CURRENT_PWM_E || P == MOTOR_CURRENT_PWM_Z || P == MOTOR_CURRENT_PWM_XY)
+      #elif PIN_EXISTS(MOTOR_CURRENT_PWM_Z)
+          #define PWM_CHK_MOTOR_CURRENT(P) (P == MOTOR_CURRENT_PWM_E || P == MOTOR_CURRENT_PWM_Z)
+      #else
+          #define PWM_CHK_MOTOR_CURRENT(P) (P == MOTOR_CURRENT_PWM_E)
+      #endif
+  #else
+      #define PWM_CHK_MOTOR_CURRENT(P) false
   #endif
-#else
-  #define PWM_CHK_SERVO(P) false
-#endif
-
-#if ENABLED(BARICUDA)
-  #if HAS_HEATER_1 && HAS_HEATER_2
-    #define PWM_CHK_HEATER(P) (P == HEATER_1_PIN || P == HEATER_2_PIN)
-  #elif HAS_HEATER_1
-    #define PWM_CHK_HEATER(P) (P == HEATER_1_PIN)
+  
+  #ifdef NUM_SERVOS
+      #if AVR_ATmega2560_FAMILY
+          #define PWM_CHK_SERVO(P) (P == 5 || (NUM_SERVOS > 12 && P == 6) || (NUM_SERVOS > 24 && P == 46))  // PWMS 3A, 4A & 5A
+      #elif AVR_ATmega2561_FAMILY
+          #define PWM_CHK_SERVO(P)   (P == 5)  // PWM3A
+      #elif AVR_ATmega1284_FAMILY
+          #define PWM_CHK_SERVO(P)   false
+      #elif AVR_AT90USB1286_FAMILY
+          #define PWM_CHK_SERVO(P)   (P == 16) // PWM3A
+      #elif AVR_ATmega328_FAMILY
+          #define PWM_CHK_SERVO(P)   false
+      #endif
+  #else
+      #define PWM_CHK_SERVO(P) false
   #endif
-#else
-    #define PWM_CHK_HEATER(P) false
-#endif
-
-#define PWM_CHK(P) (PWM_CHK_HEATER(P) || PWM_CHK_SERVO(P) || PWM_CHK_MOTOR_CURRENT(P) || PWM_CHK_FAN_A(P) || PWM_CHK_FAN_B(P))
-
+  
+  #if ENABLED(BARICUDA)
+      #if HAS_HEATER_1 && HAS_HEATER_2
+          #define PWM_CHK_HEATER(P) (P == HEATER_1_PIN || P == HEATER_2_PIN)
+      #elif HAS_HEATER_1
+          #define PWM_CHK_HEATER(P) (P == HEATER_1_PIN)
+      #endif
+  #else
+        #define PWM_CHK_HEATER(P) false
+  #endif
+  
+  #define PWM_CHK(P) (PWM_CHK_HEATER(P) || PWM_CHK_SERVO(P) || PWM_CHK_MOTOR_CURRENT(P) || PWM_CHK_FAN_A(P) || PWM_CHK_FAN_B(P))
+  
 #endif // PWM_CHK is not used in Marlin
 
 // define which hardware PWMs are available for the current CPU
 // all timer 1 PWMS deleted from this list because they are never available
 #if AVR_ATmega2560_FAMILY
-  #define PWM_PIN(P)  ((P >= 2 && P <= 10) || P == 13 || P == 44 || P == 45 || P == 46)
+    #define PWM_PIN(P)  ((P >= 2 && P <= 10) || P == 13 || P == 44 || P == 45 || P == 46)
 #elif AVR_ATmega2561_FAMILY
-  #define PWM_PIN(P)  ((P >= 2 && P <= 6) || P == 9)
+    #define PWM_PIN(P)  ((P >= 2 && P <= 6) || P == 9)
 #elif AVR_ATmega1284_FAMILY
-  #define PWM_PIN(P)  (P == 3 || P == 4 || P == 14 || P == 15)
+    #define PWM_PIN(P)  (P == 3 || P == 4 || P == 14 || P == 15)
 #elif AVR_AT90USB1286_FAMILY
-  #define PWM_PIN(P)  (P == 0 || P == 1 || P == 14 || P == 15 || P == 16 || P == 24)
+    #define PWM_PIN(P)  (P == 0 || P == 1 || P == 14 || P == 15 || P == 16 || P == 24)
 #elif AVR_ATmega328_FAMILY
-  #define PWM_PIN(P)  (P == 3 || P == 5 || P == 6 || P == 11)
+    #define PWM_PIN(P)  (P == 3 || P == 5 || P == 6 || P == 11)
 #else
-  #error "unknown CPU"
+    #error "unknown CPU"
 #endif

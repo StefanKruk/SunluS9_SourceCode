@@ -22,7 +22,7 @@
 #include "env_validate.h"
 
 #if HOTENDS > 2 || E_STEPPERS > 2
-  #error "LERDGE S supports up to 2 hotends / E-steppers."
+    #error "LERDGE S supports up to 2 hotends / E-steppers."
 #endif
 
 #define BOARD_INFO_NAME      "Lerdge S"
@@ -62,7 +62,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                   PG8
+    #define Z_MIN_PROBE_PIN                   PG8
 #endif
 
 //
@@ -127,7 +127,7 @@
 #define FAN2_PIN                            PF5   // heater 0 fan 2 and heater 1 fan 1 (two sockets, switched together)
 
 #ifndef E0_AUTO_FAN_PIN
-  #define E0_AUTO_FAN_PIN                   PF5
+    #define E0_AUTO_FAN_PIN                   PF5
 #endif
 
 //
@@ -177,16 +177,16 @@
 //#define SPI_EEPROM
 
 #if ENABLED(SPI_EEPROM)
-  // Lerdge has an SPI EEPROM Winbond W25Q128 (128Mbits) https://www.pjrc.com/teensy/W25Q128FV.pdf
-  #define SPI_CHAN_EEPROM1                     1
-  #define SPI_EEPROM1_CS                    PB12  // datasheet: /CS pin, found with multimeter, not tested
-  #define EEPROM_SCK                        PB13  // datasheet: CLK pin, found with multimeter, not tested
-  #define EEPROM_MISO                       PB14  // datasheet: DO pin, found with multimeter, not tested
-  #define EEPROM_MOSI                       PB15  // datasheet: DI pin, found with multimeter, not tested
-  #define EEPROM_PAGE_SIZE               0x1000U  // 4KB (from datasheet)
-  #define MARLIN_EEPROM_SIZE 16UL * (EEPROM_PAGE_SIZE)   // Limit to 64KB for now...
+    // Lerdge has an SPI EEPROM Winbond W25Q128 (128Mbits) https://www.pjrc.com/teensy/W25Q128FV.pdf
+    #define SPI_CHAN_EEPROM1                     1
+    #define SPI_EEPROM1_CS                    PB12  // datasheet: /CS pin, found with multimeter, not tested
+    #define EEPROM_SCK                        PB13  // datasheet: CLK pin, found with multimeter, not tested
+    #define EEPROM_MISO                       PB14  // datasheet: DO pin, found with multimeter, not tested
+    #define EEPROM_MOSI                       PB15  // datasheet: DI pin, found with multimeter, not tested
+    #define EEPROM_PAGE_SIZE               0x1000U  // 4KB (from datasheet)
+    #define MARLIN_EEPROM_SIZE 16UL * (EEPROM_PAGE_SIZE)   // Limit to 64KB for now...
 #else
-  #define MARLIN_EEPROM_SIZE              0x800U  // On SD, Limit to 2KB, require this amount of RAM
+    #define MARLIN_EEPROM_SIZE              0x800U  // On SD, Limit to 2KB, require this amount of RAM
 #endif
 
 //

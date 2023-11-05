@@ -41,25 +41,25 @@ struct MarlinSerialUSB {
   size_t write(const uint8_t c);
 
   #if ENABLED(SERIAL_STATS_DROPPED_RX)
-    FORCE_INLINE uint32_t dropped() { return 0; }
+      FORCE_INLINE uint32_t dropped() { return 0; }
   #endif
 
   #if ENABLED(SERIAL_STATS_MAX_RX_QUEUED)
-    FORCE_INLINE int rxMaxEnqueued() { return 0; }
+      FORCE_INLINE int rxMaxEnqueued() { return 0; }
   #endif
 };
 
 #if SERIAL_PORT == -1
-  typedef Serial1Class<MarlinSerialUSB> MSerialT1;
-  extern MSerialT1 customizedSerial1;
+    typedef Serial1Class<MarlinSerialUSB> MSerialT1;
+    extern MSerialT1 customizedSerial1;
 #endif
 
 #if SERIAL_PORT_2 == -1
-  typedef Serial1Class<MarlinSerialUSB> MSerialT2;
-  extern MSerialT2 customizedSerial2;
+    typedef Serial1Class<MarlinSerialUSB> MSerialT2;
+    extern MSerialT2 customizedSerial2;
 #endif
 
 #if SERIAL_PORT_3 == -1
-  typedef Serial1Class<MarlinSerialUSB> MSerialT3;
-  extern MSerialT3 customizedSerial3;
+    typedef Serial1Class<MarlinSerialUSB> MSerialT3;
+    extern MSerialT3 customizedSerial3;
 #endif

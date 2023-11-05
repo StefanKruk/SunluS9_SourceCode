@@ -42,7 +42,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     38
+    #define Z_MIN_PROBE_PIN                     38
 #endif
 
 //
@@ -93,17 +93,17 @@
 // LCD / Controller (Integrated MINIPANEL)
 //
 #if ENABLED(MINIPANEL)
-  #define DOGLCD_A0                           40
-  #define DOGLCD_CS                           41
-  #define LCD_BACKLIGHT_PIN                   65  // Backlight LED on A11/D65
-  #define LCD_RESET_PIN                       27
-
-  #define BTN_EN1                              2
-  #define BTN_EN2                              3
-  #define BTN_ENC                              5
-
-  // This display has adjustable contrast
-  #define LCD_CONTRAST_MIN                     0
-  #define LCD_CONTRAST_MAX                   255
-  #define LCD_CONTRAST_INIT     LCD_CONTRAST_MAX
+    #define DOGLCD_A0                           40
+    #define DOGLCD_CS                           41
+    #define LCD_BACKLIGHT_PIN                   65  // Backlight LED on A11/D65
+    #define LCD_RESET_PIN                       27
+  
+    #define BTN_EN1                              2
+    #define BTN_EN2                              3
+    #define BTN_ENC                              5
+  
+    // This display has adjustable contrast
+    #define LCD_CONTRAST_MIN                     0
+    #define LCD_CONTRAST_MAX                   255
+    #define LCD_CONTRAST_INIT     LCD_CONTRAST_MAX
 #endif

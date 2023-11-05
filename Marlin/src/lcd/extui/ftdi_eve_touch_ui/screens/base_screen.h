@@ -28,7 +28,7 @@
 class BaseScreen : public UIScreen {
   protected:
     #if LCD_TIMEOUT_TO_STATUS > 0
-      static uint32_t last_interaction;
+        static uint32_t last_interaction;
     #endif
 
     static bool buttonIsPressed(uint8_t tag);

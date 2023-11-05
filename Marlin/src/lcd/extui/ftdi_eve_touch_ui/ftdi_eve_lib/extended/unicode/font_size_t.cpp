@@ -22,26 +22,26 @@
 #include "../ftdi_extended.h"
 
 #if BOTH(FTDI_EXTENDED, TOUCH_UI_USE_UTF8)
-
-namespace FTDI {
-  // Returns the height of a standard FTDI romfont
-  uint8_t font_size_t::get_romfont_height(uint8_t font) {
-    static const uint8_t tbl[] PROGMEM = {
-      8, 8, 16, 16, 13, 17, 20, 22, 29, 38, 16, 20, 25, 28, 36, 49, 63, 83, 108
-    };
-	ScreenHandler.Address_Beyond_Fun(&tbl[font - 16],13);
-    return pgm_read_byte(&tbl[font - 16]);
+  
+  namespace FTDI {
+    // Returns the height of a standard FTDI romfont
+    uint8_t font_size_t::get_romfont_height(uint8_t font) {
+      static const uint8_t tbl[] PROGMEM = {
+        8, 8, 16, 16, 13, 17, 20, 22, 29, 38, 16, 20, 25, 28, 36, 49, 63, 83, 108
+      };
+  	ScreenHandler.Address_Beyond_Fun(&tbl[font - 16],13);
+      return pgm_read_byte(&tbl[font - 16]);
+    }
+  
+    // Sets the scaling coefficient to match a romfont size
+    font_size_t font_size_t::from_romfont(uint8_t font) {
+      return font_size_t(uint32_t(std_height) * 256 / get_romfont_height(font));
+    }
+  
+    // Returns the height of the font
+    uint8_t font_size_t::get_height() const {
+      return scale(std_height);
+    }
   }
-
-  // Sets the scaling coefficient to match a romfont size
-  font_size_t font_size_t::from_romfont(uint8_t font) {
-    return font_size_t(uint32_t(std_height) * 256 / get_romfont_height(font));
-  }
-
-  // Returns the height of the font
-  uint8_t font_size_t::get_height() const {
-    return scale(std_height);
-  }
-}
-
+  
 #endif // FTDI_EXTENDED && TOUCH_UI_USE_UTF8

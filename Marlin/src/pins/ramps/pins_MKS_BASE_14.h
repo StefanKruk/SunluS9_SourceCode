@@ -26,7 +26,7 @@
  */
 
 #if HOTENDS > 2 || E_STEPPERS > 2
-  #error "MKS BASE 1.4 only supports up to 2 hotends / E-steppers. Comment out this line to continue."
+    #error "MKS BASE 1.4 only supports up to 2 hotends / E-steppers. Comment out this line to continue."
 #endif
 
 #define BOARD_INFO_NAME "MKS BASE 1.4"
@@ -45,17 +45,17 @@
 #define FIL_RUNOUT_PIN                        19  // Z+ // PD2 ** Pin45 ** USART1_RX
 
 #ifndef RGB_LED_R_PIN
-  #define RGB_LED_R_PIN                       50
+    #define RGB_LED_R_PIN                       50
 #endif
 #ifndef RGB_LED_R_PIN
-  #define RGB_LED_G_PIN                       51
+    #define RGB_LED_G_PIN                       51
 #endif
 #ifndef RGB_LED_R_PIN
-  #define RGB_LED_B_PIN                       52
+    #define RGB_LED_B_PIN                       52
 #endif
 
 #ifndef CASE_LIGHT_PIN
-  #define CASE_LIGHT_PIN                      11  // PB5 ** Pin24 ** PWM11
+    #define CASE_LIGHT_PIN                      11  // PB5 ** Pin24 ** PWM11
 #endif
 
 #include "pins_MKS_BASE_common.h"

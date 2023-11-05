@@ -24,23 +24,23 @@
 #include "../../../inc/MarlinConfig.h"
 
 #if ENABLED(TOUCH_BUTTONS_HW_SPI)
-  #include <SPI.h>
+    #include <SPI.h>
 #endif
 
 #ifndef TOUCH_MISO_PIN
-  #define TOUCH_MISO_PIN SD_MISO_PIN
+    #define TOUCH_MISO_PIN SD_MISO_PIN
 #endif
 #ifndef TOUCH_MOSI_PIN
-  #define TOUCH_MOSI_PIN SD_MOSI_PIN
+    #define TOUCH_MOSI_PIN SD_MOSI_PIN
 #endif
 #ifndef TOUCH_SCK_PIN
-  #define TOUCH_SCK_PIN  SD_SCK_PIN
+    #define TOUCH_SCK_PIN  SD_SCK_PIN
 #endif
 #ifndef TOUCH_CS_PIN
-  #define TOUCH_CS_PIN   SD_SS_PIN
+    #define TOUCH_CS_PIN   SD_SS_PIN
 #endif
 #ifndef TOUCH_INT_PIN
-  #define TOUCH_INT_PIN  -1
+    #define TOUCH_INT_PIN  -1
 #endif
 
 #define XPT2046_DFR_MODE        0x00
@@ -55,7 +55,7 @@ enum XPTCoordinate : uint8_t {
 };
 
 #if !defined(XPT2046_Z1_THRESHOLD)
-  #define XPT2046_Z1_THRESHOLD 10
+    #define XPT2046_Z1_THRESHOLD 10
 #endif
 
 class XPT2046 {
@@ -68,14 +68,14 @@ private:
   static inline void DataTransferBegin() { WRITE(TOUCH_CS_PIN, LOW); };
   static inline void DataTransferEnd() { WRITE(TOUCH_CS_PIN, HIGH); };
   #if ENABLED(TOUCH_BUTTONS_HW_SPI)
-    static uint16_t HardwareIO(uint16_t data);
+      static uint16_t HardwareIO(uint16_t data);
   #endif
   static uint16_t SoftwareIO(uint16_t data);
   static uint16_t IO(uint16_t data = 0);
 
 public:
   #if ENABLED(TOUCH_BUTTONS_HW_SPI)
-    static SPIClass SPIx;
+      static SPIClass SPIx;
   #endif
 
   static void Init();

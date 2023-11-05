@@ -43,10 +43,10 @@
 // Auto fans
 //
 #ifndef E0_AUTO_FAN_PIN
-  #define E0_AUTO_FAN_PIN                      6  // Servo pin 6 for E3D Fan
+    #define E0_AUTO_FAN_PIN                      6  // Servo pin 6 for E3D Fan
 #endif
 #ifndef E1_AUTO_FAN_PIN
-  #define E1_AUTO_FAN_PIN                      6  // Servo pin 6 for E3D Fan (same pin for both extruders since it's the same fan)
+    #define E1_AUTO_FAN_PIN                      6  // Servo pin 6 for E3D Fan (same pin for both extruders since it's the same fan)
 #endif
 
 //

@@ -24,27 +24,27 @@
 #include "../inc/MarlinConfigPre.h"
 
 #if ENABLED(INTEGRATED_BABYSTEPPING)
-  #define BABYSTEPS_PER_SEC 1000UL
-  #define BABYSTEP_TICKS ((STEPPER_TIMER_RATE) / (BABYSTEPS_PER_SEC))
+    #define BABYSTEPS_PER_SEC 1000UL
+    #define BABYSTEP_TICKS ((STEPPER_TIMER_RATE) / (BABYSTEPS_PER_SEC))
 #else
-  #define BABYSTEPS_PER_SEC 976UL
-  #define BABYSTEP_TICKS ((TEMP_TIMER_RATE) / (BABYSTEPS_PER_SEC))
+    #define BABYSTEPS_PER_SEC 976UL
+    #define BABYSTEP_TICKS ((TEMP_TIMER_RATE) / (BABYSTEPS_PER_SEC))
 #endif
 
 #if IS_CORE || EITHER(BABYSTEP_XY, I2C_POSITION_ENCODERS)
-  #define BS_AXIS_IND(A) A
-  #define BS_AXIS(I) AxisEnum(I)
+    #define BS_AXIS_IND(A) A
+    #define BS_AXIS(I) AxisEnum(I)
 #else
-  #define BS_AXIS_IND(A) 0
-  #define BS_AXIS(I) Z_AXIS
+    #define BS_AXIS_IND(A) 0
+    #define BS_AXIS(I) Z_AXIS
 #endif
 
 #if ENABLED(BABYSTEP_DISPLAY_TOTAL)
-  #if ENABLED(BABYSTEP_XY)
-    #define BS_TOTAL_IND(A) A
-  #else
-    #define BS_TOTAL_IND(A) 0
-  #endif
+    #if ENABLED(BABYSTEP_XY)
+        #define BS_TOTAL_IND(A) A
+    #else
+        #define BS_TOTAL_IND(A) 0
+    #endif
 #endif
 
 class Babystep {
@@ -53,11 +53,11 @@ public:
   static int16_t accum;                                     // Total babysteps in current edit
 
   #if ENABLED(BABYSTEP_DISPLAY_TOTAL)
-    static int16_t axis_total[BS_TOTAL_IND(Z_AXIS) + 1];   // Total babysteps since G28
-    static inline void reset_total(const AxisEnum axis) {
-      if (TERN1(BABYSTEP_XY, axis == Z_AXIS))
-        axis_total[BS_TOTAL_IND(axis)] = 0;
-    }
+      static int16_t axis_total[BS_TOTAL_IND(Z_AXIS) + 1];   // Total babysteps since G28
+      static inline void reset_total(const AxisEnum axis) {
+        if (TERN1(BABYSTEP_XY, axis == Z_AXIS))
+          axis_total[BS_TOTAL_IND(axis)] = 0;
+      }
   #endif
 
   static void add_steps(const AxisEnum axis, const int16_t distance);

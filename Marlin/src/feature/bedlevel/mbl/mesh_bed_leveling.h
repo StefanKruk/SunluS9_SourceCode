@@ -106,7 +106,7 @@ public:
     OPTARG(ENABLE_LEVELING_FADE_HEIGHT, const_float_t factor=1.0f)
   ) {
     #if DISABLED(ENABLE_LEVELING_FADE_HEIGHT)
-      constexpr float factor = 1.0f;
+        constexpr float factor = 1.0f;
     #endif
     const xy_int8_t ind = cell_indexes(pos);
     const float x1 = index_to_xpos[ind.x], x2 = index_to_xpos[ind.x+1],
@@ -119,7 +119,7 @@ public:
   }
 
   #if IS_CARTESIAN && DISABLED(SEGMENT_LEVELED_MOVES)
-    static void line_to_destination(const_feedRate_t scaled_fr_mm_s, uint8_t x_splits=0xFF, uint8_t y_splits=0xFF);
+      static void line_to_destination(const_feedRate_t scaled_fr_mm_s, uint8_t x_splits=0xFF, uint8_t y_splits=0xFF);
   #endif
 };
 

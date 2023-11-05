@@ -26,9 +26,9 @@
 //
 // Onboard I2C EEPROM
 #if NO_EEPROM_SELECTED
-  #define I2C_EEPROM
-  #define MARLIN_EEPROM_SIZE                0x1000// 4KB
-  #undef NO_EEPROM_SELECTED
+    #define I2C_EEPROM
+    #define MARLIN_EEPROM_SIZE                0x1000// 4KB
+    #undef NO_EEPROM_SELECTED
 #endif
 
 #define Z_STEP_PIN                          PC14

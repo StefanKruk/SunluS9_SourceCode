@@ -46,17 +46,17 @@
 //
 
 #if NO_EEPROM_SELECTED
-  #define I2C_EEPROM
+    #define I2C_EEPROM
 #endif
 
 /* I2C */
 #if ENABLED(I2C_EEPROM)
-  #define IIC_EEPROM_SDA                    PB7
-  #define IIC_EEPROM_SCL                    PB6
-
-  #define MARLIN_EEPROM_SIZE              0x1000  // 4KB
+    #define IIC_EEPROM_SDA                    PB7
+    #define IIC_EEPROM_SCL                    PB6
+  
+    #define MARLIN_EEPROM_SIZE              0x1000  // 4KB
 #elif ENABLED(SDCARD_EEPROM_EMULATION)
-  #define MARLIN_EEPROM_SIZE              0x1000  // 4KB
+    #define MARLIN_EEPROM_SIZE              0x1000  // 4KB
 #endif
 
 #define E2END           (MARLIN_EEPROM_SIZE - 1)  // 2KB
@@ -118,40 +118,40 @@
 // LCD / Controller
 //
 #if ENABLED(CR10_STOCKDISPLAY)
-  #define BTN_ENC                           PA15
-  #define BTN_EN1                           PA9
-  #define BTN_EN2                           PA10
-
-  #define LCD_PINS_RS                       PB8
-  #define LCD_PINS_ENABLE                   PB15
-  #define LCD_PINS_D4                       PB9
-
-  #define BEEPER_PIN                        PB5
+    #define BTN_ENC                           PA15
+    #define BTN_EN1                           PA9
+    #define BTN_EN2                           PA10
+  
+    #define LCD_PINS_RS                       PB8
+    #define LCD_PINS_ENABLE                   PB15
+    #define LCD_PINS_D4                       PB9
+  
+    #define BEEPER_PIN                        PB5
 #endif
 
 #if HAS_TMC_UART
-  /**
-   * TMC2209 stepper drivers
-   * Hardware serial communication ports.
-   */
-  #define X_HARDWARE_SERIAL  MSerial4
-  #define Y_HARDWARE_SERIAL  MSerial4
-  #define Z_HARDWARE_SERIAL  MSerial4
-  #define E0_HARDWARE_SERIAL MSerial4
-
-  // Default TMC slave addresses
-  #ifndef X_SLAVE_ADDRESS
-    #define X_SLAVE_ADDRESS  0
-  #endif
-  #ifndef Y_SLAVE_ADDRESS
-    #define Y_SLAVE_ADDRESS  1
-  #endif
-  #ifndef Z_SLAVE_ADDRESS
-    #define Z_SLAVE_ADDRESS  2
-  #endif
-  #ifndef E0_SLAVE_ADDRESS
-    #define E0_SLAVE_ADDRESS 3
-  #endif
+    /**
+     * TMC2209 stepper drivers
+     * Hardware serial communication ports.
+     */
+    #define X_HARDWARE_SERIAL  MSerial4
+    #define Y_HARDWARE_SERIAL  MSerial4
+    #define Z_HARDWARE_SERIAL  MSerial4
+    #define E0_HARDWARE_SERIAL MSerial4
+  
+    // Default TMC slave addresses
+    #ifndef X_SLAVE_ADDRESS
+        #define X_SLAVE_ADDRESS  0
+    #endif
+    #ifndef Y_SLAVE_ADDRESS
+        #define Y_SLAVE_ADDRESS  1
+    #endif
+    #ifndef Z_SLAVE_ADDRESS
+        #define Z_SLAVE_ADDRESS  2
+    #endif
+    #ifndef E0_SLAVE_ADDRESS
+        #define E0_SLAVE_ADDRESS 3
+    #endif
 #endif
 
 //
@@ -161,14 +161,14 @@
 #define HAS_ONBOARD_SD
 
 #ifndef SDCARD_CONNECTION
-  #define SDCARD_CONNECTION              ONBOARD
+    #define SDCARD_CONNECTION              ONBOARD
 #endif
 
 #if SD_CONNECTION_IS(ONBOARD)
-  #define SD_DETECT_PIN                     PC4
-
-  #define ON_BOARD_SPI_DEVICE                  1  // SPI1
-  #define ONBOARD_SD_CS_PIN                 PA4   // Chip select for "System" SD card
+    #define SD_DETECT_PIN                     PC4
+  
+    #define ON_BOARD_SPI_DEVICE                  1  // SPI1
+    #define ONBOARD_SD_CS_PIN                 PA4   // Chip select for "System" SD card
 #endif
 
 //
@@ -177,5 +177,5 @@
 #define LED_CONTROL_PIN                     PA13
 
 #ifndef NEOPIXEL_PIN
-  #define NEOPIXEL_PIN                      PA8
+    #define NEOPIXEL_PIN                      PA8
 #endif

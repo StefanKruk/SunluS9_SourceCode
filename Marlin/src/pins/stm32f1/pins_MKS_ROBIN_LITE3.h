@@ -28,11 +28,11 @@
 #include "env_validate.h"
 
 #if HOTENDS > 2 || E_STEPPERS > 2
-  #error "MKS Robin Lite3 supports up to 2 hotends / E-steppers. Comment out this line to continue."
+    #error "MKS Robin Lite3 supports up to 2 hotends / E-steppers. Comment out this line to continue."
 #endif
 
 #ifndef BOARD_INFO_NAME
-  #define BOARD_INFO_NAME "MKS Robin Lite3"
+    #define BOARD_INFO_NAME "MKS Robin Lite3"
 #endif
 #define BOARD_WEBSITE_URL "github.com/makerbase-mks"
 
@@ -98,50 +98,50 @@
 // LCD Pins
 //
 #if HAS_WIRED_LCD
-
-  #define BEEPER_PIN                        PC1
-  #define BTN_ENC                           PC3
-  #define LCD_PINS_ENABLE                   PA4
-  #define LCD_PINS_RS                       PA5
-  #define BTN_EN1                           PB11
-  #define BTN_EN2                           PB0
-
-  // MKS MINI12864 and MKS LCD12864B; If using MKS LCD12864A (Need to remove RPK2 resistor)
-  #if ENABLED(MKS_MINI_12864)
-
-    #define LCD_BACKLIGHT_PIN               -1
-    #define LCD_RESET_PIN                   -1
-    #define DOGLCD_A0                       PC4
-    #define DOGLCD_CS                       PA7
-    #define DOGLCD_SCK                      PB13
-    #define DOGLCD_MOSI                     PB15
-
-  #elif IS_TFTGLCD_PANEL
-
-    #if ENABLED(TFTGLCD_PANEL_SPI)
-      #define TFTGLCD_CS                    PB11
-    #endif
-
-  #else                                           // !MKS_MINI_12864
-
-    #define LCD_PINS_D4                     PA6
-    #if IS_ULTIPANEL
-      #define LCD_PINS_D5                   PA7
-      #define LCD_PINS_D6                   PC4
-      #define LCD_PINS_D7                   PC5
-
-      #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
-        #define BTN_ENC_EN           LCD_PINS_D7  // Detect the presence of the encoder
-      #endif
-
-    #endif
-
-  #endif // !MKS_MINI_12864
-
-  #define BOARD_ST7920_DELAY_1     DELAY_NS(125)
-  #define BOARD_ST7920_DELAY_2     DELAY_NS(125)
-  #define BOARD_ST7920_DELAY_3     DELAY_NS(125)
-
+  
+    #define BEEPER_PIN                        PC1
+    #define BTN_ENC                           PC3
+    #define LCD_PINS_ENABLE                   PA4
+    #define LCD_PINS_RS                       PA5
+    #define BTN_EN1                           PB11
+    #define BTN_EN2                           PB0
+  
+    // MKS MINI12864 and MKS LCD12864B; If using MKS LCD12864A (Need to remove RPK2 resistor)
+    #if ENABLED(MKS_MINI_12864)
+    
+        #define LCD_BACKLIGHT_PIN               -1
+        #define LCD_RESET_PIN                   -1
+        #define DOGLCD_A0                       PC4
+        #define DOGLCD_CS                       PA7
+        #define DOGLCD_SCK                      PB13
+        #define DOGLCD_MOSI                     PB15
+    
+    #elif IS_TFTGLCD_PANEL
+    
+        #if ENABLED(TFTGLCD_PANEL_SPI)
+            #define TFTGLCD_CS                    PB11
+        #endif
+    
+    #else                                           // !MKS_MINI_12864
+    
+        #define LCD_PINS_D4                     PA6
+        #if IS_ULTIPANEL
+            #define LCD_PINS_D5                   PA7
+            #define LCD_PINS_D6                   PC4
+            #define LCD_PINS_D7                   PC5
+      
+            #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
+                #define BTN_ENC_EN           LCD_PINS_D7  // Detect the presence of the encoder
+            #endif
+      
+        #endif
+    
+    #endif // !MKS_MINI_12864
+  
+    #define BOARD_ST7920_DELAY_1     DELAY_NS(125)
+    #define BOARD_ST7920_DELAY_2     DELAY_NS(125)
+    #define BOARD_ST7920_DELAY_3     DELAY_NS(125)
+  
 #endif // HAS_WIRED_LCD
 
 //

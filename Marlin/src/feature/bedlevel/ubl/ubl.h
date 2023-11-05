@@ -42,7 +42,7 @@ struct mesh_index_pair;
 #define MESH_Y_DIST (float(MESH_MAX_Y - (MESH_MIN_Y)) / (GRID_MAX_CELLS_Y))
 
 #if ENABLED(OPTIMIZED_MESH_STORAGE)
-  typedef int16_t mesh_store_t[GRID_MAX_POINTS_X][GRID_MAX_POINTS_Y];
+    typedef int16_t mesh_store_t[GRID_MAX_POINTS_X][GRID_MAX_POINTS_Y];
 #endif
 
 typedef struct {
@@ -57,7 +57,7 @@ typedef struct {
   xy_pos_t  XY_pos;
   xy_bool_t XY_seen;
   #if HAS_BED_PROBE
-    uint8_t J_grid_size;
+      uint8_t J_grid_size;
   #endif
 } G29_parameters_t;
 
@@ -67,11 +67,11 @@ private:
   static G29_parameters_t param;
 
   #if IS_NEWPANEL
-    static void move_z_with_encoder(const_float_t multiplier);
-    static float measure_point_with_encoder();
-    static float measure_business_card_thickness();
-    static void manually_probe_remaining_mesh(const xy_pos_t&, const_float_t , const_float_t , const bool) _O0;
-    static void fine_tune_mesh(const xy_pos_t &pos, const bool do_ubl_mesh_map) _O0;
+      static void move_z_with_encoder(const_float_t multiplier);
+      static float measure_point_with_encoder();
+      static float measure_business_card_thickness();
+      static void manually_probe_remaining_mesh(const xy_pos_t&, const_float_t , const_float_t , const bool) _O0;
+      static void fine_tune_mesh(const xy_pos_t &pos, const bool do_ubl_mesh_map) _O0;
   #endif
 
   static bool G29_parse_parameters() _O0;
@@ -86,9 +86,9 @@ private:
   static void smart_fill_mesh();
 
   #if ENABLED(UBL_DEVEL_DEBUGGING)
-    static void g29_what_command();
-    static void g29_eeprom_dump();
-    static void g29_compare_current_mesh_to_stored_mesh();
+      static void g29_what_command();
+      static void g29_eeprom_dump();
+      static void g29_compare_current_mesh_to_stored_mesh();
   #endif
 
 public:
@@ -114,17 +114,17 @@ public:
 
   static bed_mesh_t z_values;
   #if ENABLED(OPTIMIZED_MESH_STORAGE)
-    static void set_store_from_mesh(const bed_mesh_t &in_values, mesh_store_t &stored_values);
-    static void set_mesh_from_store(const mesh_store_t &stored_values, bed_mesh_t &out_values);
+      static void set_store_from_mesh(const bed_mesh_t &in_values, mesh_store_t &stored_values);
+      static void set_mesh_from_store(const mesh_store_t &stored_values, bed_mesh_t &out_values);
   #endif
   static const float _mesh_index_to_xpos[GRID_MAX_POINTS_X],
                      _mesh_index_to_ypos[GRID_MAX_POINTS_Y];
 
   #if HAS_LCD_MENU
-    static bool lcd_map_control;
-    static void steppers_were_disabled();
+      static bool lcd_map_control;
+      static void steppers_were_disabled();
   #else
-    static inline void steppers_were_disabled() {}
+      static inline void steppers_were_disabled() {}
   #endif
 
   static volatile int16_t encoder_diff; // Volatile because buttons may change it at interrupt time
@@ -194,9 +194,9 @@ public:
   }
 
   #ifdef UBL_Z_RAISE_WHEN_OFF_MESH
-    #define _UBL_OUTER_Z_RAISE UBL_Z_RAISE_WHEN_OFF_MESH
+      #define _UBL_OUTER_Z_RAISE UBL_Z_RAISE_WHEN_OFF_MESH
   #else
-    #define _UBL_OUTER_Z_RAISE NAN
+      #define _UBL_OUTER_Z_RAISE NAN
   #endif
 
   /**
@@ -260,8 +260,8 @@ public:
      * UBL_Z_RAISE_WHEN_OFF_MESH is specified, that value is returned.
      */
     #ifdef UBL_Z_RAISE_WHEN_OFF_MESH
-      if (!WITHIN(rx0, MESH_MIN_X, MESH_MAX_X) || !WITHIN(ry0, MESH_MIN_Y, MESH_MAX_Y))
-        return UBL_Z_RAISE_WHEN_OFF_MESH;
+        if (!WITHIN(rx0, MESH_MIN_X, MESH_MAX_X) || !WITHIN(ry0, MESH_MIN_Y, MESH_MAX_Y))
+          return UBL_Z_RAISE_WHEN_OFF_MESH;
     #endif
 
     const uint8_t mx = _MIN(cx, (GRID_MAX_POINTS_X) - 2) + 1, my = _MIN(cy, (GRID_MAX_POINTS_Y) - 2) + 1;
@@ -295,9 +295,9 @@ public:
   }
 
   #if UBL_SEGMENTED
-    static bool line_to_destination_segmented(const_feedRate_t scaled_fr_mm_s);
+      static bool line_to_destination_segmented(const_feedRate_t scaled_fr_mm_s);
   #else
-    static void line_to_destination_cartesian(const_feedRate_t scaled_fr_mm_s, const uint8_t e);
+      static void line_to_destination_cartesian(const_feedRate_t scaled_fr_mm_s, const uint8_t e);
   #endif
 
   static inline bool mesh_is_valid() {

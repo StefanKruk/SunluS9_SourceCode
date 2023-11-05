@@ -109,8 +109,8 @@ class CommandProcessor : public CLCD::CommandFifo {
     inline CommandProcessor& bitmap_size(uint8_t filter, uint8_t wrapx, uint8_t wrapy, uint16_t width, uint16_t height) {
       cmd(FTDI::BITMAP_SIZE(filter, wrapx, wrapy, width, height));
       #if FTDI_API_LEVEL >= 810
-        if (FTDI::ftdi_chip >= 810)
-          cmd(FTDI::BITMAP_SIZE_H(width >> 9, height >> 9));
+          if (FTDI::ftdi_chip >= 810)
+            cmd(FTDI::BITMAP_SIZE_H(width >> 9, height >> 9));
       #endif
       return *this;
     }
@@ -118,8 +118,8 @@ class CommandProcessor : public CLCD::CommandFifo {
     inline CommandProcessor& bitmap_layout(uint8_t format, uint16_t linestride, uint16_t height) {
       cmd(FTDI::BITMAP_LAYOUT(format, linestride, height));
       #if FTDI_API_LEVEL >= 810
-        if (FTDI::ftdi_chip >= 810)
-          cmd(FTDI::BITMAP_LAYOUT_H(linestride >> 10, height >> 9));
+          if (FTDI::ftdi_chip >= 810)
+            cmd(FTDI::BITMAP_LAYOUT_H(linestride >> 10, height >> 9));
       #endif
       return *this;
     }
@@ -164,7 +164,7 @@ class CommandProcessor : public CLCD::CommandFifo {
                                                                   {CLCD::CommandFifo::sketch(x, y, w, h, ptr, format); return *this;}
     inline CommandProcessor& screensaver  ()                      {CLCD::CommandFifo::screensaver(); return *this;}
     #if FTDI_API_LEVEL >= 810
-    inline CommandProcessor& setbase  (uint8_t base)              {CLCD::CommandFifo::setbase(base); return *this;}
+      inline CommandProcessor& setbase  (uint8_t base)              {CLCD::CommandFifo::setbase(base); return *this;}
     #endif
     inline CommandProcessor& loadidentity ()                      {CLCD::CommandFifo::loadidentity(); return *this;}
     inline CommandProcessor& scale    (int32_t sx, int32_t sy)    {CLCD::CommandFifo::scale(sx,sy); return *this;}
@@ -191,13 +191,13 @@ class CommandProcessor : public CLCD::CommandFifo {
                                                                   {CLCD::CommandFifo::getprops(ptr, width, height); return *this;}
 
     #if FTDI_API_LEVEL >= 810
-    inline CommandProcessor& setbitmap (uint32_t ptr, uint16_t fmt, uint16_t w, uint16_t h)
-                                                                  {CLCD::CommandFifo::setbitmap(ptr,fmt,w,h); return *this;}
-    inline CommandProcessor& snapshot2 (uint32_t fmt, uint32_t ptr, int16_t x, int16_t y, uint16_t w, uint16_t h)
-                                                                  {CLCD::CommandFifo::snapshot2(fmt,ptr,x,y,w,h); return *this;}
-    inline CommandProcessor& mediafifo (uint32_t p, uint32_t s)   {CLCD::CommandFifo::mediafifo(p, s); return *this;}
-    inline CommandProcessor& playvideo(uint32_t options)          {CLCD::CommandFifo::playvideo(options); return *this;}
-    inline CommandProcessor& romfont(uint8_t font, uint8_t slot)  {CLCD::CommandFifo::romfont(font, slot); return *this;}
+      inline CommandProcessor& setbitmap (uint32_t ptr, uint16_t fmt, uint16_t w, uint16_t h)
+                                                                    {CLCD::CommandFifo::setbitmap(ptr,fmt,w,h); return *this;}
+      inline CommandProcessor& snapshot2 (uint32_t fmt, uint32_t ptr, int16_t x, int16_t y, uint16_t w, uint16_t h)
+                                                                    {CLCD::CommandFifo::snapshot2(fmt,ptr,x,y,w,h); return *this;}
+      inline CommandProcessor& mediafifo (uint32_t p, uint32_t s)   {CLCD::CommandFifo::mediafifo(p, s); return *this;}
+      inline CommandProcessor& playvideo(uint32_t options)          {CLCD::CommandFifo::playvideo(options); return *this;}
+      inline CommandProcessor& romfont(uint8_t font, uint8_t slot)  {CLCD::CommandFifo::romfont(font, slot); return *this;}
     #endif
 
     inline CommandProcessor& gradient(int16_t x0, int16_t y0, uint32_t rgb0, int16_t x1, int16_t y1, uint32_t rgb1)
@@ -313,16 +313,16 @@ class CommandProcessor : public CLCD::CommandFifo {
       using namespace FTDI;
       int8_t font = _font;
       #if ENABLED(TOUCH_UI_USE_UTF8)
-        const bool is_utf8 = has_utf8_chars(text);
+          const bool is_utf8 = has_utf8_chars(text);
       #endif
       for (;font > 26;) {
         int16_t width, height;
         #if ENABLED(TOUCH_UI_USE_UTF8)
-          if (is_utf8) {
-            width  = get_utf8_text_width(text, font_size_t::from_romfont(font));
-            height = font_size_t::from_romfont(font).get_height();
-          }
-          else
+            if (is_utf8) {
+              width  = get_utf8_text_width(text, font_size_t::from_romfont(font));
+              height = font_size_t::from_romfont(font).get_height();
+            }
+            else
         #endif
           {
             CLCD::FontMetrics fm(font);
@@ -346,8 +346,8 @@ class CommandProcessor : public CLCD::CommandFifo {
     uint16_t text_width(T text) {
       using namespace FTDI;
       #if ENABLED(TOUCH_UI_USE_UTF8)
-        if (has_utf8_chars(text))
-          return get_utf8_text_width(text, font_size_t::from_romfont(_font));
+          if (has_utf8_chars(text))
+            return get_utf8_text_width(text, font_size_t::from_romfont(_font));
       #endif
       CLCD::FontMetrics fm(_font);
       return fm.get_text_width(text);
@@ -358,14 +358,14 @@ class CommandProcessor : public CLCD::CommandFifo {
       using namespace FTDI;
       apply_text_alignment(x, y, w, h, options);
       #ifdef TOUCH_UI_FIT_TEXT
-        const int8_t font = (options & OPT_NOFIT) ? _font : apply_fit_text(w, h, text);
+          const int8_t font = (options & OPT_NOFIT) ? _font : apply_fit_text(w, h, text);
       #else
-        const int8_t font = _font;
+          const int8_t font = _font;
       #endif
       #if ENABLED(TOUCH_UI_USE_UTF8)
-        if (has_utf8_chars(text))
-          draw_utf8_text(*this, x, y, text, font_size_t::from_romfont(font), options);
-        else
+          if (has_utf8_chars(text))
+            draw_utf8_text(*this, x, y, text, font_size_t::from_romfont(font), options);
+          else
       #endif
       {
         CLCD::CommandFifo::text(x, y, font, options);
@@ -396,26 +396,26 @@ class CommandProcessor : public CLCD::CommandFifo {
       bool styleModified = false;
       if (_btn_style_callback) styleModified = _btn_style_callback(*this, _tag, _style, options, false);
       #ifdef TOUCH_UI_FIT_TEXT
-        const int8_t font = (options & OPT_NOFIT) ? _font : apply_fit_text(w, h, text);
+          const int8_t font = (options & OPT_NOFIT) ? _font : apply_fit_text(w, h, text);
       #else
-        const int8_t font = _font;
+          const int8_t font = _font;
       #endif
       CLCD::CommandFifo::button(x, y, w, h, font, options);
       #if ENABLED(TOUCH_UI_USE_UTF8)
-        if (has_utf8_chars(text)) {
-          CLCD::CommandFifo::str(F(""));
-          apply_text_alignment(x, y, w, h, OPT_CENTER);
-          if (!(options & FTDI::OPT_FLAT)) {
-            // Reproduce the black "shadow" the FTDI adds to the button label
-            CLCD::CommandFifo::cmd(SAVE_CONTEXT());
-            CLCD::CommandFifo::cmd(COLOR_RGB(0x00000));
-            draw_utf8_text(*this, x-1, y-1, text, font_size_t::from_romfont(font), OPT_CENTER);
-            CLCD::CommandFifo::cmd(RESTORE_CONTEXT());
+          if (has_utf8_chars(text)) {
+            CLCD::CommandFifo::str(F(""));
+            apply_text_alignment(x, y, w, h, OPT_CENTER);
+            if (!(options & FTDI::OPT_FLAT)) {
+              // Reproduce the black "shadow" the FTDI adds to the button label
+              CLCD::CommandFifo::cmd(SAVE_CONTEXT());
+              CLCD::CommandFifo::cmd(COLOR_RGB(0x00000));
+              draw_utf8_text(*this, x-1, y-1, text, font_size_t::from_romfont(font), OPT_CENTER);
+              CLCD::CommandFifo::cmd(RESTORE_CONTEXT());
+            }
+            // Draw the button label
+            draw_utf8_text(*this, x, y, text, font_size_t::from_romfont(font), OPT_CENTER);
           }
-          // Draw the button label
-          draw_utf8_text(*this, x, y, text, font_size_t::from_romfont(font), OPT_CENTER);
-        }
-        else
+          else
       #endif
         CLCD::CommandFifo::str(text);
       if (_btn_style_callback && styleModified) _btn_style_callback(*this, _tag, _style, options, true);

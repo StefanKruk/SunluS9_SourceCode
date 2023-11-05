@@ -28,11 +28,11 @@
 #include "env_validate.h"
 
 #if HOTENDS > 1 || E_STEPPERS > 1
-  #error "Anet ET4 only supports one hotend / E-stepper. Comment out this line to continue."
+    #error "Anet ET4 only supports one hotend / E-stepper. Comment out this line to continue."
 #endif
 
 #ifndef BOARD_INFO_NAME
-  #define BOARD_INFO_NAME "Anet ET4 1.x"
+    #define BOARD_INFO_NAME "Anet ET4 1.x"
 #endif
 
 //
@@ -41,20 +41,20 @@
 
 // Use one of these or SDCard-based Emulation will be used
 #if NO_EEPROM_SELECTED
-  //#define SRAM_EEPROM_EMULATION                 // Use BackSRAM-based EEPROM emulation
-  #define FLASH_EEPROM_EMULATION                  // Use Flash-based EEPROM emulation
-  //#define IIC_BL24CXX_EEPROM                    // Use I2C EEPROM onboard IC (AT24C04C, Size 4KB, PageSize 16B)
+    //#define SRAM_EEPROM_EMULATION                 // Use BackSRAM-based EEPROM emulation
+    #define FLASH_EEPROM_EMULATION                  // Use Flash-based EEPROM emulation
+    //#define IIC_BL24CXX_EEPROM                    // Use I2C EEPROM onboard IC (AT24C04C, Size 4KB, PageSize 16B)
 #endif
 
 #if ENABLED(FLASH_EEPROM_EMULATION)
-  // Decrease delays and flash wear by spreading writes across the
-  // 128 kB sector allocated for EEPROM emulation.
-  #define FLASH_EEPROM_LEVELING
+    // Decrease delays and flash wear by spreading writes across the
+    // 128 kB sector allocated for EEPROM emulation.
+    #define FLASH_EEPROM_LEVELING
 #elif ENABLED(IIC_BL24CXX_EEPROM)
-  #define IIC_EEPROM_SDA                    PB11
-  #define IIC_EEPROM_SCL                    PB10
-  #define EEPROM_DEVICE_ADDRESS             0xA0
-  #define MARLIN_EEPROM_SIZE              0x1000  // 4KB
+    #define IIC_EEPROM_SDA                    PB11
+    #define IIC_EEPROM_SCL                    PB10
+    #define EEPROM_DEVICE_ADDRESS             0xA0
+    #define MARLIN_EEPROM_SIZE              0x1000  // 4KB
 #endif
 
 //
@@ -68,24 +68,24 @@
 // Z Probe
 //
 #if ENABLED(BLTOUCH)
-  #error "You will need to use 24V to 5V converter and remove one resistor and capacitor from the motherboard. See https://github.com/davidtgbe/Marlin/blob/bugfix-2.0.x/docs/Tutorials/bltouch-en.md for more information. Comment out this line to proceed at your own risk."
-  #define SERVO0_PIN                        PC3
+    #error "You will need to use 24V to 5V converter and remove one resistor and capacitor from the motherboard. See https://github.com/davidtgbe/Marlin/blob/bugfix-2.0.x/docs/Tutorials/bltouch-en.md for more information. Comment out this line to proceed at your own risk."
+    #define SERVO0_PIN                        PC3
 #elif !defined(Z_MIN_PROBE_PIN)
-  #define Z_MIN_PROBE_PIN                   PC3
+    #define Z_MIN_PROBE_PIN                   PC3
 #endif
 
 //
 // Filament Runout Sensor
 //
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN                    PA2
+    #define FIL_RUNOUT_PIN                    PA2
 #endif
 
 //
 // Power Loss Detection
 //
 #ifndef POWER_LOSS_PIN
-  #define POWER_LOSS_PIN                    PA8
+    #define POWER_LOSS_PIN                    PA8
 #endif
 
 //
@@ -131,7 +131,7 @@
 #define FAN1_PIN                            PE1   // Hotend fan
 
 #ifndef E0_AUTO_FAN_PIN
-  #define E0_AUTO_FAN_PIN               FAN1_PIN
+    #define E0_AUTO_FAN_PIN               FAN1_PIN
 #endif
 
 //
@@ -151,45 +151,45 @@
 // https://ldm-systems.ru/f/doc/catalog/HY-TFT-2,8/XPT2046.pdf
 //
 #if NEED_TOUCH_PINS
-  #define TOUCH_CS_PIN                      PB2
-  #define TOUCH_SCK_PIN                     PB0
-  #define TOUCH_MOSI_PIN                    PE5
-  #define TOUCH_MISO_PIN                    PE4
-  #define TOUCH_INT_PIN                     PB1
+    #define TOUCH_CS_PIN                      PB2
+    #define TOUCH_SCK_PIN                     PB0
+    #define TOUCH_MOSI_PIN                    PE5
+    #define TOUCH_MISO_PIN                    PE4
+    #define TOUCH_INT_PIN                     PB1
 #endif
 
 #if ENABLED(ANET_ET5_TFT35)
-  #ifndef TOUCH_CALIBRATION_X
-    #define TOUCH_CALIBRATION_X            17125
-  #endif
-  #ifndef TOUCH_CALIBRATION_Y
-    #define TOUCH_CALIBRATION_Y           -11307
-  #endif
-  #ifndef TOUCH_OFFSET_X
-    #define TOUCH_OFFSET_X                   -26
-  #endif
-  #ifndef TOUCH_OFFSET_Y
-    #define TOUCH_OFFSET_Y                   337
-  #endif
-  #ifndef TOUCH_ORIENTATION
-    #define TOUCH_ORIENTATION     TOUCH_PORTRAIT
-  #endif
+    #ifndef TOUCH_CALIBRATION_X
+        #define TOUCH_CALIBRATION_X            17125
+    #endif
+    #ifndef TOUCH_CALIBRATION_Y
+        #define TOUCH_CALIBRATION_Y           -11307
+    #endif
+    #ifndef TOUCH_OFFSET_X
+        #define TOUCH_OFFSET_X                   -26
+    #endif
+    #ifndef TOUCH_OFFSET_Y
+        #define TOUCH_OFFSET_Y                   337
+    #endif
+    #ifndef TOUCH_ORIENTATION
+        #define TOUCH_ORIENTATION     TOUCH_PORTRAIT
+    #endif
 #elif ENABLED(ANET_ET4_TFT28)
-  #ifndef TOUCH_CALIBRATION_X
-    #define TOUCH_CALIBRATION_X           -11838
-  #endif
-  #ifndef TOUCH_CALIBRATION_Y
-    #define TOUCH_CALIBRATION_Y             8776
-  #endif
-  #ifndef TOUCH_OFFSET_X
-    #define TOUCH_OFFSET_X                   333
-  #endif
-  #ifndef TOUCH_OFFSET_Y
-    #define TOUCH_OFFSET_Y                   -17
-  #endif
-  #ifndef TOUCH_ORIENTATION
-    #define TOUCH_ORIENTATION     TOUCH_PORTRAIT
-  #endif
+    #ifndef TOUCH_CALIBRATION_X
+        #define TOUCH_CALIBRATION_X           -11838
+    #endif
+    #ifndef TOUCH_CALIBRATION_Y
+        #define TOUCH_CALIBRATION_Y             8776
+    #endif
+    #ifndef TOUCH_OFFSET_X
+        #define TOUCH_OFFSET_X                   333
+    #endif
+    #ifndef TOUCH_OFFSET_Y
+        #define TOUCH_OFFSET_Y                   -17
+    #endif
+    #ifndef TOUCH_ORIENTATION
+        #define TOUCH_ORIENTATION     TOUCH_PORTRAIT
+    #endif
 #endif
 
 //
@@ -198,28 +198,28 @@
 //#define SDIO_SUPPORT
 
 #ifndef SDCARD_CONNECTION
-  #define SDCARD_CONNECTION         CUSTOM_CABLE
+    #define SDCARD_CONNECTION         CUSTOM_CABLE
 #endif
 
 #if ENABLED(SDSUPPORT)
-
-  #define SDIO_D0_PIN                       PC8
-  #define SDIO_D1_PIN                       PC9
-  #define SDIO_D2_PIN                       PC10
-  #define SDIO_D3_PIN                       PC11
-  #define SDIO_CK_PIN                       PC12
-  #define SDIO_CMD_PIN                      PD2
-
-  #if DISABLED(SDIO_SUPPORT)
-    #define SOFTWARE_SPI
-    #define SDSS                     SDIO_D3_PIN
-    #define SD_SCK_PIN               SDIO_CK_PIN
-    #define SD_MISO_PIN              SDIO_D0_PIN
-    #define SD_MOSI_PIN             SDIO_CMD_PIN
-  #endif
-
-  #ifndef SD_DETECT_PIN
-    #define SD_DETECT_PIN                   PD3
-  #endif
-
+  
+    #define SDIO_D0_PIN                       PC8
+    #define SDIO_D1_PIN                       PC9
+    #define SDIO_D2_PIN                       PC10
+    #define SDIO_D3_PIN                       PC11
+    #define SDIO_CK_PIN                       PC12
+    #define SDIO_CMD_PIN                      PD2
+  
+    #if DISABLED(SDIO_SUPPORT)
+        #define SOFTWARE_SPI
+        #define SDSS                     SDIO_D3_PIN
+        #define SD_SCK_PIN               SDIO_CK_PIN
+        #define SD_MISO_PIN              SDIO_D0_PIN
+        #define SD_MOSI_PIN             SDIO_CMD_PIN
+    #endif
+  
+    #ifndef SD_DETECT_PIN
+        #define SD_DETECT_PIN                   PD3
+    #endif
+  
 #endif

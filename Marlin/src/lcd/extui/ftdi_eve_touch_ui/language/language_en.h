@@ -24,15 +24,15 @@
 #include "language.h"
 
 #if ENABLED(TOUCH_UI_UTF8_COPYRIGHT)
-  #define COPYRIGHT_SIGN    u8"©"
+    #define COPYRIGHT_SIGN    u8"©"
 #else
-  #define COPYRIGHT_SIGN    u8"(c)"
+    #define COPYRIGHT_SIGN    u8"(c)"
 #endif
 
 #if ENABLED(TOUCH_UI_UTF8_WESTERN_CHARSET)
-  #define DEGREE_SIGN       u8"°"
+    #define DEGREE_SIGN       u8"°"
 #else
-  #define DEGREE_SIGN       u8" "
+    #define DEGREE_SIGN       u8" "
 #endif
 
 namespace Language_en {
@@ -150,30 +150,30 @@ namespace Language_en {
   PROGMEM Language_Str MSG_MOVE_Z_TO_TOP            = u8"Raise Z to Top";
 
   #if ENABLED(TOUCH_UI_LULZBOT_BIO)
-    PROGMEM Language_Str MSG_MOVE_TO_HOME           = u8"Move to Home";
-    PROGMEM Language_Str MSG_RAISE_PLUNGER          = u8"Raise Plunger";
-    PROGMEM Language_Str MSG_RELEASE_XY_AXIS        = u8"Release X and Y Axis";
-    PROGMEM Language_Str MSG_BED_TEMPERATURE        = u8"Bed Temperature";
-    PROGMEM Language_Str MSG_HOME_XYZ_WARNING       = u8"About to move to home position. Ensure the top and the bed of the printer are clear.\n\nContinue?";
-    PROGMEM Language_Str MSG_HOME_E_WARNING         = u8"About to re-home plunger and auto-level. Remove syringe prior to proceeding.\n\nContinue?";
+      PROGMEM Language_Str MSG_MOVE_TO_HOME           = u8"Move to Home";
+      PROGMEM Language_Str MSG_RAISE_PLUNGER          = u8"Raise Plunger";
+      PROGMEM Language_Str MSG_RELEASE_XY_AXIS        = u8"Release X and Y Axis";
+      PROGMEM Language_Str MSG_BED_TEMPERATURE        = u8"Bed Temperature";
+      PROGMEM Language_Str MSG_HOME_XYZ_WARNING       = u8"About to move to home position. Ensure the top and the bed of the printer are clear.\n\nContinue?";
+      PROGMEM Language_Str MSG_HOME_E_WARNING         = u8"About to re-home plunger and auto-level. Remove syringe prior to proceeding.\n\nContinue?";
   #endif
 
   #ifdef TOUCH_UI_COCOA_PRESS
-    PROGMEM Language_Str MSG_BODY                   = u8"Body";
-    PROGMEM Language_Str MSG_SELECT_CHOCOLATE_TYPE  = u8"Select Chocolate Type";
-    PROGMEM Language_Str MSG_EXTERNAL               = u8"External";
-    PROGMEM Language_Str MSG_CHOCOLATE              = u8"Chocolate";
-    PROGMEM Language_Str MSG_UNLOAD_CARTRIDGE       = u8"Unload Cartridge";
-    PROGMEM Language_Str MSG_LOAD_UNLOAD            = u8"Load/Unload";
-    PROGMEM Language_Str MSG_FULL_LOAD              = u8"Full Load";
-    PROGMEM Language_Str MSG_FULL_UNLOAD            = u8"Full Unload";
-    PROGMEM Language_Str MSG_PREHEAT_CHOCOLATE      = u8"Preheat Chocolate";
-    PROGMEM Language_Str MSG_PREHEAT_FINISHED       = u8"Preheat finished";
-    PROGMEM Language_Str MSG_PREHEAT                = u8"Preheat";
-    PROGMEM Language_Str MSG_BUTTON_PAUSE           = u8"Pause";
-    PROGMEM Language_Str MSG_BUTTON_RESUME          = u8"Resume";
-    PROGMEM Language_Str MSG_ELAPSED_PRINT          = u8"Elapsed Print";
-    PROGMEM Language_Str MSG_XYZ_MOVE               = u8"XYZ Move";
-    PROGMEM Language_Str MSG_E_MOVE                 = u8"Extrusion Move";
+      PROGMEM Language_Str MSG_BODY                   = u8"Body";
+      PROGMEM Language_Str MSG_SELECT_CHOCOLATE_TYPE  = u8"Select Chocolate Type";
+      PROGMEM Language_Str MSG_EXTERNAL               = u8"External";
+      PROGMEM Language_Str MSG_CHOCOLATE              = u8"Chocolate";
+      PROGMEM Language_Str MSG_UNLOAD_CARTRIDGE       = u8"Unload Cartridge";
+      PROGMEM Language_Str MSG_LOAD_UNLOAD            = u8"Load/Unload";
+      PROGMEM Language_Str MSG_FULL_LOAD              = u8"Full Load";
+      PROGMEM Language_Str MSG_FULL_UNLOAD            = u8"Full Unload";
+      PROGMEM Language_Str MSG_PREHEAT_CHOCOLATE      = u8"Preheat Chocolate";
+      PROGMEM Language_Str MSG_PREHEAT_FINISHED       = u8"Preheat finished";
+      PROGMEM Language_Str MSG_PREHEAT                = u8"Preheat";
+      PROGMEM Language_Str MSG_BUTTON_PAUSE           = u8"Pause";
+      PROGMEM Language_Str MSG_BUTTON_RESUME          = u8"Resume";
+      PROGMEM Language_Str MSG_ELAPSED_PRINT          = u8"Elapsed Print";
+      PROGMEM Language_Str MSG_XYZ_MOVE               = u8"XYZ Move";
+      PROGMEM Language_Str MSG_E_MOVE                 = u8"Extrusion Move";
   #endif
 }; // namespace Language_en

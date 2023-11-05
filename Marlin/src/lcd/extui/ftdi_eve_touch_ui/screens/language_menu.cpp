@@ -24,43 +24,43 @@
 #include "screens.h"
 
 #ifdef FTDI_LANGUAGE_MENU
-
-#include "../language/language.h"
-
-using namespace FTDI;
-using namespace Theme;
-
-void LanguageMenu::onRedraw(draw_mode_t) {
-  CommandProcessor cmd;
-  cmd.cmd(CLEAR_COLOR_RGB(Theme::bg_color))
-     .cmd(CLEAR(true,true,true))
-     .colors(normal_btn)
-     .font(Theme::font_medium);
-
-  #define GRID_ROWS 8
-  #define GRID_COLS 1
-
-  cmd.tag(1).button(BTN_POS(1,1), BTN_SIZE(1,1), GET_LANGUAGE_NAME(1));
-  cmd.tag(2).button(BTN_POS(1,2), BTN_SIZE(1,1), GET_LANGUAGE_NAME(2));
-  #if NUM_LANGUAGES > 2
-    cmd.tag(3).button(BTN_POS(1,3), BTN_SIZE(1,1), GET_LANGUAGE_NAME(3));
-    #if NUM_LANGUAGES > 3
-      cmd.tag(4).button(BTN_POS(1,4), BTN_SIZE(1,1), GET_LANGUAGE_NAME(4));
-      #if NUM_LANGUAGES > 5
-        cmd.tag(5).button(BTN_POS(1,5), BTN_SIZE(1,1), GET_LANGUAGE_NAME(5));
-      #endif
+  
+  #include "../language/language.h"
+  
+  using namespace FTDI;
+  using namespace Theme;
+  
+  void LanguageMenu::onRedraw(draw_mode_t) {
+    CommandProcessor cmd;
+    cmd.cmd(CLEAR_COLOR_RGB(Theme::bg_color))
+       .cmd(CLEAR(true,true,true))
+       .colors(normal_btn)
+       .font(Theme::font_medium);
+  
+    #define GRID_ROWS 8
+    #define GRID_COLS 1
+  
+    cmd.tag(1).button(BTN_POS(1,1), BTN_SIZE(1,1), GET_LANGUAGE_NAME(1));
+    cmd.tag(2).button(BTN_POS(1,2), BTN_SIZE(1,1), GET_LANGUAGE_NAME(2));
+    #if NUM_LANGUAGES > 2
+        cmd.tag(3).button(BTN_POS(1,3), BTN_SIZE(1,1), GET_LANGUAGE_NAME(3));
+        #if NUM_LANGUAGES > 3
+            cmd.tag(4).button(BTN_POS(1,4), BTN_SIZE(1,1), GET_LANGUAGE_NAME(4));
+            #if NUM_LANGUAGES > 5
+                cmd.tag(5).button(BTN_POS(1,5), BTN_SIZE(1,1), GET_LANGUAGE_NAME(5));
+            #endif
+        #endif
     #endif
-  #endif
-}
-
-bool LanguageMenu::onTouchEnd(uint8_t tag) {
-
-  if (tag > 0 && tag <= NUM_LANGUAGES) {
-    lang = tag - 1;
-    GOTO_SCREEN(StatusScreen);
-    return true;
   }
-  return false;
-}
-
+  
+  bool LanguageMenu::onTouchEnd(uint8_t tag) {
+  
+    if (tag > 0 && tag <= NUM_LANGUAGES) {
+      lang = tag - 1;
+      GOTO_SCREEN(StatusScreen);
+      return true;
+    }
+    return false;
+  }
+  
 #endif // FTDI_LANGUAGE_MENU

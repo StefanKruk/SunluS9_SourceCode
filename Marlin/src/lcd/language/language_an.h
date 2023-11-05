@@ -56,21 +56,21 @@ namespace Language_an {
   PROGMEM Language_Str MSG_HOME_OFFSETS_APPLIED            = _UxGT("Desfase aplicau");
   PROGMEM Language_Str MSG_SET_ORIGIN                      = _UxGT("Establir orichen");
   #if PREHEAT_COUNT
-    PROGMEM Language_Str MSG_PREHEAT_1                     = _UxGT("Precalentar ") PREHEAT_1_LABEL;
-    PROGMEM Language_Str MSG_PREHEAT_1_H                   = _UxGT("Precalentar ") PREHEAT_1_LABEL " ~";
-    PROGMEM Language_Str MSG_PREHEAT_1_END                 = _UxGT("Precal. ") PREHEAT_1_LABEL _UxGT(" Boquilla");
-    PROGMEM Language_Str MSG_PREHEAT_1_END_E               = _UxGT("Precal. ") PREHEAT_1_LABEL _UxGT(" Boquilla ~");
-    PROGMEM Language_Str MSG_PREHEAT_1_ALL                 = _UxGT("Precalentar ") PREHEAT_1_LABEL _UxGT(" Tot");
-    PROGMEM Language_Str MSG_PREHEAT_1_BEDONLY             = _UxGT("Precalentar ") PREHEAT_1_LABEL _UxGT(" Base");
-    PROGMEM Language_Str MSG_PREHEAT_1_SETTINGS            = _UxGT("Precalentar ") PREHEAT_1_LABEL _UxGT(" Conf");
-
-    PROGMEM Language_Str MSG_PREHEAT_M                     = _UxGT("Precalentar $");
-    PROGMEM Language_Str MSG_PREHEAT_M_H                   = _UxGT("Precalentar $ ~");
-    PROGMEM Language_Str MSG_PREHEAT_M_END                 = _UxGT("Precal. $ Boquilla");
-    PROGMEM Language_Str MSG_PREHEAT_M_END_E               = _UxGT("Precal. $ Boquilla ~");
-    PROGMEM Language_Str MSG_PREHEAT_M_ALL                 = _UxGT("Precalentar $ Tot");
-    PROGMEM Language_Str MSG_PREHEAT_M_BEDONLY             = _UxGT("Precalentar $ Base");
-    PROGMEM Language_Str MSG_PREHEAT_M_SETTINGS            = _UxGT("Precalentar $ Conf");
+      PROGMEM Language_Str MSG_PREHEAT_1                     = _UxGT("Precalentar ") PREHEAT_1_LABEL;
+      PROGMEM Language_Str MSG_PREHEAT_1_H                   = _UxGT("Precalentar ") PREHEAT_1_LABEL " ~";
+      PROGMEM Language_Str MSG_PREHEAT_1_END                 = _UxGT("Precal. ") PREHEAT_1_LABEL _UxGT(" Boquilla");
+      PROGMEM Language_Str MSG_PREHEAT_1_END_E               = _UxGT("Precal. ") PREHEAT_1_LABEL _UxGT(" Boquilla ~");
+      PROGMEM Language_Str MSG_PREHEAT_1_ALL                 = _UxGT("Precalentar ") PREHEAT_1_LABEL _UxGT(" Tot");
+      PROGMEM Language_Str MSG_PREHEAT_1_BEDONLY             = _UxGT("Precalentar ") PREHEAT_1_LABEL _UxGT(" Base");
+      PROGMEM Language_Str MSG_PREHEAT_1_SETTINGS            = _UxGT("Precalentar ") PREHEAT_1_LABEL _UxGT(" Conf");
+  
+      PROGMEM Language_Str MSG_PREHEAT_M                     = _UxGT("Precalentar $");
+      PROGMEM Language_Str MSG_PREHEAT_M_H                   = _UxGT("Precalentar $ ~");
+      PROGMEM Language_Str MSG_PREHEAT_M_END                 = _UxGT("Precal. $ Boquilla");
+      PROGMEM Language_Str MSG_PREHEAT_M_END_E               = _UxGT("Precal. $ Boquilla ~");
+      PROGMEM Language_Str MSG_PREHEAT_M_ALL                 = _UxGT("Precalentar $ Tot");
+      PROGMEM Language_Str MSG_PREHEAT_M_BEDONLY             = _UxGT("Precalentar $ Base");
+      PROGMEM Language_Str MSG_PREHEAT_M_SETTINGS            = _UxGT("Precalentar $ Conf");
   #endif
   PROGMEM Language_Str MSG_COOLDOWN                        = _UxGT("Enfriar");
   PROGMEM Language_Str MSG_SWITCH_PS_ON                    = _UxGT("Enchegar Fuent");
@@ -191,17 +191,17 @@ namespace Language_an {
   PROGMEM Language_Str MSG_CASE_LIGHT                      = _UxGT("Luz");
 
   #if LCD_WIDTH >= 20
-    PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Conteo de impresion");
-    PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Completadas");
-    PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Tiempo total d'imp.");
-    PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Impresion mas larga");
-    PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Total d'extrusion");
+      PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Conteo de impresion");
+      PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Completadas");
+      PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Tiempo total d'imp.");
+      PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Impresion mas larga");
+      PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Total d'extrusion");
   #else
-    PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Impresions");
-    PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Completadas");
-    PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Total");
-    PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Mas larga");
-    PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Extrusion");
+      PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Impresions");
+      PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Completadas");
+      PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Total");
+      PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Mas larga");
+      PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Extrusion");
   #endif
 
   PROGMEM Language_Str MSG_INFO_MIN_TEMP                   = _UxGT("Temperatura menima");
@@ -218,13 +218,13 @@ namespace Language_an {
   //
 
   #if LCD_HEIGHT >= 4
-    // Up to 3 lines allowed
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_3_LINE("Aguardand iniciar", "d'o filamento", "cambear"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_3_LINE("Meta o filamento", "y prete lo boton", "pa continar..."));
+      // Up to 3 lines allowed
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_3_LINE("Aguardand iniciar", "d'o filamento", "cambear"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_3_LINE("Meta o filamento", "y prete lo boton", "pa continar..."));
   #else // LCD_HEIGHT < 4
-    // Up to 2 lines allowed
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_2_LINE("Aguardand iniciar", "d'o fil. cambear"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_2_LINE("Meta o filamento", "y prete lo boton"));
+      // Up to 2 lines allowed
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_2_LINE("Aguardand iniciar", "d'o fil. cambear"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_2_LINE("Meta o filamento", "y prete lo boton"));
   #endif // LCD_HEIGHT < 4
 
   PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD          = _UxGT(MSG_2_LINE("Aguardando a", "expulsar filament"));

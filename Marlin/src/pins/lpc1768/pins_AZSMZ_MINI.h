@@ -80,7 +80,7 @@
 #define HEATER_0_PIN                       P2_04
 #define HEATER_BED_PIN                     P2_05
 #ifndef FAN_PIN
-  #define FAN_PIN                          P2_07
+    #define FAN_PIN                          P2_07
 #endif
 #define FAN1_PIN                           P0_26
 
@@ -88,30 +88,30 @@
 #define ONBOARD_SD_CS_PIN                  P0_06  // Chip select for "System" SD card
 
 #if ENABLED(AZSMZ_12864)
-  #define BEEPER_PIN                       P1_30
-  #define DOGLCD_A0                        P2_06
-  #define DOGLCD_CS                        P1_22
-  #define BTN_EN1                          P4_28
-  #define BTN_EN2                          P1_27
-  #define BTN_ENC                          P3_26
-  #ifndef SDCARD_CONNECTION
-    #define SDCARD_CONNECTION                LCD
-  #endif
+    #define BEEPER_PIN                       P1_30
+    #define DOGLCD_A0                        P2_06
+    #define DOGLCD_CS                        P1_22
+    #define BTN_EN1                          P4_28
+    #define BTN_EN2                          P1_27
+    #define BTN_ENC                          P3_26
+    #ifndef SDCARD_CONNECTION
+        #define SDCARD_CONNECTION                LCD
+    #endif
 #endif
 
 #if SD_CONNECTION_IS(LCD)
-  #define SD_SCK_PIN                       P0_15
-  #define SD_MISO_PIN                      P0_17
-  #define SD_MOSI_PIN                      P0_18
-  #define SD_SS_PIN                     LCD_SDSS
-  #define SD_DETECT_PIN                    P3_25
+    #define SD_SCK_PIN                       P0_15
+    #define SD_MISO_PIN                      P0_17
+    #define SD_MOSI_PIN                      P0_18
+    #define SD_SS_PIN                     LCD_SDSS
+    #define SD_DETECT_PIN                    P3_25
 #elif SD_CONNECTION_IS(ONBOARD)
-  #define SD_SCK_PIN                       P0_07
-  #define SD_MISO_PIN                      P0_08
-  #define SD_MOSI_PIN                      P0_09
-  #define SD_SS_PIN            ONBOARD_SD_CS_PIN
+    #define SD_SCK_PIN                       P0_07
+    #define SD_MISO_PIN                      P0_08
+    #define SD_MOSI_PIN                      P0_09
+    #define SD_SS_PIN            ONBOARD_SD_CS_PIN
 #elif SD_CONNECTION_IS(CUSTOM_CABLE)
-  #error "No custom SD drive cable defined for this board."
+    #error "No custom SD drive cable defined for this board."
 #endif
 
 //

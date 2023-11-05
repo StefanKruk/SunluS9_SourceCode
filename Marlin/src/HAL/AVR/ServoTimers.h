@@ -58,36 +58,36 @@
 
 // Say which 16 bit timers can be used and in what order
 #if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
-  //#define _useTimer1
-  #define _useTimer4
-  #if NUM_SERVOS > SERVOS_PER_TIMER
-    #define _useTimer3
-    #if !HAS_MOTOR_CURRENT_PWM && SERVOS > 2 * SERVOS_PER_TIMER
-      #define _useTimer5 // Timer 5 is used for motor current PWM and can't be used for servos.
+    //#define _useTimer1
+    #define _useTimer4
+    #if NUM_SERVOS > SERVOS_PER_TIMER
+        #define _useTimer3
+        #if !HAS_MOTOR_CURRENT_PWM && SERVOS > 2 * SERVOS_PER_TIMER
+            #define _useTimer5 // Timer 5 is used for motor current PWM and can't be used for servos.
+        #endif
     #endif
-  #endif
 #elif defined(__AVR_ATmega32U4__)
-  #define _useTimer3
+    #define _useTimer3
 #elif defined(__AVR_AT90USB646__) || defined(__AVR_AT90USB1286__)
-  #define _useTimer3
+    #define _useTimer3
 #elif defined(__AVR_ATmega128__) || defined(__AVR_ATmega1281__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega2561__)
-  #define _useTimer3
+    #define _useTimer3
 #else
-  // everything else
+    // everything else
 #endif
 
 typedef enum {
   #ifdef _useTimer1
-    _timer1,
+      _timer1,
   #endif
   #ifdef _useTimer3
-    _timer3,
+      _timer3,
   #endif
   #ifdef _useTimer4
-    _timer4,
+      _timer4,
   #endif
   #ifdef _useTimer5
-    _timer5,
+      _timer5,
   #endif
   _Nbr_16timers
 } timer16_Sequence_t;

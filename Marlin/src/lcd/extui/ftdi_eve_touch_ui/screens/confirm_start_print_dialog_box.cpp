@@ -25,42 +25,42 @@
 #include "screen_data.h"
 
 #ifdef FTDI_CONFIRM_START_PRINT_DIALOG_BOX
-
-using namespace FTDI;
-using namespace Theme;
-using namespace ExtUI;
-
-constexpr static ConfirmStartPrintDialogBoxData &mydata = screen_data.ConfirmStartPrintDialogBox;
-
-void ConfirmStartPrintDialogBox::onRedraw(draw_mode_t) {
-  const char *filename = getLongFilename();
-  char buffer[strlen_P(GET_TEXT(MSG_START_PRINT_CONFIRMATION)) + strlen(filename) + 1];
-  sprintf_P(buffer, GET_TEXT(MSG_START_PRINT_CONFIRMATION), filename);
-  drawMessage((const char *)buffer);
-  drawYesNoButtons(1);
-}
-
-bool ConfirmStartPrintDialogBox::onTouchEnd(uint8_t tag) {
-  switch (tag) {
-    case 1:
-      printFile(getShortFilename());
-      StatusScreen::setStatusMessage(GET_TEXT_F(MSG_PRINT_STARTING));
-      GOTO_SCREEN(StatusScreen);
-      return true;
-    case 2: GOTO_PREVIOUS(); return true;
-    default:                 return false;
+  
+  using namespace FTDI;
+  using namespace Theme;
+  using namespace ExtUI;
+  
+  constexpr static ConfirmStartPrintDialogBoxData &mydata = screen_data.ConfirmStartPrintDialogBox;
+  
+  void ConfirmStartPrintDialogBox::onRedraw(draw_mode_t) {
+    const char *filename = getLongFilename();
+    char buffer[strlen_P(GET_TEXT(MSG_START_PRINT_CONFIRMATION)) + strlen(filename) + 1];
+    sprintf_P(buffer, GET_TEXT(MSG_START_PRINT_CONFIRMATION), filename);
+    drawMessage((const char *)buffer);
+    drawYesNoButtons(1);
   }
-}
-
-const char *ConfirmStartPrintDialogBox::getFilename(bool longName) {
-  FileList files;
-  files.seek(mydata.file_index, true);
-  return longName ? files.longFilename() : files.shortFilename();
-}
-
-void ConfirmStartPrintDialogBox::show(uint8_t file_index) {
-  mydata.file_index = file_index;
-   GOTO_SCREEN(ConfirmStartPrintDialogBox);
-}
-
+  
+  bool ConfirmStartPrintDialogBox::onTouchEnd(uint8_t tag) {
+    switch (tag) {
+      case 1:
+        printFile(getShortFilename());
+        StatusScreen::setStatusMessage(GET_TEXT_F(MSG_PRINT_STARTING));
+        GOTO_SCREEN(StatusScreen);
+        return true;
+      case 2: GOTO_PREVIOUS(); return true;
+      default:                 return false;
+    }
+  }
+  
+  const char *ConfirmStartPrintDialogBox::getFilename(bool longName) {
+    FileList files;
+    files.seek(mydata.file_index, true);
+    return longName ? files.longFilename() : files.shortFilename();
+  }
+  
+  void ConfirmStartPrintDialogBox::show(uint8_t file_index) {
+    mydata.file_index = file_index;
+     GOTO_SCREEN(ConfirmStartPrintDialogBox);
+  }
+  
 #endif // FTDI_CONFIRM_START_PRINT_DIALOG_BOX

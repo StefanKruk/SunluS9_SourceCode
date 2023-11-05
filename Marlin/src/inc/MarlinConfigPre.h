@@ -22,7 +22,7 @@
 #pragma once
 
 #ifndef __MARLIN_FIRMWARE__
-#define __MARLIN_FIRMWARE__
+  #define __MARLIN_FIRMWARE__
 #endif
 
 //
@@ -31,7 +31,7 @@
 #include <stdint.h>
 
 #ifndef __MARLIN_DEPS__
-  #include "../HAL/platforms.h"
+    #include "../HAL/platforms.h"
 #endif
 
 #include "../core/macros.h"
@@ -39,9 +39,9 @@
 #include "../../Configuration.h"
 
 #ifdef CUSTOM_VERSION_FILE
-  #if __has_include(STRINGIFY(../../CUSTOM_VERSION_FILE))
-    #include STRINGIFY(../../CUSTOM_VERSION_FILE)
-  #endif
+    #if __has_include(STRINGIFY(../../CUSTOM_VERSION_FILE))
+        #include STRINGIFY(../../CUSTOM_VERSION_FILE)
+    #endif
 #endif
 
 #include "Version.h"
@@ -49,7 +49,7 @@
 #include "Conditionals_LCD.h"
 
 #ifndef __MARLIN_DEPS__
-  #include HAL_PATH(../HAL, inc/Conditionals_LCD.h)
+    #include HAL_PATH(../HAL, inc/Conditionals_LCD.h)
 #endif
 
 #include "../core/drivers.h"
@@ -58,5 +58,5 @@
 #include "Conditionals_adv.h"
 
 #ifndef __MARLIN_DEPS__
-  #include HAL_PATH(../HAL, inc/Conditionals_adv.h)
+    #include HAL_PATH(../HAL, inc/Conditionals_adv.h)
 #endif

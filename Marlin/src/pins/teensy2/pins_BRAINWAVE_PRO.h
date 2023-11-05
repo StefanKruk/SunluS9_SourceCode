@@ -90,7 +90,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     11  // C1
+    #define Z_MIN_PROBE_PIN                     11  // C1
 #endif
 
 //
@@ -125,7 +125,7 @@
 #define HEATER_0_PIN                          27  // B7
 #define HEATER_BED_PIN                        26  // B6  Bed
 #ifndef FAN_PIN
-  #define FAN_PIN                             16  // C6  Fan, PWM3A
+    #define FAN_PIN                             16  // C6  Fan, PWM3A
 #endif
 
 //

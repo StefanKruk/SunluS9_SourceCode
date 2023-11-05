@@ -30,7 +30,7 @@
 #include <stdlib.h>    // size_t
 
 #if HAS_BED_PROBE
-  #include "../../../module/probe.h"
+    #include "../../../module/probe.h"
 #endif
 #include "DGUSVPVariable.h"
 

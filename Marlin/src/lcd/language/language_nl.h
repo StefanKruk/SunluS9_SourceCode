@@ -55,21 +55,21 @@ namespace Language_nl {
   PROGMEM Language_Str MSG_HOME_OFFSETS_APPLIED            = _UxGT("H offset toegep.");
   PROGMEM Language_Str MSG_SET_ORIGIN                      = _UxGT("Nulpunt instellen");
   #if PREHEAT_COUNT
-    PROGMEM Language_Str MSG_PREHEAT_1                     = PREHEAT_1_LABEL _UxGT(" voorverwarmen");
-    PROGMEM Language_Str MSG_PREHEAT_1_H                   = PREHEAT_1_LABEL _UxGT(" voorverw. ~");
-    PROGMEM Language_Str MSG_PREHEAT_1_END                 = PREHEAT_1_LABEL _UxGT(" voorverw. Einde");
-    PROGMEM Language_Str MSG_PREHEAT_1_END_E               = PREHEAT_1_LABEL _UxGT(" voorverw. Einde ~");
-    PROGMEM Language_Str MSG_PREHEAT_1_ALL                 = PREHEAT_1_LABEL _UxGT(" voorverw. aan");
-    PROGMEM Language_Str MSG_PREHEAT_1_BEDONLY             = PREHEAT_1_LABEL _UxGT(" voorverw. Bed");
-    PROGMEM Language_Str MSG_PREHEAT_1_SETTINGS            = PREHEAT_1_LABEL _UxGT(" verw. conf");
-
-    PROGMEM Language_Str MSG_PREHEAT_M                     = _UxGT("$ voorverwarmen");
-    PROGMEM Language_Str MSG_PREHEAT_M_H                   = _UxGT("$ voorverw. ~");
-    PROGMEM Language_Str MSG_PREHEAT_M_END                 = _UxGT("$ voorverw. Einde");
-    PROGMEM Language_Str MSG_PREHEAT_M_END_E               = _UxGT("$ voorverw. Einde ~");
-    PROGMEM Language_Str MSG_PREHEAT_M_ALL                 = _UxGT("$ voorverw. aan");
-    PROGMEM Language_Str MSG_PREHEAT_M_BEDONLY             = _UxGT("$ voorverw. Bed");
-    PROGMEM Language_Str MSG_PREHEAT_M_SETTINGS            = _UxGT("$ verw. conf");
+      PROGMEM Language_Str MSG_PREHEAT_1                     = PREHEAT_1_LABEL _UxGT(" voorverwarmen");
+      PROGMEM Language_Str MSG_PREHEAT_1_H                   = PREHEAT_1_LABEL _UxGT(" voorverw. ~");
+      PROGMEM Language_Str MSG_PREHEAT_1_END                 = PREHEAT_1_LABEL _UxGT(" voorverw. Einde");
+      PROGMEM Language_Str MSG_PREHEAT_1_END_E               = PREHEAT_1_LABEL _UxGT(" voorverw. Einde ~");
+      PROGMEM Language_Str MSG_PREHEAT_1_ALL                 = PREHEAT_1_LABEL _UxGT(" voorverw. aan");
+      PROGMEM Language_Str MSG_PREHEAT_1_BEDONLY             = PREHEAT_1_LABEL _UxGT(" voorverw. Bed");
+      PROGMEM Language_Str MSG_PREHEAT_1_SETTINGS            = PREHEAT_1_LABEL _UxGT(" verw. conf");
+  
+      PROGMEM Language_Str MSG_PREHEAT_M                     = _UxGT("$ voorverwarmen");
+      PROGMEM Language_Str MSG_PREHEAT_M_H                   = _UxGT("$ voorverw. ~");
+      PROGMEM Language_Str MSG_PREHEAT_M_END                 = _UxGT("$ voorverw. Einde");
+      PROGMEM Language_Str MSG_PREHEAT_M_END_E               = _UxGT("$ voorverw. Einde ~");
+      PROGMEM Language_Str MSG_PREHEAT_M_ALL                 = _UxGT("$ voorverw. aan");
+      PROGMEM Language_Str MSG_PREHEAT_M_BEDONLY             = _UxGT("$ voorverw. Bed");
+      PROGMEM Language_Str MSG_PREHEAT_M_SETTINGS            = _UxGT("$ verw. conf");
   #endif
   PROGMEM Language_Str MSG_COOLDOWN                        = _UxGT("Afkoelen");
   PROGMEM Language_Str MSG_SWITCH_PS_ON                    = _UxGT("Stroom aan");
@@ -183,17 +183,17 @@ namespace Language_nl {
   PROGMEM Language_Str MSG_KILL_EXPECTED_PRINTER           = _UxGT("Onjuiste printer");
 
   #if LCD_WIDTH >= 20
-    PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Printed Aantal");
-    PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Totaal Voltooid");
-    PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Totale Printtijd");
-    PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Langste Printtijd");
-    PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Totaal Extrudeert");
+      PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Printed Aantal");
+      PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Totaal Voltooid");
+      PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Totale Printtijd");
+      PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Langste Printtijd");
+      PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Totaal Extrudeert");
   #else
-    PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Aantal");
-    PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Voltooid");
-    PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Printtijd ");
-    PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Langste");
-    PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Extrud.");
+      PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Aantal");
+      PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Voltooid");
+      PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Printtijd ");
+      PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Langste");
+      PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Extrud.");
   #endif
 
   PROGMEM Language_Str MSG_INFO_MIN_TEMP                   = _UxGT("Min Temp");
@@ -210,22 +210,22 @@ namespace Language_nl {
   //                        ...or up to 2 lines on a 3-line display
   //
   #if LCD_HEIGHT >= 4
-    // Up to 3 lines
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_3_LINE("Wacht voor start", "filament te", "verwisselen"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_3_LINE("Wacht voor", "filament uit", "te laden"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_2_LINE("Klik knop om...", "verw. nozzle.")); //nozzle accepted English term
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_2_LINE("Nozzle verw.", "Wacht a.u.b."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_3_LINE("Laad filament", "en druk knop", "om verder..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_3_LINE("Wacht voor", "filament te", "laden"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_3_LINE("Wacht voor print", "om verder", "te gaan"));
+      // Up to 3 lines
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_3_LINE("Wacht voor start", "filament te", "verwisselen"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_3_LINE("Wacht voor", "filament uit", "te laden"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_2_LINE("Klik knop om...", "verw. nozzle.")); //nozzle accepted English term
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_2_LINE("Nozzle verw.", "Wacht a.u.b."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_3_LINE("Laad filament", "en druk knop", "om verder..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_3_LINE("Wacht voor", "filament te", "laden"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_3_LINE("Wacht voor print", "om verder", "te gaan"));
   #else
-    // Up to 2 lines
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_2_LINE("Wacht voor", "start..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_2_LINE("Wacht voor", "uitladen..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_2_LINE("Klik knop om...", "verw. nozzle.")); //nozzle accepted English term
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_1_LINE("Verwarmen..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_2_LINE("Laad filament", "en druk knop"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_2_LINE("Wacht voor", "inladen..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_2_LINE("Wacht voor", "printing..."));
+      // Up to 2 lines
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_2_LINE("Wacht voor", "start..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_2_LINE("Wacht voor", "uitladen..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_2_LINE("Klik knop om...", "verw. nozzle.")); //nozzle accepted English term
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_1_LINE("Verwarmen..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_2_LINE("Laad filament", "en druk knop"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_2_LINE("Wacht voor", "inladen..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_2_LINE("Wacht voor", "printing..."));
   #endif
 }

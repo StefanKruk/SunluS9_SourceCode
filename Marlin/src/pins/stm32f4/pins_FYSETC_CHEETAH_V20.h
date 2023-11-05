@@ -35,22 +35,22 @@
 //#define BOGUS_TEMPERATURE_GRACE_PERIOD    2000
 
 #if EITHER(NO_EEPROM_SELECTED, FLASH_EEPROM_EMULATION)
-  #define FLASH_EEPROM_EMULATION
-  #define FLASH_EEPROM_LEVELING
-
-  #define FLASH_SECTOR          2
-  #define FLASH_UNIT_SIZE       0x4000      // 16k
-  #define FLASH_ADDRESS_START   0x8008000
+    #define FLASH_EEPROM_EMULATION
+    #define FLASH_EEPROM_LEVELING
+  
+    #define FLASH_SECTOR          2
+    #define FLASH_UNIT_SIZE       0x4000      // 16k
+    #define FLASH_ADDRESS_START   0x8008000
 #endif
 
 //
 // Z Probe
 //
 #if ENABLED(BLTOUCH)
-  #error "You need to set jumper to 5v for Bltouch, then comment out this line to proceed."
-  #define SERVO0_PIN                        PA0
+    #error "You need to set jumper to 5v for Bltouch, then comment out this line to proceed."
+    #define SERVO0_PIN                        PA0
 #elif !defined(Z_MIN_PROBE_PIN)
-  #define Z_MIN_PROBE_PIN                   PA0
+    #define Z_MIN_PROBE_PIN                   PA0
 #endif
 
 //
@@ -85,24 +85,24 @@
 #define E0_ENABLE_PIN                       PD2
 
 #if HAS_TMC_UART
-  #define X_HARDWARE_SERIAL  Serial2
-  #define Y_HARDWARE_SERIAL  Serial2
-  #define Z_HARDWARE_SERIAL  Serial2
-  #define E0_HARDWARE_SERIAL Serial2
-
-  // Default TMC slave addresses
-  #ifndef X_SLAVE_ADDRESS
-    #define X_SLAVE_ADDRESS  0
-  #endif
-  #ifndef Y_SLAVE_ADDRESS
-    #define Y_SLAVE_ADDRESS  2
-  #endif
-  #ifndef Z_SLAVE_ADDRESS
-    #define Z_SLAVE_ADDRESS  1
-  #endif
-  #ifndef E0_SLAVE_ADDRESS
-    #define E0_SLAVE_ADDRESS 3
-  #endif
+    #define X_HARDWARE_SERIAL  Serial2
+    #define Y_HARDWARE_SERIAL  Serial2
+    #define Z_HARDWARE_SERIAL  Serial2
+    #define E0_HARDWARE_SERIAL Serial2
+  
+    // Default TMC slave addresses
+    #ifndef X_SLAVE_ADDRESS
+        #define X_SLAVE_ADDRESS  0
+    #endif
+    #ifndef Y_SLAVE_ADDRESS
+        #define Y_SLAVE_ADDRESS  2
+    #endif
+    #ifndef Z_SLAVE_ADDRESS
+        #define Z_SLAVE_ADDRESS  1
+    #endif
+    #ifndef E0_SLAVE_ADDRESS
+        #define E0_SLAVE_ADDRESS 3
+    #endif
 #endif
 
 //
@@ -111,7 +111,7 @@
 #define HEATER_0_PIN                        PC6
 #define HEATER_BED_PIN                      PC7
 #ifndef FAN_PIN
-  #define FAN_PIN                           PA1
+    #define FAN_PIN                           PA1
 #endif
 #define FAN1_PIN                            PC8
 
@@ -128,13 +128,13 @@
 #define SD_DETECT_PIN                       PC3
 
 #ifndef RGB_LED_R_PIN
-  #define RGB_LED_R_PIN                     PB0
+    #define RGB_LED_R_PIN                     PB0
 #endif
 #ifndef RGB_LED_G_PIN
-  #define RGB_LED_G_PIN                     PB7
+    #define RGB_LED_G_PIN                     PB7
 #endif
 #ifndef RGB_LED_B_PIN
-  #define RGB_LED_B_PIN                     PB6
+    #define RGB_LED_B_PIN                     PB6
 #endif
 
 /**
@@ -178,92 +178,92 @@
 #define EXP2_10_PIN                         PA6
 
 #if HAS_WIRED_LCD
-
-  #define BEEPER_PIN                 EXP1_10_PIN
-  #define BTN_ENC                    EXP1_09_PIN
-
-  #if ENABLED(CR10_STOCKDISPLAY)
-
-    #define LCD_PINS_RS              EXP1_07_PIN
-
-    #define BTN_EN1                  EXP2_08_PIN
-    #define BTN_EN2                  EXP2_06_PIN
-
-    #define LCD_PINS_ENABLE          EXP1_08_PIN
-    #define LCD_PINS_D4              EXP1_06_PIN
-
-    // CR10_STOCKDISPLAY default timing is too fast
-    #undef BOARD_ST7920_DELAY_1
-    #undef BOARD_ST7920_DELAY_2
-    #undef BOARD_ST7920_DELAY_3
-
-  #elif ENABLED(MKS_MINI_12864)
-
-    #define DOGLCD_A0                EXP1_04_PIN
-    #define DOGLCD_CS                EXP1_05_PIN
-    #define BTN_EN1                  EXP2_08_PIN
-    #define BTN_EN2                  EXP2_06_PIN
-
-  #else
-
-    #define LCD_PINS_RS              EXP1_07_PIN
-
-    #define BTN_EN1                  EXP2_06_PIN
-    #define BTN_EN2                  EXP2_08_PIN
-
-    #define LCD_PINS_ENABLE          EXP1_08_PIN
-    #define LCD_PINS_D4              EXP1_06_PIN
-
-    #if ENABLED(FYSETC_MINI_12864)
-      #define DOGLCD_CS              EXP1_08_PIN
-      #define DOGLCD_A0              EXP1_07_PIN
-      //#define LCD_BACKLIGHT_PIN           -1
-      #define LCD_RESET_PIN          EXP1_06_PIN  // Must be high or open for LCD to operate normally.
-      #if EITHER(FYSETC_MINI_12864_1_2, FYSETC_MINI_12864_2_0)
-        #ifndef RGB_LED_R_PIN
-          #define RGB_LED_R_PIN      EXP1_05_PIN
+  
+    #define BEEPER_PIN                 EXP1_10_PIN
+    #define BTN_ENC                    EXP1_09_PIN
+  
+    #if ENABLED(CR10_STOCKDISPLAY)
+    
+        #define LCD_PINS_RS              EXP1_07_PIN
+    
+        #define BTN_EN1                  EXP2_08_PIN
+        #define BTN_EN2                  EXP2_06_PIN
+    
+        #define LCD_PINS_ENABLE          EXP1_08_PIN
+        #define LCD_PINS_D4              EXP1_06_PIN
+    
+        // CR10_STOCKDISPLAY default timing is too fast
+        #undef BOARD_ST7920_DELAY_1
+        #undef BOARD_ST7920_DELAY_2
+        #undef BOARD_ST7920_DELAY_3
+    
+    #elif ENABLED(MKS_MINI_12864)
+    
+        #define DOGLCD_A0                EXP1_04_PIN
+        #define DOGLCD_CS                EXP1_05_PIN
+        #define BTN_EN1                  EXP2_08_PIN
+        #define BTN_EN2                  EXP2_06_PIN
+    
+    #else
+    
+        #define LCD_PINS_RS              EXP1_07_PIN
+    
+        #define BTN_EN1                  EXP2_06_PIN
+        #define BTN_EN2                  EXP2_08_PIN
+    
+        #define LCD_PINS_ENABLE          EXP1_08_PIN
+        #define LCD_PINS_D4              EXP1_06_PIN
+    
+        #if ENABLED(FYSETC_MINI_12864)
+            #define DOGLCD_CS              EXP1_08_PIN
+            #define DOGLCD_A0              EXP1_07_PIN
+            //#define LCD_BACKLIGHT_PIN           -1
+            #define LCD_RESET_PIN          EXP1_06_PIN  // Must be high or open for LCD to operate normally.
+            #if EITHER(FYSETC_MINI_12864_1_2, FYSETC_MINI_12864_2_0)
+                #ifndef RGB_LED_R_PIN
+                    #define RGB_LED_R_PIN      EXP1_05_PIN
+                #endif
+                #ifndef RGB_LED_G_PIN
+                    #define RGB_LED_G_PIN      EXP1_04_PIN
+                #endif
+                #ifndef RGB_LED_B_PIN
+                    #define RGB_LED_B_PIN      EXP1_03_PIN
+                #endif
+            #elif ENABLED(FYSETC_MINI_12864_2_1)
+                #define NEOPIXEL_PIN         EXP1_05_PIN
+            #endif
+        #endif // !FYSETC_MINI_12864
+    
+        #if IS_ULTIPANEL
+            #define LCD_PINS_D5            EXP1_05_PIN
+            #define LCD_PINS_D6            EXP1_04_PIN
+            #define LCD_PINS_D7            EXP1_03_PIN
+      
+            #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
+                #define BTN_ENC_EN           LCD_PINS_D7  // Detect the presence of the encoder
+            #endif
+      
         #endif
-        #ifndef RGB_LED_G_PIN
-          #define RGB_LED_G_PIN      EXP1_04_PIN
-        #endif
-        #ifndef RGB_LED_B_PIN
-          #define RGB_LED_B_PIN      EXP1_03_PIN
-        #endif
-      #elif ENABLED(FYSETC_MINI_12864_2_1)
-        #define NEOPIXEL_PIN         EXP1_05_PIN
-      #endif
-    #endif // !FYSETC_MINI_12864
-
-    #if IS_ULTIPANEL
-      #define LCD_PINS_D5            EXP1_05_PIN
-      #define LCD_PINS_D6            EXP1_04_PIN
-      #define LCD_PINS_D7            EXP1_03_PIN
-
-      #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
-        #define BTN_ENC_EN           LCD_PINS_D7  // Detect the presence of the encoder
-      #endif
-
+    
     #endif
-
-  #endif
-
+  
 #endif // HAS_WIRED_LCD
 
 // Alter timing for graphical display
 #if HAS_MARLINUI_U8GLIB
-  #ifndef BOARD_ST7920_DELAY_1
-    #define BOARD_ST7920_DELAY_1    DELAY_NS(96)
-  #endif
-  #ifndef BOARD_ST7920_DELAY_2
-    #define BOARD_ST7920_DELAY_2    DELAY_NS(48)
-  #endif
-  #ifndef BOARD_ST7920_DELAY_3
-    #define BOARD_ST7920_DELAY_3    DELAY_NS(600)
-  #endif
+    #ifndef BOARD_ST7920_DELAY_1
+        #define BOARD_ST7920_DELAY_1    DELAY_NS(96)
+    #endif
+    #ifndef BOARD_ST7920_DELAY_2
+        #define BOARD_ST7920_DELAY_2    DELAY_NS(48)
+    #endif
+    #ifndef BOARD_ST7920_DELAY_3
+        #define BOARD_ST7920_DELAY_3    DELAY_NS(600)
+    #endif
 #endif
 
 #if ENABLED(TOUCH_UI_FTDI_EVE)
-  #define BEEPER_PIN                 EXP1_10_PIN
-  #define CLCD_MOD_RESET             EXP2_08_PIN
-  #define CLCD_SPI_CS                EXP2_06_PIN
+    #define BEEPER_PIN                 EXP1_10_PIN
+    #define CLCD_MOD_RESET             EXP2_08_PIN
+    #define CLCD_SPI_CS                EXP2_06_PIN
 #endif

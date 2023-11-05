@@ -54,21 +54,21 @@ namespace Language_ca {
   PROGMEM Language_Str MSG_HOME_OFFSETS_APPLIED            = _UxGT("Decalatge aplicat");
   PROGMEM Language_Str MSG_SET_ORIGIN                      = _UxGT("Estableix origen");
   #if PREHEAT_COUNT
-    PROGMEM Language_Str MSG_PREHEAT_1                     = _UxGT("Preescalfa ") PREHEAT_1_LABEL;
-    PROGMEM Language_Str MSG_PREHEAT_1_H                   = _UxGT("Preescalfa ") PREHEAT_1_LABEL " ~";
-    PROGMEM Language_Str MSG_PREHEAT_1_END                 = _UxGT("Preescalfa ") PREHEAT_1_LABEL _UxGT(" End");
-    PROGMEM Language_Str MSG_PREHEAT_1_END_E               = _UxGT("Preescalfa ") PREHEAT_1_LABEL _UxGT(" End ~");
-    PROGMEM Language_Str MSG_PREHEAT_1_ALL                 = _UxGT("Preescalfa ") PREHEAT_1_LABEL _UxGT(" Tot");
-    PROGMEM Language_Str MSG_PREHEAT_1_BEDONLY             = _UxGT("Preescalfa ") PREHEAT_1_LABEL _UxGT(" Llit");
-    PROGMEM Language_Str MSG_PREHEAT_1_SETTINGS            = _UxGT("Preescalfa ") PREHEAT_1_LABEL _UxGT(" Conf.");
-
-    PROGMEM Language_Str MSG_PREHEAT_M                     = _UxGT("Preescalfa $");
-    PROGMEM Language_Str MSG_PREHEAT_M_H                   = _UxGT("Preescalfa $ ~");
-    PROGMEM Language_Str MSG_PREHEAT_M_END                 = _UxGT("Preescalfa $ End");
-    PROGMEM Language_Str MSG_PREHEAT_M_END_E               = _UxGT("Preescalfa $ End ~");
-    PROGMEM Language_Str MSG_PREHEAT_M_ALL                 = _UxGT("Preescalfa $ Tot");
-    PROGMEM Language_Str MSG_PREHEAT_M_BEDONLY             = _UxGT("Preescalfa $ Llit");
-    PROGMEM Language_Str MSG_PREHEAT_M_SETTINGS            = _UxGT("Preescalfa $ Conf.");
+      PROGMEM Language_Str MSG_PREHEAT_1                     = _UxGT("Preescalfa ") PREHEAT_1_LABEL;
+      PROGMEM Language_Str MSG_PREHEAT_1_H                   = _UxGT("Preescalfa ") PREHEAT_1_LABEL " ~";
+      PROGMEM Language_Str MSG_PREHEAT_1_END                 = _UxGT("Preescalfa ") PREHEAT_1_LABEL _UxGT(" End");
+      PROGMEM Language_Str MSG_PREHEAT_1_END_E               = _UxGT("Preescalfa ") PREHEAT_1_LABEL _UxGT(" End ~");
+      PROGMEM Language_Str MSG_PREHEAT_1_ALL                 = _UxGT("Preescalfa ") PREHEAT_1_LABEL _UxGT(" Tot");
+      PROGMEM Language_Str MSG_PREHEAT_1_BEDONLY             = _UxGT("Preescalfa ") PREHEAT_1_LABEL _UxGT(" Llit");
+      PROGMEM Language_Str MSG_PREHEAT_1_SETTINGS            = _UxGT("Preescalfa ") PREHEAT_1_LABEL _UxGT(" Conf.");
+  
+      PROGMEM Language_Str MSG_PREHEAT_M                     = _UxGT("Preescalfa $");
+      PROGMEM Language_Str MSG_PREHEAT_M_H                   = _UxGT("Preescalfa $ ~");
+      PROGMEM Language_Str MSG_PREHEAT_M_END                 = _UxGT("Preescalfa $ End");
+      PROGMEM Language_Str MSG_PREHEAT_M_END_E               = _UxGT("Preescalfa $ End ~");
+      PROGMEM Language_Str MSG_PREHEAT_M_ALL                 = _UxGT("Preescalfa $ Tot");
+      PROGMEM Language_Str MSG_PREHEAT_M_BEDONLY             = _UxGT("Preescalfa $ Llit");
+      PROGMEM Language_Str MSG_PREHEAT_M_SETTINGS            = _UxGT("Preescalfa $ Conf.");
   #endif
   PROGMEM Language_Str MSG_COOLDOWN                        = _UxGT("Refreda");
 
@@ -182,17 +182,17 @@ namespace Language_ca {
   PROGMEM Language_Str MSG_CASE_LIGHT                      = _UxGT("Llum");
 
   #if LCD_WIDTH >= 20
-    PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Total impressions");
-    PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Acabades");
-    PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Temps imprimint");
-    PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Treball mes llarg");
-    PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Total extrudit");
+      PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Total impressions");
+      PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Acabades");
+      PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Temps imprimint");
+      PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Treball mes llarg");
+      PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Total extrudit");
   #else
-    PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Impressions");
-    PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Acabades");
-    PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Total");
-    PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Mes llarg");
-    PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Extrudit");
+      PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Impressions");
+      PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Acabades");
+      PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Total");
+      PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Mes llarg");
+      PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Extrudit");
   #endif
 
   PROGMEM Language_Str MSG_INFO_MIN_TEMP                   = _UxGT("Temp. mínima");
@@ -210,19 +210,19 @@ namespace Language_ca {
   //                        ...or up to 2 lines on a 3-line display
   //
   #if LCD_HEIGHT >= 4
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_3_LINE("Esperant per", "iniciar el canvi", "de filament"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_2_LINE("Esperant per", "treure filament"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_3_LINE("Poseu filament", "i premeu el boto", "per continuar..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_2_LINE("Premeu boto per", "escalfar nozzle."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_2_LINE("Escalfant nozzle", "Espereu..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_2_LINE("Esperant carrega", "de filament"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_2_LINE("Esperant per", "reprendre"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_3_LINE("Esperant per", "iniciar el canvi", "de filament"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_2_LINE("Esperant per", "treure filament"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_3_LINE("Poseu filament", "i premeu el boto", "per continuar..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_2_LINE("Premeu boto per", "escalfar nozzle."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_2_LINE("Escalfant nozzle", "Espereu..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_2_LINE("Esperant carrega", "de filament"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_2_LINE("Esperant per", "reprendre"));
   #else // LCD_HEIGHT < 4
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_1_LINE("Espereu..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_1_LINE("Expulsant..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_1_LINE("Insereix i prem"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_1_LINE("Escalfant..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_1_LINE("Carregant..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_1_LINE("Reprenent..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_1_LINE("Espereu..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_1_LINE("Expulsant..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_1_LINE("Insereix i prem"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_1_LINE("Escalfant..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_1_LINE("Carregant..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_1_LINE("Reprenent..."));
   #endif // LCD_HEIGHT < 4
 }

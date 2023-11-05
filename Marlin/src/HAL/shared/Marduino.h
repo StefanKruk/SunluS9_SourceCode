@@ -41,27 +41,27 @@
 #undef _BV
 #define _BV(b) (1UL << (b))
 #ifndef SBI
-  #define SBI(A,B) (A |= _BV(B))
+    #define SBI(A,B) (A |= _BV(B))
 #endif
 #ifndef CBI
-  #define CBI(A,B) (A &= ~_BV(B))
+    #define CBI(A,B) (A &= ~_BV(B))
 #endif
 
 #undef sq
 #define sq(x) ((x)*(x))
 
 #ifndef __AVR__
-  #ifndef strchr_P // Some platforms define a macro (DUE, teensy35)
-    inline const char* strchr_P(const char *s, int c) { return strchr(s,c); }
-    //#define strchr_P(s,c) strchr(s,c)
-  #endif
-
-  #ifndef snprintf_P
-    #define snprintf_P snprintf
-  #endif
-  #ifndef vsnprintf_P
-    #define vsnprintf_P vsnprintf
-  #endif
+    #ifndef strchr_P // Some platforms define a macro (DUE, teensy35)
+        inline const char* strchr_P(const char *s, int c) { return strchr(s,c); }
+        //#define strchr_P(s,c) strchr(s,c)
+    #endif
+  
+    #ifndef snprintf_P
+        #define snprintf_P snprintf
+    #endif
+    #ifndef vsnprintf_P
+        #define vsnprintf_P vsnprintf
+    #endif
 #endif
 
 // Restart causes
@@ -74,16 +74,16 @@
 #define RST_BACKUP     64
 
 #ifndef M_PI
-  #define M_PI 3.14159265358979323846f
+    #define M_PI 3.14159265358979323846f
 #endif
 
 // Remove compiler warning on an unused variable
 #ifndef UNUSED
-  #define UNUSED(x) ((void)(x))
+    #define UNUSED(x) ((void)(x))
 #endif
 
 #ifndef FORCE_INLINE
-  #define FORCE_INLINE inline __attribute__((always_inline))
+    #define FORCE_INLINE inline __attribute__((always_inline))
 #endif
 
 #include "progmem.h"

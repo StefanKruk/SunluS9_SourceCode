@@ -38,17 +38,17 @@ const temp_entry_t temptable_75[] PROGMEM = { // Generic Silicon Heat Pad with N
   { OV(111.06), 200 }, // v=0.542 r=571.747 res=0.501 degC/count
 
   #ifdef HIGH_TEMP_RANGE_75
-    { OV(174.87), 175 }, // v=0.854 r=967.950 res=0.311 degC/count  These values are valid.  But they serve no
-    { OV(191.64), 170 }, // v=0.936 r=1082.139 res=0.284 degC/count  purpose.  It is better to delete them so
-    { OV(209.99), 165 }, // v=1.025 r=1212.472 res=0.260 degC/count  the search is quicker and get to the meaningful
-    { OV(230.02), 160 }, // v=1.123 r=1361.590 res=0.239 degC/count  part of the table sooner.
-    { OV(251.80), 155 }, // v=1.230 r=1532.621 res=0.220 degC/count
+      { OV(174.87), 175 }, // v=0.854 r=967.950 res=0.311 degC/count  These values are valid.  But they serve no
+      { OV(191.64), 170 }, // v=0.936 r=1082.139 res=0.284 degC/count  purpose.  It is better to delete them so
+      { OV(209.99), 165 }, // v=1.025 r=1212.472 res=0.260 degC/count  the search is quicker and get to the meaningful
+      { OV(230.02), 160 }, // v=1.123 r=1361.590 res=0.239 degC/count  part of the table sooner.
+      { OV(251.80), 155 }, // v=1.230 r=1532.621 res=0.220 degC/count
   #endif
 
   { OV(275.43), 150 }, // v=1.345 r=1729.283 res=0.203 degC/count
 
   #ifdef HIGH_TEMP_RANGE_75
-    { OV(300.92), 145 }, // v=1.469 r=1956.004 res=0.189 degC/coun
+      { OV(300.92), 145 }, // v=1.469 r=1956.004 res=0.189 degC/coun
   #endif
 
   { OV( 328.32), 140 }, // v=1.603 r=2218.081 res=0.176 degC/count

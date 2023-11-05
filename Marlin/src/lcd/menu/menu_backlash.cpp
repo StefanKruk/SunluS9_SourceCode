@@ -27,32 +27,32 @@
 #include "../../inc/MarlinConfigPre.h"
 
 #if BOTH(HAS_LCD_MENU, BACKLASH_GCODE)
-
-#include "menu_item.h"
-
-#include "../../feature/backlash.h"
-
-void menu_backlash() {
-  START_MENU();
-  BACK_ITEM(MSG_MAIN);
-
-  EDIT_ITEM_FAST(percent, MSG_BACKLASH_CORRECTION, &backlash.correction, all_off, all_on);
-
-  #if DISABLED(CORE_BACKLASH) || ENABLED(MARKFORGED_XY)
-    #define _CAN_CALI AXIS_CAN_CALIBRATE
-  #else
-    #define _CAN_CALI(A) true
-  #endif
-  #define EDIT_BACKLASH_DISTANCE(N) EDIT_ITEM_FAST(float43, MSG_BACKLASH_##N, &backlash.distance_mm[_AXIS(N)], 0.0f, 9.9f);
-  if (_CAN_CALI(A)) EDIT_BACKLASH_DISTANCE(A);
-  if (_CAN_CALI(B)) EDIT_BACKLASH_DISTANCE(B);
-  if (_CAN_CALI(C)) EDIT_BACKLASH_DISTANCE(C);
-
-  #ifdef BACKLASH_SMOOTHING_MM
-    EDIT_ITEM_FAST(float43, MSG_BACKLASH_SMOOTHING, &backlash.smoothing_mm, 0.0f, 9.9f);
-  #endif
-
-  END_MENU();
-}
-
+  
+  #include "menu_item.h"
+  
+  #include "../../feature/backlash.h"
+  
+  void menu_backlash() {
+    START_MENU();
+    BACK_ITEM(MSG_MAIN);
+  
+    EDIT_ITEM_FAST(percent, MSG_BACKLASH_CORRECTION, &backlash.correction, all_off, all_on);
+  
+    #if DISABLED(CORE_BACKLASH) || ENABLED(MARKFORGED_XY)
+        #define _CAN_CALI AXIS_CAN_CALIBRATE
+    #else
+        #define _CAN_CALI(A) true
+    #endif
+    #define EDIT_BACKLASH_DISTANCE(N) EDIT_ITEM_FAST(float43, MSG_BACKLASH_##N, &backlash.distance_mm[_AXIS(N)], 0.0f, 9.9f);
+    if (_CAN_CALI(A)) EDIT_BACKLASH_DISTANCE(A);
+    if (_CAN_CALI(B)) EDIT_BACKLASH_DISTANCE(B);
+    if (_CAN_CALI(C)) EDIT_BACKLASH_DISTANCE(C);
+  
+    #ifdef BACKLASH_SMOOTHING_MM
+        EDIT_ITEM_FAST(float43, MSG_BACKLASH_SMOOTHING, &backlash.smoothing_mm, 0.0f, 9.9f);
+    #endif
+  
+    END_MENU();
+  }
+  
 #endif // HAS_LCD_MENU && BACKLASH_GCODE

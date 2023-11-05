@@ -30,21 +30,21 @@
 #include "../disk_io_driver.h"
 
 #if DISABLED(USE_OTG_USB_HOST)
-  /**
-   * Define SOFTWARE_SPI to use bit-bang SPI
-   */
-  #if EITHER(MEGA_SOFT_SPI, USE_SOFTWARE_SPI)
-    #define SOFTWARE_SPI
-  #endif
-
-  // SPI pin definitions - do not edit here - change in SdFatConfig.h
-  #if ENABLED(SOFTWARE_SPI)
-    #warning "Auto-assigning '10' as the SD_CHIP_SELECT_PIN."
-    #define SD_CHIP_SELECT_PIN  10                // Software SPI chip select pin for the SD
-  #else
-    // hardware pin defs
-    #define SD_CHIP_SELECT_PIN  SD_SS_PIN         // The default chip select pin for the SD card is SS.
-  #endif
+    /**
+     * Define SOFTWARE_SPI to use bit-bang SPI
+     */
+    #if EITHER(MEGA_SOFT_SPI, USE_SOFTWARE_SPI)
+        #define SOFTWARE_SPI
+    #endif
+  
+    // SPI pin definitions - do not edit here - change in SdFatConfig.h
+    #if ENABLED(SOFTWARE_SPI)
+        #warning "Auto-assigning '10' as the SD_CHIP_SELECT_PIN."
+        #define SD_CHIP_SELECT_PIN  10                // Software SPI chip select pin for the SD
+    #else
+        // hardware pin defs
+        #define SD_CHIP_SELECT_PIN  SD_SS_PIN         // The default chip select pin for the SD card is SS.
+    #endif
 #endif
 
 class DiskIODriver_USBFlash : public DiskIODriver {

@@ -27,7 +27,7 @@
 #define INVALID_SERVO                   255
 
 #ifndef MAX_SERVOS
-  #define MAX_SERVOS 3
+    #define MAX_SERVOS 3
 #endif
 
 #define SERVO_DEFAULT_MIN_PW            544

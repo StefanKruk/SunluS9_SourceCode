@@ -28,10 +28,10 @@
 #include "env_validate.h"
 
 #ifndef BOARD_INFO_NAME
-  #define BOARD_INFO_NAME   "MKS SBASE"
+    #define BOARD_INFO_NAME   "MKS SBASE"
 #endif
 #ifndef BOARD_WEBSITE_URL
-  #define BOARD_WEBSITE_URL "github.com/makerbase-mks/MKS-SBASE"
+    #define BOARD_WEBSITE_URL "github.com/makerbase-mks/MKS-SBASE"
 #endif
 
 #define LED_PIN                            P1_18  // Used as a status indicator
@@ -58,7 +58,7 @@
 #define Z_MAX_PIN                          P1_29  // 10k pullup to 3.3V, 1K series
 
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                  P4_28  // Connector J8
+    #define Z_MIN_PROBE_PIN                  P4_28  // Connector J8
 #endif
 
 //
@@ -100,7 +100,7 @@
 #define HEATER_0_PIN                       P2_07
 #define HEATER_1_PIN                       P2_06
 #ifndef FAN_PIN
-  #define FAN_PIN                          P2_04
+    #define FAN_PIN                          P2_04
 #endif
 
 //
@@ -130,9 +130,9 @@
 // Průša i3 MMU1 (Multi Material Multiplexer) Support
 //
 #if HAS_PRUSA_MMU1
-  #define E_MUX0_PIN                       P1_23  // J8-3
-  #define E_MUX1_PIN                       P2_12  // J8-4
-  #define E_MUX2_PIN                       P2_11  // J8-5
+    #define E_MUX0_PIN                       P1_23  // J8-3
+    #define E_MUX1_PIN                       P2_12  // J8-4
+    #define E_MUX2_PIN                       P2_11  // J8-5
 #endif
 
 //
@@ -144,9 +144,9 @@
 // Ethernet pins
 //
 #if !IS_ULTIPANEL
-  #define ENET_MDIO                        P1_17  // J12-4
-  #define ENET_RX_ER                       P1_14  // J12-6
-  #define ENET_RXD1                        P1_10  // J12-8
+    #define ENET_MDIO                        P1_17  // J12-4
+    #define ENET_RX_ER                       P1_14  // J12-6
+    #define ENET_RXD1                        P1_10  // J12-8
 #endif
 
 #define ENET_MOC                           P1_16  // J12-3
@@ -158,45 +158,45 @@
 #define ENET_TXD1                          P1_01  // J12-12
 
 #ifndef SDCARD_CONNECTION
-  #define SDCARD_CONNECTION              ONBOARD
+    #define SDCARD_CONNECTION              ONBOARD
 #endif
 
 #define ONBOARD_SD_CS_PIN                  P0_06  // Chip select for "System" SD card
 
 #if SD_CONNECTION_IS(CUSTOM_CABLE)
-
-  /**
-   * A custom cable is needed. See the README file in the
-   * Marlin\src\config\examples\Mks\Sbase directory
-   * P0.27 is on EXP2 and the on-board SD card's socket. That means it can't be
-   * used as the SD_DETECT for the LCD's SD card.
-   *
-   * The best solution is to use the custom cable to connect the LCD's SD_DETECT
-   * to a pin NOT on EXP2.
-   *
-   * If you can't find a pin to use for the LCD's SD_DETECT then comment out
-   * SD_DETECT_PIN entirely and remove that wire from the the custom cable.
-   */
-  #define SD_DETECT_PIN                    P2_11  // J8-5 (moved from EXP2 P0.27)
-  #define SD_SCK_PIN                       P1_22  // J8-2 (moved from EXP2 P0.7)
-  #define SD_MISO_PIN                      P1_23  // J8-3 (moved from EXP2 P0.8)
-  #define SD_MOSI_PIN                      P2_12  // J8-4 (moved from EXP2 P0.9)
-  #define SD_SS_PIN                        P0_28
-  #define LPC_SOFTWARE_SPI                        // With a custom cable we need software SPI because the
-                                                  // selected pins are not on a hardware SPI controller
+  
+    /**
+     * A custom cable is needed. See the README file in the
+     * Marlin\src\config\examples\Mks\Sbase directory
+     * P0.27 is on EXP2 and the on-board SD card's socket. That means it can't be
+     * used as the SD_DETECT for the LCD's SD card.
+     *
+     * The best solution is to use the custom cable to connect the LCD's SD_DETECT
+     * to a pin NOT on EXP2.
+     *
+     * If you can't find a pin to use for the LCD's SD_DETECT then comment out
+     * SD_DETECT_PIN entirely and remove that wire from the the custom cable.
+     */
+    #define SD_DETECT_PIN                    P2_11  // J8-5 (moved from EXP2 P0.27)
+    #define SD_SCK_PIN                       P1_22  // J8-2 (moved from EXP2 P0.7)
+    #define SD_MISO_PIN                      P1_23  // J8-3 (moved from EXP2 P0.8)
+    #define SD_MOSI_PIN                      P2_12  // J8-4 (moved from EXP2 P0.9)
+    #define SD_SS_PIN                        P0_28
+    #define LPC_SOFTWARE_SPI                        // With a custom cable we need software SPI because the
+                                                    // selected pins are not on a hardware SPI controller
 #elif SD_CONNECTION_IS(LCD) || SD_CONNECTION_IS(ONBOARD)
-  #define SD_SCK_PIN                       P0_07
-  #define SD_MISO_PIN                      P0_08
-  #define SD_MOSI_PIN                      P0_09
-  #if SD_CONNECTION_IS(LCD)
-    // Use standard cable and header, SPI and SD detect are shared with onboard SD card.
-    // Hardware SPI is used for both SD cards. The detect pin is shared between the
-    // LCD and onboard SD readers so we disable it.
-    #define SD_SS_PIN                      P0_28
-  #else
-    #define SD_DETECT_PIN                  P0_27
-    #define SD_SS_PIN          ONBOARD_SD_CS_PIN
-  #endif
+    #define SD_SCK_PIN                       P0_07
+    #define SD_MISO_PIN                      P0_08
+    #define SD_MOSI_PIN                      P0_09
+    #if SD_CONNECTION_IS(LCD)
+        // Use standard cable and header, SPI and SD detect are shared with onboard SD card.
+        // Hardware SPI is used for both SD cards. The detect pin is shared between the
+        // LCD and onboard SD readers so we disable it.
+        #define SD_SS_PIN                      P0_28
+    #else
+        #define SD_DETECT_PIN                  P0_27
+        #define SD_SS_PIN          ONBOARD_SD_CS_PIN
+    #endif
 #endif
 
 /**
@@ -213,72 +213,72 @@
  */
 
 #if IS_TFTGLCD_PANEL
-
-  #if ENABLED(TFTGLCD_PANEL_SPI)
-    #define TFTGLCD_CS                     P3_25  // EXP2.3
-  #endif
-
-  #if SD_CONNECTION_IS(LCD)
-    #define SD_DETECT_PIN                  P0_28  // EXP2.4
-  #endif
-
-#elif HAS_WIRED_LCD
-
-  #define BEEPER_PIN                       P1_31  // EXP1.1
-  #define BTN_ENC                          P1_30  // EXP1.2
-  #define BTN_EN1                          P3_26  // EXP2.5
-  #define BTN_EN2                          P3_25  // EXP2.3
-  #define LCD_PINS_RS                      P0_16  // EXP1.4
-  #define LCD_SDSS                         P0_28  // EXP2.4
-  #define LCD_PINS_ENABLE                  P0_18  // EXP1.3
-  #define LCD_PINS_D4                      P0_15  // EXP1.5
-  #if ANY(VIKI2, miniVIKI)
-    #define DOGLCD_SCK                SD_SCK_PIN
-    #define DOGLCD_MOSI              SD_MOSI_PIN
-  #endif
-
-  #if ENABLED(FYSETC_MINI_12864)
-    /**
-     * The FYSETC display can NOT use the SCK and MOSI pins on EXP2, so a
-     * special cable is needed to go between EXP2 on the FYSETC and the
-     * controller board's EXP2 and J8. It also means that a software SPI
-     * is needed to drive those pins.
-     *
-     * The FYSETC requires mode 3 SPI interface.
-     *
-     * Pins 6, 7 & 8 on EXP2 are no connects. That means a second special
-     * cable will be needed if the RGB LEDs are to be active.
-     */
-    #define DOGLCD_CS            LCD_PINS_ENABLE  // EXP1.3  (LCD_EN on FYSETC schematic)
-    #define DOGLCD_A0                LCD_PINS_RS  // EXP1.4  (LCD_A0 on FYSETC schematic)
-    #define DOGLCD_SCK                     P2_11  // J8-5  (SCK on FYSETC schematic)
-    #define DOGLCD_MOSI                    P4_28  // J8-6  (MOSI on FYSETC schematic)
-
-    //#define FORCE_SOFT_SPI                      // Use this if default of hardware SPI causes display problems
-                                                  //   results in LCD soft SPI mode 3, SD soft SPI mode 0
-
-    #if EITHER(FYSETC_MINI_12864_1_2, FYSETC_MINI_12864_2_0)
-      #ifndef RGB_LED_R_PIN
-        #define RGB_LED_R_PIN              P2_12  // J8-4  (LCD_D6 on FYSETC schematic)
-      #endif
-      #ifndef RGB_LED_G_PIN
-        #define RGB_LED_G_PIN              P1_23  // J8-3  (LCD_D5 on FYSETC schematic)
-      #endif
-      #ifndef RGB_LED_B_PIN
-        #define RGB_LED_B_PIN              P1_22  // J8-2  (LCD_D7 on FYSETC schematic)
-      #endif
-    #elif ENABLED(FYSETC_MINI_12864_2_1)
-      #define NEOPIXEL_PIN                 P2_12
+  
+    #if ENABLED(TFTGLCD_PANEL_SPI)
+        #define TFTGLCD_CS                     P3_25  // EXP2.3
     #endif
-
-  #elif ENABLED(MINIPANEL)
-    // GLCD features
-    // Uncomment screen orientation
-    //#define LCD_SCREEN_ROT_90
-    //#define LCD_SCREEN_ROT_180
-    //#define LCD_SCREEN_ROT_270
-  #endif
-
+  
+    #if SD_CONNECTION_IS(LCD)
+        #define SD_DETECT_PIN                  P0_28  // EXP2.4
+    #endif
+  
+#elif HAS_WIRED_LCD
+  
+    #define BEEPER_PIN                       P1_31  // EXP1.1
+    #define BTN_ENC                          P1_30  // EXP1.2
+    #define BTN_EN1                          P3_26  // EXP2.5
+    #define BTN_EN2                          P3_25  // EXP2.3
+    #define LCD_PINS_RS                      P0_16  // EXP1.4
+    #define LCD_SDSS                         P0_28  // EXP2.4
+    #define LCD_PINS_ENABLE                  P0_18  // EXP1.3
+    #define LCD_PINS_D4                      P0_15  // EXP1.5
+    #if ANY(VIKI2, miniVIKI)
+        #define DOGLCD_SCK                SD_SCK_PIN
+        #define DOGLCD_MOSI              SD_MOSI_PIN
+    #endif
+  
+    #if ENABLED(FYSETC_MINI_12864)
+        /**
+         * The FYSETC display can NOT use the SCK and MOSI pins on EXP2, so a
+         * special cable is needed to go between EXP2 on the FYSETC and the
+         * controller board's EXP2 and J8. It also means that a software SPI
+         * is needed to drive those pins.
+         *
+         * The FYSETC requires mode 3 SPI interface.
+         *
+         * Pins 6, 7 & 8 on EXP2 are no connects. That means a second special
+         * cable will be needed if the RGB LEDs are to be active.
+         */
+        #define DOGLCD_CS            LCD_PINS_ENABLE  // EXP1.3  (LCD_EN on FYSETC schematic)
+        #define DOGLCD_A0                LCD_PINS_RS  // EXP1.4  (LCD_A0 on FYSETC schematic)
+        #define DOGLCD_SCK                     P2_11  // J8-5  (SCK on FYSETC schematic)
+        #define DOGLCD_MOSI                    P4_28  // J8-6  (MOSI on FYSETC schematic)
+    
+        //#define FORCE_SOFT_SPI                      // Use this if default of hardware SPI causes display problems
+                                                      //   results in LCD soft SPI mode 3, SD soft SPI mode 0
+    
+        #if EITHER(FYSETC_MINI_12864_1_2, FYSETC_MINI_12864_2_0)
+            #ifndef RGB_LED_R_PIN
+                #define RGB_LED_R_PIN              P2_12  // J8-4  (LCD_D6 on FYSETC schematic)
+            #endif
+            #ifndef RGB_LED_G_PIN
+                #define RGB_LED_G_PIN              P1_23  // J8-3  (LCD_D5 on FYSETC schematic)
+            #endif
+            #ifndef RGB_LED_B_PIN
+                #define RGB_LED_B_PIN              P1_22  // J8-2  (LCD_D7 on FYSETC schematic)
+            #endif
+        #elif ENABLED(FYSETC_MINI_12864_2_1)
+            #define NEOPIXEL_PIN                 P2_12
+        #endif
+    
+    #elif ENABLED(MINIPANEL)
+        // GLCD features
+        // Uncomment screen orientation
+        //#define LCD_SCREEN_ROT_90
+        //#define LCD_SCREEN_ROT_180
+        //#define LCD_SCREEN_ROT_270
+    #endif
+  
 #endif // HAS_WIRED_LCD
 
 /**
@@ -288,50 +288,50 @@
  */
 
 #if HAS_DRIVER(TMC2130)
-  // J8
-  #define X_CS_PIN                         P1_22
-  #define Y_CS_PIN                         P1_23
-  #define Z_CS_PIN                         P2_12
-  #define E0_CS_PIN                        P2_11
-  #define E1_CS_PIN                        P4_28
-
-  // Hardware SPI is on EXP2. See if you can make it work:
-  // https://github.com/makerbase-mks/MKS-SBASE/issues/25
-  #define TMC_USE_SW_SPI
-  #if ENABLED(TMC_USE_SW_SPI)
-    #ifndef TMC_SW_MOSI
-      #define TMC_SW_MOSI                  P0_03  // AUX1
+    // J8
+    #define X_CS_PIN                         P1_22
+    #define Y_CS_PIN                         P1_23
+    #define Z_CS_PIN                         P2_12
+    #define E0_CS_PIN                        P2_11
+    #define E1_CS_PIN                        P4_28
+  
+    // Hardware SPI is on EXP2. See if you can make it work:
+    // https://github.com/makerbase-mks/MKS-SBASE/issues/25
+    #define TMC_USE_SW_SPI
+    #if ENABLED(TMC_USE_SW_SPI)
+        #ifndef TMC_SW_MOSI
+            #define TMC_SW_MOSI                  P0_03  // AUX1
+        #endif
+        #ifndef TMC_SW_MISO
+            #define TMC_SW_MISO                  P0_02  // AUX1
+        #endif
+        #ifndef TMC_SW_SCK
+            #define TMC_SW_SCK                   P0_26  // TH4
+        #endif
     #endif
-    #ifndef TMC_SW_MISO
-      #define TMC_SW_MISO                  P0_02  // AUX1
-    #endif
-    #ifndef TMC_SW_SCK
-      #define TMC_SW_SCK                   P0_26  // TH4
-    #endif
-  #endif
-
+  
 #endif
 
 #if MB(MKS_SBASE) && HAS_TMC_UART
-
-  /**
-   * TMC2208/TMC2209 stepper drivers
-   *
-   * The shortage of pins becomes apparent.
-   * Worst case you may have to give up the LCD
-   * RX pins need to be interrupt capable
-   */
-  #define X_SERIAL_TX_PIN                  P1_22  // J8-2
-  #define X_SERIAL_RX_PIN                  P2_12  // J8-4 Interrupt Capable
-  #define Y_SERIAL_TX_PIN                  P1_23  // J8-3
-  #define Y_SERIAL_RX_PIN                  P2_11  // J8-5 Interrupt Capable
-  #define Z_SERIAL_TX_PIN                  P2_12  // J8-4
-  #define Z_SERIAL_RX_PIN                  P0_25  // TH3
-  #define E0_SERIAL_TX_PIN                 P4_28  // J8-6
-  #define E0_SERIAL_RX_PIN                 P0_26  // TH4
-
-  // Reduce baud rate to improve software serial reliability
-  #define TMC_BAUD_RATE                    19200
+  
+    /**
+     * TMC2208/TMC2209 stepper drivers
+     *
+     * The shortage of pins becomes apparent.
+     * Worst case you may have to give up the LCD
+     * RX pins need to be interrupt capable
+     */
+    #define X_SERIAL_TX_PIN                  P1_22  // J8-2
+    #define X_SERIAL_RX_PIN                  P2_12  // J8-4 Interrupt Capable
+    #define Y_SERIAL_TX_PIN                  P1_23  // J8-3
+    #define Y_SERIAL_RX_PIN                  P2_11  // J8-5 Interrupt Capable
+    #define Z_SERIAL_TX_PIN                  P2_12  // J8-4
+    #define Z_SERIAL_RX_PIN                  P0_25  // TH3
+    #define E0_SERIAL_TX_PIN                 P4_28  // J8-6
+    #define E0_SERIAL_RX_PIN                 P0_26  // TH4
+  
+    // Reduce baud rate to improve software serial reliability
+    #define TMC_BAUD_RATE                    19200
 #endif
 
 // UNUSED

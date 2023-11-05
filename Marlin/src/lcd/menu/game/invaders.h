@@ -26,13 +26,13 @@
 #define INVASION_SIZE 3
 
 #if INVASION_SIZE == 3
-  #define INVADER_COLS   5
+    #define INVADER_COLS   5
 #elif INVASION_SIZE == 4
-  #define INVADER_COLS   6
+    #define INVADER_COLS   6
 #else
-  #define INVADER_COLS   8
-  #undef INVASION_SIZE
-  #define INVASION_SIZE  5
+    #define INVADER_COLS   8
+    #undef INVASION_SIZE
+    #define INVASION_SIZE  5
 #endif
 
 #define INVADER_ROWS INVASION_SIZE

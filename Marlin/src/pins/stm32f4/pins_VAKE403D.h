@@ -25,7 +25,7 @@
 #include "env_validate.h"
 
 #if HOTENDS > 2 || E_STEPPERS > 2
-  #error "STM32F4 supports up to 2 hotends / E-steppers."
+    #error "STM32F4 supports up to 2 hotends / E-steppers."
 #endif
 
 #define DEFAULT_MACHINE_NAME "STM32F446VET6"
@@ -51,7 +51,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                   PA4
+    #define Z_MIN_PROBE_PIN                   PA4
 #endif
 
 //
@@ -69,35 +69,35 @@
 #define X_DIR_PIN                           PC7   // X_DIR
 #define X_ENABLE_PIN                        PB2   //
 #ifndef X_CS_PIN
-  #define X_CS_PIN                          PC8   // X_CS
+    #define X_CS_PIN                          PC8   // X_CS
 #endif
 
 #define Y_STEP_PIN                          PD9   // Y_STEP
 #define Y_DIR_PIN                           PD10  // Y_DIR
 #define Y_ENABLE_PIN                        PB2   //
 #ifndef Y_CS_PIN
-  #define Y_CS_PIN                          PD11  // Y_CS
+    #define Y_CS_PIN                          PD11  // Y_CS
 #endif
 
 #define Z_STEP_PIN                          PE15  // Z_STEP
 #define Z_DIR_PIN                           PB10  // Z_DIR
 #define Z_ENABLE_PIN                        PB2
 #ifndef Z_CS_PIN
-  #define Z_CS_PIN                          PD8
+    #define Z_CS_PIN                          PD8
 #endif
 
 #define E0_STEP_PIN                         PB1
 #define E0_DIR_PIN                          PB13
 #define E0_ENABLE_PIN                       PB2
 #ifndef E0_CS_PIN
-  #define E0_CS_PIN                         PE11
+    #define E0_CS_PIN                         PE11
 #endif
 
 #define E1_STEP_PIN                         PC4
 #define E1_DIR_PIN                          PC5
 #define E1_ENABLE_PIN                       PB2
 #ifndef E1_CS_PIN
-  #define E1_CS_PIN                         PB0
+    #define E1_CS_PIN                         PB0
 #endif
 
 #define SD_SCK_PIN                          PE12  // PA5   // SPI1 for SD card
@@ -130,13 +130,13 @@
 #define HEATER_BED_PIN                      PD12
 
 #ifndef FAN_PIN
-  #define FAN_PIN                           PD13
+    #define FAN_PIN                           PD13
 #endif
 #define FAN1_PIN                            PB5   // PA0
 #define FAN2_PIN                            PB4   // PA1
 
 #ifndef E0_AUTO_FAN_PIN
-  #define E0_AUTO_FAN_PIN                   PD13
+    #define E0_AUTO_FAN_PIN                   PD13
 #endif
 
 //
@@ -159,38 +159,38 @@
 #define POWER_LOSS_PIN                      PA4   // ?? Power loss / nAC_FAULT
 
 #if ENABLED(SDSUPPORT)
-  #define SD_DETECT_PIN                     PB7
-  #define SD_SS_PIN                        PB_15  // USD_CS -> CS for onboard SD
+    #define SD_DETECT_PIN                     PB7
+    #define SD_SS_PIN                        PB_15  // USD_CS -> CS for onboard SD
 #endif
 
 //
 // LCD / Controller
 //
 #if HAS_WIRED_LCD
-  #if ENABLED(SDSUPPORT)
-    #define SDSS                            PB6   // CS for SD card in LCD
-  #endif
-  #define BEEPER_PIN                        PC9
-  #define LCD_PINS_RS                       PC12
-  #define LCD_PINS_ENABLE                   PD7
-  #define LCD_PINS_D4                       PD1
-  #define LCD_PINS_D5                       PD2
-  #define LCD_PINS_D6                       PD3
-  #define LCD_PINS_D7                       PD4
-  #define BTN_EN1                           PD6
-  #define BTN_EN2                           PD0
-  #define BTN_ENC                           PB12
+    #if ENABLED(SDSUPPORT)
+        #define SDSS                            PB6   // CS for SD card in LCD
+    #endif
+    #define BEEPER_PIN                        PC9
+    #define LCD_PINS_RS                       PC12
+    #define LCD_PINS_ENABLE                   PD7
+    #define LCD_PINS_D4                       PD1
+    #define LCD_PINS_D5                       PD2
+    #define LCD_PINS_D6                       PD3
+    #define LCD_PINS_D7                       PD4
+    #define BTN_EN1                           PD6
+    #define BTN_EN2                           PD0
+    #define BTN_ENC                           PB12
 #endif
 
 //
 // ST7920 Delays
 //
 #ifndef BOARD_ST7920_DELAY_1
-  #define BOARD_ST7920_DELAY_1      DELAY_NS(96)
+    #define BOARD_ST7920_DELAY_1      DELAY_NS(96)
 #endif
 #ifndef BOARD_ST7920_DELAY_2
-  #define BOARD_ST7920_DELAY_2      DELAY_NS(48)
+    #define BOARD_ST7920_DELAY_2      DELAY_NS(48)
 #endif
 #ifndef BOARD_ST7920_DELAY_3
-  #define BOARD_ST7920_DELAY_3     DELAY_NS(715)
+    #define BOARD_ST7920_DELAY_3     DELAY_NS(715)
 #endif

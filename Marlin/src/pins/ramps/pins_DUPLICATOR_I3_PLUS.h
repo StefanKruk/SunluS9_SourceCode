@@ -87,15 +87,15 @@
 // LCDs and Controllers
 //
 #if HAS_WIRED_LCD
-  #if ENABLED(ZONESTAR_LCD)
-    #define LCD_PINS_RS                        2
-    #define LCD_PINS_ENABLE                   36
-    #define LCD_PINS_D4                       37
-    #define LCD_PINS_D5                       34
-    #define LCD_PINS_D6                       35
-    #define LCD_PINS_D7                       32
-    #define ADC_KEYPAD_PIN                    12  // Analog
-  #endif
+    #if ENABLED(ZONESTAR_LCD)
+        #define LCD_PINS_RS                        2
+        #define LCD_PINS_ENABLE                   36
+        #define LCD_PINS_D4                       37
+        #define LCD_PINS_D5                       34
+        #define LCD_PINS_D6                       35
+        #define LCD_PINS_D7                       32
+        #define ADC_KEYPAD_PIN                    12  // Analog
+    #endif
 #endif
 
 /**

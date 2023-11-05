@@ -43,12 +43,12 @@
  */
 
 #ifndef MAX7219_ROTATE
-  #define MAX7219_ROTATE 0
+    #define MAX7219_ROTATE 0
 #endif
 #define _ROT ((MAX7219_ROTATE + 360) % 360)
 
 #ifndef MAX7219_NUMBER_UNITS
-  #define MAX7219_NUMBER_UNITS 1
+    #define MAX7219_NUMBER_UNITS 1
 #endif
 #define MAX7219_LINES (8 * (MAX7219_NUMBER_UNITS))
 
@@ -101,10 +101,10 @@ public:
   static void refresh_unit_line(const uint8_t line);
 
   #if ENABLED(MAX7219_NUMERIC)
-    // Draw an integer with optional leading zeros and optional decimal point
-    void print(const uint8_t start, int16_t value, uint8_t size, const bool leadzero=false, bool dec=false);
-    // Draw a float with a decimal point and optional digits
-    void print(const uint8_t start, const_float_t value, const uint8_t pre_size, const uint8_t post_size, const bool leadzero=false);
+      // Draw an integer with optional leading zeros and optional decimal point
+      void print(const uint8_t start, int16_t value, uint8_t size, const bool leadzero=false, bool dec=false);
+      // Draw a float with a decimal point and optional digits
+      void print(const uint8_t start, const_float_t value, const uint8_t pre_size, const uint8_t post_size, const bool leadzero=false);
   #endif
 
   // Set a single LED by XY coordinate
@@ -150,9 +150,9 @@ private:
   static void quantity16(const uint8_t y, const uint8_t ov, const uint8_t nv);
 
   #ifdef MAX7219_INIT_TEST
-    static void test_pattern();
-    static void run_test_pattern();
-    static void start_test_pattern();
+      static void test_pattern();
+      static void run_test_pattern();
+      static void start_test_pattern();
   #endif
 };
 

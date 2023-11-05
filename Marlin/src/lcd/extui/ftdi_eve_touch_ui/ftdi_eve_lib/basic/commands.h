@@ -176,10 +176,10 @@ class CLCD::FontMetrics {
 class CLCD::CommandFifo {
   protected:
     #if FTDI_API_LEVEL >= 810
-      uint32_t getRegCmdBSpace();
+        uint32_t getRegCmdBSpace();
     #else
-      static uint32_t command_write_ptr;
-      template <class T> bool _write_unaligned(T data, uint16_t len);
+        static uint32_t command_write_ptr;
+        template <class T> bool _write_unaligned(T data, uint16_t len);
     #endif
     void start();
 
@@ -230,15 +230,15 @@ class CLCD::CommandFifo {
     void translate   (int32_t tx, int32_t ty);
 
     #if FTDI_API_LEVEL >= 810
-      void setbase   (uint8_t base);
-      void setrotate (uint8_t rotation);
-      void setbitmap (uint32_t ptr, uint16_t fmt, uint16_t w, uint16_t h);
-      void snapshot2 (uint32_t fmt, uint32_t ptr, int16_t x, int16_t y, uint16_t w, uint16_t h);
-      void mediafifo (uint32_t ptr, uint32_t size);
-      void playvideo (uint32_t options);
-      void videostart();
-      void videoframe(uint32_t dst, uint32_t ptr);
-      void romfont   (uint8_t font, uint8_t romslot);
+        void setbase   (uint8_t base);
+        void setrotate (uint8_t rotation);
+        void setbitmap (uint32_t ptr, uint16_t fmt, uint16_t w, uint16_t h);
+        void snapshot2 (uint32_t fmt, uint32_t ptr, int16_t x, int16_t y, uint16_t w, uint16_t h);
+        void mediafifo (uint32_t ptr, uint32_t size);
+        void playvideo (uint32_t options);
+        void videostart();
+        void videoframe(uint32_t dst, uint32_t ptr);
+        void romfont   (uint8_t font, uint8_t romslot);
     #endif
 
     // All the following must be followed by str()

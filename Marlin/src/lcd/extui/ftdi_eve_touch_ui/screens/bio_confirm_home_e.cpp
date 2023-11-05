@@ -24,33 +24,33 @@
 #include "screens.h"
 
 #ifdef FTDI_BIO_CONFIRM_HOME_E
-
-using namespace FTDI;
-
-void BioConfirmHomeE::onRedraw(draw_mode_t) {
-  drawMessage(GET_TEXT_F(MSG_HOME_E_WARNING));
-  drawYesNoButtons(1);
-}
-
-bool BioConfirmHomeE::onTouchEnd(uint8_t tag) {
-  switch (tag) {
-    case 1:
-      #if defined(AXIS_LEVELING_COMMANDS) && defined(PARK_AND_RELEASE_COMMANDS)
-        SpinnerDialogBox::enqueueAndWait_P(F(
-          "G28 E\n"
-          AXIS_LEVELING_COMMANDS "\n"
-          PARK_AND_RELEASE_COMMANDS
-        ));
-      #endif
-      current_screen.forget();
-      break;
-    case 2:
-      GOTO_SCREEN(StatusScreen);
-      break;
-    default:
-      return DialogBoxBaseClass::onTouchEnd(tag);
+  
+  using namespace FTDI;
+  
+  void BioConfirmHomeE::onRedraw(draw_mode_t) {
+    drawMessage(GET_TEXT_F(MSG_HOME_E_WARNING));
+    drawYesNoButtons(1);
   }
-  return true;
-}
-
+  
+  bool BioConfirmHomeE::onTouchEnd(uint8_t tag) {
+    switch (tag) {
+      case 1:
+        #if defined(AXIS_LEVELING_COMMANDS) && defined(PARK_AND_RELEASE_COMMANDS)
+            SpinnerDialogBox::enqueueAndWait_P(F(
+              "G28 E\n"
+              AXIS_LEVELING_COMMANDS "\n"
+              PARK_AND_RELEASE_COMMANDS
+            ));
+        #endif
+        current_screen.forget();
+        break;
+      case 2:
+        GOTO_SCREEN(StatusScreen);
+        break;
+      default:
+        return DialogBoxBaseClass::onTouchEnd(tag);
+    }
+    return true;
+  }
+  
 #endif // FTDI_BIO_CONFIRM_HOME_E

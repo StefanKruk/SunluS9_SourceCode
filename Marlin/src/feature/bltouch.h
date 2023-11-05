@@ -24,7 +24,7 @@
 #include "../inc/MarlinConfigPre.h"
 
 #if DISABLED(BLTOUCH_HS_MODE)
-  #define BLTOUCH_SLOW_MODE 1
+    #define BLTOUCH_SLOW_MODE 1
 #endif
 
 // BLTouch commands are sent as servo angles
@@ -50,22 +50,22 @@ typedef unsigned char BLTCommand;
  */
 
 #ifndef BLTOUCH_SET5V_DELAY
-  #define BLTOUCH_SET5V_DELAY   150
+    #define BLTOUCH_SET5V_DELAY   150
 #endif
 #ifndef BLTOUCH_SETOD_DELAY
-  #define BLTOUCH_SETOD_DELAY   150
+    #define BLTOUCH_SETOD_DELAY   150
 #endif
 #ifndef BLTOUCH_MODE_STORE_DELAY
-  #define BLTOUCH_MODE_STORE_DELAY 150
+    #define BLTOUCH_MODE_STORE_DELAY 150
 #endif
 #ifndef BLTOUCH_DEPLOY_DELAY
-  #define BLTOUCH_DEPLOY_DELAY   750
+    #define BLTOUCH_DEPLOY_DELAY   750
 #endif
 #ifndef BLTOUCH_STOW_DELAY
-  #define BLTOUCH_STOW_DELAY     750
+    #define BLTOUCH_STOW_DELAY     750
 #endif
 #ifndef BLTOUCH_RESET_DELAY
-  #define BLTOUCH_RESET_DELAY    500
+    #define BLTOUCH_RESET_DELAY    500
 #endif
 
 class BLTouch {

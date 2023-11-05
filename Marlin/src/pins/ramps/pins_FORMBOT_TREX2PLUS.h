@@ -29,7 +29,7 @@
 #include "env_validate.h"
 
 #if HOTENDS > 2 || E_STEPPERS > 2
-  #error "Formbot supports up to 2 hotends / E-steppers. Comment out this line to continue."
+    #error "Formbot supports up to 2 hotends / E-steppers. Comment out this line to continue."
 #endif
 
 #define BOARD_INFO_NAME      "Formbot"
@@ -48,7 +48,7 @@
 //
 #define X_MIN_PIN                              3
 #ifndef X_MAX_PIN
-  #define X_MAX_PIN                            2
+    #define X_MAX_PIN                            2
 #endif
 #define Y_MIN_PIN                             14
 #define Y_MAX_PIN                             15
@@ -59,7 +59,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     32
+    #define Z_MIN_PROBE_PIN                     32
 #endif
 
 //
@@ -69,35 +69,35 @@
 #define X_DIR_PIN                             55
 #define X_ENABLE_PIN                          38
 #ifndef X_CS_PIN
-  #define X_CS_PIN                            53
+    #define X_CS_PIN                            53
 #endif
 
 #define Y_STEP_PIN                            60
 #define Y_DIR_PIN                             61
 #define Y_ENABLE_PIN                          56
 #ifndef Y_CS_PIN
-  #define Y_CS_PIN                            49
+    #define Y_CS_PIN                            49
 #endif
 
 #define Z_STEP_PIN                            46
 #define Z_DIR_PIN                             48
 #define Z_ENABLE_PIN                          62
 #ifndef Z_CS_PIN
-  #define Z_CS_PIN                            40
+    #define Z_CS_PIN                            40
 #endif
 
 #define E0_STEP_PIN                           26
 #define E0_DIR_PIN                            28
 #define E0_ENABLE_PIN                         24
 #ifndef E0_CS_PIN
-  #define E0_CS_PIN                           42
+    #define E0_CS_PIN                           42
 #endif
 
 #define E1_STEP_PIN                           36
 #define E1_DIR_PIN                            34
 #define E1_ENABLE_PIN                         30
 #ifndef E1_CS_PIN
-  #define E1_CS_PIN                           44
+    #define E1_CS_PIN                           44
 #endif
 
 #define E2_STEP_PIN                           42
@@ -113,26 +113,26 @@
 
 // SPI for Max6675 or Max31855 Thermocouple
 #if DISABLED(SDSUPPORT)
-  #define MAX6675_SS_PIN                      66  // Don't use 53 if using Display/SD card
+    #define MAX6675_SS_PIN                      66  // Don't use 53 if using Display/SD card
 #else
-  #define MAX6675_SS_PIN                      66  // Don't use 49 (SD_DETECT_PIN)
+    #define MAX6675_SS_PIN                      66  // Don't use 49 (SD_DETECT_PIN)
 #endif
 
 //
 // Augmentation for auto-assigning RAMPS plugs
 //
 #if NONE(IS_RAMPS_EEB, IS_RAMPS_EEF, IS_RAMPS_EFB, IS_RAMPS_EFF, IS_RAMPS_SF) && !PIN_EXISTS(MOSFET_D)
-  #if HAS_MULTI_HOTEND
-    #if TEMP_SENSOR_BED
-      #define IS_RAMPS_EEB
+    #if HAS_MULTI_HOTEND
+        #if TEMP_SENSOR_BED
+            #define IS_RAMPS_EEB
+        #else
+            #define IS_RAMPS_EEF
+        #endif
+    #elif TEMP_SENSOR_BED
+        #define IS_RAMPS_EFB
     #else
-      #define IS_RAMPS_EEF
+        #define IS_RAMPS_EFF
     #endif
-  #elif TEMP_SENSOR_BED
-    #define IS_RAMPS_EFB
-  #else
-    #define IS_RAMPS_EFF
-  #endif
 #endif
 
 //
@@ -145,11 +145,11 @@
 #define FAN_PIN                                9
 
 #if HAS_FILAMENT_SENSOR
-  #define FIL_RUNOUT_PIN                       4
-  //#define FIL_RUNOUT2_PIN                   -1
+    #define FIL_RUNOUT_PIN                       4
+    //#define FIL_RUNOUT2_PIN                   -1
 #else
-  // Though defined as a fan pin, it is utilized as a dedicated laser pin by Formbot.
-  #define FAN1_PIN                             4
+    // Though defined as a fan pin, it is utilized as a dedicated laser pin by Formbot.
+    #define FAN1_PIN                             4
 #endif
 
 //
@@ -157,18 +157,18 @@
 //
 #define SDSS                                  53
 #ifndef LED_PIN
-  #define LED_PIN                             13  // The Formbot v 1 board has almost no unassigned pins on it.  The Board's LED
+    #define LED_PIN                             13  // The Formbot v 1 board has almost no unassigned pins on it.  The Board's LED
 #endif                          // is a good place to get a signal to control the Max7219 LED Matrix.
 
 // Use the RAMPS 1.4 Analog input 5 on the AUX2 connector
 #define FILWIDTH_PIN                           5  // Analog Input
 
 #ifndef PS_ON_PIN
-  #define PS_ON_PIN                           12
+    #define PS_ON_PIN                           12
 #endif
 
 #ifndef CASE_LIGHT_PIN
-  #define CASE_LIGHT_PIN                       8
+    #define CASE_LIGHT_PIN                       8
 #endif
 
 //
@@ -177,35 +177,35 @@
 // Formbot only supports REPRAP_DISCOUNT_SMART_CONTROLLER
 //
 #if IS_RRD_SC
-  #ifndef BEEPER_PIN
-    #define BEEPER_PIN                        37
-  #endif
-  #define BTN_EN1                             31
-  #define BTN_EN2                             33
-  #define BTN_ENC                             35
-  #define SD_DETECT_PIN                       49
-
-  // Allow MAX7219 to steal the KILL pin
-  #if !defined(KILL_PIN) && MAX7219_CLK_PIN != 41 && MAX7219_DIN_PIN != 41 && MAX7219_LOAD_PIN != 41
-    #define KILL_PIN                          41
-  #endif
-
-  #define LCD_PINS_RS                         16
-  #define LCD_PINS_ENABLE                     17
-  #define LCD_PINS_D4                         23
-  #define LCD_PINS_D5                         25
-  #define LCD_PINS_D6                         27
-  #define LCD_PINS_D7                         29
+    #ifndef BEEPER_PIN
+        #define BEEPER_PIN                        37
+    #endif
+    #define BTN_EN1                             31
+    #define BTN_EN2                             33
+    #define BTN_ENC                             35
+    #define SD_DETECT_PIN                       49
+  
+    // Allow MAX7219 to steal the KILL pin
+    #if !defined(KILL_PIN) && MAX7219_CLK_PIN != 41 && MAX7219_DIN_PIN != 41 && MAX7219_LOAD_PIN != 41
+        #define KILL_PIN                          41
+    #endif
+  
+    #define LCD_PINS_RS                         16
+    #define LCD_PINS_ENABLE                     17
+    #define LCD_PINS_D4                         23
+    #define LCD_PINS_D5                         25
+    #define LCD_PINS_D6                         27
+    #define LCD_PINS_D7                         29
 #endif
 
 #if HAS_MARLINUI_U8GLIB
-  #ifndef BOARD_ST7920_DELAY_1
-    #define BOARD_ST7920_DELAY_1 DELAY_NS(200)
-  #endif
-  #ifndef BOARD_ST7920_DELAY_2
-    #define BOARD_ST7920_DELAY_2 DELAY_NS(200)
-  #endif
-  #ifndef BOARD_ST7920_DELAY_3
-    #define BOARD_ST7920_DELAY_3 DELAY_NS(200)
-  #endif
+    #ifndef BOARD_ST7920_DELAY_1
+        #define BOARD_ST7920_DELAY_1 DELAY_NS(200)
+    #endif
+    #ifndef BOARD_ST7920_DELAY_2
+        #define BOARD_ST7920_DELAY_2 DELAY_NS(200)
+    #endif
+    #ifndef BOARD_ST7920_DELAY_3
+        #define BOARD_ST7920_DELAY_3 DELAY_NS(200)
+    #endif
 #endif

@@ -23,8 +23,8 @@
 #include "../../inc/MarlinConfigPre.h"
 
 #if EITHER(EEPROM_SETTINGS, SD_FIRMWARE_UPDATE)
-
-  #include "eeprom_api.h"
-  PersistentStore persistentStore;
-
+  
+    #include "eeprom_api.h"
+    PersistentStore persistentStore;
+  
 #endif

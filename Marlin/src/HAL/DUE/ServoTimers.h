@@ -52,56 +52,56 @@
  */
 
 #ifdef _useTimer1
-  #define TC_FOR_TIMER1       TC1
-  #define CHANNEL_FOR_TIMER1  0
-  #define ID_TC_FOR_TIMER1    ID_TC3
-  #define IRQn_FOR_TIMER1     TC3_IRQn
-  #define HANDLER_FOR_TIMER1  TC3_Handler
+    #define TC_FOR_TIMER1       TC1
+    #define CHANNEL_FOR_TIMER1  0
+    #define ID_TC_FOR_TIMER1    ID_TC3
+    #define IRQn_FOR_TIMER1     TC3_IRQn
+    #define HANDLER_FOR_TIMER1  TC3_Handler
 #endif
 #ifdef _useTimer2
-  #define TC_FOR_TIMER2       TC1
-  #define CHANNEL_FOR_TIMER2  1
-  #define ID_TC_FOR_TIMER2    ID_TC4
-  #define IRQn_FOR_TIMER2     TC4_IRQn
-  #define HANDLER_FOR_TIMER2  TC4_Handler
+    #define TC_FOR_TIMER2       TC1
+    #define CHANNEL_FOR_TIMER2  1
+    #define ID_TC_FOR_TIMER2    ID_TC4
+    #define IRQn_FOR_TIMER2     TC4_IRQn
+    #define HANDLER_FOR_TIMER2  TC4_Handler
 #endif
 #ifdef _useTimer3
-  #define TC_FOR_TIMER3       TC1
-  #define CHANNEL_FOR_TIMER3  2
-  #define ID_TC_FOR_TIMER3    ID_TC5
-  #define IRQn_FOR_TIMER3     TC5_IRQn
-  #define HANDLER_FOR_TIMER3  TC5_Handler
+    #define TC_FOR_TIMER3       TC1
+    #define CHANNEL_FOR_TIMER3  2
+    #define ID_TC_FOR_TIMER3    ID_TC5
+    #define IRQn_FOR_TIMER3     TC5_IRQn
+    #define HANDLER_FOR_TIMER3  TC5_Handler
 #endif
 #ifdef _useTimer4
-  #define TC_FOR_TIMER4       TC0
-  #define CHANNEL_FOR_TIMER4  2
-  #define ID_TC_FOR_TIMER4    ID_TC2
-  #define IRQn_FOR_TIMER4     TC2_IRQn
-  #define HANDLER_FOR_TIMER4  TC2_Handler
+    #define TC_FOR_TIMER4       TC0
+    #define CHANNEL_FOR_TIMER4  2
+    #define ID_TC_FOR_TIMER4    ID_TC2
+    #define IRQn_FOR_TIMER4     TC2_IRQn
+    #define HANDLER_FOR_TIMER4  TC2_Handler
 #endif
 #ifdef _useTimer5
-  #define TC_FOR_TIMER5       TC0
-  #define CHANNEL_FOR_TIMER5  0
-  #define ID_TC_FOR_TIMER5    ID_TC0
-  #define IRQn_FOR_TIMER5     TC0_IRQn
-  #define HANDLER_FOR_TIMER5  TC0_Handler
+    #define TC_FOR_TIMER5       TC0
+    #define CHANNEL_FOR_TIMER5  0
+    #define ID_TC_FOR_TIMER5    ID_TC0
+    #define IRQn_FOR_TIMER5     TC0_IRQn
+    #define HANDLER_FOR_TIMER5  TC0_Handler
 #endif
 
 typedef enum : unsigned char {
   #ifdef _useTimer1
-    _timer1,
+      _timer1,
   #endif
   #ifdef _useTimer2
-    _timer2,
+      _timer2,
   #endif
   #ifdef _useTimer3
-    _timer3,
+      _timer3,
   #endif
   #ifdef _useTimer4
-    _timer4,
+      _timer4,
   #endif
   #ifdef _useTimer5
-    _timer5,
+      _timer5,
   #endif
   _Nbr_16timers
 } timer16_Sequence_t;

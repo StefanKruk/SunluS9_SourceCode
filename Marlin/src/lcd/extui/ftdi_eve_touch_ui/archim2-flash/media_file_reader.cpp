@@ -23,41 +23,41 @@
 #include "../compat.h"
 
 #if ENABLED(TOUCH_UI_FTDI_EVE)
-  #include "media_file_reader.h"
-
-  #if ENABLED(SDSUPPORT)
-    bool MediaFileReader::open(const char *filename) {
-      card.init(SD_SPI_SPEED, SDSS);
-      volume.init(&card);
-      root.openRoot(&volume);
-      return file.open(&root, filename, O_READ);
-    }
-
-    int16_t MediaFileReader::read(void *buff, size_t bytes) {
-      return file.read(buff, bytes);
-    }
-
-    void MediaFileReader::close() {
-      file.close();
-    }
-
-    uint32_t MediaFileReader::size() {
-      return file.fileSize();
-    }
-
-    void MediaFileReader::rewind() {
-      file.rewind();
-    }
-
-    int16_t MediaFileReader::read(void *obj, void *buff, size_t bytes) {
-      return reinterpret_cast<MediaFileReader*>(obj)->read(buff, bytes);
-    }
-  #else
-    bool MediaFileReader::open(const char*)               {return -1;}
-    int16_t MediaFileReader::read(void *, size_t)         {return 0;}
-    void MediaFileReader::close()                         {}
-    uint32_t MediaFileReader::size()                      {return 0;}
-    void MediaFileReader::rewind()                        {}
-    int16_t MediaFileReader::read(void *, void *, size_t) {return 0;}
-  #endif
+    #include "media_file_reader.h"
+  
+    #if ENABLED(SDSUPPORT)
+        bool MediaFileReader::open(const char *filename) {
+          card.init(SD_SPI_SPEED, SDSS);
+          volume.init(&card);
+          root.openRoot(&volume);
+          return file.open(&root, filename, O_READ);
+        }
+    
+        int16_t MediaFileReader::read(void *buff, size_t bytes) {
+          return file.read(buff, bytes);
+        }
+    
+        void MediaFileReader::close() {
+          file.close();
+        }
+    
+        uint32_t MediaFileReader::size() {
+          return file.fileSize();
+        }
+    
+        void MediaFileReader::rewind() {
+          file.rewind();
+        }
+    
+        int16_t MediaFileReader::read(void *obj, void *buff, size_t bytes) {
+          return reinterpret_cast<MediaFileReader*>(obj)->read(buff, bytes);
+        }
+    #else
+        bool MediaFileReader::open(const char*)               {return -1;}
+        int16_t MediaFileReader::read(void *, size_t)         {return 0;}
+        void MediaFileReader::close()                         {}
+        uint32_t MediaFileReader::size()                      {return 0;}
+        void MediaFileReader::rewind()                        {}
+        int16_t MediaFileReader::read(void *, void *, size_t) {return 0;}
+    #endif
 #endif // TOUCH_UI_FTDI_EVE

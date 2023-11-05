@@ -22,7 +22,7 @@
 #pragma once
 
 #ifdef __cplusplus
-  extern "C" { /* C-declarations for C++ */
+    extern "C" { /* C-declarations for C++ */
 #endif
 
 #define ESP_FIRMWARE_FILE         "MksWifi.bin"
@@ -70,5 +70,5 @@ extern UPLOAD_STRUCT esp_upload;
 int32_t wifi_upload(int type);
 
 #ifdef __cplusplus
-  } /* C-declarations for C++ */
+    } /* C-declarations for C++ */
 #endif

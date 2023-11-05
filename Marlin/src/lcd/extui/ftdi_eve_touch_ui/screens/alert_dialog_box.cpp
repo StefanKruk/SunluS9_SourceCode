@@ -25,47 +25,47 @@
 #include "screen_data.h"
 
 #ifdef FTDI_ALERT_DIALOG_BOX
-
-constexpr static AlertDialogBoxData &mydata = screen_data.AlertDialogBox;
-
-using namespace FTDI;
-using namespace Theme;
-
-void AlertDialogBox::onEntry() {
-  BaseScreen::onEntry();
-  sound.play(mydata.isError ? sad_trombone : twinkle, PLAY_ASYNCHRONOUS);
-}
-
-void AlertDialogBox::onRedraw(draw_mode_t what) {
-  if (what & FOREGROUND) {
-    drawOkayButton();
+  
+  constexpr static AlertDialogBoxData &mydata = screen_data.AlertDialogBox;
+  
+  using namespace FTDI;
+  using namespace Theme;
+  
+  void AlertDialogBox::onEntry() {
+    BaseScreen::onEntry();
+    sound.play(mydata.isError ? sad_trombone : twinkle, PLAY_ASYNCHRONOUS);
   }
-}
-
-template<typename T>
-void AlertDialogBox::show(const T message) {
-  drawMessage(message);
-  storeBackground();
-  mydata.isError = false;
-  GOTO_SCREEN(AlertDialogBox);
-}
-
-template<typename T>
-void AlertDialogBox::showError(const T message) {
-  drawMessage(message);
-  storeBackground();
-  mydata.isError = true;
-  GOTO_SCREEN(AlertDialogBox);
-}
-
-void AlertDialogBox::hide() {
-  if (AT_SCREEN(AlertDialogBox))
-    GOTO_PREVIOUS();
-}
-
-template void AlertDialogBox::show(const char *);
-template void AlertDialogBox::show(const progmem_str);
-template void AlertDialogBox::showError(const char *);
-template void AlertDialogBox::showError(const progmem_str);
-
+  
+  void AlertDialogBox::onRedraw(draw_mode_t what) {
+    if (what & FOREGROUND) {
+      drawOkayButton();
+    }
+  }
+  
+  template<typename T>
+  void AlertDialogBox::show(const T message) {
+    drawMessage(message);
+    storeBackground();
+    mydata.isError = false;
+    GOTO_SCREEN(AlertDialogBox);
+  }
+  
+  template<typename T>
+  void AlertDialogBox::showError(const T message) {
+    drawMessage(message);
+    storeBackground();
+    mydata.isError = true;
+    GOTO_SCREEN(AlertDialogBox);
+  }
+  
+  void AlertDialogBox::hide() {
+    if (AT_SCREEN(AlertDialogBox))
+      GOTO_PREVIOUS();
+  }
+  
+  template void AlertDialogBox::show(const char *);
+  template void AlertDialogBox::show(const progmem_str);
+  template void AlertDialogBox::showError(const char *);
+  template void AlertDialogBox::showError(const progmem_str);
+  
 #endif // FTDI_ALERT_DIALOG_BOX

@@ -38,7 +38,7 @@
 #include <util/atomic.h>
 
 #if HAS_ETHERNET
-  #include "../../feature/ethernet.h"
+    #include "../../feature/ethernet.h"
 #endif
 
 //#define ST7920_DELAY_1 DELAY_NS(600)
@@ -52,7 +52,7 @@
 #define IS_32BIT_TEENSY 1
 #define IS_TEENSY_40_41 1
 #ifndef IS_TEENSY40
-  #define IS_TEENSY41 1
+    #define IS_TEENSY41 1
 #endif
 
 #include "../../core/serial_hook.h"
@@ -69,24 +69,24 @@ extern USBSerialType USBSerial;
 #define MSERIAL(X) _MSERIAL(X)
 
 #if SERIAL_PORT == -1
-  #define MYSERIAL1 SerialUSB
+    #define MYSERIAL1 SerialUSB
 #elif WITHIN(SERIAL_PORT, 0, 8)
-  DECLARE_SERIAL(SERIAL_PORT);
-  #define MYSERIAL1 MSERIAL(SERIAL_PORT)
+    DECLARE_SERIAL(SERIAL_PORT);
+    #define MYSERIAL1 MSERIAL(SERIAL_PORT)
 #else
-  #error "The required SERIAL_PORT must be from 0 to 8, or -1 for Native USB."
+    #error "The required SERIAL_PORT must be from 0 to 8, or -1 for Native USB."
 #endif
 
 #ifdef SERIAL_PORT_2
-  #if SERIAL_PORT_2 == -1
-    #define MYSERIAL2 usbSerial
-  #elif SERIAL_PORT_2 == -2
-    #define MYSERIAL2 ethernet.telnetClient
-  #elif WITHIN(SERIAL_PORT_2, 0, 8)
-    #define MYSERIAL2 MSERIAL(SERIAL_PORT_2)
-  #else
-    #error "SERIAL_PORT_2 must be from 0 to 8, or -1 for Native USB, or -2 for Ethernet."
-  #endif
+    #if SERIAL_PORT_2 == -1
+        #define MYSERIAL2 usbSerial
+    #elif SERIAL_PORT_2 == -2
+        #define MYSERIAL2 ethernet.telnetClient
+    #elif WITHIN(SERIAL_PORT_2, 0, 8)
+        #define MYSERIAL2 MSERIAL(SERIAL_PORT_2)
+    #else
+        #error "SERIAL_PORT_2 must be from 0 to 8, or -1 for Native USB, or -2 for Ethernet."
+    #endif
 #endif
 
 #define HAL_SERVO_LIB libServo
@@ -94,7 +94,7 @@ extern USBSerialType USBSerial;
 typedef int8_t pin_t;
 
 #ifndef analogInputToDigitalPin
-  #define analogInputToDigitalPin(p) ((p < 12U) ? (p) + 54U : -1)
+    #define analogInputToDigitalPin(p) ((p < 12U) ? (p) + 54U : -1)
 #endif
 
 #define CRITICAL_SECTION_START()  uint32_t primask = __get_primask(); __disable_irq()
@@ -126,14 +126,14 @@ void HAL_reboot();
 FORCE_INLINE void _delay_ms(const int delay_ms) { delay(delay_ms); }
 
 #if GCC_VERSION <= 50000
-  #pragma GCC diagnostic push
-  #pragma GCC diagnostic ignored "-Wunused-function"
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wunused-function"
 #endif
 
 extern "C" uint32_t freeMemory();
 
 #if GCC_VERSION <= 50000
-  #pragma GCC diagnostic pop
+    #pragma GCC diagnostic pop
 #endif
 
 // ADC

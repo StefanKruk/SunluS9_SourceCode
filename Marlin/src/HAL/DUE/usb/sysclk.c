@@ -51,62 +51,65 @@
 /// @cond 0
 /**INDENT-OFF**/
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
-/**INDENT-ON**/
-/// @endcond
+	/**INDENT-ON**/
+	/// @endcond
 
-/**
- * \weakgroup sysclk_group
- * @{
- */
+	/**
+	 * \weakgroup sysclk_group
+	 * @{
+	 */
 
 #if defined(CONFIG_USBCLK_SOURCE) || defined(__DOXYGEN__)
-/**
- * \brief Enable full speed USB clock.
- *
- * \note The SAM3X PMC hardware interprets div as div+1. For readability the hardware div+1
- * is hidden in this implementation. Use div as div effective value.
- *
- * \param pll_id Source of the USB clock.
- * \param div Actual clock divisor. Must be superior to 0.
- */
-void sysclk_enable_usb(void)
-{
-	Assert(CONFIG_USBCLK_DIV > 0);
+	/**
+	 * \brief Enable full speed USB clock.
+	 *
+	 * \note The SAM3X PMC hardware interprets div as div+1. For readability the hardware div+1
+	 * is hidden in this implementation. Use div as div effective value.
+	 *
+	 * \param pll_id Source of the USB clock.
+	 * \param div Actual clock divisor. Must be superior to 0.
+	 */
+	void sysclk_enable_usb(void)
+	{
+		Assert(CONFIG_USBCLK_DIV > 0);
 
 #ifdef CONFIG_PLL0_SOURCE
-	if (CONFIG_USBCLK_SOURCE == USBCLK_SRC_PLL0) {
-		struct pll_config pllcfg;
+		if (CONFIG_USBCLK_SOURCE == USBCLK_SRC_PLL0)
+		{
+			struct pll_config pllcfg;
 
-		pll_enable_source(CONFIG_PLL0_SOURCE);
-		pll_config_defaults(&pllcfg, 0);
-		pll_enable(&pllcfg, 0);
-		pll_wait_for_lock(0);
-		pmc_switch_udpck_to_pllack(CONFIG_USBCLK_DIV - 1);
-		pmc_enable_udpck();
-		return;
-	}
+			pll_enable_source(CONFIG_PLL0_SOURCE);
+			pll_config_defaults(&pllcfg, 0);
+			pll_enable(&pllcfg, 0);
+			pll_wait_for_lock(0);
+			pmc_switch_udpck_to_pllack(CONFIG_USBCLK_DIV - 1);
+			pmc_enable_udpck();
+			return;
+		}
 #endif
 
-	if (CONFIG_USBCLK_SOURCE == USBCLK_SRC_UPLL) {
+		if (CONFIG_USBCLK_SOURCE == USBCLK_SRC_UPLL)
+		{
 
-		pmc_enable_upll_clock();
-		pmc_switch_udpck_to_upllck(CONFIG_USBCLK_DIV - 1);
-		pmc_enable_udpck();
-		return;
+			pmc_enable_upll_clock();
+			pmc_switch_udpck_to_upllck(CONFIG_USBCLK_DIV - 1);
+			pmc_enable_udpck();
+			return;
+		}
 	}
-}
 
-/**
- * \brief Disable full speed USB clock.
- *
- * \note This implementation does not switch off the PLL, it just turns off the USB clock.
- */
-void sysclk_disable_usb(void)
-{
-	pmc_disable_udpck();
-}
+	/**
+	 * \brief Disable full speed USB clock.
+	 *
+	 * \note This implementation does not switch off the PLL, it just turns off the USB clock.
+	 */
+	void sysclk_disable_usb(void)
+	{
+		pmc_disable_udpck();
+	}
 #endif // CONFIG_USBCLK_SOURCE
 
 //! @}

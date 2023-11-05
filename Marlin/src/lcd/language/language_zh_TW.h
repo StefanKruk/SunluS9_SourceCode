@@ -68,21 +68,21 @@ namespace Language_zh_TW {
   PROGMEM Language_Str MSG_HOME_OFFSETS_APPLIED            = _UxGT("偏移已啟用");     //"Offsets applied"
   PROGMEM Language_Str MSG_SET_ORIGIN                      = _UxGT("設置原點");     //"Set origin"
   #if PREHEAT_COUNT
-    PROGMEM Language_Str MSG_PREHEAT_1                     = _UxGT("預熱 ") PREHEAT_1_LABEL;     //"Preheat PREHEAT_1_LABEL"
-    PROGMEM Language_Str MSG_PREHEAT_1_H                   = _UxGT("預熱 ") PREHEAT_1_LABEL " ~";     //"Preheat PREHEAT_1_LABEL"
-    PROGMEM Language_Str MSG_PREHEAT_1_END                 = _UxGT("預熱 ") PREHEAT_1_LABEL _UxGT(" 噴嘴");     //MSG_PREHEAT_1 " "
-    PROGMEM Language_Str MSG_PREHEAT_1_END_E               = _UxGT("預熱 ") PREHEAT_1_LABEL _UxGT(" 噴嘴 ~");   //MSG_PREHEAT_1 " "
-    PROGMEM Language_Str MSG_PREHEAT_1_ALL                 = _UxGT("預熱 ") PREHEAT_1_LABEL _UxGT(" 全部");     //MSG_PREHEAT_1 " All"
-    PROGMEM Language_Str MSG_PREHEAT_1_BEDONLY             = _UxGT("預熱 ") PREHEAT_1_LABEL _UxGT(" 熱床");     //MSG_PREHEAT_1 " Bed"
-    PROGMEM Language_Str MSG_PREHEAT_1_SETTINGS            = _UxGT("預熱 ") PREHEAT_1_LABEL _UxGT(" 設置");     //MSG_PREHEAT_1 " conf"
-
-    PROGMEM Language_Str MSG_PREHEAT_M                     = _UxGT("預熱 $");     //"Preheat PREHEAT_1_LABEL"
-    PROGMEM Language_Str MSG_PREHEAT_M_H                   = _UxGT("預熱 $ ~");     //"Preheat PREHEAT_1_LABEL"
-    PROGMEM Language_Str MSG_PREHEAT_M_END                 = _UxGT("預熱 $ 噴嘴");     //MSG_PREHEAT_1 " "
-    PROGMEM Language_Str MSG_PREHEAT_M_END_E               = _UxGT("預熱 $ 噴嘴 ~");   //MSG_PREHEAT_1 " "
-    PROGMEM Language_Str MSG_PREHEAT_M_ALL                 = _UxGT("預熱 $ 全部");     //MSG_PREHEAT_1 " All"
-    PROGMEM Language_Str MSG_PREHEAT_M_BEDONLY             = _UxGT("預熱 $ 熱床");     //MSG_PREHEAT_1 " Bed"
-    PROGMEM Language_Str MSG_PREHEAT_M_SETTINGS            = _UxGT("預熱 $ 設置");     //MSG_PREHEAT_1 " conf"
+      PROGMEM Language_Str MSG_PREHEAT_1                     = _UxGT("預熱 ") PREHEAT_1_LABEL;     //"Preheat PREHEAT_1_LABEL"
+      PROGMEM Language_Str MSG_PREHEAT_1_H                   = _UxGT("預熱 ") PREHEAT_1_LABEL " ~";     //"Preheat PREHEAT_1_LABEL"
+      PROGMEM Language_Str MSG_PREHEAT_1_END                 = _UxGT("預熱 ") PREHEAT_1_LABEL _UxGT(" 噴嘴");     //MSG_PREHEAT_1 " "
+      PROGMEM Language_Str MSG_PREHEAT_1_END_E               = _UxGT("預熱 ") PREHEAT_1_LABEL _UxGT(" 噴嘴 ~");   //MSG_PREHEAT_1 " "
+      PROGMEM Language_Str MSG_PREHEAT_1_ALL                 = _UxGT("預熱 ") PREHEAT_1_LABEL _UxGT(" 全部");     //MSG_PREHEAT_1 " All"
+      PROGMEM Language_Str MSG_PREHEAT_1_BEDONLY             = _UxGT("預熱 ") PREHEAT_1_LABEL _UxGT(" 熱床");     //MSG_PREHEAT_1 " Bed"
+      PROGMEM Language_Str MSG_PREHEAT_1_SETTINGS            = _UxGT("預熱 ") PREHEAT_1_LABEL _UxGT(" 設置");     //MSG_PREHEAT_1 " conf"
+  
+      PROGMEM Language_Str MSG_PREHEAT_M                     = _UxGT("預熱 $");     //"Preheat PREHEAT_1_LABEL"
+      PROGMEM Language_Str MSG_PREHEAT_M_H                   = _UxGT("預熱 $ ~");     //"Preheat PREHEAT_1_LABEL"
+      PROGMEM Language_Str MSG_PREHEAT_M_END                 = _UxGT("預熱 $ 噴嘴");     //MSG_PREHEAT_1 " "
+      PROGMEM Language_Str MSG_PREHEAT_M_END_E               = _UxGT("預熱 $ 噴嘴 ~");   //MSG_PREHEAT_1 " "
+      PROGMEM Language_Str MSG_PREHEAT_M_ALL                 = _UxGT("預熱 $ 全部");     //MSG_PREHEAT_1 " All"
+      PROGMEM Language_Str MSG_PREHEAT_M_BEDONLY             = _UxGT("預熱 $ 熱床");     //MSG_PREHEAT_1 " Bed"
+      PROGMEM Language_Str MSG_PREHEAT_M_SETTINGS            = _UxGT("預熱 $ 設置");     //MSG_PREHEAT_1 " conf"
   #endif
   PROGMEM Language_Str MSG_PREHEAT_CUSTOM                  = _UxGT("自定預熱");   //"Preheat Custom"
   PROGMEM Language_Str MSG_COOLDOWN                        = _UxGT("降溫");     //"Cooldown"
@@ -142,8 +142,8 @@ namespace Language_zh_TW {
   PROGMEM Language_Str MSG_UBL_BUILD_CUSTOM_MESH           = _UxGT("創設客戶網格");     // "Build Custom Mesh"
   PROGMEM Language_Str MSG_UBL_BUILD_MESH_MENU             = _UxGT("創設網格");     // "Build Mesh"
   #if PREHEAT_COUNT
-    PROGMEM Language_Str MSG_UBL_BUILD_MESH_M              = _UxGT("創設 $ 網格");     // "Build PREHEAT_1_LABEL Mesh"
-    PROGMEM Language_Str MSG_UBL_VALIDATE_MESH_M           = _UxGT("批准 $ 網格");     // "Validate PREHEAT_1_LABEL Mesh"
+      PROGMEM Language_Str MSG_UBL_BUILD_MESH_M              = _UxGT("創設 $ 網格");     // "Build PREHEAT_1_LABEL Mesh"
+      PROGMEM Language_Str MSG_UBL_VALIDATE_MESH_M           = _UxGT("批准 $ 網格");     // "Validate PREHEAT_1_LABEL Mesh"
   #endif
   PROGMEM Language_Str MSG_UBL_BUILD_COLD_MESH             = _UxGT("創設冷網格");     // "Build Cold Mesh"
   PROGMEM Language_Str MSG_UBL_MESH_HEIGHT_ADJUST          = _UxGT("調整網格高度");     // "Adjust Mesh Height"
@@ -427,17 +427,17 @@ namespace Language_zh_TW {
   PROGMEM Language_Str MSG_KILL_EXPECTED_PRINTER           = _UxGT("打印機不正確");     // "The printer is incorrect"
 
   #if LCD_WIDTH >= 20
-    PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("列印計數");     //"Print Count"
-    PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("已完成");     //"Completed"
-    PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("總列印時間");     //"Total print time"
-    PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("最長工作時間");     //"Longest job time"
-    PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("總計擠出");     //"Extruded total"
+      PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("列印計數");     //"Print Count"
+      PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("已完成");     //"Completed"
+      PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("總列印時間");     //"Total print time"
+      PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("最長工作時間");     //"Longest job time"
+      PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("總計擠出");     //"Extruded total"
   #else
-    PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("列印數");     //"Prints"
-    PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("完成");     //"Completed"
-    PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("總共");     //"Total"
-    PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("最長");     //"Longest"
-    PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("已擠出");     //"Extruded"
+      PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("列印數");     //"Prints"
+      PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("完成");     //"Completed"
+      PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("總共");     //"Total"
+      PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("最長");     //"Longest"
+      PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("已擠出");     //"Extruded"
   #endif
 
   PROGMEM Language_Str MSG_INFO_MIN_TEMP                   = _UxGT("最低溫度");     //"Min Temp"
@@ -469,36 +469,36 @@ namespace Language_zh_TW {
   //                        ...or up to 2 lines on a 3-line display
   //
   #if LCD_HEIGHT >= 4
-    PROGMEM Language_Str MSG_ADVANCED_PAUSE_WAITING        = _UxGT(MSG_2_LINE("按下按鈕", "恢復列印")); //"Press Button to resume print"
-    PROGMEM Language_Str MSG_PAUSE_PRINT_PARKING           = _UxGT(MSG_1_LINE("停車中 ..."));   //"Parking..."
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_3_LINE("等待開始", "絲料", "變更"));     //"Wait for start of the filament change"
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_2_LINE("等待", "卸下絲料"));     //"Wait for filament unload"
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_3_LINE("插入絲料", "並按鍵", "繼續 ..."));     //"Insert filament and press button to continue..."
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_2_LINE("按下按鈕", "加熱噴嘴."));     // "Press button to heat nozzle."
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_2_LINE("加熱噴嘴", "請等待 ..."));     // "Heating nozzle Please wait..."
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_2_LINE("等待", "進料"));     //"Wait for filament load"
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_PURGE         = _UxGT(MSG_2_LINE("等待", "絲料清除"));     // "Wait for filament purge"
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_CONT_PURGE    = _UxGT(MSG_2_LINE("按下完成","絲料清除")); //"Press button to filament purge"
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_2_LINE("等待列印", "恢復"));     //"Wait for print to resume"
+      PROGMEM Language_Str MSG_ADVANCED_PAUSE_WAITING        = _UxGT(MSG_2_LINE("按下按鈕", "恢復列印")); //"Press Button to resume print"
+      PROGMEM Language_Str MSG_PAUSE_PRINT_PARKING           = _UxGT(MSG_1_LINE("停車中 ..."));   //"Parking..."
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_3_LINE("等待開始", "絲料", "變更"));     //"Wait for start of the filament change"
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_2_LINE("等待", "卸下絲料"));     //"Wait for filament unload"
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_3_LINE("插入絲料", "並按鍵", "繼續 ..."));     //"Insert filament and press button to continue..."
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_2_LINE("按下按鈕", "加熱噴嘴."));     // "Press button to heat nozzle."
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_2_LINE("加熱噴嘴", "請等待 ..."));     // "Heating nozzle Please wait..."
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_2_LINE("等待", "進料"));     //"Wait for filament load"
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_PURGE         = _UxGT(MSG_2_LINE("等待", "絲料清除"));     // "Wait for filament purge"
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_CONT_PURGE    = _UxGT(MSG_2_LINE("按下完成","絲料清除")); //"Press button to filament purge"
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_2_LINE("等待列印", "恢復"));     //"Wait for print to resume"
   #else // LCD_HEIGHT < 4
-    PROGMEM Language_Str MSG_ADVANCED_PAUSE_WAITING        = _UxGT(MSG_1_LINE("按下繼續.."));   //"Click to continue"
-    PROGMEM Language_Str MSG_PAUSE_PRINT_PARKING           = _UxGT(MSG_1_LINE("停車中 ..."));     //"Parking..."
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_1_LINE("請等待 ..."));     //"Please wait..."
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_1_LINE("插入並點擊"));     //"Insert and Click"
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_1_LINE("按下加熱.."));     //"Click to heat"
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_1_LINE("加熱中 ..."));     //"Heating..."
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_1_LINE("退出中 ..."));     //"Ejecting..."
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_1_LINE("載入中 ..."));     //"Loading..."
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_PURGE         = _UxGT(MSG_1_LINE("清除中 ..."));     //"Purging..."
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_CONT_PURGE    = _UxGT(MSG_1_LINE("按下完成.."));     //"Click to finish"
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_1_LINE("恢復中 ..."));     //"Resuming..."
+      PROGMEM Language_Str MSG_ADVANCED_PAUSE_WAITING        = _UxGT(MSG_1_LINE("按下繼續.."));   //"Click to continue"
+      PROGMEM Language_Str MSG_PAUSE_PRINT_PARKING           = _UxGT(MSG_1_LINE("停車中 ..."));     //"Parking..."
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_1_LINE("請等待 ..."));     //"Please wait..."
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_1_LINE("插入並點擊"));     //"Insert and Click"
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_1_LINE("按下加熱.."));     //"Click to heat"
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_1_LINE("加熱中 ..."));     //"Heating..."
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_1_LINE("退出中 ..."));     //"Ejecting..."
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_1_LINE("載入中 ..."));     //"Loading..."
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_PURGE         = _UxGT(MSG_1_LINE("清除中 ..."));     //"Purging..."
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_CONT_PURGE    = _UxGT(MSG_1_LINE("按下完成.."));     //"Click to finish"
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_1_LINE("恢復中 ..."));     //"Resuming..."
   #endif // LCD_HEIGHT < 4
 }
 
 #if FAN_COUNT == 1
-  #define MSG_FIRST_FAN_SPEED       MSG_FAN_SPEED
-  #define MSG_EXTRA_FIRST_FAN_SPEED MSG_EXTRA_FAN_SPEED
+    #define MSG_FIRST_FAN_SPEED       MSG_FAN_SPEED
+    #define MSG_EXTRA_FIRST_FAN_SPEED MSG_EXTRA_FAN_SPEED
 #else
-  #define MSG_FIRST_FAN_SPEED       MSG_FAN_SPEED_N
-  #define MSG_EXTRA_FIRST_FAN_SPEED MSG_EXTRA_FAN_SPEED_N
+    #define MSG_FIRST_FAN_SPEED       MSG_FAN_SPEED_N
+    #define MSG_EXTRA_FIRST_FAN_SPEED MSG_EXTRA_FAN_SPEED_N
 #endif

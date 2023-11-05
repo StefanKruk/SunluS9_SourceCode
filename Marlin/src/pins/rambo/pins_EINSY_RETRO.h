@@ -33,7 +33,7 @@
 // TMC2130 Configuration_adv defaults for EinsyRetro
 //
 #if !AXIS_DRIVER_TYPE_X(TMC2130) || !AXIS_DRIVER_TYPE_Y(TMC2130) || !AXIS_DRIVER_TYPE_Z(TMC2130) || !AXIS_DRIVER_TYPE_E0(TMC2130)
-  #error "You must set ([XYZ]|E0)_DRIVER_TYPE to TMC2130 in Configuration.h for EinsyRetro."
+    #error "You must set ([XYZ]|E0)_DRIVER_TYPE to TMC2130 in Configuration.h for EinsyRetro."
 #endif
 
 // TMC2130 Diag Pins
@@ -52,38 +52,38 @@
 //
 
 #if DISABLED(SENSORLESS_HOMING)
-
-  #define X_MIN_PIN                           12  // X-
-  #define Y_MIN_PIN                           11  // Y-
-  #define Z_MIN_PIN                           10  // Z-
-  #define X_MAX_PIN                           81  // X+
-  #define Y_MAX_PIN                           57  // Y+
-
+  
+    #define X_MIN_PIN                           12  // X-
+    #define Y_MIN_PIN                           11  // Y-
+    #define Z_MIN_PIN                           10  // Z-
+    #define X_MAX_PIN                           81  // X+
+    #define Y_MAX_PIN                           57  // Y+
+  
 #else
-
-  #if X_HOME_TO_MIN
-    #define X_MIN_PIN                 X_DIAG_PIN
-    #define X_MAX_PIN                         81  // X+
-  #else
-    #define X_MIN_PIN                         12  // X-
-    #define X_MAX_PIN                 X_DIAG_PIN
-  #endif
-
-  #if Y_HOME_TO_MIN
-    #define Y_MIN_PIN                 Y_DIAG_PIN
-    #define Y_MAX_PIN                         57  // Y+
-  #else
-    #define Y_MIN_PIN                         11  // Y-
-    #define Y_MAX_PIN                 Y_DIAG_PIN
-  #endif
-
-  #if ENABLED(BLTOUCH)
-    #define Z_MIN_PIN                         11  // Y-MIN
-    #define SERVO0_PIN                        10  // Z-MIN
-  #else
-    #define Z_MIN_PIN                         10
-  #endif
-
+  
+    #if X_HOME_TO_MIN
+        #define X_MIN_PIN                 X_DIAG_PIN
+        #define X_MAX_PIN                         81  // X+
+    #else
+        #define X_MIN_PIN                         12  // X-
+        #define X_MAX_PIN                 X_DIAG_PIN
+    #endif
+  
+    #if Y_HOME_TO_MIN
+        #define Y_MIN_PIN                 Y_DIAG_PIN
+        #define Y_MAX_PIN                         57  // Y+
+    #else
+        #define Y_MIN_PIN                         11  // Y-
+        #define Y_MAX_PIN                 Y_DIAG_PIN
+    #endif
+  
+    #if ENABLED(BLTOUCH)
+        #define Z_MIN_PIN                         11  // Y-MIN
+        #define SERVO0_PIN                        10  // Z-MIN
+    #else
+        #define Z_MIN_PIN                         10
+    #endif
+  
 #endif
 
 #define Z_MAX_PIN                              7
@@ -92,7 +92,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     10
+    #define Z_MIN_PROBE_PIN                     10
 #endif
 
 //
@@ -132,7 +132,7 @@
 #define HEATER_BED_PIN                         4
 
 #ifndef FAN_PIN
-  #define FAN_PIN                              8
+    #define FAN_PIN                              8
 #endif
 #define FAN1_PIN                               6
 
@@ -143,7 +143,7 @@
 #define LED_PIN                               13
 
 #ifndef CASE_LIGHT_PIN
-  #define CASE_LIGHT_PIN                       9
+    #define CASE_LIGHT_PIN                       9
 #endif
 
 //
@@ -165,37 +165,37 @@
 // LCD / Controller
 //
 #if ANY(HAS_WIRED_LCD, TOUCH_UI_ULTIPANEL, TOUCH_UI_FTDI_EVE)
-
-  #define KILL_PIN                            32
-
-  #if ANY(IS_ULTIPANEL, TOUCH_UI_ULTIPANEL, TOUCH_UI_FTDI_EVE)
-
-    #if ENABLED(CR10_STOCKDISPLAY)
-      #define LCD_PINS_RS                     85
-      #define LCD_PINS_ENABLE                 71
-      #define LCD_PINS_D4                     70
-      #define BTN_EN1                         18
-      #define BTN_EN2                         19
-    #else
-      #define LCD_PINS_RS                     82
-      #define LCD_PINS_ENABLE                 18  // On 0.6b, use 61
-      #define LCD_PINS_D4                     19  // On 0.6b, use 59
-      #define LCD_PINS_D5                     70
-      #define LCD_PINS_D6                     85
-      #define LCD_PINS_D7                     71
-      #define BTN_EN1                         14
-      #define BTN_EN2                         72
-    #endif
-
-    #define BTN_ENC                            9  // AUX-2
-    #define BEEPER_PIN                        84  // AUX-4
-
-    #define SD_DETECT_PIN                     15
-
-    #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
-      #define BTN_ENC_EN             LCD_PINS_D7  // Detect the presence of the encoder
-    #endif
-
-  #endif // IS_ULTIPANEL || TOUCH_UI_ULTIPANEL || TOUCH_UI_FTDI_EVE
-
+  
+    #define KILL_PIN                            32
+  
+    #if ANY(IS_ULTIPANEL, TOUCH_UI_ULTIPANEL, TOUCH_UI_FTDI_EVE)
+    
+        #if ENABLED(CR10_STOCKDISPLAY)
+            #define LCD_PINS_RS                     85
+            #define LCD_PINS_ENABLE                 71
+            #define LCD_PINS_D4                     70
+            #define BTN_EN1                         18
+            #define BTN_EN2                         19
+        #else
+            #define LCD_PINS_RS                     82
+            #define LCD_PINS_ENABLE                 18  // On 0.6b, use 61
+            #define LCD_PINS_D4                     19  // On 0.6b, use 59
+            #define LCD_PINS_D5                     70
+            #define LCD_PINS_D6                     85
+            #define LCD_PINS_D7                     71
+            #define BTN_EN1                         14
+            #define BTN_EN2                         72
+        #endif
+    
+        #define BTN_ENC                            9  // AUX-2
+        #define BEEPER_PIN                        84  // AUX-4
+    
+        #define SD_DETECT_PIN                     15
+    
+        #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
+            #define BTN_ENC_EN             LCD_PINS_D7  // Detect the presence of the encoder
+        #endif
+    
+    #endif // IS_ULTIPANEL || TOUCH_UI_ULTIPANEL || TOUCH_UI_FTDI_EVE
+  
 #endif // HAS_WIRED_LCD || TOUCH_UI_ULTIPANEL || TOUCH_UI_FTDI_EVE

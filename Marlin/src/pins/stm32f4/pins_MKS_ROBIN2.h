@@ -24,15 +24,15 @@
 #include "env_validate.h"
 
 #if HOTENDS > 2 || E_STEPPERS > 2
-  #error "MKS_ROBIN2 supports up to 2 hotends / E-steppers."
+    #error "MKS_ROBIN2 supports up to 2 hotends / E-steppers."
 #endif
 
 #ifndef BOARD_INFO_NAME
-  #define BOARD_INFO_NAME "MKS_ROBIN2"
+    #define BOARD_INFO_NAME "MKS_ROBIN2"
 #endif
 
 #ifndef DEFAULT_MACHINE_NAME
-  #define DEFAULT_MACHINE_NAME BOARD_INFO_NAME
+    #define DEFAULT_MACHINE_NAME BOARD_INFO_NAME
 #endif
 
 #define SRAM_EEPROM_EMULATION

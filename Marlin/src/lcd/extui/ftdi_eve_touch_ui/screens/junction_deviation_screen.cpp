@@ -24,30 +24,30 @@
 #include "screens.h"
 
 #ifdef FTDI_JUNCTION_DEVIATION_SCREEN
-
-using namespace FTDI;
-using namespace ExtUI;
-using namespace Theme;
-
-void JunctionDeviationScreen::onRedraw(draw_mode_t what) {
-  widgets_t w(what);
-  w.precision(2);
-  w.units(GET_TEXT_F(MSG_UNITS_MM));
-  w.heading(GET_TEXT_F(MSG_JUNCTION_DEVIATION));
-  w.color(other) .adjuster( 2, F(""), getJunctionDeviation_mm() );
-  w.increments();
-}
-
-bool JunctionDeviationScreen::onTouchHeld(uint8_t tag) {
-  const float increment = getIncrement();
-  switch (tag) {
-    case  2: UI_DECREMENT(JunctionDeviation_mm); break;
-    case  3: UI_INCREMENT(JunctionDeviation_mm); break;
-    default:
-      return false;
+  
+  using namespace FTDI;
+  using namespace ExtUI;
+  using namespace Theme;
+  
+  void JunctionDeviationScreen::onRedraw(draw_mode_t what) {
+    widgets_t w(what);
+    w.precision(2);
+    w.units(GET_TEXT_F(MSG_UNITS_MM));
+    w.heading(GET_TEXT_F(MSG_JUNCTION_DEVIATION));
+    w.color(other) .adjuster( 2, F(""), getJunctionDeviation_mm() );
+    w.increments();
   }
-  SaveSettingsDialogBox::settingsChanged();
-  return true;
-}
-
+  
+  bool JunctionDeviationScreen::onTouchHeld(uint8_t tag) {
+    const float increment = getIncrement();
+    switch (tag) {
+      case  2: UI_DECREMENT(JunctionDeviation_mm); break;
+      case  3: UI_INCREMENT(JunctionDeviation_mm); break;
+      default:
+        return false;
+    }
+    SaveSettingsDialogBox::settingsChanged();
+    return true;
+  }
+  
 #endif // FTDI_JUNCTION_DEVIATION_SCREEN

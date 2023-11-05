@@ -36,27 +36,27 @@
 #include "../../../inc/MarlinConfigPre.h"
 
 #if ENABLED(ANYCUBIC_LCD_CHIRON)
-
-#include "Tunes.h"
-#include "../ui_api.h"
-
-namespace Anycubic {
-
-  void PlayTune(uint8_t beeperPin, const uint16_t *tune, uint8_t speed=1) {
-    uint8_t pos = 1;
-    uint16_t wholenotelen = tune[0] / speed;
-    do {
-      uint16_t freq = tune[pos];
-      uint16_t notelen = wholenotelen / tune[pos + 1];
-
-      ::tone(beeperPin, freq, notelen);
-      ExtUI::delay_ms(notelen);
-      pos += 2;
-
-      if (pos >= MAX_TUNE_LENGTH) break;
-    } while (tune[pos] != n_END);
+  
+  #include "Tunes.h"
+  #include "../ui_api.h"
+  
+  namespace Anycubic {
+  
+    void PlayTune(uint8_t beeperPin, const uint16_t *tune, uint8_t speed=1) {
+      uint8_t pos = 1;
+      uint16_t wholenotelen = tune[0] / speed;
+      do {
+        uint16_t freq = tune[pos];
+        uint16_t notelen = wholenotelen / tune[pos + 1];
+  
+        ::tone(beeperPin, freq, notelen);
+        ExtUI::delay_ms(notelen);
+        pos += 2;
+  
+        if (pos >= MAX_TUNE_LENGTH) break;
+      } while (tune[pos] != n_END);
+    }
+  
   }
-
-}
-
+  
 #endif // ANYCUBIC_LCD_CHIRON

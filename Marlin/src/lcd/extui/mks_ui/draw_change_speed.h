@@ -22,7 +22,7 @@
 #pragma once
 
 #ifdef __cplusplus
-  extern "C" { /* C-declarations for C++ */
+    extern "C" { /* C-declarations for C++ */
 #endif
 
 #define MIN_EXT_SPEED_PERCENT    10
@@ -35,5 +35,5 @@ void disp_print_speed();
 void disp_speed_type();
 
 #ifdef __cplusplus
-  } /* C-declarations for C++ */
+    } /* C-declarations for C++ */
 #endif

@@ -31,22 +31,22 @@
 #define SERVO2_PIN                            -1  // Motor header MX3
 
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN                      10
+    #define FIL_RUNOUT_PIN                      10
 #endif
 
 // Support BLTouch and fixed probes
 #if ENABLED(BLTOUCH)
-  #if ENABLED(Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN)
-    #define Z_MIN_PIN                         22
-  #elif !defined(Z_MIN_PROBE_PIN)
-    #define Z_MIN_PROBE_PIN                   22
-  #endif
+    #if ENABLED(Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN)
+        #define Z_MIN_PIN                         22
+    #elif !defined(Z_MIN_PROBE_PIN)
+        #define Z_MIN_PROBE_PIN                   22
+    #endif
 #elif ENABLED(FIX_MOUNTED_PROBE)
-  #if ENABLED(Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN)
-    #define Z_MIN_PIN                          4
-  #elif !defined(Z_MIN_PROBE_PIN)
-    #define Z_MIN_PROBE_PIN                    4
-  #endif
+    #if ENABLED(Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN)
+        #define Z_MIN_PIN                          4
+    #elif !defined(Z_MIN_PROBE_PIN)
+        #define Z_MIN_PROBE_PIN                    4
+    #endif
 #endif
 
 // Eryone has the fan pins reversed

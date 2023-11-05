@@ -80,14 +80,14 @@ inline void HAL_init() {}
 
 // Utility functions
 #if GCC_VERSION <= 50000
-  #pragma GCC diagnostic push
-  #pragma GCC diagnostic ignored "-Wunused-function"
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wunused-function"
 #endif
 
 int freeMemory();
 
 #if GCC_VERSION <= 50000
-  #pragma GCC diagnostic pop
+    #pragma GCC diagnostic pop
 #endif
 
 // ADC

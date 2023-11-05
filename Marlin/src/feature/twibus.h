@@ -36,10 +36,10 @@ typedef void (*twiRequestFunc_t)();
  * See https://github.com/MarlinFirmware/Marlin/issues/4776#issuecomment-246262879
  */
 #if I2C_SLAVE_ADDRESS > 0
-
-  void i2c_on_receive(int bytes); // Demo i2c onReceive handler
-  void i2c_on_request();          // Demo i2c onRequest handler
-
+  
+    void i2c_on_receive(int bytes); // Demo i2c onReceive handler
+    void i2c_on_request();          // Demo i2c onRequest handler
+  
 #endif
 
 #define TWIBUS_BUFFER_SIZE 32
@@ -198,55 +198,55 @@ class TWIBus {
     void relay(const uint8_t bytes);
 
     #if I2C_SLAVE_ADDRESS > 0
-
-      /**
-       * @brief Register a slave receive handler
-       * @details Set a handler to receive data addressed to us
-       *
-       * @param handler A function to handle receiving bytes
-       */
-      inline void onReceive(const twiReceiveFunc_t handler) { Wire.onReceive(handler); }
-
-      /**
-       * @brief Register a slave request handler
-       * @details Set a handler to send data requested from us
-       *
-       * @param handler A function to handle receiving bytes
-       */
-      inline void onRequest(const twiRequestFunc_t handler) { Wire.onRequest(handler); }
-
-      /**
-       * @brief Default handler to receive
-       * @details Receive bytes sent to our slave address
-       *          and simply echo them to serial.
-       */
-      void receive(uint8_t bytes);
-
-      /**
-       * @brief Send a reply to the bus
-       * @details Send the buffer and clear it.
-       *          If a string is passed, write it into the buffer first.
-       */
-      void reply(char str[]=nullptr);
-      inline void reply(const char str[]) { reply((char*)str); }
-
+  
+        /**
+         * @brief Register a slave receive handler
+         * @details Set a handler to receive data addressed to us
+         *
+         * @param handler A function to handle receiving bytes
+         */
+        inline void onReceive(const twiReceiveFunc_t handler) { Wire.onReceive(handler); }
+  
+        /**
+         * @brief Register a slave request handler
+         * @details Set a handler to send data requested from us
+         *
+         * @param handler A function to handle receiving bytes
+         */
+        inline void onRequest(const twiRequestFunc_t handler) { Wire.onRequest(handler); }
+  
+        /**
+         * @brief Default handler to receive
+         * @details Receive bytes sent to our slave address
+         *          and simply echo them to serial.
+         */
+        void receive(uint8_t bytes);
+  
+        /**
+         * @brief Send a reply to the bus
+         * @details Send the buffer and clear it.
+         *          If a string is passed, write it into the buffer first.
+         */
+        void reply(char str[]=nullptr);
+        inline void reply(const char str[]) { reply((char*)str); }
+  
     #endif
 
     #if ENABLED(DEBUG_TWIBUS)
-      /**
-       * @brief Prints a debug message
-       * @details Prints a simple debug message "TWIBus::function: value"
-       */
-      static void prefix(const char func[]);
-      static void debug(const char func[], uint32_t adr);
-      static void debug(const char func[], char c);
-      static void debug(const char func[], char adr[]);
-      static inline void debug(const char func[], uint8_t v) { debug(func, (uint32_t)v); }
+        /**
+         * @brief Prints a debug message
+         * @details Prints a simple debug message "TWIBus::function: value"
+         */
+        static void prefix(const char func[]);
+        static void debug(const char func[], uint32_t adr);
+        static void debug(const char func[], char c);
+        static void debug(const char func[], char adr[]);
+        static inline void debug(const char func[], uint8_t v) { debug(func, (uint32_t)v); }
     #else
-      static inline void debug(const char[], uint32_t) {}
-      static inline void debug(const char[], char) {}
-      static inline void debug(const char[], char[]) {}
-      static inline void debug(const char[], uint8_t) {}
+        static inline void debug(const char[], uint32_t) {}
+        static inline void debug(const char[], char) {}
+        static inline void debug(const char[], char[]) {}
+        static inline void debug(const char[], uint8_t) {}
     #endif
 };
 

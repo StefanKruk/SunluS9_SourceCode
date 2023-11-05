@@ -24,70 +24,70 @@
 #include "screens.h"
 
 #ifdef FTDI_TOUCH_CALIBRATION_SCREEN
-
-using namespace FTDI;
-using namespace Theme;
-
-#define GRID_COLS 4
-#define GRID_ROWS 16
-
-#define TEXT_POS BTN_POS(1,1), BTN_SIZE(4,12)
-
-void TouchCalibrationScreen::onEntry() {
-  CommandProcessor cmd;
-
-  BaseScreen::onEntry();
-
-  if (CLCD::is_touching()) {
-    // Ask the user to release the touch before starting,
-    // as otherwise the first calibration point could
-    // be misinterpreted.
-    cmd.cmd(CMD_DLSTART)
-       .cmd(CLEAR_COLOR_RGB(bg_color))
+  
+  using namespace FTDI;
+  using namespace Theme;
+  
+  #define GRID_COLS 4
+  #define GRID_ROWS 16
+  
+  #define TEXT_POS BTN_POS(1,1), BTN_SIZE(4,12)
+  
+  void TouchCalibrationScreen::onEntry() {
+    CommandProcessor cmd;
+  
+    BaseScreen::onEntry();
+  
+    if (CLCD::is_touching()) {
+      // Ask the user to release the touch before starting,
+      // as otherwise the first calibration point could
+      // be misinterpreted.
+      cmd.cmd(CMD_DLSTART)
+         .cmd(CLEAR_COLOR_RGB(bg_color))
+         .cmd(CLEAR(true,true,true))
+         .cmd(COLOR_RGB(bg_text_enabled));
+      draw_text_box(cmd, TEXT_POS, GET_TEXT_F(MSG_TOUCH_CALIBRATION_START), OPT_CENTER, font_large);
+      cmd.cmd(DL::DL_DISPLAY)
+         .cmd(CMD_SWAP)
+         .execute();
+  
+      while (CLCD::is_touching()) {
+        #if ENABLED(TOUCH_UI_DEBUG)
+            SERIAL_ECHO_MSG("Waiting for touch release");
+        #endif
+      }
+    }
+  
+    // Force a refresh
+    cmd.cmd(CMD_DLSTART);
+    onRedraw(FOREGROUND);
+    cmd.cmd(DL::DL_DISPLAY);
+    cmd.execute();
+  }
+  
+  void TouchCalibrationScreen::onRefresh() {
+    // Don't do the regular refresh, as this would
+    // cause the calibration be restarted on every
+    // touch.
+  }
+  
+  void TouchCalibrationScreen::onRedraw(draw_mode_t) {
+    CommandProcessor cmd;
+    cmd.cmd(CLEAR_COLOR_RGB(bg_color))
        .cmd(CLEAR(true,true,true))
        .cmd(COLOR_RGB(bg_text_enabled));
-    draw_text_box(cmd, TEXT_POS, GET_TEXT_F(MSG_TOUCH_CALIBRATION_START), OPT_CENTER, font_large);
-    cmd.cmd(DL::DL_DISPLAY)
-       .cmd(CMD_SWAP)
-       .execute();
-
-    while (CLCD::is_touching()) {
+  
+    draw_text_box(cmd, TEXT_POS, GET_TEXT_F(MSG_TOUCH_CALIBRATION_PROMPT), OPT_CENTER, font_large);
+    cmd.cmd(CMD_CALIBRATE);
+  }
+  
+  void TouchCalibrationScreen::onIdle() {
+    if (!CLCD::is_touching() && !CommandProcessor::is_processing()) {
+      GOTO_PREVIOUS();
       #if ENABLED(TOUCH_UI_DEBUG)
-        SERIAL_ECHO_MSG("Waiting for touch release");
+          SERIAL_ECHO_MSG("Calibration routine finished");
       #endif
     }
   }
-
-  // Force a refresh
-  cmd.cmd(CMD_DLSTART);
-  onRedraw(FOREGROUND);
-  cmd.cmd(DL::DL_DISPLAY);
-  cmd.execute();
-}
-
-void TouchCalibrationScreen::onRefresh() {
-  // Don't do the regular refresh, as this would
-  // cause the calibration be restarted on every
-  // touch.
-}
-
-void TouchCalibrationScreen::onRedraw(draw_mode_t) {
-  CommandProcessor cmd;
-  cmd.cmd(CLEAR_COLOR_RGB(bg_color))
-     .cmd(CLEAR(true,true,true))
-     .cmd(COLOR_RGB(bg_text_enabled));
-
-  draw_text_box(cmd, TEXT_POS, GET_TEXT_F(MSG_TOUCH_CALIBRATION_PROMPT), OPT_CENTER, font_large);
-  cmd.cmd(CMD_CALIBRATE);
-}
-
-void TouchCalibrationScreen::onIdle() {
-  if (!CLCD::is_touching() && !CommandProcessor::is_processing()) {
-    GOTO_PREVIOUS();
-    #if ENABLED(TOUCH_UI_DEBUG)
-      SERIAL_ECHO_MSG("Calibration routine finished");
-    #endif
-  }
-}
-
+  
 #endif // FTDI_TOUCH_CALIBRATION_SCREEN

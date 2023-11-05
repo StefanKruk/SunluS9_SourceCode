@@ -13,8 +13,8 @@
 #define MAX_UTF8_CHAR_SIZE 4
 
 #if HAS_WIRED_LCD
-  #include "marlinui.h"
-  #include "../MarlinCore.h"
+    #include "marlinui.h"
+    #include "../MarlinCore.h"
 #endif
 
 #include "fontutils.h"
@@ -101,42 +101,42 @@ uint8_t* get_utf8_value_cb(uint8_t *pstart, read_byte_cb_t cb_read_byte, wchar_t
     p++;
   }
   #if MAX_UTF8_CHAR_SIZE >= 3
-    else if (0xE0 == (0xF0 & valcur)) {
-      val = valcur & 0x0F;
-      NEXT_6_BITS();
-      NEXT_6_BITS();
-      p++;
-    }
+      else if (0xE0 == (0xF0 & valcur)) {
+        val = valcur & 0x0F;
+        NEXT_6_BITS();
+        NEXT_6_BITS();
+        p++;
+      }
   #endif
   #if MAX_UTF8_CHAR_SIZE >= 4
-    else if (0xF0 == (0xF8 & valcur)) {
-      val = valcur & 0x07;
-      NEXT_6_BITS();
-      NEXT_6_BITS();
-      NEXT_6_BITS();
-      p++;
-    }
+      else if (0xF0 == (0xF8 & valcur)) {
+        val = valcur & 0x07;
+        NEXT_6_BITS();
+        NEXT_6_BITS();
+        NEXT_6_BITS();
+        p++;
+      }
   #endif
   #if MAX_UTF8_CHAR_SIZE >= 5
-    else if (0xF8 == (0xFC & valcur)) {
-      val = valcur & 0x03;
-      NEXT_6_BITS();
-      NEXT_6_BITS();
-      NEXT_6_BITS();
-      NEXT_6_BITS();
-      p++;
-    }
+      else if (0xF8 == (0xFC & valcur)) {
+        val = valcur & 0x03;
+        NEXT_6_BITS();
+        NEXT_6_BITS();
+        NEXT_6_BITS();
+        NEXT_6_BITS();
+        p++;
+      }
   #endif
   #if MAX_UTF8_CHAR_SIZE >= 6
-    else if (0xFC == (0xFE & valcur)) {
-      val = valcur & 0x01;
-      NEXT_6_BITS();
-      NEXT_6_BITS();
-      NEXT_6_BITS();
-      NEXT_6_BITS();
-      NEXT_6_BITS();
-      p++;
-    }
+      else if (0xFC == (0xFE & valcur)) {
+        val = valcur & 0x01;
+        NEXT_6_BITS();
+        NEXT_6_BITS();
+        NEXT_6_BITS();
+        NEXT_6_BITS();
+        NEXT_6_BITS();
+        p++;
+      }
   #endif
   else if (!utf8_is_start_byte_of_char(valcur))
     for (; !utf8_is_start_byte_of_char(valcur); ) { p++; valcur = cb_read_byte(p); }

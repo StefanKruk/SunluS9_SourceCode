@@ -22,7 +22,7 @@
 #pragma once
 
 #ifdef __IMXRT1062__
-  #include <NativeEthernet.h>
+    #include <NativeEthernet.h>
 #endif
 
 // Teensy 4.1 uses internal MAC Address

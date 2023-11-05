@@ -29,31 +29,31 @@
 #include "../ui_api.h"
 
 #if ENABLED(DGUS_FILAMENT_LOADUNLOAD)
-
-  typedef struct  {
-    ExtUI::extruder_t extruder; // which extruder to operate
-    uint8_t action; // load or unload
-    bool heated; // heating done ?
-    float purge_length; // the length to extrude before unload, prevent filament jam
-  } filament_data_t;
-
-  extern filament_data_t filament_data;
-
+  
+    typedef struct  {
+      ExtUI::extruder_t extruder; // which extruder to operate
+      uint8_t action; // load or unload
+      bool heated; // heating done ?
+      float purge_length; // the length to extrude before unload, prevent filament jam
+    } filament_data_t;
+  
+    extern filament_data_t filament_data;
+  
 #endif
 
 // endianness swap
 inline uint16_t swap16(const uint16_t value) { return (value & 0xFFU) << 8U | (value >> 8U); }
 
 #if ENABLED(DGUS_LCD_UI_ORIGIN)
-  #include "origin/DGUSScreenHandler.h"
+    #include "origin/DGUSScreenHandler.h"
 #elif ENABLED(DGUS_LCD_UI_MKS)
-  #include "mks/DGUSScreenHandler.h"
+    #include "mks/DGUSScreenHandler.h"
 #elif ENABLED(DGUS_LCD_UI_FYSETC)
-  #include "fysetc/DGUSScreenHandler.h"
+    #include "fysetc/DGUSScreenHandler.h"
 #elif ENABLED(DGUS_LCD_UI_HIPRECY)
-  #include "hiprecy/DGUSScreenHandler.h"
+    #include "hiprecy/DGUSScreenHandler.h"
 #else ENABLED(DGUS_LCD_UI_SUNLU)
-  #include "sunlu/DGUSScreenHandler.h"
+    #include "sunlu/DGUSScreenHandler.h"
 #endif
 
 extern DGUSScreenHandler ScreenHandler;

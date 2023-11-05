@@ -51,13 +51,13 @@ extern "C" volatile uint32_t _millis;
 // Default graphical display delays
 //
 #ifndef ST7920_DELAY_1
-  #define ST7920_DELAY_1 DELAY_NS(600)
+    #define ST7920_DELAY_1 DELAY_NS(600)
 #endif
 #ifndef ST7920_DELAY_2
-  #define ST7920_DELAY_2 DELAY_NS(750)
+    #define ST7920_DELAY_2 DELAY_NS(750)
 #endif
 #ifndef ST7920_DELAY_3
-  #define ST7920_DELAY_3 DELAY_NS(750)
+    #define ST7920_DELAY_3 DELAY_NS(750)
 #endif
 
 typedef ForwardSerial1Class< decltype(UsbSerial) > DefaultSerial1;
@@ -67,54 +67,54 @@ extern DefaultSerial1 USBSerial;
 #define MSERIAL(X) _MSERIAL(X)
 
 #if SERIAL_PORT == -1
-  #define MYSERIAL1 USBSerial
+    #define MYSERIAL1 USBSerial
 #elif WITHIN(SERIAL_PORT, 0, 3)
-  #define MYSERIAL1 MSERIAL(SERIAL_PORT)
+    #define MYSERIAL1 MSERIAL(SERIAL_PORT)
 #else
-  #error "SERIAL_PORT must be from 0 to 3. You can also use -1 if the board supports Native USB."
+    #error "SERIAL_PORT must be from 0 to 3. You can also use -1 if the board supports Native USB."
 #endif
 
 #ifdef SERIAL_PORT_2
-  #if SERIAL_PORT_2 == -1
-    #define MYSERIAL2 USBSerial
-  #elif WITHIN(SERIAL_PORT_2, 0, 3)
-    #define MYSERIAL2 MSERIAL(SERIAL_PORT_2)
-  #else
-    #error "SERIAL_PORT_2 must be from 0 to 3. You can also use -1 if the board supports Native USB."
-  #endif
+    #if SERIAL_PORT_2 == -1
+        #define MYSERIAL2 USBSerial
+    #elif WITHIN(SERIAL_PORT_2, 0, 3)
+        #define MYSERIAL2 MSERIAL(SERIAL_PORT_2)
+    #else
+        #error "SERIAL_PORT_2 must be from 0 to 3. You can also use -1 if the board supports Native USB."
+    #endif
 #endif
 
 #ifdef SERIAL_PORT_3
-  #if SERIAL_PORT_3 == -1
-    #define MYSERIAL3 USBSerial
-  #elif WITHIN(SERIAL_PORT_3, 0, 3)
-    #define MYSERIAL3 MSERIAL(SERIAL_PORT_3)
-  #else
-    #error "SERIAL_PORT_3 must be from 0 to 3. You can also use -1 if the board supports Native USB."
-  #endif
+    #if SERIAL_PORT_3 == -1
+        #define MYSERIAL3 USBSerial
+    #elif WITHIN(SERIAL_PORT_3, 0, 3)
+        #define MYSERIAL3 MSERIAL(SERIAL_PORT_3)
+    #else
+        #error "SERIAL_PORT_3 must be from 0 to 3. You can also use -1 if the board supports Native USB."
+    #endif
 #endif
 
 #ifdef MMU2_SERIAL_PORT
-  #if MMU2_SERIAL_PORT == -1
-    #define MMU2_SERIAL USBSerial
-  #elif WITHIN(MMU2_SERIAL_PORT, 0, 3)
-    #define MMU2_SERIAL MSERIAL(MMU2_SERIAL_PORT)
-  #else
-    #error "MMU2_SERIAL_PORT must be from 0 to 3. You can also use -1 if the board supports Native USB."
-  #endif
+    #if MMU2_SERIAL_PORT == -1
+        #define MMU2_SERIAL USBSerial
+    #elif WITHIN(MMU2_SERIAL_PORT, 0, 3)
+        #define MMU2_SERIAL MSERIAL(MMU2_SERIAL_PORT)
+    #else
+        #error "MMU2_SERIAL_PORT must be from 0 to 3. You can also use -1 if the board supports Native USB."
+    #endif
 #endif
 
 #ifdef LCD_SERIAL_PORT
-  #if LCD_SERIAL_PORT == -1
-    #define LCD_SERIAL USBSerial
-  #elif WITHIN(LCD_SERIAL_PORT, 0, 3)
-    #define LCD_SERIAL MSERIAL(LCD_SERIAL_PORT)
-  #else
-    #error "LCD_SERIAL_PORT must be from 0 to 3. You can also use -1 if the board supports Native USB."
-  #endif
-  #if HAS_DGUS_LCD
-    #define SERIAL_GET_TX_BUFFER_FREE() MSerial0.available()
-  #endif
+    #if LCD_SERIAL_PORT == -1
+        #define LCD_SERIAL USBSerial
+    #elif WITHIN(LCD_SERIAL_PORT, 0, 3)
+        #define LCD_SERIAL MSERIAL(LCD_SERIAL_PORT)
+    #else
+        #error "LCD_SERIAL_PORT must be from 0 to 3. You can also use -1 if the board supports Native USB."
+    #endif
+    #if HAS_DGUS_LCD
+        #define SERIAL_GET_TX_BUFFER_FREE() MSerial0.available()
+    #endif
 #endif
 
 //
@@ -130,14 +130,14 @@ extern DefaultSerial1 USBSerial;
 // Utility functions
 //
 #if GCC_VERSION <= 50000
-  #pragma GCC diagnostic push
-  #pragma GCC diagnostic ignored "-Wunused-function"
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wunused-function"
 #endif
 
 int freeMemory();
 
 #if GCC_VERSION <= 50000
-  #pragma GCC diagnostic pop
+    #pragma GCC diagnostic pop
 #endif
 
 //

@@ -33,19 +33,19 @@
 //#define ACDEBUGLEVEL 4
 
 #if ACDEBUGLEVEL
-  // Bit-masks for selective debug:
-  enum ACDebugMask : uint8_t {
-    AC_INFO   =  1,
-    AC_ACTION =  2,
-    AC_FILE   =  4,
-    AC_PANEL  =  8,
-    AC_MARLIN = 16,
-    AC_SOME   = 32,
-    AC_ALL    = 64
-  };
-  #define ACDEBUG(mask) ( ((mask) & ACDEBUGLEVEL) == mask )  // Debug flag macro
+    // Bit-masks for selective debug:
+    enum ACDebugMask : uint8_t {
+      AC_INFO   =  1,
+      AC_ACTION =  2,
+      AC_FILE   =  4,
+      AC_PANEL  =  8,
+      AC_MARLIN = 16,
+      AC_SOME   = 32,
+      AC_ALL    = 64
+    };
+    #define ACDEBUG(mask) ( ((mask) & ACDEBUGLEVEL) == mask )  // Debug flag macro
 #else
-  #define ACDEBUG(mask) false
+    #define ACDEBUG(mask) false
 #endif
 
 #define TFTSer LCD_SERIAL                    // Serial interface for TFT panel now uses marlinserial

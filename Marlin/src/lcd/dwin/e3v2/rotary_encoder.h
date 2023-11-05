@@ -57,38 +57,38 @@ ENCODER_DiffState Encoder_ReceiveAnalyze();
 /*********************** Encoder LED ***********************/
 
 #if PIN_EXISTS(LCD_LED)
-
-  #define LED_NUM  4
-  #define LED_DATA_HIGH  WRITE(LCD_LED_PIN, 1)
-  #define LED_DATA_LOW   WRITE(LCD_LED_PIN, 0)
-
-  #define RGB_SCALE_R10_G7_B5  1
-  #define RGB_SCALE_R10_G7_B4  2
-  #define RGB_SCALE_R10_G8_B7  3
-  #define RGB_SCALE_NEUTRAL_WHITE RGB_SCALE_R10_G7_B5
-  #define RGB_SCALE_WARM_WHITE    RGB_SCALE_R10_G7_B4
-  #define RGB_SCALE_COOL_WHITE    RGB_SCALE_R10_G8_B7
-
-  extern unsigned int LED_DataArray[LED_NUM];
-
-  // LED light operation
-  void LED_Action();
-
-  // LED initialization
-  void LED_Configuration();
-
-  // LED write data
-  void LED_WriteData();
-
-  // LED control
-  //  RGB_Scale: RGB color ratio
-  //  luminance: brightness (0~0xFF)
-  void LED_Control(const uint8_t RGB_Scale, const uint8_t luminance);
-
-  // LED gradient control
-  //  RGB_Scale: RGB color ratio
-  //  luminance: brightness (0~0xFF)
-  //  change_Time: gradient time (ms)
-  void LED_GraduallyControl(const uint8_t RGB_Scale, const uint8_t luminance, const uint16_t change_Interval);
-
+  
+    #define LED_NUM  4
+    #define LED_DATA_HIGH  WRITE(LCD_LED_PIN, 1)
+    #define LED_DATA_LOW   WRITE(LCD_LED_PIN, 0)
+  
+    #define RGB_SCALE_R10_G7_B5  1
+    #define RGB_SCALE_R10_G7_B4  2
+    #define RGB_SCALE_R10_G8_B7  3
+    #define RGB_SCALE_NEUTRAL_WHITE RGB_SCALE_R10_G7_B5
+    #define RGB_SCALE_WARM_WHITE    RGB_SCALE_R10_G7_B4
+    #define RGB_SCALE_COOL_WHITE    RGB_SCALE_R10_G8_B7
+  
+    extern unsigned int LED_DataArray[LED_NUM];
+  
+    // LED light operation
+    void LED_Action();
+  
+    // LED initialization
+    void LED_Configuration();
+  
+    // LED write data
+    void LED_WriteData();
+  
+    // LED control
+    //  RGB_Scale: RGB color ratio
+    //  luminance: brightness (0~0xFF)
+    void LED_Control(const uint8_t RGB_Scale, const uint8_t luminance);
+  
+    // LED gradient control
+    //  RGB_Scale: RGB color ratio
+    //  luminance: brightness (0~0xFF)
+    //  change_Time: gradient time (ms)
+    void LED_GraduallyControl(const uint8_t RGB_Scale, const uint8_t luminance, const uint16_t change_Interval);
+  
 #endif // LCD_LED

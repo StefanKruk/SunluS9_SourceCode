@@ -22,83 +22,83 @@
 #include "ftdi_extended.h"
 
 #if ENABLED(FTDI_EXTENDED)
-
-/********************** VIRTUAL DISPATCH DATA TYPE  ******************************/
-
-uint8_t ScreenRef::lookupScreen(onRedraw_func_t onRedraw_ptr) {
-  for (uint8_t type = 0; type < tableSize(); type++) {
-    if (GET_METHOD(type, onRedraw) == onRedraw_ptr) {
-      return type;
+  
+  /********************** VIRTUAL DISPATCH DATA TYPE  ******************************/
+  
+  uint8_t ScreenRef::lookupScreen(onRedraw_func_t onRedraw_ptr) {
+    for (uint8_t type = 0; type < tableSize(); type++) {
+      if (GET_METHOD(type, onRedraw) == onRedraw_ptr) {
+        return type;
+      }
+    }
+    #if ENABLED(TOUCH_UI_DEBUG)
+        SERIAL_ECHO_START();
+        SERIAL_ECHOPAIR("Screen not found: ", (uintptr_t) onRedraw_ptr);
+    #endif
+    return 0xFF;
+  }
+  
+  void ScreenRef::setScreen(onRedraw_func_t onRedraw_ptr) {
+    uint8_t type = lookupScreen(onRedraw_ptr);
+    if (type != 0xFF) {
+      setType(type);
+      #if ENABLED(TOUCH_UI_DEBUG)
+          SERIAL_ECHO_MSG("New screen: ", type);
+      #endif
     }
   }
-  #if ENABLED(TOUCH_UI_DEBUG)
-    SERIAL_ECHO_START();
-    SERIAL_ECHOPAIR("Screen not found: ", (uintptr_t) onRedraw_ptr);
-  #endif
-  return 0xFF;
-}
-
-void ScreenRef::setScreen(onRedraw_func_t onRedraw_ptr) {
-  uint8_t type = lookupScreen(onRedraw_ptr);
-  if (type != 0xFF) {
-    setType(type);
-    #if ENABLED(TOUCH_UI_DEBUG)
-      SERIAL_ECHO_MSG("New screen: ", type);
-    #endif
+  
+  void ScreenRef::initializeAll() {
+    for (uint8_t type = 0; type < tableSize(); type++)
+      GET_METHOD(type, onStartup)();
   }
-}
-
-void ScreenRef::initializeAll() {
-  for (uint8_t type = 0; type < tableSize(); type++)
-    GET_METHOD(type, onStartup)();
-}
-
-/********************** SCREEN STACK  ******************************/
-
-void ScreenStack::start() {
-  initializeAll();
-  onEntry();
-}
-
-void ScreenStack::push(onRedraw_func_t onRedraw_ptr) {
-  stack[3] = stack[2];
-  stack[2] = stack[1];
-  stack[1] = stack[0];
-  stack[0] = lookupScreen(onRedraw_ptr);
-}
-
-void ScreenStack::push() {
-  stack[3] = stack[2];
-  stack[2] = stack[1];
-  stack[1] = stack[0];
-  stack[0] = getType();
-}
-
-void ScreenStack::pop() {
-  setType(stack[0]);
-  forget();
-}
-
-void ScreenStack::forget() {
-  stack[0] = stack[1];
-  stack[1] = stack[2];
-  stack[2] = stack[3];
-  stack[3] = 0;
-}
-
-void ScreenStack::goTo(onRedraw_func_t s) {
-  push();
-  onExit();
-  setScreen(s);
-  onEntry();
-}
-
-void ScreenStack::goBack() {
-  onExit();
-  pop();
-  onEntry();
-}
-
-ScreenStack current_screen;
-
+  
+  /********************** SCREEN STACK  ******************************/
+  
+  void ScreenStack::start() {
+    initializeAll();
+    onEntry();
+  }
+  
+  void ScreenStack::push(onRedraw_func_t onRedraw_ptr) {
+    stack[3] = stack[2];
+    stack[2] = stack[1];
+    stack[1] = stack[0];
+    stack[0] = lookupScreen(onRedraw_ptr);
+  }
+  
+  void ScreenStack::push() {
+    stack[3] = stack[2];
+    stack[2] = stack[1];
+    stack[1] = stack[0];
+    stack[0] = getType();
+  }
+  
+  void ScreenStack::pop() {
+    setType(stack[0]);
+    forget();
+  }
+  
+  void ScreenStack::forget() {
+    stack[0] = stack[1];
+    stack[1] = stack[2];
+    stack[2] = stack[3];
+    stack[3] = 0;
+  }
+  
+  void ScreenStack::goTo(onRedraw_func_t s) {
+    push();
+    onExit();
+    setScreen(s);
+    onEntry();
+  }
+  
+  void ScreenStack::goBack() {
+    onExit();
+    pop();
+    onEntry();
+  }
+  
+  ScreenStack current_screen;
+  
 #endif // FTDI_EXTENDED

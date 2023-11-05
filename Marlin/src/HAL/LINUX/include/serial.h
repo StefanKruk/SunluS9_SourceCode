@@ -23,7 +23,7 @@
 
 #include "../../../inc/MarlinConfigPre.h"
 #if ENABLED(EMERGENCY_PARSER)
-  #include "../../../feature/e_parser.h"
+    #include "../../../feature/e_parser.h"
 #endif
 #include "../../../core/serial_hook.h"
 

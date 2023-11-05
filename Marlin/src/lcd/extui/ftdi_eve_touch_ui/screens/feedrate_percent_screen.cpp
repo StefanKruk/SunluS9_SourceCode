@@ -24,28 +24,28 @@
 #include "screens.h"
 
 #ifdef FTDI_FEEDRATE_PERCENT_SCREEN
-
-using namespace FTDI;
-using namespace ExtUI;
-
-void FeedratePercentScreen::onRedraw(draw_mode_t what) {
-  widgets_t w(what);
-  w.precision(0).units(GET_TEXT_F(MSG_UNITS_PERCENT));
-
-  w.heading(GET_TEXT_F(MSG_PRINT_SPEED));
-  w.adjuster(4,  GET_TEXT_F(MSG_SPEED), getFeedrate_percent());
-  w.increments();
-}
-
-bool FeedratePercentScreen::onTouchHeld(uint8_t tag) {
-  const float increment = getIncrement();
-  switch (tag) {
-    case 4: UI_DECREMENT(Feedrate_percent); break;
-    case 5: UI_INCREMENT(Feedrate_percent); break;
-    default:
-      return false;
+  
+  using namespace FTDI;
+  using namespace ExtUI;
+  
+  void FeedratePercentScreen::onRedraw(draw_mode_t what) {
+    widgets_t w(what);
+    w.precision(0).units(GET_TEXT_F(MSG_UNITS_PERCENT));
+  
+    w.heading(GET_TEXT_F(MSG_PRINT_SPEED));
+    w.adjuster(4,  GET_TEXT_F(MSG_SPEED), getFeedrate_percent());
+    w.increments();
   }
-  return true;
-}
-
+  
+  bool FeedratePercentScreen::onTouchHeld(uint8_t tag) {
+    const float increment = getIncrement();
+    switch (tag) {
+      case 4: UI_DECREMENT(Feedrate_percent); break;
+      case 5: UI_INCREMENT(Feedrate_percent); break;
+      default:
+        return false;
+    }
+    return true;
+  }
+  
 #endif // FTDI_FEEDRATE_PERCENT_SCREEN

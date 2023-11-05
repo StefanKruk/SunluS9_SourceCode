@@ -31,7 +31,7 @@
 #include "env_validate.h"
 
 #ifndef BOARD_INFO_NAME
-  #define BOARD_INFO_NAME "GT2560 Rev.A"
+    #define BOARD_INFO_NAME "GT2560 Rev.A"
 #endif
 #define DEFAULT_MACHINE_NAME "Prusa i3 Pro B"
 
@@ -45,15 +45,15 @@
 #define Z_MIN_PIN                             30
 
 #if ENABLED(BLTOUCH)
-  #if MB(GT2560_REV_A_PLUS)
-    #define SERVO0_PIN                        11
-    #define Z_MAX_PIN                         32
-  #else
-    #define SERVO0_PIN                        32
-    #define Z_MAX_PIN                         -1
-  #endif
+    #if MB(GT2560_REV_A_PLUS)
+        #define SERVO0_PIN                        11
+        #define Z_MAX_PIN                         32
+    #else
+        #define SERVO0_PIN                        32
+        #define Z_MAX_PIN                         -1
+    #endif
 #else
-  #define Z_MAX_PIN                           32
+    #define Z_MAX_PIN                           32
 #endif
 
 //
@@ -93,7 +93,7 @@
 #define HEATER_1_PIN                           3
 #define HEATER_BED_PIN                         4
 #ifndef FAN_PIN
-  #define FAN_PIN                              7
+    #define FAN_PIN                              7
 #endif
 
 //
@@ -106,64 +106,64 @@
 #define KILL_PIN                              -1
 
 #if HAS_WIRED_LCD
-
-  #define BEEPER_PIN                          18
-
-  #if IS_NEWPANEL
-
-    #if ENABLED(MKS_MINI_12864)
-      #define DOGLCD_A0                        5
-      #define DOGLCD_CS                       21
-      #define BTN_EN1                         40
-      #define BTN_EN2                         42
-    #elif ENABLED(FYSETC_MINI_12864)
-      // Disconnect EXP2-1 and EXP2-2, otherwise future firmware upload won't work.
-      #define DOGLCD_A0                       20
-      #define DOGLCD_CS                       17
-
-      #define NEOPIXEL_PIN                    21
-      #define BTN_EN1                         42
-      #define BTN_EN2                         40
-
-      #define LCD_RESET_PIN                   16
-
-      #define DEFAULT_LCD_CONTRAST           220
-
-      #define LCD_BACKLIGHT_PIN               -1
-    #else
-      #define LCD_PINS_RS                     20
-      #define LCD_PINS_ENABLE                 17
-      #define LCD_PINS_D4                     16
-      #define LCD_PINS_D5                     21
-      #define LCD_PINS_D6                      5
-      #define LCD_PINS_D7                      6
-      #define BTN_EN1                         42
-      #define BTN_EN2                         40
-    #endif
-
-    #define BTN_ENC                           19
-    #define SD_DETECT_PIN                     38
-
-  #else                                           // !IS_NEWPANEL
-
-    #define SHIFT_CLK_PIN                     38
-    #define SHIFT_LD_PIN                      42
-    #define SHIFT_OUT_PIN                     40
-    #define SHIFT_EN_PIN                      17
-
-    #define LCD_PINS_RS                       16
-    #define LCD_PINS_ENABLE                    5
-    #define LCD_PINS_D4                        6
-    #define LCD_PINS_D5                       21
-    #define LCD_PINS_D6                       20
-    #define LCD_PINS_D7                       19
-
-    #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
-      #define BTN_ENC_EN             LCD_PINS_D7  // Detect the presence of the encoder
-    #endif
-
-    #define SD_DETECT_PIN                     -1
-
-  #endif // !IS_NEWPANEL
-
+  
+    #define BEEPER_PIN                          18
+  
+    #if IS_NEWPANEL
+    
+        #if ENABLED(MKS_MINI_12864)
+            #define DOGLCD_A0                        5
+            #define DOGLCD_CS                       21
+            #define BTN_EN1                         40
+            #define BTN_EN2                         42
+        #elif ENABLED(FYSETC_MINI_12864)
+            // Disconnect EXP2-1 and EXP2-2, otherwise future firmware upload won't work.
+            #define DOGLCD_A0                       20
+            #define DOGLCD_CS                       17
+      
+            #define NEOPIXEL_PIN                    21
+            #define BTN_EN1                         42
+            #define BTN_EN2                         40
+      
+            #define LCD_RESET_PIN                   16
+      
+            #define DEFAULT_LCD_CONTRAST           220
+      
+            #define LCD_BACKLIGHT_PIN               -1
+        #else
+            #define LCD_PINS_RS                     20
+            #define LCD_PINS_ENABLE                 17
+            #define LCD_PINS_D4                     16
+            #define LCD_PINS_D5                     21
+            #define LCD_PINS_D6                      5
+            #define LCD_PINS_D7                      6
+            #define BTN_EN1                         42
+            #define BTN_EN2                         40
+        #endif
+    
+        #define BTN_ENC                           19
+        #define SD_DETECT_PIN                     38
+    
+    #else                                           // !IS_NEWPANEL
+    
+        #define SHIFT_CLK_PIN                     38
+        #define SHIFT_LD_PIN                      42
+        #define SHIFT_OUT_PIN                     40
+        #define SHIFT_EN_PIN                      17
+    
+        #define LCD_PINS_RS                       16
+        #define LCD_PINS_ENABLE                    5
+        #define LCD_PINS_D4                        6
+        #define LCD_PINS_D5                       21
+        #define LCD_PINS_D6                       20
+        #define LCD_PINS_D7                       19
+    
+        #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
+            #define BTN_ENC_EN             LCD_PINS_D7  // Detect the presence of the encoder
+        #endif
+    
+        #define SD_DETECT_PIN                     -1
+    
+    #endif // !IS_NEWPANEL
+  
 #endif // HAS_WIRED_LCD

@@ -25,16 +25,16 @@
 #include "../compat.h"
 
 #ifndef __MARLIN_FIRMWARE__
-  #define FTDI_BASIC
+    #define FTDI_BASIC
 #endif
 
 #ifdef FTDI_BASIC
-  #include "registers_ft800.h"
-  #include "registers_ft810.h"
-  #include "constants.h"
-  #include "boards.h"
-  #include "commands.h"
-  #include "spi.h"
-  #include "display_list.h"
-  #include "resolutions.h"
+    #include "registers_ft800.h"
+    #include "registers_ft810.h"
+    #include "constants.h"
+    #include "boards.h"
+    #include "commands.h"
+    #include "spi.h"
+    #include "display_list.h"
+    #include "resolutions.h"
 #endif

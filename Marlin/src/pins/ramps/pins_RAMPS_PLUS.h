@@ -72,12 +72,12 @@
 #undef E1_CS_PIN
 
 #if IS_ULTRA_LCD && NONE(REPRAPWORLD_GRAPHICAL_LCD, CR10_STOCKDISPLAY) && !BOTH(IS_NEWPANEL, PANEL_ONE)
-  #if DISABLED(MKS_12864OLED) || ENABLED(MKS_12864OLED_SSD1306)
-    #undef LCD_PINS_RS
-    #define LCD_PINS_RS                       42  // 3DYMY boards pin 16 -> 42
-    #undef LCD_PINS_ENABLE
-    #define LCD_PINS_ENABLE                   44  // 3DYMY boards pin 17 -> 44
-  #endif
-  #undef LCD_PINS_D7
-  #define LCD_PINS_D7                         53  // 3DYMY boards pin 29 -> 53
+    #if DISABLED(MKS_12864OLED) || ENABLED(MKS_12864OLED_SSD1306)
+        #undef LCD_PINS_RS
+        #define LCD_PINS_RS                       42  // 3DYMY boards pin 16 -> 42
+        #undef LCD_PINS_ENABLE
+        #define LCD_PINS_ENABLE                   44  // 3DYMY boards pin 17 -> 44
+    #endif
+    #undef LCD_PINS_D7
+    #define LCD_PINS_D7                         53  // 3DYMY boards pin 29 -> 53
 #endif

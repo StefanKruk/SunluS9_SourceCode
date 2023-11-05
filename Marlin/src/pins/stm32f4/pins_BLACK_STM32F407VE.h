@@ -31,11 +31,11 @@
 #include "env_validate.h"
 
 #if HOTENDS > 2 || E_STEPPERS > 2
-  #error "Black STM32F4VET6 supports up to 2 hotends / E-steppers."
+    #error "Black STM32F4VET6 supports up to 2 hotends / E-steppers."
 #endif
 
 #ifndef BOARD_INFO_NAME
-  #define BOARD_INFO_NAME "Black STM32F4VET6"
+    #define BOARD_INFO_NAME "Black STM32F4VET6"
 #endif
 
 #define DEFAULT_MACHINE_NAME "STM32F407VET6"
@@ -91,7 +91,7 @@
 #define TEMP_BED_PIN                        PC2   // TB
 
 #ifndef TEMP_CHAMBER_PIN
-  #define TEMP_CHAMBER_PIN                  PC3   // TC
+    #define TEMP_CHAMBER_PIN                  PC3   // TC
 #endif
 
 //
@@ -134,7 +134,7 @@
 #define DOGLCD_A0                    LCD_PINS_D6
 
 #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
-  #define BTN_ENC_EN                 LCD_PINS_D7  // Detect the presence of the encoder
+    #define BTN_ENC_EN                 LCD_PINS_D7  // Detect the presence of the encoder
 #endif
 
 //
@@ -148,17 +148,17 @@
 #define SDIO_CMD_PIN                        PD2
 
 #ifndef SDCARD_CONNECTION
-  #define SDCARD_CONNECTION              ONBOARD
+    #define SDCARD_CONNECTION              ONBOARD
 #endif
 
 #if SD_CONNECTION_IS(ONBOARD)
-  #define SDIO_SUPPORT                            // Use SDIO for onboard SD
-
-  #ifndef SDIO_SUPPORT
-    #define SOFTWARE_SPI                          // Use soft SPI for onboard SD
-    #define SDSS                     SDIO_D3_PIN
-    #define SD_SCK_PIN               SDIO_CK_PIN
-    #define SD_MISO_PIN              SDIO_D0_PIN
-    #define SD_MOSI_PIN             SDIO_CMD_PIN
-  #endif
+    #define SDIO_SUPPORT                            // Use SDIO for onboard SD
+  
+    #ifndef SDIO_SUPPORT
+        #define SOFTWARE_SPI                          // Use soft SPI for onboard SD
+        #define SDSS                     SDIO_D3_PIN
+        #define SD_SCK_PIN               SDIO_CK_PIN
+        #define SD_MISO_PIN              SDIO_D0_PIN
+        #define SD_MOSI_PIN             SDIO_CMD_PIN
+    #endif
 #endif

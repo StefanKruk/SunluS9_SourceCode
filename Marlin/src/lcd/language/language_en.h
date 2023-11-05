@@ -37,7 +37,7 @@
 
 #define en 1234
 #if LCD_LANGUAGE == en
-  #define NOT_EXTENDED_ISO10646_1_5X7
+    #define NOT_EXTENDED_ISO10646_1_5X7
 #endif
 #undef en
 
@@ -92,21 +92,21 @@ namespace Language_en {
   PROGMEM Language_Str MSG_SELECT_ORIGIN                   = _UxGT("Select Origin");
   PROGMEM Language_Str MSG_LAST_VALUE_SP                   = _UxGT("Last value ");
   #if PREHEAT_COUNT
-    PROGMEM Language_Str MSG_PREHEAT_1                     = _UxGT("Preheat ") PREHEAT_1_LABEL;
-    PROGMEM Language_Str MSG_PREHEAT_1_H                   = _UxGT("Preheat ") PREHEAT_1_LABEL " ~";
-    PROGMEM Language_Str MSG_PREHEAT_1_END                 = _UxGT("Preheat ") PREHEAT_1_LABEL _UxGT(" End");
-    PROGMEM Language_Str MSG_PREHEAT_1_END_E               = _UxGT("Preheat ") PREHEAT_1_LABEL _UxGT(" End ~");
-    PROGMEM Language_Str MSG_PREHEAT_1_ALL                 = _UxGT("Preheat ") PREHEAT_1_LABEL _UxGT(" All");
-    PROGMEM Language_Str MSG_PREHEAT_1_BEDONLY             = _UxGT("Preheat ") PREHEAT_1_LABEL _UxGT(" Bed");
-    PROGMEM Language_Str MSG_PREHEAT_1_SETTINGS            = _UxGT("Preheat ") PREHEAT_1_LABEL _UxGT(" Conf");
-
-    PROGMEM Language_Str MSG_PREHEAT_M                     = _UxGT("Preheat $");
-    PROGMEM Language_Str MSG_PREHEAT_M_H                   = _UxGT("Preheat $ ~");
-    PROGMEM Language_Str MSG_PREHEAT_M_END                 = _UxGT("Preheat $ End");
-    PROGMEM Language_Str MSG_PREHEAT_M_END_E               = _UxGT("Preheat $ End ~");
-    PROGMEM Language_Str MSG_PREHEAT_M_ALL                 = _UxGT("Preheat $ All");
-    PROGMEM Language_Str MSG_PREHEAT_M_BEDONLY             = _UxGT("Preheat $ Bed");
-    PROGMEM Language_Str MSG_PREHEAT_M_SETTINGS            = _UxGT("Preheat $ Conf");
+      PROGMEM Language_Str MSG_PREHEAT_1                     = _UxGT("Preheat ") PREHEAT_1_LABEL;
+      PROGMEM Language_Str MSG_PREHEAT_1_H                   = _UxGT("Preheat ") PREHEAT_1_LABEL " ~";
+      PROGMEM Language_Str MSG_PREHEAT_1_END                 = _UxGT("Preheat ") PREHEAT_1_LABEL _UxGT(" End");
+      PROGMEM Language_Str MSG_PREHEAT_1_END_E               = _UxGT("Preheat ") PREHEAT_1_LABEL _UxGT(" End ~");
+      PROGMEM Language_Str MSG_PREHEAT_1_ALL                 = _UxGT("Preheat ") PREHEAT_1_LABEL _UxGT(" All");
+      PROGMEM Language_Str MSG_PREHEAT_1_BEDONLY             = _UxGT("Preheat ") PREHEAT_1_LABEL _UxGT(" Bed");
+      PROGMEM Language_Str MSG_PREHEAT_1_SETTINGS            = _UxGT("Preheat ") PREHEAT_1_LABEL _UxGT(" Conf");
+  
+      PROGMEM Language_Str MSG_PREHEAT_M                     = _UxGT("Preheat $");
+      PROGMEM Language_Str MSG_PREHEAT_M_H                   = _UxGT("Preheat $ ~");
+      PROGMEM Language_Str MSG_PREHEAT_M_END                 = _UxGT("Preheat $ End");
+      PROGMEM Language_Str MSG_PREHEAT_M_END_E               = _UxGT("Preheat $ End ~");
+      PROGMEM Language_Str MSG_PREHEAT_M_ALL                 = _UxGT("Preheat $ All");
+      PROGMEM Language_Str MSG_PREHEAT_M_BEDONLY             = _UxGT("Preheat $ Bed");
+      PROGMEM Language_Str MSG_PREHEAT_M_SETTINGS            = _UxGT("Preheat $ Conf");
   #endif
   PROGMEM Language_Str MSG_PREHEAT_CUSTOM                  = _UxGT("Preheat Custom");
   PROGMEM Language_Str MSG_COOLDOWN                        = _UxGT("Cooldown");
@@ -563,17 +563,17 @@ namespace Language_en {
   PROGMEM Language_Str MSG_KILL_EXPECTED_PRINTER           = _UxGT("INCORRECT PRINTER");
 
   #if LCD_WIDTH >= 20
-    PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Print Count");
-    PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Completed");
-    PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Total Print Time");
-    PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Longest Job Time");
-    PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Extruded Total");
+      PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Print Count");
+      PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Completed");
+      PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Total Print Time");
+      PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Longest Job Time");
+      PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Extruded Total");
   #else
-    PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Prints");
-    PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Completed");
-    PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Total");
-    PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Longest");
-    PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Extruded");
+      PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Prints");
+      PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Completed");
+      PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Total");
+      PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Longest");
+      PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Extruded");
   #endif
 
   PROGMEM Language_Str MSG_INFO_MIN_TEMP                   = _UxGT("Min Temp");
@@ -664,29 +664,29 @@ namespace Language_en {
   //                        ...or up to 2 lines on a 3-line display
   //
   #if LCD_HEIGHT >= 4
-    PROGMEM Language_Str MSG_ADVANCED_PAUSE_WAITING        = _UxGT(MSG_2_LINE("Press Button", "to resume print"));
-    PROGMEM Language_Str MSG_PAUSE_PRINT_PARKING           = _UxGT(MSG_1_LINE("Parking..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_3_LINE("Wait for", "filament change", "to start"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_3_LINE("Insert filament", "and press button", "to continue"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_2_LINE("Press button", "to heat nozzle"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_2_LINE("Nozzle heating", "Please wait..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_2_LINE("Wait for", "filament unload"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_2_LINE("Wait for", "filament load"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_PURGE         = _UxGT(MSG_2_LINE("Wait for", "filament purge"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_CONT_PURGE    = _UxGT(MSG_2_LINE("Click to finish", "filament purge"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_2_LINE("Wait for print", "to resume..."));
+      PROGMEM Language_Str MSG_ADVANCED_PAUSE_WAITING        = _UxGT(MSG_2_LINE("Press Button", "to resume print"));
+      PROGMEM Language_Str MSG_PAUSE_PRINT_PARKING           = _UxGT(MSG_1_LINE("Parking..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_3_LINE("Wait for", "filament change", "to start"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_3_LINE("Insert filament", "and press button", "to continue"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_2_LINE("Press button", "to heat nozzle"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_2_LINE("Nozzle heating", "Please wait..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_2_LINE("Wait for", "filament unload"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_2_LINE("Wait for", "filament load"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_PURGE         = _UxGT(MSG_2_LINE("Wait for", "filament purge"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_CONT_PURGE    = _UxGT(MSG_2_LINE("Click to finish", "filament purge"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_2_LINE("Wait for print", "to resume..."));
   #else
-    PROGMEM Language_Str MSG_ADVANCED_PAUSE_WAITING        = _UxGT(MSG_1_LINE("Click to continue"));
-    PROGMEM Language_Str MSG_PAUSE_PRINT_PARKING           = _UxGT(MSG_1_LINE("Parking..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_1_LINE("Please wait..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_1_LINE("Insert and Click"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_1_LINE("Click to heat"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_1_LINE("Heating..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_1_LINE("Ejecting..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_1_LINE("Loading..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_PURGE         = _UxGT(MSG_1_LINE("Purging..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_CONT_PURGE    = _UxGT(MSG_1_LINE("Click to finish"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_1_LINE("Resuming..."));
+      PROGMEM Language_Str MSG_ADVANCED_PAUSE_WAITING        = _UxGT(MSG_1_LINE("Click to continue"));
+      PROGMEM Language_Str MSG_PAUSE_PRINT_PARKING           = _UxGT(MSG_1_LINE("Parking..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_1_LINE("Please wait..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_1_LINE("Insert and Click"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_1_LINE("Click to heat"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_1_LINE("Heating..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_1_LINE("Ejecting..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_1_LINE("Loading..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_PURGE         = _UxGT(MSG_1_LINE("Purging..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_CONT_PURGE    = _UxGT(MSG_1_LINE("Click to finish"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_1_LINE("Resuming..."));
   #endif
   PROGMEM Language_Str MSG_TMC_DRIVERS                     = _UxGT("TMC Drivers");
   PROGMEM Language_Str MSG_TMC_CURRENT                     = _UxGT("Driver Current");
@@ -706,9 +706,9 @@ namespace Language_en {
   PROGMEM Language_Str MSG_LEVEL_X_AXIS                    = _UxGT("Level X Axis");
   PROGMEM Language_Str MSG_AUTO_CALIBRATE                  = _UxGT("Auto Calibrate");
   #if ENABLED(TOUCH_UI_FTDI_EVE)
-    PROGMEM Language_Str MSG_HEATER_TIMEOUT                = _UxGT("Idle timeout, temperature decreased. Press Okay to reheat and again to resume.");
+      PROGMEM Language_Str MSG_HEATER_TIMEOUT                = _UxGT("Idle timeout, temperature decreased. Press Okay to reheat and again to resume.");
   #else
-    PROGMEM Language_Str MSG_HEATER_TIMEOUT                = _UxGT("Heater Timeout");
+      PROGMEM Language_Str MSG_HEATER_TIMEOUT                = _UxGT("Heater Timeout");
   #endif
   PROGMEM Language_Str MSG_REHEAT                          = _UxGT("Reheat");
   PROGMEM Language_Str MSG_REHEATING                       = _UxGT("Reheating...");
@@ -730,9 +730,9 @@ namespace Language_en {
 }
 
 #if FAN_COUNT == 1
-  #define MSG_FIRST_FAN_SPEED       MSG_FAN_SPEED
-  #define MSG_EXTRA_FIRST_FAN_SPEED MSG_EXTRA_FAN_SPEED
+    #define MSG_FIRST_FAN_SPEED       MSG_FAN_SPEED
+    #define MSG_EXTRA_FIRST_FAN_SPEED MSG_EXTRA_FAN_SPEED
 #else
-  #define MSG_FIRST_FAN_SPEED       MSG_FAN_SPEED_N
-  #define MSG_EXTRA_FIRST_FAN_SPEED MSG_EXTRA_FAN_SPEED_N
+    #define MSG_FIRST_FAN_SPEED       MSG_FAN_SPEED_N
+    #define MSG_EXTRA_FIRST_FAN_SPEED MSG_EXTRA_FAN_SPEED_N
 #endif

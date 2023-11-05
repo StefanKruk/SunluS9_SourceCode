@@ -108,16 +108,16 @@ class Stopwatch {
     static millis_t duration();
 
     #ifdef DEBUG_STOPWATCH
-
-      /**
-       * @brief Print a debug message
-       * @details Print a simple debug message "Stopwatch::function"
-       */
-      static void debug(const char func[]);
-
+  
+        /**
+         * @brief Print a debug message
+         * @details Print a simple debug message "Stopwatch::function"
+         */
+        static void debug(const char func[]);
+  
     #else
-
-      static inline void debug(const char[]) {}
-
+  
+        static inline void debug(const char[]) {}
+  
     #endif
 };

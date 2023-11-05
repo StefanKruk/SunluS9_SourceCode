@@ -28,8 +28,8 @@ struct AutoReporter {
   millis_t next_report_ms;
   uint8_t report_interval;
   #if HAS_MULTI_SERIAL
-    SerialMask report_port_mask;
-    AutoReporter() : report_port_mask(SerialMask::All) {}
+      SerialMask report_port_mask;
+      AutoReporter() : report_port_mask(SerialMask::All) {}
   #endif
 
   inline void set_interval(uint8_t seconds, const uint8_t limit=60) {

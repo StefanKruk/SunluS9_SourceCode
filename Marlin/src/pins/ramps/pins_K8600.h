@@ -25,7 +25,7 @@
  */
 
 #if HOTENDS > 1
-  #error "Only 1 hotend is supported for Vertex Nano."
+    #error "Only 1 hotend is supported for Vertex Nano."
 #endif
 
 #define BOARD_INFO_NAME      "K8600"
@@ -92,31 +92,31 @@
 // LCD / Controller
 //
 #if IS_ULTRA_LCD && IS_NEWPANEL
-  #undef BEEPER_PIN
-
-  #undef LCD_PINS_RS
-  #undef LCD_PINS_ENABLE
-  #undef LCD_PINS_D4
-  #undef LCD_PINS_D5
-  #undef LCD_PINS_D6
-  #undef LCD_PINS_D7
-  #define LCD_PINS_RS                         27
-  #define LCD_PINS_ENABLE                     29
-  #define LCD_PINS_D4                         37
-  #define LCD_PINS_D5                         35
-  #define LCD_PINS_D6                         33
-  #define LCD_PINS_D7                         31
-
-  // Buttons
-  #undef BTN_EN1
-  #undef BTN_EN2
-  #undef BTN_ENC
-  #define BTN_EN1                             17
-  #define BTN_EN2                             16
-  #define BTN_ENC                             23
-
+    #undef BEEPER_PIN
+  
+    #undef LCD_PINS_RS
+    #undef LCD_PINS_ENABLE
+    #undef LCD_PINS_D4
+    #undef LCD_PINS_D5
+    #undef LCD_PINS_D6
+    #undef LCD_PINS_D7
+    #define LCD_PINS_RS                         27
+    #define LCD_PINS_ENABLE                     29
+    #define LCD_PINS_D4                         37
+    #define LCD_PINS_D5                         35
+    #define LCD_PINS_D6                         33
+    #define LCD_PINS_D7                         31
+  
+    // Buttons
+    #undef BTN_EN1
+    #undef BTN_EN2
+    #undef BTN_ENC
+    #define BTN_EN1                             17
+    #define BTN_EN2                             16
+    #define BTN_ENC                             23
+  
 #else
-
-  #define BEEPER_PIN                          33
-
+  
+    #define BEEPER_PIN                          33
+  
 #endif

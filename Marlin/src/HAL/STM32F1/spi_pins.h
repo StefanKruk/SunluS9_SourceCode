@@ -35,20 +35,20 @@
  * SPI1 is enabled by default
  */
 #ifndef SD_SCK_PIN
-  #define SD_SCK_PIN  PA5
+    #define SD_SCK_PIN  PA5
 #endif
 #ifndef SD_MISO_PIN
-  #define SD_MISO_PIN PA6
+    #define SD_MISO_PIN PA6
 #endif
 #ifndef SD_MOSI_PIN
-  #define SD_MOSI_PIN PA7
+    #define SD_MOSI_PIN PA7
 #endif
 #ifndef SD_SS_PIN
-  #define SD_SS_PIN   PA4
+    #define SD_SS_PIN   PA4
 #endif
 #undef SDSS
 #define SDSS    SD_SS_PIN
 
 #ifndef SPI_DEVICE
-  #define SPI_DEVICE 1
+    #define SPI_DEVICE 1
 #endif

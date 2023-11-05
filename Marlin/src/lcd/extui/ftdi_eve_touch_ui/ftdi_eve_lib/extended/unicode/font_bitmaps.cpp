@@ -22,38 +22,38 @@
 #include "../ftdi_extended.h"
 
 #if ENABLED(FTDI_EXTENDED)
-
-namespace FTDI {
-
-  uint32_t write_rle_data(uint32_t addr, const uint8_t *data, size_t n) {
-    for (; n >= 2; n -= 2) {
-	  ScreenHandler.Address_Beyond_Fun(data,12);
-      uint8_t count = pgm_read_byte(data++);
-      uint8_t value = pgm_read_byte(data++);
-      CLCD::mem_write_fill(addr, value, count);
-      addr += count;
+  
+  namespace FTDI {
+  
+    uint32_t write_rle_data(uint32_t addr, const uint8_t *data, size_t n) {
+      for (; n >= 2; n -= 2) {
+  	  ScreenHandler.Address_Beyond_Fun(data,12);
+        uint8_t count = pgm_read_byte(data++);
+        uint8_t value = pgm_read_byte(data++);
+        CLCD::mem_write_fill(addr, value, count);
+        addr += count;
+      }
+      return addr;
     }
-    return addr;
-  }
-
-  void set_font_bitmap(CommandProcessor& cmd, CLCD::FontMetrics &fm, uint8_t handle) {
-    cmd.cmd(BITMAP_HANDLE(handle));
-    cmd.cmd(BITMAP_SOURCE(fm.ptr));
-    cmd.bitmap_layout(fm.format, fm.stride, fm.height);
-    cmd.bitmap_size(BILINEAR, BORDER, BORDER, fm.width, fm.height);
-  }
-
-  void ext_vertex2ii(CommandProcessor &cmd, int x, int y, uint8_t handle, uint8_t cell) {
-    if (x < 0 || y < 0 || x > 511 || y > 511) {
+  
+    void set_font_bitmap(CommandProcessor& cmd, CLCD::FontMetrics &fm, uint8_t handle) {
       cmd.cmd(BITMAP_HANDLE(handle));
-      cmd.cmd(CELL(cell));
-      cmd.cmd(VERTEX2F(x * 16, y * 16));
+      cmd.cmd(BITMAP_SOURCE(fm.ptr));
+      cmd.bitmap_layout(fm.format, fm.stride, fm.height);
+      cmd.bitmap_size(BILINEAR, BORDER, BORDER, fm.width, fm.height);
     }
-    else {
-      cmd.cmd(VERTEX2II(x, y, handle, cell));
+  
+    void ext_vertex2ii(CommandProcessor &cmd, int x, int y, uint8_t handle, uint8_t cell) {
+      if (x < 0 || y < 0 || x > 511 || y > 511) {
+        cmd.cmd(BITMAP_HANDLE(handle));
+        cmd.cmd(CELL(cell));
+        cmd.cmd(VERTEX2F(x * 16, y * 16));
+      }
+      else {
+        cmd.cmd(VERTEX2II(x, y, handle, cell));
+      }
     }
-  }
-
-} // namespace FTDI
-
+  
+  } // namespace FTDI
+  
 #endif // FTDI_EXTENDED

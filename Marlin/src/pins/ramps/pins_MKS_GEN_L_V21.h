@@ -26,7 +26,7 @@
  */
 
 #if HOTENDS > 2 || E_STEPPERS > 2
-  #error "MKS GEN L V2.1 supports up to 2 hotends / E-steppers. Comment out this line to continue."
+    #error "MKS GEN L V2.1 supports up to 2 hotends / E-steppers. Comment out this line to continue."
 #endif
 
 #define BOARD_INFO_NAME "MKS GEN L V2.1"
@@ -43,19 +43,19 @@
 //
 
 #ifndef X_CS_PIN
-  #define X_CS_PIN                            63
+    #define X_CS_PIN                            63
 #endif
 #ifndef Y_CS_PIN
-  #define Y_CS_PIN                            64
+    #define Y_CS_PIN                            64
 #endif
 #ifndef Z_CS_PIN
-  #define Z_CS_PIN                            65
+    #define Z_CS_PIN                            65
 #endif
 #ifndef E0_CS_PIN
-  #define E0_CS_PIN                           66
+    #define E0_CS_PIN                           66
 #endif
 #ifndef E1_CS_PIN
-  #define E1_CS_PIN                           12
+    #define E1_CS_PIN                           12
 #endif
 
 // TMC2130 Diag Pins (currently just for reference)
@@ -66,20 +66,20 @@
 #define E1_DIAG_PIN                           15
 
 #ifndef SERVO1_PIN
-  #define SERVO1_PIN                          21
+    #define SERVO1_PIN                          21
 #endif
 #ifndef SERVO2_PIN
-  #define SERVO2_PIN                          39
+    #define SERVO2_PIN                          39
 #endif
 #ifndef SERVO3_PIN
-  #define SERVO3_PIN                          32
+    #define SERVO3_PIN                          32
 #endif
 
 #ifndef E1_SERIAL_TX_PIN
-  #define E1_SERIAL_TX_PIN                    20
+    #define E1_SERIAL_TX_PIN                    20
 #endif
 #ifndef E1_SERIAL_RX_PIN
-  #define E1_SERIAL_RX_PIN                    12
+    #define E1_SERIAL_RX_PIN                    12
 #endif
 
 #include "pins_RAMPS.h"

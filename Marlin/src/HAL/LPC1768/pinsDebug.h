@@ -38,7 +38,7 @@
 
 // pins that will cause hang/reset/disconnect in M43 Toggle and Watch utilities
 #ifndef M43_NEVER_TOUCH
-  #define M43_NEVER_TOUCH(Q) ((Q) == P0_29 || (Q) == P0_30 || (Q) == P2_09)  // USB pins
+    #define M43_NEVER_TOUCH(Q) ((Q) == P0_29 || (Q) == P0_30 || (Q) == P2_09)  // USB pins
 #endif
 
 bool GET_PINMODE(const pin_t pin) {

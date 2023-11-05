@@ -26,7 +26,7 @@
 #include "../queue.h" // for online_print_bit
 
 #if ENABLED(I2C_POSITION_ENCODERS)
-  #include "../../feature/encoder_i2c.h"
+    #include "../../feature/encoder_i2c.h"
 #endif
 
 /**
@@ -52,32 +52,32 @@ void GcodeSuite::G92() {
   bool sync_E = false, sync_XYZE = false;
 
   #if USE_GCODE_SUBCODES
-    const uint8_t subcode_G92 = parser.subcode;
+      const uint8_t subcode_G92 = parser.subcode;
   #else
-    constexpr uint8_t subcode_G92 = 0;
+      constexpr uint8_t subcode_G92 = 0;
   #endif
 
   switch (subcode_G92) {
     default: return;                                                  // Ignore unknown G92.x
 
     #if ENABLED(CNC_COORDINATE_SYSTEMS) && !IS_SCARA
-      case 1:                                                         // G92.1 - Zero the Workspace Offset
-        LOOP_LINEAR_AXES(i) if (position_shift[i]) {
-          position_shift[i] = 0;
-          update_workspace_offset((AxisEnum)i);
-        }
-        break;
+        case 1:                                                         // G92.1 - Zero the Workspace Offset
+          LOOP_LINEAR_AXES(i) if (position_shift[i]) {
+            position_shift[i] = 0;
+            update_workspace_offset((AxisEnum)i);
+          }
+          break;
     #endif
 
     #if ENABLED(POWER_LOSS_RECOVERY)
-      case 9:                                                         // G92.9 - Set Current Position directly (like Marlin 1.0)
-        LOOP_LOGICAL_AXES(i) {
-          if (parser.seenval(axis_codes[i])) {
-            if (i == E_AXIS) sync_E = true; else sync_XYZE = true;
-            current_position[i] = parser.value_axis_units((AxisEnum)i);
+        case 9:                                                         // G92.9 - Set Current Position directly (like Marlin 1.0)
+          LOOP_LOGICAL_AXES(i) {
+            if (parser.seenval(axis_codes[i])) {
+              if (i == E_AXIS) sync_E = true; else sync_XYZE = true;
+              current_position[i] = parser.value_axis_units((AxisEnum)i);
+            }
           }
-        }
-        break;
+          break;
     #endif
 
     case 0:
@@ -88,17 +88,17 @@ void GcodeSuite::G92() {
                       d = v - current_position[i];                    // How much is the current axis position altered by?
           if (!NEAR_ZERO(d)) {
             #if HAS_POSITION_SHIFT && !IS_SCARA                       // When using workspaces...
-              if (i == E_AXIS) {
-                sync_E = true;
-                current_position.e = v;                               // ...E is still set directly
-              }
-              else {
-                position_shift[i] += d;                               // ...but other axes offset the workspace.
-                update_workspace_offset((AxisEnum)i);
-              }
+                if (i == E_AXIS) {
+                  sync_E = true;
+                  current_position.e = v;                               // ...E is still set directly
+                }
+                else {
+                  position_shift[i] += d;                               // ...but other axes offset the workspace.
+                  update_workspace_offset((AxisEnum)i);
+                }
             #else                                                     // Without workspaces...
-              if (i == E_AXIS) sync_E = true; else sync_XYZE = true;
-              current_position[i] = v;                                // ...set Current Position directly (like Marlin 1.0)
+                if (i == E_AXIS) sync_E = true; else sync_XYZE = true;
+                current_position[i] = v;                                // ...set Current Position directly (like Marlin 1.0)
             #endif
           }
         }
@@ -107,9 +107,9 @@ void GcodeSuite::G92() {
   }
 
   #if ENABLED(CNC_COORDINATE_SYSTEMS)
-    // Apply Workspace Offset to the active coordinate system
-    if (WITHIN(active_coordinate_system, 0, MAX_COORDINATE_SYSTEMS - 1))
-      coordinate_system[active_coordinate_system] = position_shift;
+      // Apply Workspace Offset to the active coordinate system
+      if (WITHIN(active_coordinate_system, 0, MAX_COORDINATE_SYSTEMS - 1))
+        coordinate_system[active_coordinate_system] = position_shift;
   #endif
 
   if   (sync_XYZE) sync_plan_position();

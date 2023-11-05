@@ -36,11 +36,11 @@
 #include "i2s.h"
 
 #if ENABLED(WIFISUPPORT)
-  #include "WebSocketSerial.h"
+    #include "WebSocketSerial.h"
 #endif
 
 #if ENABLED(ESP3D_WIFISUPPORT)
-  #include "esp3dlib.h"
+    #include "esp3dlib.h"
 #endif
 
 #include "FlushableHardwareSerial.h"
@@ -54,13 +54,13 @@ extern portMUX_TYPE spinlock;
 #define MYSERIAL1 flushableSerial
 
 #if EITHER(WIFISUPPORT, ESP3D_WIFISUPPORT)
-  #if ENABLED(ESP3D_WIFISUPPORT)
-    typedef ForwardSerial1Class< decltype(Serial2Socket) > DefaultSerial1;
-    extern DefaultSerial1 MSerial0;
-    #define MYSERIAL2 MSerial0
-  #else
-    #define MYSERIAL2 webSocketSerial
-  #endif
+    #if ENABLED(ESP3D_WIFISUPPORT)
+        typedef ForwardSerial1Class< decltype(Serial2Socket) > DefaultSerial1;
+        extern DefaultSerial1 MSerial0;
+        #define MYSERIAL2 MSerial0
+    #else
+        #define MYSERIAL2 webSocketSerial
+    #endif
 #endif
 
 #define CRITICAL_SECTION_START() portENTER_CRITICAL(&spinlock)
@@ -106,14 +106,14 @@ void HAL_reboot();
 void _delay_ms(int delay);
 
 #if GCC_VERSION <= 50000
-  #pragma GCC diagnostic push
-  #pragma GCC diagnostic ignored "-Wunused-function"
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wunused-function"
 #endif
 
 int freeMemory();
 
 #if GCC_VERSION <= 50000
-  #pragma GCC diagnostic pop
+    #pragma GCC diagnostic pop
 #endif
 
 void analogWrite(pin_t pin, int value);

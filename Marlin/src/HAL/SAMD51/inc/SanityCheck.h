@@ -24,33 +24,33 @@
  */
 
 #if ENABLED(FLASH_EEPROM_EMULATION)
-  #warning "Did you activate the SmartEEPROM? See https://github.com/GMagician/SAMD51-SmartEEprom-Manager/releases"
+    #warning "Did you activate the SmartEEPROM? See https://github.com/GMagician/SAMD51-SmartEEprom-Manager/releases"
 #endif
 
 #if defined(ADAFRUIT_GRAND_CENTRAL_M4) && SD_CONNECTION_IS(CUSTOM_CABLE)
-  #error "No custom SD drive cable defined for this board."
+    #error "No custom SD drive cable defined for this board."
 #endif
 
 #if defined(MAX6675_SCK_PIN) && defined(MAX6675_DO_PIN) && (MAX6675_SCK_PIN == SCK1 || MAX6675_DO_PIN == MISO1)
-  #error "OnBoard SPI BUS can't be shared with other devices."
+    #error "OnBoard SPI BUS can't be shared with other devices."
 #endif
 
 #if SERVO_TC == RTC_TIMER_NUM
-  #error "Servos can't use RTC timer"
+    #error "Servos can't use RTC timer"
 #endif
 
 #if ENABLED(EMERGENCY_PARSER)
-  #error "EMERGENCY_PARSER is not yet implemented for SAMD51. Disable EMERGENCY_PARSER to continue."
+    #error "EMERGENCY_PARSER is not yet implemented for SAMD51. Disable EMERGENCY_PARSER to continue."
 #endif
 
 #if ENABLED(SDIO_SUPPORT)
-  #error "SDIO_SUPPORT is not supported on SAMD51."
+    #error "SDIO_SUPPORT is not supported on SAMD51."
 #endif
 
 #if ENABLED(FAST_PWM_FAN) || SPINDLE_LASER_FREQUENCY
-  #error "Features requiring Hardware PWM (FAST_PWM_FAN, SPINDLE_LASER_FREQUENCY) are not yet supported on SAMD51."
+    #error "Features requiring Hardware PWM (FAST_PWM_FAN, SPINDLE_LASER_FREQUENCY) are not yet supported on SAMD51."
 #endif
 
 #if ENABLED(POSTMORTEM_DEBUGGING)
-  #error "POSTMORTEM_DEBUGGING is not yet supported on AGCM4."
+    #error "POSTMORTEM_DEBUGGING is not yet supported on AGCM4."
 #endif

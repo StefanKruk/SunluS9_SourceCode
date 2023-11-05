@@ -25,7 +25,7 @@
 #pragma once
 
 #ifndef _usb_h_
-  #error "Never include confdescparser.h directly; include Usb.h instead"
+    #error "Never include confdescparser.h directly; include Usb.h instead"
 #endif
 
 class UsbConfigXtracter {

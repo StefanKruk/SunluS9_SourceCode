@@ -132,7 +132,7 @@
 #define HEATER_BED_PIN                        14  // C4
 
 #ifndef FAN_PIN
-  #define FAN_PIN                             16  // C6  PWM3A
+    #define FAN_PIN                             16  // C6  PWM3A
 #endif
 
 //
@@ -142,5 +142,5 @@
 
 //DIGIPOTS slave addresses
 #ifndef DIGIPOT_I2C_ADDRESS_A
-  #define DIGIPOT_I2C_ADDRESS_A             0x2C  // unshifted slave address for DIGIPOT 0x2C (0x58 <- 0x2C << 1)
+    #define DIGIPOT_I2C_ADDRESS_A             0x2C  // unshifted slave address for DIGIPOT 0x2C (0x58 <- 0x2C << 1)
 #endif

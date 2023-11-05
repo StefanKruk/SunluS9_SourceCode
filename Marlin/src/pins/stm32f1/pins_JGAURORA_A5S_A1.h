@@ -31,7 +31,7 @@
 #include "env_validate.h"
 
 #if HOTENDS > 1 || E_STEPPERS > 1
-  #error "JGAurora A5S A1 only supports one hotend / E-stepper. Comment out this line to continue."
+    #error "JGAurora A5S A1 only supports one hotend / E-stepper. Comment out this line to continue."
 #endif
 
 #define BOARD_INFO_NAME "JGAurora A5S A1"
@@ -39,7 +39,7 @@
 #define BOARD_NO_NATIVE_USB
 
 #ifndef STM32_XL_DENSITY
-  #define STM32_XL_DENSITY
+    #define STM32_XL_DENSITY
 #endif
 
 //#define MCU_STM32F103ZE // not yet required
@@ -127,6 +127,6 @@
 // Touch support
 //
 #if NEED_TOUCH_PINS
-  #define TOUCH_CS_PIN                      PA4
-  #define TOUCH_INT_PIN                     PC4
+    #define TOUCH_CS_PIN                      PA4
+    #define TOUCH_INT_PIN                     PC4
 #endif

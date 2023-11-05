@@ -25,7 +25,7 @@
 #include "serial_hook.h"
 
 #if HAS_MEATPACK
-  #include "../feature/meatpack.h"
+    #include "../feature/meatpack.h"
 #endif
 
 // Commonly-used strings in serial output
@@ -47,11 +47,11 @@ enum MarlinDebugFlags : uint8_t {
   MARLIN_DEBUG_DRYRUN        = _BV(3), ///< Ignore temperature setting and E movement commands
   MARLIN_DEBUG_COMMUNICATION = _BV(4), ///< Not implemented
   #if ENABLED(DEBUG_LEVELING_FEATURE)
-    MARLIN_DEBUG_LEVELING    = _BV(5), ///< Print detailed output for homing and leveling
-    MARLIN_DEBUG_MESH_ADJUST = _BV(6), ///< UBL bed leveling
+      MARLIN_DEBUG_LEVELING    = _BV(5), ///< Print detailed output for homing and leveling
+      MARLIN_DEBUG_MESH_ADJUST = _BV(6), ///< UBL bed leveling
   #else
-    MARLIN_DEBUG_LEVELING    = 0,
-    MARLIN_DEBUG_MESH_ADJUST = 0,
+      MARLIN_DEBUG_LEVELING    = 0,
+      MARLIN_DEBUG_MESH_ADJUST = 0,
   #endif
   MARLIN_DEBUG_ALL           = 0xFF
 };
@@ -64,73 +64,73 @@ extern uint8_t marlin_debug_flags;
 //
 // Step 1: Find out what the first serial leaf is
 #if BOTH(HAS_MULTI_SERIAL, SERIAL_CATCHALL)
-  #define _SERIAL_LEAF_1 MYSERIAL
+    #define _SERIAL_LEAF_1 MYSERIAL
 #else
-  #define _SERIAL_LEAF_1 MYSERIAL1
+    #define _SERIAL_LEAF_1 MYSERIAL1
 #endif
 
 // Hook Meatpack if it's enabled on the first leaf
 #if ENABLED(MEATPACK_ON_SERIAL_PORT_1)
-  typedef MeatpackSerial<decltype(_SERIAL_LEAF_1)> SerialLeafT1;
-  extern SerialLeafT1 mpSerial1;
-  #define SERIAL_LEAF_1 mpSerial1
+    typedef MeatpackSerial<decltype(_SERIAL_LEAF_1)> SerialLeafT1;
+    extern SerialLeafT1 mpSerial1;
+    #define SERIAL_LEAF_1 mpSerial1
 #else
-  #define SERIAL_LEAF_1 _SERIAL_LEAF_1
+    #define SERIAL_LEAF_1 _SERIAL_LEAF_1
 #endif
 
 // Step 2: For multiserial wrap all serial ports in a single
 //         interface with the ability to output to multiple serial ports.
 #if HAS_MULTI_SERIAL
-  #define _PORT_REDIRECT(n,p) REMEMBER(n,multiSerial.portMask,p)
-  #define _PORT_RESTORE(n,p)  RESTORE(n)
-  #define SERIAL_ASSERT(P)    if(multiSerial.portMask!=(P)){ debugger(); }
-  // If we have a catchall, use that directly
-  #ifdef SERIAL_CATCHALL
-    #define _SERIAL_LEAF_2 SERIAL_CATCHALL
-  #elif HAS_ETHERNET
-    typedef ConditionalSerial<decltype(MYSERIAL2)> SerialLeafT2;  // We need to create an instance here
-    extern SerialLeafT2 msSerial2;
-    #define _SERIAL_LEAF_2 msSerial2
-  #else
-    #define _SERIAL_LEAF_2 MYSERIAL2 // Don't create a useless instance here, directly use the existing instance
-  #endif
-
-  // Nothing complicated here
-  #define _SERIAL_LEAF_3 MYSERIAL3
-
-  // Hook Meatpack if it's enabled on the second leaf
-  #if ENABLED(MEATPACK_ON_SERIAL_PORT_2)
-    typedef MeatpackSerial<decltype(_SERIAL_LEAF_2)> SerialLeafT2;
-    extern SerialLeafT2 mpSerial2;
-    #define SERIAL_LEAF_2 mpSerial2
-  #else
-    #define SERIAL_LEAF_2 _SERIAL_LEAF_2
-  #endif
-
-  // Hook Meatpack if it's enabled on the third leaf
-  #if ENABLED(MEATPACK_ON_SERIAL_PORT_3)
-    typedef MeatpackSerial<decltype(_SERIAL_LEAF_3)> SerialLeafT3;
-    extern SerialLeafT3 mpSerial3;
-    #define SERIAL_LEAF_3 mpSerial3
-  #else
-    #define SERIAL_LEAF_3 _SERIAL_LEAF_3
-  #endif
-
-  #define __S_MULTI(N) decltype(SERIAL_LEAF_##N),
-  #define _S_MULTI(N) __S_MULTI(N)
-
-  typedef MultiSerial< REPEAT_1(NUM_SERIAL, _S_MULTI) 0> SerialOutputT;
-
-  #undef __S_MULTI
-  #undef _S_MULTI
-
-  extern SerialOutputT        multiSerial;
-  #define SERIAL_IMPL         multiSerial
+    #define _PORT_REDIRECT(n,p) REMEMBER(n,multiSerial.portMask,p)
+    #define _PORT_RESTORE(n,p)  RESTORE(n)
+    #define SERIAL_ASSERT(P)    if(multiSerial.portMask!=(P)){ debugger(); }
+    // If we have a catchall, use that directly
+    #ifdef SERIAL_CATCHALL
+        #define _SERIAL_LEAF_2 SERIAL_CATCHALL
+    #elif HAS_ETHERNET
+        typedef ConditionalSerial<decltype(MYSERIAL2)> SerialLeafT2;  // We need to create an instance here
+        extern SerialLeafT2 msSerial2;
+        #define _SERIAL_LEAF_2 msSerial2
+    #else
+        #define _SERIAL_LEAF_2 MYSERIAL2 // Don't create a useless instance here, directly use the existing instance
+    #endif
+  
+    // Nothing complicated here
+    #define _SERIAL_LEAF_3 MYSERIAL3
+  
+    // Hook Meatpack if it's enabled on the second leaf
+    #if ENABLED(MEATPACK_ON_SERIAL_PORT_2)
+        typedef MeatpackSerial<decltype(_SERIAL_LEAF_2)> SerialLeafT2;
+        extern SerialLeafT2 mpSerial2;
+        #define SERIAL_LEAF_2 mpSerial2
+    #else
+        #define SERIAL_LEAF_2 _SERIAL_LEAF_2
+    #endif
+  
+    // Hook Meatpack if it's enabled on the third leaf
+    #if ENABLED(MEATPACK_ON_SERIAL_PORT_3)
+        typedef MeatpackSerial<decltype(_SERIAL_LEAF_3)> SerialLeafT3;
+        extern SerialLeafT3 mpSerial3;
+        #define SERIAL_LEAF_3 mpSerial3
+    #else
+        #define SERIAL_LEAF_3 _SERIAL_LEAF_3
+    #endif
+  
+    #define __S_MULTI(N) decltype(SERIAL_LEAF_##N),
+    #define _S_MULTI(N) __S_MULTI(N)
+  
+    typedef MultiSerial< REPEAT_1(NUM_SERIAL, _S_MULTI) 0> SerialOutputT;
+  
+    #undef __S_MULTI
+    #undef _S_MULTI
+  
+    extern SerialOutputT        multiSerial;
+    #define SERIAL_IMPL         multiSerial
 #else
-  #define _PORT_REDIRECT(n,p) NOOP
-  #define _PORT_RESTORE(n)    NOOP
-  #define SERIAL_ASSERT(P)    NOOP
-  #define SERIAL_IMPL         SERIAL_LEAF_1
+    #define _PORT_REDIRECT(n,p) NOOP
+    #define _PORT_RESTORE(n)    NOOP
+    #define SERIAL_ASSERT(P)    NOOP
+    #define SERIAL_IMPL         SERIAL_LEAF_1
 #endif
 
 #define SERIAL_OUT(WHAT, V...)  (void)SERIAL_IMPL.WHAT(V)
@@ -223,37 +223,37 @@ void serialprintPGM(PGM_P str);
 #define SERIAL_ECHOLNPAIR_P(V...) do{ EVAL(_SELP_N_P(TWO_ARGS(V),V)); }while(0)
 
 #ifdef AllowDifferentTypeInList
-
-  inline void SERIAL_ECHOLIST_IMPL() {}
-  template <typename T>
-  void SERIAL_ECHOLIST_IMPL(T && t) { SERIAL_IMPL.print(t); }
-
-  template <typename T, typename ... Args>
-  void SERIAL_ECHOLIST_IMPL(T && t, Args && ... args) {
-    SERIAL_IMPL.print(t);
-    serialprintPGM(PSTR(", "));
-    SERIAL_ECHOLIST_IMPL(args...);
-  }
-
-  template <typename ... Args>
-  void SERIAL_ECHOLIST(PGM_P const str, Args && ... args) {
-    SERIAL_IMPL.print(str);
-    SERIAL_ECHOLIST_IMPL(args...);
-  }
-
-#else // Optimization if the listed type are all the same (seems to be the case in the codebase so use that instead)
-
-  template <typename ... Args>
-  void SERIAL_ECHOLIST(PGM_P const str, Args && ... args) {
-    serialprintPGM(str);
-    typename Private::first_type_of<Args...>::type values[] = { args... };
-    constexpr size_t argsSize = sizeof...(args);
-    for (size_t i = 0; i < argsSize; i++) {
-      if (i) serialprintPGM(PSTR(", "));
-      SERIAL_IMPL.print(values[i]);
+  
+    inline void SERIAL_ECHOLIST_IMPL() {}
+    template <typename T>
+    void SERIAL_ECHOLIST_IMPL(T && t) { SERIAL_IMPL.print(t); }
+  
+    template <typename T, typename ... Args>
+    void SERIAL_ECHOLIST_IMPL(T && t, Args && ... args) {
+      SERIAL_IMPL.print(t);
+      serialprintPGM(PSTR(", "));
+      SERIAL_ECHOLIST_IMPL(args...);
     }
-  }
-
+  
+    template <typename ... Args>
+    void SERIAL_ECHOLIST(PGM_P const str, Args && ... args) {
+      SERIAL_IMPL.print(str);
+      SERIAL_ECHOLIST_IMPL(args...);
+    }
+  
+#else // Optimization if the listed type are all the same (seems to be the case in the codebase so use that instead)
+  
+    template <typename ... Args>
+    void SERIAL_ECHOLIST(PGM_P const str, Args && ... args) {
+      serialprintPGM(str);
+      typename Private::first_type_of<Args...>::type values[] = { args... };
+      constexpr size_t argsSize = sizeof...(args);
+      for (size_t i = 0; i < argsSize; i++) {
+        if (i) serialprintPGM(PSTR(", "));
+        SERIAL_IMPL.print(values[i]);
+      }
+    }
+  
 #endif
 
 #define SERIAL_ECHOPGM_P(P)         (serialprintPGM(P))
@@ -280,9 +280,9 @@ void serialprintPGM(PGM_P str);
 #define SERIAL_ECHO_TERNARY(TF, PRE, ON, OFF, POST) serial_ternary(TF, PSTR(PRE), PSTR(ON), PSTR(OFF), PSTR(POST))
 
 #if SERIAL_FLOAT_PRECISION
-  #define SERIAL_DECIMAL(V) SERIAL_PRINT(V, SERIAL_FLOAT_PRECISION)
+    #define SERIAL_DECIMAL(V) SERIAL_PRINT(V, SERIAL_FLOAT_PRECISION)
 #else
-  #define SERIAL_DECIMAL(V) SERIAL_ECHO(V)
+    #define SERIAL_DECIMAL(V) SERIAL_ECHO(V)
 #endif
 
 //

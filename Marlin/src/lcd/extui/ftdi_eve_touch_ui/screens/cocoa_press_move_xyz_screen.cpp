@@ -26,27 +26,27 @@
 #include "screen_data.h"
 
 #ifdef FTDI_COCOA_MOVE_XYZ_SCREEN
-
-using namespace FTDI;
-using namespace ExtUI;
-
-void MoveXYZScreen::onRedraw(draw_mode_t what) {
-  widgets_t w(what);
-  w.precision(1);
-  w.units(GET_TEXT_F(MSG_UNITS_MM));
-  w.heading(                           GET_TEXT_F(MSG_XYZ_MOVE));
-  w.home_buttons(20);
-  w.color(Theme::x_axis).adjuster(  2, GET_TEXT_F(MSG_AXIS_X),  getAxisPosition_mm(X), canMove(X));
-  w.color(Theme::y_axis).adjuster(  4, GET_TEXT_F(MSG_AXIS_Y),  getAxisPosition_mm(Y), canMove(Y));
-  w.color(Theme::z_axis).adjuster(  6, GET_TEXT_F(MSG_AXIS_Z),  getAxisPosition_mm(Z), canMove(Z));
-  w.increments();
-}
-
-void MoveXYZScreen::onIdle() {
-  if (refresh_timer.elapsed(STATUS_UPDATE_INTERVAL)) {
-    onRefresh();
-    refresh_timer.start();
+  
+  using namespace FTDI;
+  using namespace ExtUI;
+  
+  void MoveXYZScreen::onRedraw(draw_mode_t what) {
+    widgets_t w(what);
+    w.precision(1);
+    w.units(GET_TEXT_F(MSG_UNITS_MM));
+    w.heading(                           GET_TEXT_F(MSG_XYZ_MOVE));
+    w.home_buttons(20);
+    w.color(Theme::x_axis).adjuster(  2, GET_TEXT_F(MSG_AXIS_X),  getAxisPosition_mm(X), canMove(X));
+    w.color(Theme::y_axis).adjuster(  4, GET_TEXT_F(MSG_AXIS_Y),  getAxisPosition_mm(Y), canMove(Y));
+    w.color(Theme::z_axis).adjuster(  6, GET_TEXT_F(MSG_AXIS_Z),  getAxisPosition_mm(Z), canMove(Z));
+    w.increments();
   }
-  BaseScreen::onIdle();
-}
+  
+  void MoveXYZScreen::onIdle() {
+    if (refresh_timer.elapsed(STATUS_UPDATE_INTERVAL)) {
+      onRefresh();
+      refresh_timer.start();
+    }
+    BaseScreen::onIdle();
+  }
 #endif // FTDI_COCOA_MOVE_XYZ_SCREEN

@@ -67,9 +67,9 @@ namespace FTDI {
         // Drawing the edge strip along scan lines
         // seems to yield the best performance
         #if ENABLED(TOUCH_UI_PORTRAIT)
-          path_initiator = EDGE_STRIP_B;
+            path_initiator = EDGE_STRIP_B;
         #else
-          path_initiator = EDGE_STRIP_R;
+            path_initiator = EDGE_STRIP_R;
         #endif
       }
 

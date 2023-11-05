@@ -64,7 +64,7 @@ namespace ExtUI {
   constexpr uint8_t fanCount      = FAN_COUNT;
 
   #if HAS_MESH
-    typedef float bed_mesh_t[GRID_MAX_POINTS_X][GRID_MAX_POINTS_Y];
+      typedef float bed_mesh_t[GRID_MAX_POINTS_X][GRID_MAX_POINTS_Y];
   #endif
 
   bool isMoving();
@@ -86,8 +86,8 @@ namespace ExtUI {
   void enableHeater(const extruder_t);
 
   #if ENABLED(JOYSTICK)
-    void jog(const xyz_float_t &dir);
-    void _joystick_update(xyz_float_t &norm_jog);
+      void jog(const xyz_float_t &dir);
+      void _joystick_update(xyz_float_t &norm_jog);
   #endif
 
   /**
@@ -97,18 +97,18 @@ namespace ExtUI {
   PGM_P getFirmwareName_str();
 
   #if HAS_SOFTWARE_ENDSTOPS
-    bool getSoftEndstopState();
-    void setSoftEndstopState(const bool);
+      bool getSoftEndstopState();
+      void setSoftEndstopState(const bool);
   #endif
 
   #if HAS_TRINAMIC_CONFIG
-    float getAxisCurrent_mA(const axis_t);
-    float getAxisCurrent_mA(const extruder_t);
-    void  setAxisCurrent_mA(const_float_t, const axis_t);
-    void  setAxisCurrent_mA(const_float_t, const extruder_t);
-
-     int getTMCBumpSensitivity(const axis_t);
-    void setTMCBumpSensitivity(const_float_t, const axis_t);
+      float getAxisCurrent_mA(const axis_t);
+      float getAxisCurrent_mA(const extruder_t);
+      void  setAxisCurrent_mA(const_float_t, const axis_t);
+      void  setAxisCurrent_mA(const_float_t, const extruder_t);
+  
+       int getTMCBumpSensitivity(const axis_t);
+      void setTMCBumpSensitivity(const_float_t, const axis_t);
   #endif
 
   celsius_float_t getActualTemp_celsius(const heater_t);
@@ -136,66 +136,66 @@ namespace ExtUI {
   inline uint8_t getProgress_percent() { return ui.get_progress_percent(); }
 
   #if HAS_PRINT_PROGRESS_PERMYRIAD
-    inline uint16_t getProgress_permyriad() { return ui.get_progress_permyriad(); }
+      inline uint16_t getProgress_permyriad() { return ui.get_progress_permyriad(); }
   #endif
 
   uint32_t getProgress_seconds_elapsed();
 
   #if PREHEAT_COUNT
-    uint16_t getMaterial_preset_E(const uint16_t);
-    #if HAS_HEATED_BED
-      uint16_t getMaterial_preset_B(const uint16_t);
-    #endif
+      uint16_t getMaterial_preset_E(const uint16_t);
+      #if HAS_HEATED_BED
+          uint16_t getMaterial_preset_B(const uint16_t);
+      #endif
   #endif
 
   #if ENABLED(DUAL_X_CARRIAGE)
-    uint8_t getIDEX_Mode();
+      uint8_t getIDEX_Mode();
   #endif
 
   #if ENABLED(SHOW_REMAINING_TIME)
-    inline uint32_t getProgress_seconds_remaining() { return ui.get_remaining_time(); }
+      inline uint32_t getProgress_seconds_remaining() { return ui.get_remaining_time(); }
   #endif
 
   #if HAS_LEVELING
-    bool getLevelingActive();
-    void setLevelingActive(const bool);
-    bool getMeshValid();
-    #if HAS_MESH
-      bed_mesh_t& getMeshArray();
-      float getMeshPoint(const xy_uint8_t &pos);
-      void setMeshPoint(const xy_uint8_t &pos, const_float_t zval);
-      void moveToMeshPoint(const xy_uint8_t &pos, const_float_t z);
-      void onMeshLevelingStart();
-      void onMeshUpdate(const int8_t xpos, const int8_t ypos, const_float_t zval);
-	  void onMeshUpdate(const_float_t zval,int8_t index);
-      inline void onMeshUpdate(const xy_int8_t &pos, const_float_t zval) { onMeshUpdate(pos.x, pos.y, zval); }
-
-      typedef enum : uint8_t {
-        G29_START,        // Prior to start of probe
-        G29_FINISH,       // Following probe of all points
-        G29_POINT_START,  // Beginning probe of grid location
-        G29_POINT_FINISH, // Finished probe of grid location
-        G26_START,
-        G26_FINISH,
-        G26_POINT_START,
-        G26_POINT_FINISH
-      } probe_state_t;
-      void onMeshUpdate(const int8_t xpos, const int8_t ypos, probe_state_t state);
-      inline void onMeshUpdate(const xy_int8_t &pos, probe_state_t state) { onMeshUpdate(pos.x, pos.y, state); }
-    #endif
+      bool getLevelingActive();
+      void setLevelingActive(const bool);
+      bool getMeshValid();
+      #if HAS_MESH
+          bed_mesh_t& getMeshArray();
+          float getMeshPoint(const xy_uint8_t &pos);
+          void setMeshPoint(const xy_uint8_t &pos, const_float_t zval);
+          void moveToMeshPoint(const xy_uint8_t &pos, const_float_t z);
+          void onMeshLevelingStart();
+          void onMeshUpdate(const int8_t xpos, const int8_t ypos, const_float_t zval);
+    	  void onMeshUpdate(const_float_t zval,int8_t index);
+          inline void onMeshUpdate(const xy_int8_t &pos, const_float_t zval) { onMeshUpdate(pos.x, pos.y, zval); }
+    
+          typedef enum : uint8_t {
+            G29_START,        // Prior to start of probe
+            G29_FINISH,       // Following probe of all points
+            G29_POINT_START,  // Beginning probe of grid location
+            G29_POINT_FINISH, // Finished probe of grid location
+            G26_START,
+            G26_FINISH,
+            G26_POINT_START,
+            G26_POINT_FINISH
+          } probe_state_t;
+          void onMeshUpdate(const int8_t xpos, const int8_t ypos, probe_state_t state);
+          inline void onMeshUpdate(const xy_int8_t &pos, probe_state_t state) { onMeshUpdate(pos.x, pos.y, state); }
+      #endif
   #endif
 
   #if ENABLED(HOST_PROMPT_SUPPORT)
-    void setHostResponse(const uint8_t);
+      void setHostResponse(const uint8_t);
   #endif
 
   #if ENABLED(PRINTCOUNTER)
-    char* getFailedPrints_str(char buffer[21]);
-    char* getTotalPrints_str(char buffer[21]);
-    char* getFinishedPrints_str(char buffer[21]);
-    char* getTotalPrintTime_str(char buffer[21]);
-    char* getLongestPrint_str(char buffer[21]);
-    char* getFilamentUsed_str(char buffer[21]);
+      char* getFailedPrints_str(char buffer[21]);
+      char* getTotalPrints_str(char buffer[21]);
+      char* getFinishedPrints_str(char buffer[21]);
+      char* getTotalPrintTime_str(char buffer[21]);
+      char* getLongestPrint_str(char buffer[21]);
+      char* getFilamentUsed_str(char buffer[21]);
   #endif
 
   void setTargetTemp_celsius(const_float_t, const heater_t);
@@ -222,18 +222,18 @@ namespace ExtUI {
   void setUserConfirmed();
 
   #if ENABLED(LIN_ADVANCE)
-    float getLinearAdvance_mm_mm_s(const extruder_t);
-    void setLinearAdvance_mm_mm_s(const_float_t, const extruder_t);
+      float getLinearAdvance_mm_mm_s(const extruder_t);
+      void setLinearAdvance_mm_mm_s(const_float_t, const extruder_t);
   #endif
 
   #if HAS_JUNCTION_DEVIATION
-    float getJunctionDeviation_mm();
-    void setJunctionDeviation_mm(const_float_t );
+      float getJunctionDeviation_mm();
+      void setJunctionDeviation_mm(const_float_t );
   #else
-    float getAxisMaxJerk_mm_s(const axis_t);
-    float getAxisMaxJerk_mm_s(const extruder_t);
-    void setAxisMaxJerk_mm_s(const_float_t, const axis_t);
-    void setAxisMaxJerk_mm_s(const_float_t, const extruder_t);
+      float getAxisMaxJerk_mm_s(const axis_t);
+      float getAxisMaxJerk_mm_s(const extruder_t);
+      void setAxisMaxJerk_mm_s(const_float_t, const axis_t);
+      void setAxisMaxJerk_mm_s(const_float_t, const extruder_t);
   #endif
 
   extruder_t getTool(const uint8_t extruder);
@@ -241,82 +241,82 @@ namespace ExtUI {
   void setActiveTool(const extruder_t, bool no_move);
 
   #if ENABLED(BABYSTEPPING)
-    int16_t mmToWholeSteps(const_float_t mm, const axis_t axis);
-
-    bool babystepAxis_steps(const int16_t steps, const axis_t axis);
-    void smartAdjustAxis_steps(const int16_t steps, const axis_t axis, bool linked_nozzles);
+      int16_t mmToWholeSteps(const_float_t mm, const axis_t axis);
+  
+      bool babystepAxis_steps(const int16_t steps, const axis_t axis);
+      void smartAdjustAxis_steps(const int16_t steps, const axis_t axis, bool linked_nozzles);
   #endif
 
   #if HAS_HOTEND_OFFSET
-    float getNozzleOffset_mm(const axis_t, const extruder_t);
-    void setNozzleOffset_mm(const_float_t, const axis_t, const extruder_t);
-    void normalizeNozzleOffset(const axis_t axis);
+      float getNozzleOffset_mm(const axis_t, const extruder_t);
+      void setNozzleOffset_mm(const_float_t, const axis_t, const extruder_t);
+      void normalizeNozzleOffset(const axis_t axis);
   #endif
 
   float getZOffset_mm();
   void setZOffset_mm(const_float_t );
 
   #if HAS_BED_PROBE
-    float getProbeOffset_mm(const axis_t);
-    void setProbeOffset_mm(const_float_t, const axis_t);
-    void setProbeOffset_Z_mm(const_float_t);
-	
+      float getProbeOffset_mm(const axis_t);
+      void setProbeOffset_mm(const_float_t, const axis_t);
+      void setProbeOffset_Z_mm(const_float_t);
+  	
   #endif
 
   #if ENABLED(BACKLASH_GCODE)
-    float getAxisBacklash_mm(const axis_t);
-    void setAxisBacklash_mm(const_float_t, const axis_t);
-
-    float getBacklashCorrection_percent();
-    void setBacklashCorrection_percent(const_float_t );
-
-    #ifdef BACKLASH_SMOOTHING_MM
-      float getBacklashSmoothing_mm();
-      void setBacklashSmoothing_mm(const_float_t );
-    #endif
+      float getAxisBacklash_mm(const axis_t);
+      void setAxisBacklash_mm(const_float_t, const axis_t);
+  
+      float getBacklashCorrection_percent();
+      void setBacklashCorrection_percent(const_float_t );
+  
+      #ifdef BACKLASH_SMOOTHING_MM
+          float getBacklashSmoothing_mm();
+          void setBacklashSmoothing_mm(const_float_t );
+      #endif
   #endif
 
   #if HAS_FILAMENT_SENSOR
-    bool getFilamentRunoutEnabled();
-    void setFilamentRunoutEnabled(const bool);
-    bool getFilamentRunoutState();
-    void setFilamentRunoutState(const bool);
-    bool getTestFilamentRunoutState();
-    void setTestFilamentRunoutState(const bool);
-	void ResetFilamentRunout();
-	void setFilamentRunout_enabled(int8_t);
-	int8_t getFilamentRunout_enabled();
-	uint8_t get_has_run_out();
-    #if HAS_FILAMENT_RUNOUT_DISTANCE
-      float getFilamentRunoutDistance_mm();
-      void setFilamentRunoutDistance_mm(const_float_t );
-    #endif
+      bool getFilamentRunoutEnabled();
+      void setFilamentRunoutEnabled(const bool);
+      bool getFilamentRunoutState();
+      void setFilamentRunoutState(const bool);
+      bool getTestFilamentRunoutState();
+      void setTestFilamentRunoutState(const bool);
+  	void ResetFilamentRunout();
+  	void setFilamentRunout_enabled(int8_t);
+  	int8_t getFilamentRunout_enabled();
+  	uint8_t get_has_run_out();
+      #if HAS_FILAMENT_RUNOUT_DISTANCE
+          float getFilamentRunoutDistance_mm();
+          void setFilamentRunoutDistance_mm(const_float_t );
+      #endif
   #endif
 
   #if ENABLED(CASE_LIGHT_ENABLE)
-    bool getCaseLightState();
-    void setCaseLightState(const bool);
-
-    #if DISABLED(CASE_LIGHT_NO_BRIGHTNESS)
-      float getCaseLightBrightness_percent();
-      void setCaseLightBrightness_percent(const_float_t );
-    #endif
+      bool getCaseLightState();
+      void setCaseLightState(const bool);
+  
+      #if DISABLED(CASE_LIGHT_NO_BRIGHTNESS)
+          float getCaseLightBrightness_percent();
+          void setCaseLightBrightness_percent(const_float_t );
+      #endif
   #endif
 
   #if ENABLED(PIDTEMP)
-    float getPIDValues_Kp(const extruder_t);
-    float getPIDValues_Ki(const extruder_t);
-    float getPIDValues_Kd(const extruder_t);
-    void setPIDValues(const_float_t, const_float_t , const_float_t , extruder_t);
-    void startPIDTune(const_float_t, extruder_t);
+      float getPIDValues_Kp(const extruder_t);
+      float getPIDValues_Ki(const extruder_t);
+      float getPIDValues_Kd(const extruder_t);
+      void setPIDValues(const_float_t, const_float_t , const_float_t , extruder_t);
+      void startPIDTune(const_float_t, extruder_t);
   #endif
 
   #if ENABLED(PIDTEMPBED)
-    float getBedPIDValues_Kp();
-    float getBedPIDValues_Ki();
-    float getBedPIDValues_Kd();
-    void setBedPIDValues(const_float_t, const_float_t , const_float_t );
-    void startBedPIDTune(const_float_t );
+      float getBedPIDValues_Kp();
+      float getBedPIDValues_Ki();
+      float getBedPIDValues_Kd();
+      void setBedPIDValues(const_float_t, const_float_t , const_float_t );
+      void startBedPIDTune(const_float_t );
   #endif
 
   /**
@@ -326,9 +326,9 @@ namespace ExtUI {
    * yield should be called within lengthy loops
    */
   #ifdef __SAM3X8E__
-    uint32_t safe_millis();
+      uint32_t safe_millis();
   #else
-    FORCE_INLINE uint32_t safe_millis() { return millis(); } // TODO: Implement for AVR
+      FORCE_INLINE uint32_t safe_millis() { return millis(); } // TODO: Implement for AVR
   #endif
 
   void delay_us(uint32_t us);
@@ -408,10 +408,10 @@ namespace ExtUI {
   void onConfigurationStoreWritten(bool success);
   void onConfigurationStoreRead(bool success);
   #if ENABLED(POWER_LOSS_RECOVERY)
-    void onPowerLossResume();
+      void onPowerLossResume();
   #endif
   #if HAS_PID_HEATING
-    void onPidTuning(const result_t rst);
+      void onPidTuning(const result_t rst);
   #endif
 
 };

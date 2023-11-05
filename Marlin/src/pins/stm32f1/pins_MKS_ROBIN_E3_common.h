@@ -38,10 +38,10 @@
 // EEPROM
 //
 #if EITHER(NO_EEPROM_SELECTED, FLASH_EEPROM_EMULATION)
-  #define FLASH_EEPROM_EMULATION
-  #define EEPROM_PAGE_SIZE     (0x800U)           // 2KB
-  #define EEPROM_START_ADDRESS (0x8000000UL + (STM32_FLASH_SIZE) * 1024UL - (EEPROM_PAGE_SIZE) * 2UL)
-  #define MARLIN_EEPROM_SIZE    EEPROM_PAGE_SIZE  // 2KB
+    #define FLASH_EEPROM_EMULATION
+    #define EEPROM_PAGE_SIZE     (0x800U)           // 2KB
+    #define EEPROM_START_ADDRESS (0x8000000UL + (STM32_FLASH_SIZE) * 1024UL - (EEPROM_PAGE_SIZE) * 2UL)
+    #define MARLIN_EEPROM_SIZE    EEPROM_PAGE_SIZE  // 2KB
 #endif
 
 //
@@ -69,10 +69,10 @@
 #define Y_ENABLE_PIN                        PB12
 
 #ifndef Z_STEP_PIN
-  #define Z_STEP_PIN                        PB7
+    #define Z_STEP_PIN                        PB7
 #endif
 #ifndef Z_DIR_PIN
-  #define Z_DIR_PIN                         PB6
+    #define Z_DIR_PIN                         PB6
 #endif
 #define Z_ENABLE_PIN                        PB8
 
@@ -81,34 +81,34 @@
 #define E0_ENABLE_PIN                       PB5
 
 #if HAS_TMC_UART
-  /**
-   * TMC2208/TMC2209 stepper drivers
-   *
-   * Hardware serial communication ports.
-   * If undefined software serial is used according to the pins below
-   */
-  //#define X_HARDWARE_SERIAL  MSerial1
-  //#define Y_HARDWARE_SERIAL  MSerial1
-  //#define Z_HARDWARE_SERIAL  MSerial1
-  //#define E0_HARDWARE_SERIAL MSerial1
-
-  //
-  // Software serial
-  //
-  #define X_SERIAL_TX_PIN                   PC7
-  #define X_SERIAL_RX_PIN                   PC7
-
-  #define Y_SERIAL_TX_PIN                   PD2
-  #define Y_SERIAL_RX_PIN                   PD2
-
-  #define Z_SERIAL_TX_PIN                   PC12
-  #define Z_SERIAL_RX_PIN                   PC12
-
-  #define E0_SERIAL_TX_PIN                  PC11
-  #define E0_SERIAL_RX_PIN                  PC11
-
-  // Reduce baud rate to improve software serial reliability
-  #define TMC_BAUD_RATE                    19200
+    /**
+     * TMC2208/TMC2209 stepper drivers
+     *
+     * Hardware serial communication ports.
+     * If undefined software serial is used according to the pins below
+     */
+    //#define X_HARDWARE_SERIAL  MSerial1
+    //#define Y_HARDWARE_SERIAL  MSerial1
+    //#define Z_HARDWARE_SERIAL  MSerial1
+    //#define E0_HARDWARE_SERIAL MSerial1
+  
+    //
+    // Software serial
+    //
+    #define X_SERIAL_TX_PIN                   PC7
+    #define X_SERIAL_RX_PIN                   PC7
+  
+    #define Y_SERIAL_TX_PIN                   PD2
+    #define Y_SERIAL_RX_PIN                   PD2
+  
+    #define Z_SERIAL_TX_PIN                   PC12
+    #define Z_SERIAL_RX_PIN                   PC12
+  
+    #define E0_SERIAL_TX_PIN                  PC11
+    #define E0_SERIAL_RX_PIN                  PC11
+  
+    // Reduce baud rate to improve software serial reliability
+    #define TMC_BAUD_RATE                    19200
 #endif
 
 //
@@ -137,40 +137,40 @@
  *                EXP1                                       EXP2                                      EXP3
  */
 #if HAS_WIRED_LCD
-
-  #define BEEPER_PIN                        PC1
-  #define BTN_ENC                           PC3
-  #define LCD_PINS_ENABLE                   PA4
-  #define LCD_PINS_RS                       PA5
-  #define BTN_EN1                           PB11
-  #define BTN_EN2                           PB0
-
-  // MKS MINI12864 and MKS LCD12864B; If using MKS LCD12864A (Need to remove RPK2 resistor)
-  #if ENABLED(MKS_MINI_12864)
-
-    #define LCD_BACKLIGHT_PIN               -1
-    #define LCD_RESET_PIN                   -1
-    #define DOGLCD_A0                       PC4
-    #define DOGLCD_CS                       PA7
-    #define DOGLCD_SCK                      PB13
-    #define DOGLCD_MOSI                     PB15
-
-  #else
-
-    #define LCD_PINS_D4                     PA6
-    #if IS_ULTIPANEL
-      #define LCD_PINS_D5                   PA7
-      #define LCD_PINS_D6                   PC4
-      #define LCD_PINS_D7                   PC5
-
-      #if !defined(BTN_ENC_EN) && ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
-        #define BTN_ENC_EN           LCD_PINS_D7  // Detect the presence of the encoder
-      #endif
-
-    #endif
-
-  #endif // !MKS_MINI_12864
-
+  
+    #define BEEPER_PIN                        PC1
+    #define BTN_ENC                           PC3
+    #define LCD_PINS_ENABLE                   PA4
+    #define LCD_PINS_RS                       PA5
+    #define BTN_EN1                           PB11
+    #define BTN_EN2                           PB0
+  
+    // MKS MINI12864 and MKS LCD12864B; If using MKS LCD12864A (Need to remove RPK2 resistor)
+    #if ENABLED(MKS_MINI_12864)
+    
+        #define LCD_BACKLIGHT_PIN               -1
+        #define LCD_RESET_PIN                   -1
+        #define DOGLCD_A0                       PC4
+        #define DOGLCD_CS                       PA7
+        #define DOGLCD_SCK                      PB13
+        #define DOGLCD_MOSI                     PB15
+    
+    #else
+    
+        #define LCD_PINS_D4                     PA6
+        #if IS_ULTIPANEL
+            #define LCD_PINS_D5                   PA7
+            #define LCD_PINS_D6                   PC4
+            #define LCD_PINS_D7                   PC5
+      
+            #if !defined(BTN_ENC_EN) && ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
+                #define BTN_ENC_EN           LCD_PINS_D7  // Detect the presence of the encoder
+            #endif
+      
+        #endif
+    
+    #endif // !MKS_MINI_12864
+  
 #endif // HAS_WIRED_LCD
 
 //
@@ -184,11 +184,11 @@
 #define SD_SS_PIN                           PA15
 
 #ifndef BOARD_ST7920_DELAY_1
-  #define BOARD_ST7920_DELAY_1     DELAY_NS(125)
+    #define BOARD_ST7920_DELAY_1     DELAY_NS(125)
 #endif
 #ifndef BOARD_ST7920_DELAY_2
-  #define BOARD_ST7920_DELAY_2     DELAY_NS(125)
+    #define BOARD_ST7920_DELAY_2     DELAY_NS(125)
 #endif
 #ifndef BOARD_ST7920_DELAY_3
-  #define BOARD_ST7920_DELAY_3     DELAY_NS(125)
+    #define BOARD_ST7920_DELAY_3     DELAY_NS(125)
 #endif

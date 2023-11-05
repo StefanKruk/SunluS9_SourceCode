@@ -24,40 +24,40 @@
 #include "screens.h"
 
 #ifdef FTDI_SAVE_SETTINGS_DIALOG_BOX
-
-using namespace ExtUI;
-
-bool SaveSettingsDialogBox::needs_save = false;
-
-void SaveSettingsDialogBox::onRedraw(draw_mode_t) {
-  drawMessage(GET_TEXT_F(MSG_EEPROM_SAVE_PROMPT));
-  drawYesNoButtons();
-}
-
-bool SaveSettingsDialogBox::onTouchEnd(uint8_t tag) {
-  needs_save = false;
-  switch (tag) {
-    case 1:
-      injectCommands_P(PSTR("M500"));
-      AlertDialogBox::show(GET_TEXT_F(MSG_EEPROM_SAVED));
-      // Remove SaveSettingsDialogBox from the stack
-      // so the alert box doesn't return to me.
-      current_screen.forget();
-      return true;
-    default:
-      return DialogBoxBaseClass::onTouchEnd(tag);
+  
+  using namespace ExtUI;
+  
+  bool SaveSettingsDialogBox::needs_save = false;
+  
+  void SaveSettingsDialogBox::onRedraw(draw_mode_t) {
+    drawMessage(GET_TEXT_F(MSG_EEPROM_SAVE_PROMPT));
+    drawYesNoButtons();
   }
-}
-
-void SaveSettingsDialogBox::promptToSaveSettings() {
-   if (needs_save) {
-     // Remove current screen from the stack
-     // so SaveSettingsDialogBox doesn't return here.
-     GOTO_SCREEN(SaveSettingsDialogBox);
-     current_screen.forget();
-   }
-   else
-     GOTO_PREVIOUS(); // No save needed.
-}
-
+  
+  bool SaveSettingsDialogBox::onTouchEnd(uint8_t tag) {
+    needs_save = false;
+    switch (tag) {
+      case 1:
+        injectCommands_P(PSTR("M500"));
+        AlertDialogBox::show(GET_TEXT_F(MSG_EEPROM_SAVED));
+        // Remove SaveSettingsDialogBox from the stack
+        // so the alert box doesn't return to me.
+        current_screen.forget();
+        return true;
+      default:
+        return DialogBoxBaseClass::onTouchEnd(tag);
+    }
+  }
+  
+  void SaveSettingsDialogBox::promptToSaveSettings() {
+     if (needs_save) {
+       // Remove current screen from the stack
+       // so SaveSettingsDialogBox doesn't return here.
+       GOTO_SCREEN(SaveSettingsDialogBox);
+       current_screen.forget();
+     }
+     else
+       GOTO_PREVIOUS(); // No save needed.
+  }
+  
 #endif // FTDI_SAVE_SETTINGS_DIALOG_BOX

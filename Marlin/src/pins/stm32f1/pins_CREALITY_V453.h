@@ -25,7 +25,7 @@
  */
 
 #if HOTENDS > 1 || E_STEPPERS > 1
-  #error "Creality v4.5.3 only supports one hotend / E-stepper. Comment out this line to continue."
+    #error "Creality v4.5.3 only supports one hotend / E-stepper. Comment out this line to continue."
 #endif
 
 #define BOARD_NAME "Creality v4.5.3"

@@ -24,7 +24,7 @@
 #include "../inc/MarlinConfigPre.h"
 
 #if ENABLED(EMERGENCY_PARSER)
-  #include "../feature/e_parser.h"
+    #include "../feature/e_parser.h"
 #endif
 
 // Used in multiple places
@@ -88,12 +88,12 @@ struct EnsureDouble {
 template <class Child>
 struct SerialBase {
   #if ENABLED(EMERGENCY_PARSER)
-    const bool ep_enabled;
-    EmergencyParser::State emergency_state;
-    inline bool emergency_parser_enabled() { return ep_enabled; }
-    SerialBase(bool ep_capable) : ep_enabled(ep_capable), emergency_state(EmergencyParser::State::EP_RESET) {}
+      const bool ep_enabled;
+      EmergencyParser::State emergency_state;
+      inline bool emergency_parser_enabled() { return ep_enabled; }
+      SerialBase(bool ep_capable) : ep_enabled(ep_capable), emergency_state(EmergencyParser::State::EP_RESET) {}
   #else
-    SerialBase(const bool) {}
+      SerialBase(const bool) {}
   #endif
 
   #define SerialChild static_cast<Child*>(this)

@@ -22,9 +22,9 @@
 #pragma once
 
 #ifdef STM32F1xx
-  #include <stm32f1xx_hal.h>
+    #include <stm32f1xx_hal.h>
 #elif defined(STM32F4xx)
-  #include <stm32f4xx_hal.h>
+    #include <stm32f4xx_hal.h>
 #endif
 
 #include "../../../inc/MarlinConfig.h"
@@ -32,17 +32,17 @@
 // Not using regular SPI interface by default to avoid SPI mode conflicts with other SPI devices
 
 #if !PIN_EXISTS(TOUCH_MISO)
-  #error "TOUCH_MISO_PIN is not defined."
+    #error "TOUCH_MISO_PIN is not defined."
 #elif !PIN_EXISTS(TOUCH_MOSI)
-  #error "TOUCH_MOSI_PIN is not defined."
+    #error "TOUCH_MOSI_PIN is not defined."
 #elif !PIN_EXISTS(TOUCH_SCK)
-  #error "TOUCH_SCK_PIN is not defined."
+    #error "TOUCH_SCK_PIN is not defined."
 #elif !PIN_EXISTS(TOUCH_CS)
-  #error "TOUCH_CS_PIN is not defined."
+    #error "TOUCH_CS_PIN is not defined."
 #endif
 
 #ifndef TOUCH_INT_PIN
-  #define TOUCH_INT_PIN  -1
+    #define TOUCH_INT_PIN  -1
 #endif
 
 #define XPT2046_DFR_MODE        0x00
@@ -57,7 +57,7 @@ enum XPTCoordinate : uint8_t {
 };
 
 #if !defined(XPT2046_Z1_THRESHOLD)
-  #define XPT2046_Z1_THRESHOLD 10
+    #define XPT2046_Z1_THRESHOLD 10
 #endif
 
 class XPT2046 {

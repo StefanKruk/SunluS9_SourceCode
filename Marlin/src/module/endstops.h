@@ -42,24 +42,24 @@ enum EndstopEnum : char {
 
   // Extra Endstops for XYZ
   #if ENABLED(X_DUAL_ENDSTOPS)
-    _ES_ITEM(HAS_X_MIN, X2_MIN)
-    _ES_ITEM(HAS_X_MAX, X2_MAX)
+      _ES_ITEM(HAS_X_MIN, X2_MIN)
+      _ES_ITEM(HAS_X_MAX, X2_MAX)
   #endif
   #if ENABLED(Y_DUAL_ENDSTOPS)
-    _ES_ITEM(HAS_Y_MIN, Y2_MIN)
-    _ES_ITEM(HAS_Y_MAX, Y2_MAX)
+      _ES_ITEM(HAS_Y_MIN, Y2_MIN)
+      _ES_ITEM(HAS_Y_MAX, Y2_MAX)
   #endif
   #if ENABLED(Z_MULTI_ENDSTOPS)
-    _ES_ITEM(HAS_Z_MIN, Z2_MIN)
-    _ES_ITEM(HAS_Z_MAX, Z2_MAX)
-    #if NUM_Z_STEPPER_DRIVERS >= 3
-      _ES_ITEM(HAS_Z_MIN, Z3_MIN)
-      _ES_ITEM(HAS_Z_MAX, Z3_MAX)
-    #endif
-    #if NUM_Z_STEPPER_DRIVERS >= 4
-      _ES_ITEM(HAS_Z_MIN, Z4_MIN)
-      _ES_ITEM(HAS_Z_MAX, Z4_MAX)
-    #endif
+      _ES_ITEM(HAS_Z_MIN, Z2_MIN)
+      _ES_ITEM(HAS_Z_MAX, Z2_MAX)
+      #if NUM_Z_STEPPER_DRIVERS >= 3
+          _ES_ITEM(HAS_Z_MIN, Z3_MIN)
+          _ES_ITEM(HAS_Z_MAX, Z3_MAX)
+      #endif
+      #if NUM_Z_STEPPER_DRIVERS >= 4
+          _ES_ITEM(HAS_Z_MIN, Z4_MIN)
+          _ES_ITEM(HAS_Z_MAX, Z4_MAX)
+      #endif
   #endif
 
   // Bed Probe state is distinct or shared with Z_MIN (i.e., when the probe is the only Z endstop)
@@ -70,13 +70,13 @@ enum EndstopEnum : char {
 
   // Endstops can be either MIN or MAX but not both
   #if HAS_X_MIN || HAS_X_MAX
-    , X_ENDSTOP = TERN(X_HOME_TO_MAX, X_MAX, X_MIN)
+      , X_ENDSTOP = TERN(X_HOME_TO_MAX, X_MAX, X_MIN)
   #endif
   #if HAS_Y_MIN || HAS_Y_MAX
-    , Y_ENDSTOP = TERN(Y_HOME_TO_MAX, Y_MAX, Y_MIN)
+      , Y_ENDSTOP = TERN(Y_HOME_TO_MAX, Y_MAX, Y_MIN)
   #endif
   #if HAS_Z_MIN || HAS_Z_MAX
-    , Z_ENDSTOP = TERN(Z_HOME_TO_MAX, Z_MAX, TERN(HOMING_Z_WITH_PROBE, Z_MIN_PROBE, Z_MIN))
+      , Z_ENDSTOP = TERN(Z_HOME_TO_MAX, Z_MAX, TERN(HOMING_Z_WITH_PROBE, Z_MIN_PROBE, Z_MIN))
   #endif
 };
 
@@ -89,19 +89,19 @@ class Endstops {
     typedef IF<(NUM_ENDSTOP_STATES > 8), uint16_t, uint8_t>::type endstop_mask_t;
 
     #if ENABLED(X_DUAL_ENDSTOPS)
-      static float x2_endstop_adj;
+        static float x2_endstop_adj;
     #endif
     #if ENABLED(Y_DUAL_ENDSTOPS)
-      static float y2_endstop_adj;
+        static float y2_endstop_adj;
     #endif
     #if ENABLED(Z_MULTI_ENDSTOPS)
-      static float z2_endstop_adj;
+        static float z2_endstop_adj;
     #endif
     #if ENABLED(Z_MULTI_ENDSTOPS) && NUM_Z_STEPPER_DRIVERS >= 3
-      static float z3_endstop_adj;
+        static float z3_endstop_adj;
     #endif
     #if ENABLED(Z_MULTI_ENDSTOPS) && NUM_Z_STEPPER_DRIVERS >= 4
-      static float z4_endstop_adj;
+        static float z4_endstop_adj;
     #endif
 
   private:
@@ -110,8 +110,8 @@ class Endstops {
     static volatile endstop_mask_t hit_state; // Use X_MIN, Y_MIN, Z_MIN and Z_MIN_PROBE as BIT index
 
     #if ENDSTOP_NOISE_THRESHOLD
-      static endstop_mask_t validated_live_state;
-      static uint8_t endstop_poll_count;    // Countdown from threshold for polling
+        static endstop_mask_t validated_live_state;
+        static uint8_t endstop_poll_count;    // Countdown from threshold for polling
     #endif
 
   public:
@@ -154,9 +154,9 @@ class Endstops {
     FORCE_INLINE static endstop_mask_t state() {
       return
         #if ENDSTOP_NOISE_THRESHOLD
-          validated_live_state
+            validated_live_state
         #else
-          live_state
+            live_state
         #endif
       ;
     }
@@ -164,7 +164,7 @@ class Endstops {
     static inline bool probe_switch_activated() {
       return (true
         #if ENABLED(PROBE_ACTIVATION_SWITCH)
-          && READ(PROBE_ACTIVATION_SWITCH_PIN) == PROBE_ACTIVATION_SWITCH_STATE
+            && READ(PROBE_ACTIVATION_SWITCH_PIN) == PROBE_ACTIVATION_SWITCH_STATE
         #endif
       );
     }
@@ -189,10 +189,10 @@ class Endstops {
     static void not_homing();
 
     #if ENABLED(VALIDATE_HOMING_ENDSTOPS)
-      // If the last move failed to trigger an endstop, call kill
-      static void validate_homing_move();
+        // If the last move failed to trigger an endstop, call kill
+        static void validate_homing_move();
     #else
-      FORCE_INLINE static void validate_homing_move() { hit_on_purpose(); }
+        FORCE_INLINE static void validate_homing_move() { hit_on_purpose(); }
     #endif
 
     // Clear endstops (i.e., they were hit intentionally) to suppress the report
@@ -200,29 +200,29 @@ class Endstops {
 
     // Enable / disable endstop z-probe checking
     #if HAS_BED_PROBE
-      static volatile bool z_probe_enabled;
-      static void enable_z_probe(const bool onoff=true);
+        static volatile bool z_probe_enabled;
+        static void enable_z_probe(const bool onoff=true);
     #endif
 
     static void resync();
 
     // Debugging of endstops
     #if ENABLED(PINS_DEBUGGING)
-      static bool monitor_flag;
-      static void monitor();
-      static void run_monitor();
+        static bool monitor_flag;
+        static void monitor();
+        static void run_monitor();
     #endif
 
     #if ENABLED(SPI_ENDSTOPS)
-      typedef struct {
-        union {
-          bool any;
-          struct { bool x:1, y:1, z:1; };
-        };
-      } tmc_spi_homing_t;
-      static tmc_spi_homing_t tmc_spi_homing;
-      static void clear_endstop_state();
-      static bool tmc_spi_homing_check();
+        typedef struct {
+          union {
+            bool any;
+            struct { bool x:1, y:1, z:1; };
+          };
+        } tmc_spi_homing_t;
+        static tmc_spi_homing_t tmc_spi_homing;
+        static void clear_endstop_state();
+        static bool tmc_spi_homing_check();
     #endif
 };
 

@@ -27,9 +27,9 @@
  */
 
 #if NOT_TARGET(STM32F1, STM32F1xx)
-  #error "Oops! Select an STM32F1 board in 'Tools > Board.'"
+    #error "Oops! Select an STM32F1 board in 'Tools > Board.'"
 #elif HOTENDS > 2 || E_STEPPERS > 2
-  #error "MKS Robin supports up to 2 hotends / E-steppers. Comment out this line to continue."
+    #error "MKS Robin supports up to 2 hotends / E-steppers. Comment out this line to continue."
 #endif
 
 #define BOARD_INFO_NAME "MKS Robin"
@@ -45,17 +45,17 @@
 // EEPROM
 //
 #if NO_EEPROM_SELECTED
-  #ifdef ARDUINO_ARCH_STM32
-    #define FLASH_EEPROM_EMULATION
-  #else
-    #define SDCARD_EEPROM_EMULATION
-  #endif
+    #ifdef ARDUINO_ARCH_STM32
+        #define FLASH_EEPROM_EMULATION
+    #else
+        #define SDCARD_EEPROM_EMULATION
+    #endif
 #endif
 
 #if ENABLED(FLASH_EEPROM_EMULATION)
-  #define EEPROM_PAGE_SIZE     (0x800U) // 2KB
-  #define EEPROM_START_ADDRESS (0x8000000UL + (STM32_FLASH_SIZE) * 1024UL - (EEPROM_PAGE_SIZE) * 2UL)
-  #define MARLIN_EEPROM_SIZE (EEPROM_PAGE_SIZE)
+    #define EEPROM_PAGE_SIZE     (0x800U) // 2KB
+    #define EEPROM_START_ADDRESS (0x8000000UL + (STM32_FLASH_SIZE) * 1024UL - (EEPROM_PAGE_SIZE) * 2UL)
+    #define MARLIN_EEPROM_SIZE (EEPROM_PAGE_SIZE)
 #endif
 
 //
@@ -158,42 +158,42 @@
 // LCD screen
 //
 #if HAS_FSMC_TFT
-  /**
-   * Note: MKS Robin TFT screens use various TFT controllers
-   * Supported screens are based on the ILI9341, ST7789V and ILI9328 (320x240)
-   * ILI9488 is not supported
-   * Define init sequences for other screens in u8g_dev_tft_320x240_upscale_from_128x64.cpp
-   *
-   * If the screen stays white, disable 'TFT_RESET_PIN'
-   * to let the bootloader init the screen.
-   *
-   * Setting an 'TFT_RESET_PIN' may cause a flicker when entering the LCD menu
-   * because Marlin uses the reset as a failsafe to revive a glitchy LCD.
-   */
-  #define TFT_CS_PIN                        PG12  // NE4
-  #define TFT_RS_PIN                        PF0   // A0
-
-  #define FSMC_CS_PIN                 TFT_CS_PIN
-  #define FSMC_RS_PIN                 TFT_RS_PIN
-
-  #define LCD_USE_DMA_FSMC                        // Use DMA transfers to send data to the TFT
-  #define FSMC_DMA_DEV                      DMA2
-  #define FSMC_DMA_CHANNEL               DMA_CH5
-
-  #define TFT_RESET_PIN                     PF6
-  #define TFT_BACKLIGHT_PIN                 PG11
-
-  #define TOUCH_BUTTONS_HW_SPI
-  #define TOUCH_BUTTONS_HW_SPI_DEVICE          2
-  #define TFT_BUFFER_SIZE                  14400
+    /**
+     * Note: MKS Robin TFT screens use various TFT controllers
+     * Supported screens are based on the ILI9341, ST7789V and ILI9328 (320x240)
+     * ILI9488 is not supported
+     * Define init sequences for other screens in u8g_dev_tft_320x240_upscale_from_128x64.cpp
+     *
+     * If the screen stays white, disable 'TFT_RESET_PIN'
+     * to let the bootloader init the screen.
+     *
+     * Setting an 'TFT_RESET_PIN' may cause a flicker when entering the LCD menu
+     * because Marlin uses the reset as a failsafe to revive a glitchy LCD.
+     */
+    #define TFT_CS_PIN                        PG12  // NE4
+    #define TFT_RS_PIN                        PF0   // A0
+  
+    #define FSMC_CS_PIN                 TFT_CS_PIN
+    #define FSMC_RS_PIN                 TFT_RS_PIN
+  
+    #define LCD_USE_DMA_FSMC                        // Use DMA transfers to send data to the TFT
+    #define FSMC_DMA_DEV                      DMA2
+    #define FSMC_DMA_CHANNEL               DMA_CH5
+  
+    #define TFT_RESET_PIN                     PF6
+    #define TFT_BACKLIGHT_PIN                 PG11
+  
+    #define TOUCH_BUTTONS_HW_SPI
+    #define TOUCH_BUTTONS_HW_SPI_DEVICE          2
+    #define TFT_BUFFER_SIZE                  14400
 #endif
 
 #if NEED_TOUCH_PINS
-  #define TOUCH_CS_PIN                      PB1   // SPI2_NSS
-  #define TOUCH_SCK_PIN                     PB13  // SPI2_SCK
-  #define TOUCH_MISO_PIN                    PB14  // SPI2_MISO
-  #define TOUCH_MOSI_PIN                    PB15  // SPI2_MOSI
-  #define TOUCH_INT_PIN                     -1
+    #define TOUCH_CS_PIN                      PB1   // SPI2_NSS
+    #define TOUCH_SCK_PIN                     PB13  // SPI2_SCK
+    #define TOUCH_MISO_PIN                    PB14  // SPI2_MISO
+    #define TOUCH_MOSI_PIN                    PB15  // SPI2_MOSI
+    #define TOUCH_INT_PIN                     -1
 #endif
 
 // SPI2 is shared by LCD touch driver and flash
@@ -204,70 +204,70 @@
 #define SDIO_CLOCK                       4500000
 #define SDIO_READ_RETRIES                     16
 #if ENABLED(SDIO_SUPPORT)
-  #define SD_SCK_PIN                        PB13  // SPI2
-  #define SD_MISO_PIN                       PB14  // SPI2
-  #define SD_MOSI_PIN                       PB15  // SPI2
-  /**
-   * MKS Robin has a few hardware revisions
-   * https://github.com/makerbase-mks/MKS-Robin/tree/master/MKS%20Robin/Hardware
-   *
-   * MKS Robin <= V2.3 have no SD_DETECT_PIN.
-   * MKS Robin >= V2.4 have SD_DETECT_PIN on PF12.
-   *
-   * Uncomment here or add SD_DETECT_PIN to Configuration.h.
-   */
-  //#define SD_DETECT_PIN                   -1
-  //#define SD_DETECT_PIN                   PF12  // SD_CD
+    #define SD_SCK_PIN                        PB13  // SPI2
+    #define SD_MISO_PIN                       PB14  // SPI2
+    #define SD_MOSI_PIN                       PB15  // SPI2
+    /**
+     * MKS Robin has a few hardware revisions
+     * https://github.com/makerbase-mks/MKS-Robin/tree/master/MKS%20Robin/Hardware
+     *
+     * MKS Robin <= V2.3 have no SD_DETECT_PIN.
+     * MKS Robin >= V2.4 have SD_DETECT_PIN on PF12.
+     *
+     * Uncomment here or add SD_DETECT_PIN to Configuration.h.
+     */
+    //#define SD_DETECT_PIN                   -1
+    //#define SD_DETECT_PIN                   PF12  // SD_CD
 #else
-  // SD as custom software SPI (SDIO pins)
-  #define SD_SCK_PIN                        PC12
-  #define SD_MISO_PIN                       PC8
-  #define SD_MOSI_PIN                       PD2
-  #define SD_SS_PIN                         -1
-  #define ONBOARD_SD_CS_PIN                 PC11
-  #define SDSS                              PD2
-  #define SD_DETECT_PIN                     -1
+    // SD as custom software SPI (SDIO pins)
+    #define SD_SCK_PIN                        PC12
+    #define SD_MISO_PIN                       PC8
+    #define SD_MOSI_PIN                       PD2
+    #define SD_SS_PIN                         -1
+    #define ONBOARD_SD_CS_PIN                 PC11
+    #define SDSS                              PD2
+    #define SD_DETECT_PIN                     -1
 #endif
 
 //
 // Trinamic TMC2208/2209 UART
 //
 #if HAS_TMC_UART
-  /**
-   * This board does not have dedicated TMC UART pins. Custom wiring is needed.
-   * You may uncomment one of the options below, or add it to your Configuration.h.
-   *
-   * When using up to four TMC2209 drivers, hardware serial is recommended on
-   * MSerial0 or MSerial1.
-   *
-   * When using TMC2208 or more than four drivers, SoftwareSerial will be needed,
-   * to provide dedicated pins for each drier.
-   */
-
-  //#define TMC_HARDWARE_SERIAL
-  #if ENABLED(TMC_HARDWARE_SERIAL)
-    #define X_HARDWARE_SERIAL  MSerial0
-    #define X2_HARDWARE_SERIAL MSerial0
-    #define Y_HARDWARE_SERIAL  MSerial0
-    #define Y2_HARDWARE_SERIAL MSerial0
-    #define Z_HARDWARE_SERIAL  MSerial0
-    #define Z2_HARDWARE_SERIAL MSerial0
-    #define E0_HARDWARE_SERIAL MSerial0
-    #define E1_HARDWARE_SERIAL MSerial0
-  #endif
-
-  //#define TMC_SOFTWARE_SERIAL
-  #if ENABLED(TMC_SOFTWARE_SERIAL)
-    #define X_SERIAL_TX_PIN                 PF8   // SERVO3_PIN -- XS2 - 6
-    #define Y_SERIAL_TX_PIN                 PF9   // SERVO2_PIN -- XS2 - 5
-    #define Z_SERIAL_TX_PIN                 PA1   // SERVO1_PIN -- XS1 - 6
-    #define E0_SERIAL_TX_PIN                PC3   // SERVO0_PIN -- XS1 - 5
-    #define X_SERIAL_RX_PIN      X_SERIAL_TX_PIN
-    #define Y_SERIAL_RX_PIN      Y_SERIAL_TX_PIN
-    #define Z_SERIAL_RX_PIN      Z_SERIAL_TX_PIN
-    #define E0_SERIAL_RX_PIN    E0_SERIAL_TX_PIN
-    #define TMC_BAUD_RATE                  19200
-  #endif
+    /**
+     * This board does not have dedicated TMC UART pins. Custom wiring is needed.
+     * You may uncomment one of the options below, or add it to your Configuration.h.
+     *
+     * When using up to four TMC2209 drivers, hardware serial is recommended on
+     * MSerial0 or MSerial1.
+     *
+     * When using TMC2208 or more than four drivers, SoftwareSerial will be needed,
+     * to provide dedicated pins for each drier.
+     */
+  
+    //#define TMC_HARDWARE_SERIAL
+    #if ENABLED(TMC_HARDWARE_SERIAL)
+        #define X_HARDWARE_SERIAL  MSerial0
+        #define X2_HARDWARE_SERIAL MSerial0
+        #define Y_HARDWARE_SERIAL  MSerial0
+        #define Y2_HARDWARE_SERIAL MSerial0
+        #define Z_HARDWARE_SERIAL  MSerial0
+        #define Z2_HARDWARE_SERIAL MSerial0
+        #define E0_HARDWARE_SERIAL MSerial0
+        #define E1_HARDWARE_SERIAL MSerial0
+    #endif
+  
+    //#define TMC_SOFTWARE_SERIAL
+    #if ENABLED(TMC_SOFTWARE_SERIAL)
+        #define X_SERIAL_TX_PIN                 PF8   // SERVO3_PIN -- XS2 - 6
+        #define Y_SERIAL_TX_PIN                 PF9   // SERVO2_PIN -- XS2 - 5
+        #define Z_SERIAL_TX_PIN                 PA1   // SERVO1_PIN -- XS1 - 6
+        #define E0_SERIAL_TX_PIN                PC3   // SERVO0_PIN -- XS1 - 5
+        #define X_SERIAL_RX_PIN      X_SERIAL_TX_PIN
+        #define Y_SERIAL_RX_PIN      Y_SERIAL_TX_PIN
+        #define Z_SERIAL_RX_PIN      Z_SERIAL_TX_PIN
+        #define E0_SERIAL_RX_PIN    E0_SERIAL_TX_PIN
+        #define TMC_BAUD_RATE                  19200
+    #endif
 #endif
 
 //
@@ -275,9 +275,9 @@
 //
 #define HAS_SPI_FLASH                          1
 #if HAS_SPI_FLASH
-  #define SPI_FLASH_SIZE                0x800000  // 8MB
-  #define W25QXX_CS_PIN                     PG9
-  #define W25QXX_MOSI_PIN                   PB15
-  #define W25QXX_MISO_PIN                   PB14
-  #define W25QXX_SCK_PIN                    PB13
+    #define SPI_FLASH_SIZE                0x800000  // 8MB
+    #define W25QXX_CS_PIN                     PG9
+    #define W25QXX_MOSI_PIN                   PB15
+    #define W25QXX_MISO_PIN                   PB14
+    #define W25QXX_SCK_PIN                    PB13
 #endif

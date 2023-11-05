@@ -27,7 +27,7 @@ enum TempSensorID : uint8_t {
   TSI_PROBE,
   TSI_BED,
   #if ENABLED(USE_TEMP_EXT_COMPENSATION)
-    TSI_EXT,
+      TSI_EXT,
   #endif
   TSI_COUNT
 };
@@ -47,44 +47,44 @@ typedef struct {
 
 // Probe temperature calibration constants
 #ifndef PTC_SAMPLE_COUNT
-  #define PTC_SAMPLE_COUNT 10U
+    #define PTC_SAMPLE_COUNT 10U
 #endif
 #ifndef PTC_SAMPLE_RES
-  #define PTC_SAMPLE_RES 5
+    #define PTC_SAMPLE_RES 5
 #endif
 #ifndef PTC_SAMPLE_START
-  #define PTC_SAMPLE_START 30
+    #define PTC_SAMPLE_START 30
 #endif
 #define PTC_SAMPLE_END ((PTC_SAMPLE_START) + (PTC_SAMPLE_COUNT) * (PTC_SAMPLE_RES))
 
 // Bed temperature calibration constants
 #ifndef BTC_PROBE_TEMP
-  #define BTC_PROBE_TEMP 30
+    #define BTC_PROBE_TEMP 30
 #endif
 #ifndef BTC_SAMPLE_COUNT
-  #define BTC_SAMPLE_COUNT 10U
+    #define BTC_SAMPLE_COUNT 10U
 #endif
 #ifndef BTC_SAMPLE_RES
-  #define BTC_SAMPLE_RES 5
+    #define BTC_SAMPLE_RES 5
 #endif
 #ifndef BTC_SAMPLE_START
-  #define BTC_SAMPLE_START 60
+    #define BTC_SAMPLE_START 60
 #endif
 #define BTC_SAMPLE_END ((BTC_SAMPLE_START) + (BTC_SAMPLE_COUNT) * (BTC_SAMPLE_RES))
 
 #ifndef PTC_PROBE_HEATING_OFFSET
-  #define PTC_PROBE_HEATING_OFFSET 0.5f
+    #define PTC_PROBE_HEATING_OFFSET 0.5f
 #endif
 
 #ifndef PTC_PROBE_RAISE
-  #define PTC_PROBE_RAISE 10
+    #define PTC_PROBE_RAISE 10
 #endif
 
 static constexpr temp_calib_t cali_info_init[TSI_COUNT] = {
   { PTC_SAMPLE_COUNT, PTC_SAMPLE_RES, PTC_SAMPLE_START, PTC_SAMPLE_END }, // Probe
   { BTC_SAMPLE_COUNT, BTC_SAMPLE_RES, BTC_SAMPLE_START, BTC_SAMPLE_END }, // Bed
   #if ENABLED(USE_TEMP_EXT_COMPENSATION)
-    { 20,  5, 180, 180 +  5 * 20 }                                        // Extruder
+      { 20,  5, 180, 180 +  5 * 20 }                                        // Extruder
   #endif
 };
 
@@ -108,7 +108,7 @@ class ProbeTempComp {
                    z_offsets_bed[cali_info_init[TSI_BED].measurements];     // (µm)
 
     #if ENABLED(USE_TEMP_EXT_COMPENSATION)
-      static int16_t z_offsets_ext[cali_info_init[TSI_EXT].measurements];   // (µm)
+        static int16_t z_offsets_ext[cali_info_init[TSI_EXT].measurements];   // (µm)
     #endif
 
     static inline void reset_index() { calib_idx = 0; };

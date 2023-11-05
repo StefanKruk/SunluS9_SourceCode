@@ -42,16 +42,16 @@
 // Auto fans
 //
 #ifndef E0_AUTO_FAN_PIN
-  #define E0_AUTO_FAN_PIN                     11
+    #define E0_AUTO_FAN_PIN                     11
 #endif
 #ifndef E1_AUTO_FAN_PIN
-  #define E1_AUTO_FAN_PIN                      6
+    #define E1_AUTO_FAN_PIN                      6
 #endif
 #ifndef E2_AUTO_FAN_PIN
-  #define E2_AUTO_FAN_PIN                      6
+    #define E2_AUTO_FAN_PIN                      6
 #endif
 #ifndef E3_AUTO_FAN_PIN
-  #define E3_AUTO_FAN_PIN                      6
+    #define E3_AUTO_FAN_PIN                      6
 #endif
 
 //
@@ -102,7 +102,7 @@
 #define PS_ON_PIN                             81  // External Power Supply
 
 #ifndef CASE_LIGHT_PIN
-  #define CASE_LIGHT_PIN                      44  // Hardware PWM
+    #define CASE_LIGHT_PIN                      44  // Hardware PWM
 #endif
 
 // This board has headers for Z-min, Z-max and IND_S_5V *but* as the bq team
@@ -110,16 +110,16 @@
 // endstop and the instruction manual advises the user to connect the probe to
 // IND_S_5V the option Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN will not work.
 #ifdef Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
-  #undef Z_MIN_PIN
-  #undef Z_MAX_PIN
-  #define Z_MIN_PIN                           19  // IND_S_5V
-  #define Z_MAX_PIN                           18  // Z-MIN Label
+    #undef Z_MIN_PIN
+    #undef Z_MAX_PIN
+    #define Z_MIN_PIN                           19  // IND_S_5V
+    #define Z_MAX_PIN                           18  // Z-MIN Label
 #endif
 
 //
 // Used by the Hephestos 2 heated bed upgrade kit
 //
 #if ENABLED(HEPHESTOS2_HEATED_BED_KIT)
-  #undef HEATER_BED_PIN
-  #define HEATER_BED_PIN                       8
+    #undef HEATER_BED_PIN
+    #define HEATER_BED_PIN                       8
 #endif

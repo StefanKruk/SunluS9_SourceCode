@@ -23,39 +23,39 @@
 #include "../../../inc/MarlinConfig.h"
 
 #if HAS_TRINAMIC_CONFIG
-
-#include "../../gcode.h"
-#include "../../../feature/tmc_util.h"
-#include "../../../module/stepper/indirection.h"
-
-/**
- * M122: Debug TMC drivers
- */
-void GcodeSuite::M122() {
-  xyze_bool_t print_axis = ARRAY_N_1(LOGICAL_AXES, false);
-
-  bool print_all = true;
-  LOOP_LOGICAL_AXES(i) if (parser.seen(axis_codes[i])) { print_axis[i] = true; print_all = false; }
-
-  if (print_all) LOOP_LOGICAL_AXES(i) print_axis[i] = true;
-
-  if (parser.boolval('I')) restore_stepper_drivers();
-
-  #if ENABLED(TMC_DEBUG)
-    #if ENABLED(MONITOR_DRIVER_STATUS)
-      uint16_t interval = MONITOR_DRIVER_STATUS_INTERVAL_MS;
-      if (parser.seen('S') && !parser.value_bool()) interval = 0;
-      if (parser.seenval('P')) NOMORE(interval, parser.value_ushort());
-      tmc_set_report_interval(interval);
+  
+  #include "../../gcode.h"
+  #include "../../../feature/tmc_util.h"
+  #include "../../../module/stepper/indirection.h"
+  
+  /**
+   * M122: Debug TMC drivers
+   */
+  void GcodeSuite::M122() {
+    xyze_bool_t print_axis = ARRAY_N_1(LOGICAL_AXES, false);
+  
+    bool print_all = true;
+    LOOP_LOGICAL_AXES(i) if (parser.seen(axis_codes[i])) { print_axis[i] = true; print_all = false; }
+  
+    if (print_all) LOOP_LOGICAL_AXES(i) print_axis[i] = true;
+  
+    if (parser.boolval('I')) restore_stepper_drivers();
+  
+    #if ENABLED(TMC_DEBUG)
+        #if ENABLED(MONITOR_DRIVER_STATUS)
+            uint16_t interval = MONITOR_DRIVER_STATUS_INTERVAL_MS;
+            if (parser.seen('S') && !parser.value_bool()) interval = 0;
+            if (parser.seenval('P')) NOMORE(interval, parser.value_ushort());
+            tmc_set_report_interval(interval);
+        #endif
+    
+        if (parser.seen_test('V'))
+          tmc_get_registers(print_axis.x, print_axis.y, print_axis.z, print_axis.e);
+        else
+          tmc_report_all(print_axis.x, print_axis.y, print_axis.z, print_axis.e);
     #endif
-
-    if (parser.seen_test('V'))
-      tmc_get_registers(print_axis.x, print_axis.y, print_axis.z, print_axis.e);
-    else
-      tmc_report_all(print_axis.x, print_axis.y, print_axis.z, print_axis.e);
-  #endif
-
-  test_tmc_connection(print_axis.x, print_axis.y, print_axis.z, print_axis.e);
-}
-
+  
+    test_tmc_connection(print_axis.x, print_axis.y, print_axis.z, print_axis.e);
+  }
+  
 #endif // HAS_TRINAMIC_CONFIG

@@ -24,29 +24,29 @@
 #include "screens.h"
 
 #ifdef FTDI_CONFIRM_ABORT_PRINT_DIALOG_BOX
-
-#include "../../../../feature/host_actions.h"
-
-using namespace ExtUI;
-
-void ConfirmAbortPrintDialogBox::onRedraw(draw_mode_t) {
-  drawMessage(GET_TEXT_F(MSG_ABORT_WARNING));
-  drawYesNoButtons();
-}
-
-bool ConfirmAbortPrintDialogBox::onTouchEnd(uint8_t tag) {
-  switch (tag) {
-    case 1:
-      GOTO_PREVIOUS();
-      if (ExtUI::isPrintingFromMedia())
-         ExtUI::stopPrint();
-      #ifdef ACTION_ON_CANCEL
-        else host_action_cancel();
-      #endif
-      return true;
-    default:
-      return DialogBoxBaseClass::onTouchEnd(tag);
+  
+  #include "../../../../feature/host_actions.h"
+  
+  using namespace ExtUI;
+  
+  void ConfirmAbortPrintDialogBox::onRedraw(draw_mode_t) {
+    drawMessage(GET_TEXT_F(MSG_ABORT_WARNING));
+    drawYesNoButtons();
   }
-}
-
+  
+  bool ConfirmAbortPrintDialogBox::onTouchEnd(uint8_t tag) {
+    switch (tag) {
+      case 1:
+        GOTO_PREVIOUS();
+        if (ExtUI::isPrintingFromMedia())
+           ExtUI::stopPrint();
+        #ifdef ACTION_ON_CANCEL
+            else host_action_cancel();
+        #endif
+        return true;
+      default:
+        return DialogBoxBaseClass::onTouchEnd(tag);
+    }
+  }
+  
 #endif // FTDI_CONFIRM_ABORT_PRINT_DIALOG_BOX

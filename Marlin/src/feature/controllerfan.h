@@ -31,13 +31,13 @@ typedef struct {
 } controllerFan_settings_t;
 
 #ifndef CONTROLLERFAN_SPEED_ACTIVE
-  #define CONTROLLERFAN_SPEED_ACTIVE 255
+    #define CONTROLLERFAN_SPEED_ACTIVE 255
 #endif
 #ifndef CONTROLLERFAN_SPEED_IDLE
-  #define CONTROLLERFAN_SPEED_IDLE     0
+    #define CONTROLLERFAN_SPEED_IDLE     0
 #endif
 #ifndef CONTROLLERFAN_IDLE_TIME
-  #define CONTROLLERFAN_IDLE_TIME     60
+    #define CONTROLLERFAN_IDLE_TIME     60
 #endif
 
 static constexpr controllerFan_settings_t controllerFan_defaults = {
@@ -48,25 +48,25 @@ static constexpr controllerFan_settings_t controllerFan_defaults = {
 };
 
 #if ENABLED(USE_CONTROLLER_FAN)
-
-class ControllerFan {
-  private:
-    static uint8_t speed;
-    static void set_fan_speed(const uint8_t s);
-
-  public:
-    #if ENABLED(CONTROLLER_FAN_EDITABLE)
-      static controllerFan_settings_t settings;
-    #else
-      static const controllerFan_settings_t &settings;
-    #endif
-    static inline bool state() { return speed > 0; }
-    static inline void init() { reset(); }
-    static inline void reset() { TERN_(CONTROLLER_FAN_EDITABLE, settings = controllerFan_defaults); }
-    static void setup();
-    static void update();
-};
-
-extern ControllerFan controllerFan;
-
+  
+  class ControllerFan {
+    private:
+      static uint8_t speed;
+      static void set_fan_speed(const uint8_t s);
+  
+    public:
+      #if ENABLED(CONTROLLER_FAN_EDITABLE)
+          static controllerFan_settings_t settings;
+      #else
+          static const controllerFan_settings_t &settings;
+      #endif
+      static inline bool state() { return speed > 0; }
+      static inline void init() { reset(); }
+      static inline void reset() { TERN_(CONTROLLER_FAN_EDITABLE, settings = controllerFan_defaults); }
+      static void setup();
+      static void update();
+  };
+  
+  extern ControllerFan controllerFan;
+  
 #endif

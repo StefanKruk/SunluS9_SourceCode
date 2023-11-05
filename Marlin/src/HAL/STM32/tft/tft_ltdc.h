@@ -24,9 +24,9 @@
 #include "../../../inc/MarlinConfig.h"
 
 #ifdef STM32H7xx
-  #include "stm32h7xx_hal.h"
+    #include "stm32h7xx_hal.h"
 #else
-  #error "LTDC TFT is currently only supported on STM32H7 hardware."
+    #error "LTDC TFT is currently only supported on STM32H7 hardware."
 #endif
 
 #define DATASIZE_8BIT  SPI_DATASIZE_8BIT

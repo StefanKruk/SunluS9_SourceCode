@@ -24,41 +24,41 @@
 #include "screens.h"
 
 #ifdef FTDI_FILAMENT_RUNOUT_SCREEN
-
-using namespace FTDI;
-using namespace ExtUI;
-using namespace Theme;
-
-void FilamentRunoutScreen::onRedraw(draw_mode_t what) {
-  widgets_t w(what);
-  w.heading(   GET_TEXT_F(MSG_FILAMENT));
-  w.toggle( 2, GET_TEXT_F(MSG_RUNOUT_SENSOR), getFilamentRunoutEnabled());
-
-  #if HAS_FILAMENT_RUNOUT_DISTANCE
-    w.heading(GET_TEXT_F(MSG_RUNOUT_DISTANCE_MM));
-    w.units(GET_TEXT_F(MSG_UNITS_MM));
-    w.precision(0);
-    w.color(e_axis);
-    w.adjuster( 10, progmem_str(NUL_STR), getFilamentRunoutDistance_mm(), getFilamentRunoutEnabled());
-    w.increments();
-  #endif
-}
-
-bool FilamentRunoutScreen::onTouchHeld(uint8_t tag) {
+  
+  using namespace FTDI;
   using namespace ExtUI;
-  const float increment = getIncrement();
-  switch (tag) {
-    case 2: setFilamentRunoutEnabled(!getFilamentRunoutEnabled()); break;
+  using namespace Theme;
+  
+  void FilamentRunoutScreen::onRedraw(draw_mode_t what) {
+    widgets_t w(what);
+    w.heading(   GET_TEXT_F(MSG_FILAMENT));
+    w.toggle( 2, GET_TEXT_F(MSG_RUNOUT_SENSOR), getFilamentRunoutEnabled());
+  
     #if HAS_FILAMENT_RUNOUT_DISTANCE
-      case  10: UI_DECREMENT(FilamentRunoutDistance_mm); break;
-      case  11: UI_INCREMENT(FilamentRunoutDistance_mm); break;
+        w.heading(GET_TEXT_F(MSG_RUNOUT_DISTANCE_MM));
+        w.units(GET_TEXT_F(MSG_UNITS_MM));
+        w.precision(0);
+        w.color(e_axis);
+        w.adjuster( 10, progmem_str(NUL_STR), getFilamentRunoutDistance_mm(), getFilamentRunoutEnabled());
+        w.increments();
     #endif
-    default:
-      return false;
   }
-
-  SaveSettingsDialogBox::settingsChanged();
-  return true;
-}
-
+  
+  bool FilamentRunoutScreen::onTouchHeld(uint8_t tag) {
+    using namespace ExtUI;
+    const float increment = getIncrement();
+    switch (tag) {
+      case 2: setFilamentRunoutEnabled(!getFilamentRunoutEnabled()); break;
+      #if HAS_FILAMENT_RUNOUT_DISTANCE
+          case  10: UI_DECREMENT(FilamentRunoutDistance_mm); break;
+          case  11: UI_INCREMENT(FilamentRunoutDistance_mm); break;
+      #endif
+      default:
+        return false;
+    }
+  
+    SaveSettingsDialogBox::settingsChanged();
+    return true;
+  }
+  
 #endif // FTDI_FILAMENT_RUNOUT_SCREEN

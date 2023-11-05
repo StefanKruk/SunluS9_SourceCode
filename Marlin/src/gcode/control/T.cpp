@@ -24,11 +24,11 @@
 #include "../../module/tool_change.h"
 
 #if EITHER(HAS_MULTI_EXTRUDER, DEBUG_LEVELING_FEATURE)
-  #include "../../module/motion.h"
+    #include "../../module/motion.h"
 #endif
 
 #if HAS_PRUSA_MMU2
-  #include "../../feature/mmu/mmu2.h"
+    #include "../../feature/mmu/mmu2.h"
 #endif
 
 #define DEBUG_OUT ENABLED(DEBUG_LEVELING_FEATURE)
@@ -55,16 +55,16 @@ void GcodeSuite::T(const int8_t tool_index) {
   reset_stepper_timeout();
 
   #if HAS_PRUSA_MMU2
-    if (parser.string_arg) {
-      mmu2.tool_change(parser.string_arg);   // Special commands T?/Tx/Tc
-      return;
-    }
+      if (parser.string_arg) {
+        mmu2.tool_change(parser.string_arg);   // Special commands T?/Tx/Tc
+        return;
+      }
   #endif
 
   tool_change(tool_index
     #if HAS_MULTI_EXTRUDER
-      ,  TERN(PARKING_EXTRUDER, false, tool_index == active_extruder) // For PARKING_EXTRUDER motion is decided in tool_change()
-      || parser.boolval('S')
+        ,  TERN(PARKING_EXTRUDER, false, tool_index == active_extruder) // For PARKING_EXTRUDER motion is decided in tool_change()
+        || parser.boolval('S')
     #endif
   );
 }

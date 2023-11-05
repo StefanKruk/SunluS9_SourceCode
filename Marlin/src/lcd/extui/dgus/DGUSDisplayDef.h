@@ -48,13 +48,13 @@ extern const struct DGUS_VP_Variable ListOfVP[];
 #include "../../../inc/MarlinConfig.h"
 
 #if ENABLED(DGUS_LCD_UI_ORIGIN)
-  #include "origin/DGUSDisplayDef.h"
+    #include "origin/DGUSDisplayDef.h"
 #elif ENABLED(DGUS_LCD_UI_MKS)
-  #include "mks/DGUSDisplayDef.h"
+    #include "mks/DGUSDisplayDef.h"
 #elif ENABLED(DGUS_LCD_UI_FYSETC)
-  #include "fysetc/DGUSDisplayDef.h"
+    #include "fysetc/DGUSDisplayDef.h"
 #elif ENABLED(DGUS_LCD_UI_HIPRECY)
-  #include "hiprecy/DGUSDisplayDef.h"
+    #include "hiprecy/DGUSDisplayDef.h"
 #else ENABLED(DGUS_LCD_UI_SUNLU)
-  #include "sunlu/DGUSDisplayDef.h"
+    #include "sunlu/DGUSDisplayDef.h"
 #endif

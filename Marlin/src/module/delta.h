@@ -49,13 +49,13 @@ void recalc_delta_settings();
  * Get a safe radius for calibration
  */
 #if ENABLED(DELTA_AUTO_CALIBRATION)
-  extern float calibration_radius_factor;
+    extern float calibration_radius_factor;
 #else
-  constexpr float calibration_radius_factor = 1;
+    constexpr float calibration_radius_factor = 1;
 #endif
 
 #if EITHER(DELTA_AUTO_CALIBRATION, DELTA_CALIBRATION_MENU)
-  float delta_calibration_radius();
+    float delta_calibration_radius();
 #endif
 
 /**

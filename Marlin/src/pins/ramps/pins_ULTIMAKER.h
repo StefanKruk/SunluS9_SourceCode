@@ -58,7 +58,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     32
+    #define Z_MIN_PROBE_PIN                     32
 #endif
 
 //
@@ -99,7 +99,7 @@
 #define HEATER_BED_PIN                         4
 
 #ifndef FAN_PIN
-  #define FAN_PIN                              7
+    #define FAN_PIN                              7
 #endif
 
 //
@@ -111,51 +111,51 @@
 #define SUICIDE_PIN                           54  // PIN that has to be turned on right after start, to keep power flowing.
 
 #ifndef CASE_LIGHT_PIN
-  #define CASE_LIGHT_PIN                       8
+    #define CASE_LIGHT_PIN                       8
 #endif
 
 //
 // LCD / Controller
 //
 #if HAS_WIRED_LCD
-
-  #define BEEPER_PIN                          18
-
-  #if IS_NEWPANEL
-
-    #define LCD_PINS_RS                       20
-    #define LCD_PINS_ENABLE                   17
-    #define LCD_PINS_D4                       16
-    #define LCD_PINS_D5                       21
-    #define LCD_PINS_D6                        5
-    #define LCD_PINS_D7                        6
-
-    // Buttons directly attached
-    #define BTN_EN1                           40
-    #define BTN_EN2                           42
-    #define BTN_ENC                           19
-
-    #define SD_DETECT_PIN                     38
-
-  #else                                           // !IS_NEWPANEL - Old style panel with shift register
-
-    // Buttons attached to a shift register
-    #define SHIFT_CLK_PIN                     38
-    #define SHIFT_LD_PIN                      42
-    #define SHIFT_OUT_PIN                     40
-    #define SHIFT_EN_PIN                      17
-
-    #define LCD_PINS_RS                       16
-    #define LCD_PINS_ENABLE                    5
-    #define LCD_PINS_D4                        6
-    #define LCD_PINS_D5                       21
-    #define LCD_PINS_D6                       20
-    #define LCD_PINS_D7                       19
-
-    #define SD_DETECT_PIN                     -1
-
-  #endif // !IS_NEWPANEL
-
+  
+    #define BEEPER_PIN                          18
+  
+    #if IS_NEWPANEL
+    
+        #define LCD_PINS_RS                       20
+        #define LCD_PINS_ENABLE                   17
+        #define LCD_PINS_D4                       16
+        #define LCD_PINS_D5                       21
+        #define LCD_PINS_D6                        5
+        #define LCD_PINS_D7                        6
+    
+        // Buttons directly attached
+        #define BTN_EN1                           40
+        #define BTN_EN2                           42
+        #define BTN_ENC                           19
+    
+        #define SD_DETECT_PIN                     38
+    
+    #else                                           // !IS_NEWPANEL - Old style panel with shift register
+    
+        // Buttons attached to a shift register
+        #define SHIFT_CLK_PIN                     38
+        #define SHIFT_LD_PIN                      42
+        #define SHIFT_OUT_PIN                     40
+        #define SHIFT_EN_PIN                      17
+    
+        #define LCD_PINS_RS                       16
+        #define LCD_PINS_ENABLE                    5
+        #define LCD_PINS_D4                        6
+        #define LCD_PINS_D5                       21
+        #define LCD_PINS_D6                       20
+        #define LCD_PINS_D7                       19
+    
+        #define SD_DETECT_PIN                     -1
+    
+    #endif // !IS_NEWPANEL
+  
 #endif // HAS_WIRED_LCD
 
 //

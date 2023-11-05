@@ -22,7 +22,7 @@
 #pragma once
 
 #if NOT_TARGET(__STM32F1__, STM32F1)
-  #error "Oops! Select an STM32F1 board in 'Tools > Board.'"
+    #error "Oops! Select an STM32F1 board in 'Tools > Board.'"
 #endif
 
 // Release PB3/PB4 (E0 STP/DIR) from JTAG pins
@@ -32,10 +32,10 @@
 //#define BOGUS_TEMPERATURE_GRACE_PERIOD    2000
 
 #if EITHER(NO_EEPROM_SELECTED, FLASH_EEPROM_EMULATION)
-  #define FLASH_EEPROM_EMULATION
-  #define EEPROM_PAGE_SIZE     (0x800U)           // 2KB
-  #define EEPROM_START_ADDRESS (0x8000000UL + (STM32_FLASH_SIZE) * 1024UL - (EEPROM_PAGE_SIZE) * 2UL)
-  #define MARLIN_EEPROM_SIZE    EEPROM_PAGE_SIZE  // 2KB
+    #define FLASH_EEPROM_EMULATION
+    #define EEPROM_PAGE_SIZE     (0x800U)           // 2KB
+    #define EEPROM_START_ADDRESS (0x8000000UL + (STM32_FLASH_SIZE) * 1024UL - (EEPROM_PAGE_SIZE) * 2UL)
+    #define MARLIN_EEPROM_SIZE    EEPROM_PAGE_SIZE  // 2KB
 #endif
 
 //
@@ -59,14 +59,14 @@
 // Filament Runout Sensor
 //
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN                    PC15  // E0-STOP
+    #define FIL_RUNOUT_PIN                    PC15  // E0-STOP
 #endif
 
 //
 // Power-loss Detection
 //
 #ifndef POWER_LOSS_PIN
-  #define POWER_LOSS_PIN                    PC12  // Power Loss Detection: PWR-DET
+    #define POWER_LOSS_PIN                    PC12  // Power Loss Detection: PWR-DET
 #endif
 
 //
@@ -101,18 +101,18 @@
 #define HEATER_BED_PIN                      PC9   // "HB"
 
 #ifdef SKR_MINI_E3_V2
-  #define FAN_PIN                           PC6
+    #define FAN_PIN                           PC6
 #else
-  #define FAN_PIN                           PA8   // "FAN0"
+    #define FAN_PIN                           PA8   // "FAN0"
 #endif
 
 //
 // USB connect control
 //
 #ifdef SKR_MINI_E3_V2
-  #define USB_CONNECT_PIN                   PA14
+    #define USB_CONNECT_PIN                   PA14
 #else
-  #define USB_CONNECT_PIN                   PC13
+    #define USB_CONNECT_PIN                   PC13
 #endif
 
 #define USB_CONNECT_INVERTING              false
@@ -129,137 +129,137 @@
  *                EXP1                                      EXP1
  */
 #ifdef SKR_MINI_E3_V2
-  #define EXP1_9                            PA15
-  #define EXP1_3                            PB15
+    #define EXP1_9                            PA15
+    #define EXP1_3                            PB15
 #else
-  #define EXP1_9                            PB6
-  #define EXP1_3                            PB7
+    #define EXP1_9                            PB6
+    #define EXP1_3                            PB7
 #endif
 
 #if HAS_WIRED_LCD
-
-  #if ENABLED(CR10_STOCKDISPLAY)
-
-    #define BEEPER_PIN                      PB5
-    #define BTN_ENC                       EXP1_9
-
-    #define BTN_EN1                         PA9
-    #define BTN_EN2                         PA10
-
-    #define LCD_PINS_RS                     PB8
-    #define LCD_PINS_ENABLE               EXP1_3
-    #define LCD_PINS_D4                     PB9
-
-  #elif ENABLED(ZONESTAR_LCD)                     // ANET A8 LCD Controller - Must convert to 3.3V - CONNECTING TO 5V WILL DAMAGE THE BOARD!
-
-    #error "CAUTION! ZONESTAR_LCD requires wiring modifications. See 'pins_BTT_SKR_MINI_E3_common.h' for details. Comment out this line to continue."
-
-    #define LCD_PINS_RS                     PB9
-    #define LCD_PINS_ENABLE               EXP1_9
-    #define LCD_PINS_D4                     PB8
-    #define LCD_PINS_D5                     PA10
-    #define LCD_PINS_D6                     PA9
-    #define LCD_PINS_D7                     PB5
-    #define ADC_KEYPAD_PIN                  PA1   // Repurpose servo pin for ADC - CONNECTING TO 5V WILL DAMAGE THE BOARD!
-
-  #elif EITHER(MKS_MINI_12864, ENDER2_STOCKDISPLAY)
-
-    #define BTN_ENC                       EXP1_9
-    #define BTN_EN1                         PA9
-    #define BTN_EN2                         PA10
-
-    #define DOGLCD_CS                       PB8
-    #define DOGLCD_A0                       PB9
-    #define DOGLCD_SCK                      PB5
-    #define DOGLCD_MOSI                   EXP1_3
-
-    #define FORCE_SOFT_SPI
-    #define LCD_BACKLIGHT_PIN               -1
-
-  #elif IS_TFTGLCD_PANEL
-
-    #if ENABLED(TFTGLCD_PANEL_SPI)
-
-      #error "CAUTION! TFTGLCD_PANEL_SPI requires wiring modifications. See 'pins_BTT_SKR_MINI_E3_common.h' for details. Comment out this line to continue."
-
-      /**
-       * TFTGLCD_PANEL_SPI display pinout
-       *
-       *               Board                                      Display
-       *               _____                                       _____
-       *           5V | 1 2 | GND                (SPI1-MISO) MISO | 1 2 | SCK   (SPI1-SCK)
-       * (FREE)   PB7 | 3 4 | PB8  (LCD_CS)      (PA9)     LCD_CS | 3 4 | SD_CS (PA10)
-       * (FREE)   PB9 | 5 6 | PA10 (SD_CS)                 (FREE) | 5 6 | MOSI  (SPI1-MOSI)
-       *        RESET | 7 8 | PA9  (MOD_RESET)   (PB5)     SD_DET | 7 8 | (FREE)
-       * (BEEPER) PB6 | 9 10| PB5  (SD_DET)                   GND | 9 10| 5V
-       *               -----                                       -----
-       *                EXP1                                        EXP1
-       *
-       * Needs custom cable:
-       *
-       *    Board   Adapter   Display
-       *           _________
-       *   EXP1-1 ----------- EXP1-10
-       *   EXP1-2 ----------- EXP1-9
-       *   SPI1-4 ----------- EXP1-6
-       *   EXP1-4 ----------- FREE
-       *   SPI1-3 ----------- EXP1-2
-       *   EXP1-6 ----------- EXP1-4
-       *   EXP1-7 ----------- FREE
-       *   EXP1-8 ----------- EXP1-3
-       *   SPI1-1 ----------- EXP1-1
-       *  EXP1-10 ----------- EXP1-7
-       */
-
-      #define TFTGLCD_CS                    PA9
-
+  
+    #if ENABLED(CR10_STOCKDISPLAY)
+    
+        #define BEEPER_PIN                      PB5
+        #define BTN_ENC                       EXP1_9
+    
+        #define BTN_EN1                         PA9
+        #define BTN_EN2                         PA10
+    
+        #define LCD_PINS_RS                     PB8
+        #define LCD_PINS_ENABLE               EXP1_3
+        #define LCD_PINS_D4                     PB9
+    
+    #elif ENABLED(ZONESTAR_LCD)                     // ANET A8 LCD Controller - Must convert to 3.3V - CONNECTING TO 5V WILL DAMAGE THE BOARD!
+    
+        #error "CAUTION! ZONESTAR_LCD requires wiring modifications. See 'pins_BTT_SKR_MINI_E3_common.h' for details. Comment out this line to continue."
+    
+        #define LCD_PINS_RS                     PB9
+        #define LCD_PINS_ENABLE               EXP1_9
+        #define LCD_PINS_D4                     PB8
+        #define LCD_PINS_D5                     PA10
+        #define LCD_PINS_D6                     PA9
+        #define LCD_PINS_D7                     PB5
+        #define ADC_KEYPAD_PIN                  PA1   // Repurpose servo pin for ADC - CONNECTING TO 5V WILL DAMAGE THE BOARD!
+    
+    #elif EITHER(MKS_MINI_12864, ENDER2_STOCKDISPLAY)
+    
+        #define BTN_ENC                       EXP1_9
+        #define BTN_EN1                         PA9
+        #define BTN_EN2                         PA10
+    
+        #define DOGLCD_CS                       PB8
+        #define DOGLCD_A0                       PB9
+        #define DOGLCD_SCK                      PB5
+        #define DOGLCD_MOSI                   EXP1_3
+    
+        #define FORCE_SOFT_SPI
+        #define LCD_BACKLIGHT_PIN               -1
+    
+    #elif IS_TFTGLCD_PANEL
+    
+        #if ENABLED(TFTGLCD_PANEL_SPI)
+      
+            #error "CAUTION! TFTGLCD_PANEL_SPI requires wiring modifications. See 'pins_BTT_SKR_MINI_E3_common.h' for details. Comment out this line to continue."
+      
+            /**
+             * TFTGLCD_PANEL_SPI display pinout
+             *
+             *               Board                                      Display
+             *               _____                                       _____
+             *           5V | 1 2 | GND                (SPI1-MISO) MISO | 1 2 | SCK   (SPI1-SCK)
+             * (FREE)   PB7 | 3 4 | PB8  (LCD_CS)      (PA9)     LCD_CS | 3 4 | SD_CS (PA10)
+             * (FREE)   PB9 | 5 6 | PA10 (SD_CS)                 (FREE) | 5 6 | MOSI  (SPI1-MOSI)
+             *        RESET | 7 8 | PA9  (MOD_RESET)   (PB5)     SD_DET | 7 8 | (FREE)
+             * (BEEPER) PB6 | 9 10| PB5  (SD_DET)                   GND | 9 10| 5V
+             *               -----                                       -----
+             *                EXP1                                        EXP1
+             *
+             * Needs custom cable:
+             *
+             *    Board   Adapter   Display
+             *           _________
+             *   EXP1-1 ----------- EXP1-10
+             *   EXP1-2 ----------- EXP1-9
+             *   SPI1-4 ----------- EXP1-6
+             *   EXP1-4 ----------- FREE
+             *   SPI1-3 ----------- EXP1-2
+             *   EXP1-6 ----------- EXP1-4
+             *   EXP1-7 ----------- FREE
+             *   EXP1-8 ----------- EXP1-3
+             *   SPI1-1 ----------- EXP1-1
+             *  EXP1-10 ----------- EXP1-7
+             */
+      
+            #define TFTGLCD_CS                    PA9
+      
+        #endif
+    
+    #else
+        #error "Only CR10_STOCKDISPLAY, ZONESTAR_LCD, ENDER2_STOCKDISPLAY, MKS_MINI_12864, and TFTGLCD_PANEL_(SPI|I2C) are currently supported on the BIGTREE_SKR_MINI_E3."
     #endif
-
-  #else
-    #error "Only CR10_STOCKDISPLAY, ZONESTAR_LCD, ENDER2_STOCKDISPLAY, MKS_MINI_12864, and TFTGLCD_PANEL_(SPI|I2C) are currently supported on the BIGTREE_SKR_MINI_E3."
-  #endif
-
+  
 #endif // HAS_WIRED_LCD
 
 #if BOTH(TOUCH_UI_FTDI_EVE, LCD_FYSETC_TFT81050)
-
-  #error "CAUTION! LCD_FYSETC_TFT81050 requires wiring modifications. See 'pins_BTT_SKR_MINI_E3_common.h' for details. Comment out this line to continue."
-
-  /** FYSETC TFT TFT81050 display pinout
-   *
-   *               Board                                      Display
-   *               _____                                       _____
-   *           5V | 1 2 | GND                (SPI1-MISO) MISO | 1 2 | SCK   (SPI1-SCK)
-   * (FREE)   PB7 | 3 4 | PB8  (LCD_CS)      (PA9)  MOD_RESET | 3 4 | SD_CS (PA10)
-   * (FREE)   PB9 | 5 6 | PA10 (SD_CS)       (PB8)     LCD_CS | 5 6 | MOSI  (SPI1-MOSI)
-   *        RESET | 7 8 | PA9  (MOD_RESET)   (PB5)     SD_DET | 7 8 | RESET
-   * (BEEPER) PB6 | 9 10| PB5  (SD_DET)                   GND | 9 10| 5V
-   *               -----                                       -----
-   *                EXP1                                        EXP1
-   *
-   * Needs custom cable:
-   *
-   *    Board   Adapter   Display
-   *           _________
-   *   EXP1-1 ----------- EXP1-10
-   *   EXP1-2 ----------- EXP1-9
-   *   SPI1-4 ----------- EXP1-6
-   *   EXP1-4 ----------- EXP1-5
-   *   SPI1-3 ----------- EXP1-2
-   *   EXP1-6 ----------- EXP1-4
-   *   EXP1-7 ----------- EXP1-8
-   *   EXP1-8 ----------- EXP1-3
-   *   SPI1-1 ----------- EXP1-1
-   *  EXP1-10 ----------- EXP1-7
-   */
-
-  #define CLCD_SPI_BUS                         1  // SPI1 connector
-
-  #define BEEPER_PIN                      EXP1_9
-
-  #define CLCD_MOD_RESET                    PA9
-  #define CLCD_SPI_CS                       PB8
-
+  
+    #error "CAUTION! LCD_FYSETC_TFT81050 requires wiring modifications. See 'pins_BTT_SKR_MINI_E3_common.h' for details. Comment out this line to continue."
+  
+    /** FYSETC TFT TFT81050 display pinout
+     *
+     *               Board                                      Display
+     *               _____                                       _____
+     *           5V | 1 2 | GND                (SPI1-MISO) MISO | 1 2 | SCK   (SPI1-SCK)
+     * (FREE)   PB7 | 3 4 | PB8  (LCD_CS)      (PA9)  MOD_RESET | 3 4 | SD_CS (PA10)
+     * (FREE)   PB9 | 5 6 | PA10 (SD_CS)       (PB8)     LCD_CS | 5 6 | MOSI  (SPI1-MOSI)
+     *        RESET | 7 8 | PA9  (MOD_RESET)   (PB5)     SD_DET | 7 8 | RESET
+     * (BEEPER) PB6 | 9 10| PB5  (SD_DET)                   GND | 9 10| 5V
+     *               -----                                       -----
+     *                EXP1                                        EXP1
+     *
+     * Needs custom cable:
+     *
+     *    Board   Adapter   Display
+     *           _________
+     *   EXP1-1 ----------- EXP1-10
+     *   EXP1-2 ----------- EXP1-9
+     *   SPI1-4 ----------- EXP1-6
+     *   EXP1-4 ----------- EXP1-5
+     *   SPI1-3 ----------- EXP1-2
+     *   EXP1-6 ----------- EXP1-4
+     *   EXP1-7 ----------- EXP1-8
+     *   EXP1-8 ----------- EXP1-3
+     *   SPI1-1 ----------- EXP1-1
+     *  EXP1-10 ----------- EXP1-7
+     */
+  
+    #define CLCD_SPI_BUS                         1  // SPI1 connector
+  
+    #define BEEPER_PIN                      EXP1_9
+  
+    #define CLCD_MOD_RESET                    PA9
+    #define CLCD_SPI_CS                       PB8
+  
 #endif // TOUCH_UI_FTDI_EVE && LCD_FYSETC_TFT81050
 
 //
@@ -267,16 +267,16 @@
 //
 
 #ifndef SDCARD_CONNECTION
-  #define SDCARD_CONNECTION              ONBOARD
+    #define SDCARD_CONNECTION              ONBOARD
 #endif
 
 #if SD_CONNECTION_IS(ONBOARD)
-  #define SD_DETECT_PIN                     PC4
+    #define SD_DETECT_PIN                     PC4
 #elif SD_CONNECTION_IS(LCD) && (BOTH(TOUCH_UI_FTDI_EVE, LCD_FYSETC_TFT81050) || IS_TFTGLCD_PANEL)
-  #define SD_DETECT_PIN                     PB5
-  #define SD_SS_PIN                         PA10
+    #define SD_DETECT_PIN                     PB5
+    #define SD_SS_PIN                         PA10
 #elif SD_CONNECTION_IS(CUSTOM_CABLE)
-  #error "SD CUSTOM_CABLE is not compatible with SKR Mini E3."
+    #error "SD CUSTOM_CABLE is not compatible with SKR Mini E3."
 #endif
 
 #define ONBOARD_SPI_DEVICE                     1  // SPI1 -> used only by HAL/STM32F1...
@@ -284,9 +284,9 @@
 
 #define CUSTOM_SPI_PINS                           // TODO: needed because is the only way to set SPI for SD on STM32 (for now)
 #if ENABLED(CUSTOM_SPI_PINS)
-  #define ENABLE_SPI1
-  #define SDSS                              ONBOARD_SD_CS_PIN
-  #define SD_SCK_PIN                        PA5
-  #define SD_MISO_PIN                       PA6
-  #define SD_MOSI_PIN                       PA7
+    #define ENABLE_SPI1
+    #define SDSS                              ONBOARD_SD_CS_PIN
+    #define SD_SCK_PIN                        PA5
+    #define SD_MISO_PIN                       PA6
+    #define SD_MOSI_PIN                       PA7
 #endif

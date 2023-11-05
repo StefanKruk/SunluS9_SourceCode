@@ -26,7 +26,7 @@
  */
 
 #if HOTENDS > 2 || E_STEPPERS > 2
-  #error "MKS GEN L supports up to 2 hotends / E-steppers. Comment out this line to continue."
+    #error "MKS GEN L supports up to 2 hotends / E-steppers. Comment out this line to continue."
 #endif
 
 #define BOARD_INFO_NAME "MKS GEN L"
@@ -43,11 +43,11 @@
 //
 
 #ifndef X_CS_PIN
-  #define X_CS_PIN 59
+    #define X_CS_PIN 59
 #endif
 
 #ifndef Y_CS_PIN
-  #define Y_CS_PIN 63
+    #define Y_CS_PIN 63
 #endif
 
 #include "pins_RAMPS.h"

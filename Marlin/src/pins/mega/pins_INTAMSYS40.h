@@ -45,7 +45,7 @@
 #define Z_MAX_PIN                             69
 
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     69
+    #define Z_MIN_PROBE_PIN                     69
 #endif
 
 #define FIL_RUNOUT_PIN                        10
@@ -80,7 +80,7 @@
 
 // Motor current PWM conversion, PWM value = MotorCurrentSetting * 255 / range
 #ifndef MOTOR_CURRENT_PWM_RANGE
-  #define MOTOR_CURRENT_PWM_RANGE            2000
+    #define MOTOR_CURRENT_PWM_RANGE            2000
 #endif
 #define DEFAULT_PWM_MOTOR_CURRENT  { 1300, 1300, 1250 }
 
@@ -107,11 +107,11 @@
 #define SD_DETECT_PIN                         39
 
 #if ENABLED(CASE_LIGHT_ENABLE)
-  #define CASE_LIGHT_PIN                       8
+    #define CASE_LIGHT_PIN                       8
 #endif
 
 #if ENABLED(PSU_CONTROL)
-  #define PS_ON_PIN                           38  // UPS Module
+    #define PS_ON_PIN                           38  // UPS Module
 #endif
 
 //
@@ -121,15 +121,15 @@
 #define BEEPER_PIN                            18
 
 #if HAS_WIRED_LCD
-  #define LCD_PINS_RS                         20
-  #define LCD_PINS_ENABLE                     30
-  #define LCD_PINS_D4                         14
-  #define LCD_PINS_D5                         21
-  #define LCD_PINS_D6                          5
-  #define LCD_PINS_D7                          6
-  #define BTN_EN1                             40
-  #define BTN_EN2                             41
-  #define BTN_ENC                             19
+    #define LCD_PINS_RS                         20
+    #define LCD_PINS_ENABLE                     30
+    #define LCD_PINS_D4                         14
+    #define LCD_PINS_D5                         21
+    #define LCD_PINS_D6                          5
+    #define LCD_PINS_D7                          6
+    #define BTN_EN1                             40
+    #define BTN_EN2                             41
+    #define BTN_ENC                             19
 #endif
 
 ///////////////////// SPARE HEADERS //////////////

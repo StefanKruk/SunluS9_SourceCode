@@ -54,5 +54,5 @@ class MAX3421e {
 #define USE_MARLIN_MAX3421E
 
 #if defined(__SAM3X8E__) && !defined(ARDUINO_SAM_DUE)
-  #define ARDUINO_SAM_DUE // Spoof the USB library that this is a DUE
+    #define ARDUINO_SAM_DUE // Spoof the USB library that this is a DUE
 #endif

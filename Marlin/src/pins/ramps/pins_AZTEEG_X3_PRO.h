@@ -29,7 +29,7 @@
 #include "env_validate.h"
 
 #if HOTENDS > 5 || E_STEPPERS > 5
-  #error "Azteeg X3 Pro supports up to 5 hotends / E-steppers. Comment out this line to continue."
+    #error "Azteeg X3 Pro supports up to 5 hotends / E-steppers. Comment out this line to continue."
 #endif
 
 #define BOARD_INFO_NAME "Azteeg X3 Pro"
@@ -54,11 +54,11 @@
 #define Z_STOP_PIN                            18
 
 #ifndef FAN_PIN
-  #define FAN_PIN                              6
+    #define FAN_PIN                              6
 #endif
 
 #if ENABLED(CASE_LIGHT_ENABLE) && !PIN_EXISTS(CASE_LIGHT)
-  #define CASE_LIGHT_PIN                      44
+    #define CASE_LIGHT_PIN                      44
 #endif
 
 //
@@ -68,17 +68,17 @@
 
 // DIGIPOT slave addresses
 #ifndef DIGIPOT_I2C_ADDRESS_A
-  #define DIGIPOT_I2C_ADDRESS_A             0x2C  // unshifted slave address for first DIGIPOT 0x2C (0x58 <- 0x2C << 1)
+    #define DIGIPOT_I2C_ADDRESS_A             0x2C  // unshifted slave address for first DIGIPOT 0x2C (0x58 <- 0x2C << 1)
 #endif
 #ifndef DIGIPOT_I2C_ADDRESS_B
-  #define DIGIPOT_I2C_ADDRESS_B             0x2E  // unshifted slave address for second DIGIPOT 0x2E (0x5C <- 0x2E << 1)
+    #define DIGIPOT_I2C_ADDRESS_B             0x2E  // unshifted slave address for second DIGIPOT 0x2E (0x5C <- 0x2E << 1)
 #endif
 
 //
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     18
+    #define Z_MIN_PROBE_PIN                     18
 #endif
 
 //
@@ -116,7 +116,7 @@
 #define HEATER_7_PIN                          11
 
 #ifndef CONTROLLER_FAN_PIN
-  #define CONTROLLER_FAN_PIN                   4  // Pin used for the fan to cool motherboard (-1 to disable)
+    #define CONTROLLER_FAN_PIN                   4  // Pin used for the fan to cool motherboard (-1 to disable)
 #endif
 
 //
@@ -124,16 +124,16 @@
 //
 #define AUTO_FAN_PIN                           5
 #ifndef E0_AUTO_FAN_PIN
-  #define E0_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E0_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 #ifndef E1_AUTO_FAN_PIN
-  #define E1_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E1_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 #ifndef E2_AUTO_FAN_PIN
-  #define E2_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E2_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 #ifndef E3_AUTO_FAN_PIN
-  #define E3_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E3_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 
 //
@@ -143,22 +143,22 @@
 #define BEEPER_PIN                            33
 
 #if ANY(VIKI2, miniVIKI)
-  #undef SD_DETECT_PIN
-  #define SD_DETECT_PIN                       49  // For easy adapter board
-  #undef BEEPER_PIN
-  #define BEEPER_PIN                          12  // 33 isn't physically available to the LCD display
+    #undef SD_DETECT_PIN
+    #define SD_DETECT_PIN                       49  // For easy adapter board
+    #undef BEEPER_PIN
+    #define BEEPER_PIN                          12  // 33 isn't physically available to the LCD display
 #else
-  #define STAT_LED_RED_PIN                    32
-  #define STAT_LED_BLUE_PIN                   35
+    #define STAT_LED_RED_PIN                    32
+    #define STAT_LED_BLUE_PIN                   35
 #endif
 
 //
 // Misc. Functions
 //
 #if ENABLED(CASE_LIGHT_ENABLE) && PIN_EXISTS(CASE_LIGHT) && defined(DOGLCD_A0) && DOGLCD_A0 == CASE_LIGHT_PIN
-  #undef DOGLCD_A0                                // Steal pin 44 for the case light; if you have a Viki2 and have connected it
-  #define DOGLCD_A0                           57  // following the Panucatt wiring diagram, you may need to tweak these pin assignments
-                                // as the wiring diagram uses pin 44 for DOGLCD_A0
+    #undef DOGLCD_A0                                // Steal pin 44 for the case light; if you have a Viki2 and have connected it
+    #define DOGLCD_A0                           57  // following the Panucatt wiring diagram, you may need to tweak these pin assignments
+                                  // as the wiring diagram uses pin 44 for DOGLCD_A0
 #endif
 
 //
@@ -169,10 +169,10 @@
 #undef SPINDLE_DIR_PIN
 
 #if HAS_CUTTER                                    // EXP2 header
-  #if ANY(VIKI2, miniVIKI)
-    #define BTN_EN2                           31  // Pin 7 needed for Spindle PWM
-  #endif
-  #define SPINDLE_LASER_PWM_PIN                7  // Hardware PWM
-  #define SPINDLE_LASER_ENA_PIN               20  // Pullup!
-  #define SPINDLE_DIR_PIN                     21
+    #if ANY(VIKI2, miniVIKI)
+        #define BTN_EN2                           31  // Pin 7 needed for Spindle PWM
+    #endif
+    #define SPINDLE_LASER_PWM_PIN                7  // Hardware PWM
+    #define SPINDLE_LASER_ENA_PIN               20  // Pullup!
+    #define SPINDLE_DIR_PIN                     21
 #endif

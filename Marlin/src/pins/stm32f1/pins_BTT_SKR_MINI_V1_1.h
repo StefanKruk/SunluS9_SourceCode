@@ -22,7 +22,7 @@
 #pragma once
 
 #if NOT_TARGET(TARGET_STM32F1)
-  #error "Oops! Select an STM32F1 board in 'Tools > Board.'"
+    #error "Oops! Select an STM32F1 board in 'Tools > Board.'"
 #endif
 
 #define BOARD_INFO_NAME "BTT SKR Mini V1.1"
@@ -34,10 +34,10 @@
 //#define BOGUS_TEMPERATURE_GRACE_PERIOD    2000
 
 #if EITHER(NO_EEPROM_SELECTED, FLASH_EEPROM_EMULATION)
-  #define FLASH_EEPROM_EMULATION
-  #define EEPROM_PAGE_SIZE     (0x800U)           // 2KB
-  #define EEPROM_START_ADDRESS (0x8000000UL + (STM32_FLASH_SIZE) * 1024UL - (EEPROM_PAGE_SIZE) * 2UL)
-  #define MARLIN_EEPROM_SIZE    EEPROM_PAGE_SIZE  // 2KB
+    #define FLASH_EEPROM_EMULATION
+    #define EEPROM_PAGE_SIZE     (0x800U)           // 2KB
+    #define EEPROM_START_ADDRESS (0x8000000UL + (STM32_FLASH_SIZE) * 1024UL - (EEPROM_PAGE_SIZE) * 2UL)
+    #define MARLIN_EEPROM_SIZE    EEPROM_PAGE_SIZE  // 2KB
 #endif
 
 //
@@ -71,15 +71,15 @@
 #define E0_ENABLE_PIN                       PC4
 
 #if ENABLED(TMC_USE_SW_SPI)
-  #ifndef TMC_SW_SCK
-    #define TMC_SW_SCK                      PB3
-  #endif
-  #ifndef TMC_SW_MISO
-    #define TMC_SW_MISO                     PB4
-  #endif
-  #ifndef TMC_SW_MOSI
-    #define TMC_SW_MOSI                     PB5
-  #endif
+    #ifndef TMC_SW_SCK
+        #define TMC_SW_SCK                      PB3
+    #endif
+    #ifndef TMC_SW_MISO
+        #define TMC_SW_MISO                     PB4
+    #endif
+    #ifndef TMC_SW_MOSI
+        #define TMC_SW_MOSI                     PB5
+    #endif
 #endif
 
 //
@@ -111,97 +111,97 @@
  */
 
 #if HAS_WIRED_LCD
-  #define BEEPER_PIN                        PC10
-  #define BTN_ENC                           PC11
-
-  #if ENABLED(CR10_STOCKDISPLAY)
-    #define LCD_PINS_RS                     PC15
-
-    #define BTN_EN1                         PB6
-    #define BTN_EN2                         PC13
-
-    #define LCD_PINS_ENABLE                 PC14
-    #define LCD_PINS_D4                     PB7
-
-  #elif IS_TFTGLCD_PANEL
-
-    #undef BEEPER_PIN
-    #undef BTN_ENC
-
-    #if ENABLED(TFTGLCD_PANEL_SPI)
-      #define TFTGLCD_CS                    PD2
-    #endif
-
-    #define SD_DETECT_PIN                   PB9
-
-  #else
-
-    #define LCD_PINS_RS                     PC12
-
-    #define BTN_EN1                         PD2
-    #define BTN_EN2                         PB8
-
-    #define LCD_PINS_ENABLE                 PB6
-
-    #if ENABLED(FYSETC_MINI_12864)
-
-      #define LCD_BACKLIGHT_PIN             -1
-      #define LCD_RESET_PIN                 PC13
-      #define DOGLCD_A0                     PC12
-      #define DOGLCD_CS                     PB6
-      #define DOGLCD_SCK                    PB3
-      #define DOGLCD_MOSI                   PB5
-
-      #define FORCE_SOFT_SPI                      // SPI MODE3
-
-      #define LED_PIN                       PB7   // red pwm
-      //#define LED_PIN                     PC15  // green
-      //#define LED_PIN                     PC14  // blue
-
-      //#if EITHER(FYSETC_MINI_12864_1_2, FYSETC_MINI_12864_2_0)
-      //  #ifndef RGB_LED_R_PIN
-      //    #define RGB_LED_R_PIN PB7
-      //  #endif
-      //  #ifndef RGB_LED_G_PIN
-      //    #define RGB_LED_G_PIN PC15
-      //  #endif
-      //  #ifndef RGB_LED_B_PIN
-      //    #define RGB_LED_B_PIN PC14
-      //  #endif
-      //#elif ENABLED(FYSETC_MINI_12864_2_1)
-      //  #define NEOPIXEL_PIN    PB7
-      //#endif
-
-    #else                                         // !FYSETC_MINI_12864
-
-      #define LCD_PINS_D4                   PC13
-      #if IS_ULTIPANEL
-        #define LCD_PINS_D5                 PB7
-        #define LCD_PINS_D6                 PC15
-        #define LCD_PINS_D7                 PC14
-
-        #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
-          #define BTN_ENC_EN         LCD_PINS_D7  // Detect the presence of the encoder
+    #define BEEPER_PIN                        PC10
+    #define BTN_ENC                           PC11
+  
+    #if ENABLED(CR10_STOCKDISPLAY)
+        #define LCD_PINS_RS                     PC15
+    
+        #define BTN_EN1                         PB6
+        #define BTN_EN2                         PC13
+    
+        #define LCD_PINS_ENABLE                 PC14
+        #define LCD_PINS_D4                     PB7
+    
+    #elif IS_TFTGLCD_PANEL
+    
+        #undef BEEPER_PIN
+        #undef BTN_ENC
+    
+        #if ENABLED(TFTGLCD_PANEL_SPI)
+            #define TFTGLCD_CS                    PD2
         #endif
-
-      #endif
-
-    #endif // !FYSETC_MINI_12864
-
-    #if HAS_MARLINUI_U8GLIB
-      #ifndef BOARD_ST7920_DELAY_1
-        #define BOARD_ST7920_DELAY_1 DELAY_NS(125)
-      #endif
-      #ifndef BOARD_ST7920_DELAY_2
-        #define BOARD_ST7920_DELAY_2 DELAY_NS(125)
-      #endif
-      #ifndef BOARD_ST7920_DELAY_3
-        #define BOARD_ST7920_DELAY_3 DELAY_NS(125)
-      #endif
+    
+        #define SD_DETECT_PIN                   PB9
+    
+    #else
+    
+        #define LCD_PINS_RS                     PC12
+    
+        #define BTN_EN1                         PD2
+        #define BTN_EN2                         PB8
+    
+        #define LCD_PINS_ENABLE                 PB6
+    
+        #if ENABLED(FYSETC_MINI_12864)
+      
+            #define LCD_BACKLIGHT_PIN             -1
+            #define LCD_RESET_PIN                 PC13
+            #define DOGLCD_A0                     PC12
+            #define DOGLCD_CS                     PB6
+            #define DOGLCD_SCK                    PB3
+            #define DOGLCD_MOSI                   PB5
+      
+            #define FORCE_SOFT_SPI                      // SPI MODE3
+      
+            #define LED_PIN                       PB7   // red pwm
+            //#define LED_PIN                     PC15  // green
+            //#define LED_PIN                     PC14  // blue
+      
+            //#if EITHER(FYSETC_MINI_12864_1_2, FYSETC_MINI_12864_2_0)
+            //  #ifndef RGB_LED_R_PIN
+            //    #define RGB_LED_R_PIN PB7
+            //  #endif
+            //  #ifndef RGB_LED_G_PIN
+            //    #define RGB_LED_G_PIN PC15
+            //  #endif
+            //  #ifndef RGB_LED_B_PIN
+            //    #define RGB_LED_B_PIN PC14
+            //  #endif
+            //#elif ENABLED(FYSETC_MINI_12864_2_1)
+            //  #define NEOPIXEL_PIN    PB7
+            //#endif
+      
+        #else                                         // !FYSETC_MINI_12864
+      
+            #define LCD_PINS_D4                   PC13
+            #if IS_ULTIPANEL
+                #define LCD_PINS_D5                 PB7
+                #define LCD_PINS_D6                 PC15
+                #define LCD_PINS_D7                 PC14
+        
+                #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
+                    #define BTN_ENC_EN         LCD_PINS_D7  // Detect the presence of the encoder
+                #endif
+        
+            #endif
+      
+        #endif // !FYSETC_MINI_12864
+    
+        #if HAS_MARLINUI_U8GLIB
+            #ifndef BOARD_ST7920_DELAY_1
+                #define BOARD_ST7920_DELAY_1 DELAY_NS(125)
+            #endif
+            #ifndef BOARD_ST7920_DELAY_2
+                #define BOARD_ST7920_DELAY_2 DELAY_NS(125)
+            #endif
+            #ifndef BOARD_ST7920_DELAY_3
+                #define BOARD_ST7920_DELAY_3 DELAY_NS(125)
+            #endif
+        #endif
+    
     #endif
-
-  #endif
-
+  
 #endif // HAS_WIRED_LCD
 
 //
@@ -211,22 +211,22 @@
 // By default the onboard SD is enabled.
 // Change SDCARD_CONNECTION from 'ONBOARD' to 'LCD' for an external (LCD module) SD
 #ifndef SDCARD_CONNECTION
-  #define SDCARD_CONNECTION              ONBOARD
+    #define SDCARD_CONNECTION              ONBOARD
 #endif
 
 #if SD_CONNECTION_IS(LCD)
-  #define SPI_DEVICE                           3
-  #define SD_DETECT_PIN                     PB9
-  #define SD_SCK_PIN                        PB3
-  #define SD_MISO_PIN                       PB4
-  #define SD_MOSI_PIN                       PB5
-  #define SD_SS_PIN                         PA15
+    #define SPI_DEVICE                           3
+    #define SD_DETECT_PIN                     PB9
+    #define SD_SCK_PIN                        PB3
+    #define SD_MISO_PIN                       PB4
+    #define SD_MOSI_PIN                       PB5
+    #define SD_SS_PIN                         PA15
 #elif SD_CONNECTION_IS(ONBOARD)
-  #define SD_DETECT_PIN                     PA3
-  #define SD_SCK_PIN                        PA5
-  #define SD_MISO_PIN                       PA6
-  #define SD_MOSI_PIN                       PA7
-  #define SD_SS_PIN                         PA4
+    #define SD_DETECT_PIN                     PA3
+    #define SD_SCK_PIN                        PA5
+    #define SD_MISO_PIN                       PA6
+    #define SD_MOSI_PIN                       PA7
+    #define SD_SS_PIN                         PA4
 #endif
 #define ONBOARD_SPI_DEVICE                     1  // SPI1
 #define ONBOARD_SD_CS_PIN                   PA4   // Chip select for "System" SD card

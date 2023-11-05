@@ -145,11 +145,11 @@ DEFINE_MENU_EDIT_ITEM_TYPE(long5       ,uint32_t ,ftostr5rj       ,   0.01f );  
 DEFINE_MENU_EDIT_ITEM_TYPE(long5_25    ,uint32_t ,ftostr5rj       ,   0.04f );   // 12345      right-justified (25 increment)
 
 #if HAS_BED_PROBE
-  #if Z_PROBE_OFFSET_RANGE_MIN >= -9 && Z_PROBE_OFFSET_RANGE_MAX <= 9
-    #define LCD_Z_OFFSET_TYPE float43    // Values from -9.000 to +9.000
-  #else
-    #define LCD_Z_OFFSET_TYPE float42_52 // Values from -99.99 to 99.99
-  #endif
+    #if Z_PROBE_OFFSET_RANGE_MIN >= -9 && Z_PROBE_OFFSET_RANGE_MAX <= 9
+        #define LCD_Z_OFFSET_TYPE float43    // Values from -9.000 to +9.000
+    #else
+        #define LCD_Z_OFFSET_TYPE float42_52 // Values from -99.99 to 99.99
+    #endif
 #endif
 
 class MenuItem_bool : public MenuEditItemBase {
@@ -249,9 +249,9 @@ class MenuItem_bool : public MenuEditItemBase {
  */
 
 #if ENABLED(ENCODER_RATE_MULTIPLIER)
-  #define _MENU_ITEM_MULTIPLIER_CHECK(USE_MULTIPLIER) do{ if (USE_MULTIPLIER) ui.enable_encoder_multiplier(true); }while(0)
+    #define _MENU_ITEM_MULTIPLIER_CHECK(USE_MULTIPLIER) do{ if (USE_MULTIPLIER) ui.enable_encoder_multiplier(true); }while(0)
 #else
-  #define _MENU_ITEM_MULTIPLIER_CHECK(USE_MULTIPLIER)
+    #define _MENU_ITEM_MULTIPLIER_CHECK(USE_MULTIPLIER)
 #endif
 
 #define _MENU_INNER_P(TYPE, USE_MULTIPLIER, PLABEL, V...) do { \
@@ -453,43 +453,43 @@ class MenuItem_bool : public MenuEditItemBase {
 #define YESNO_ITEM_N(N,LABEL, V...)             YESNO_ITEM_N_P(N, GET_TEXT(LABEL), ##V)
 
 #if ENABLED(LEVEL_BED_CORNERS)
-  void _lcd_level_bed_corners();
+    void _lcd_level_bed_corners();
 #endif
 
 #if HAS_FAN
-
-  #include "../../module/temperature.h"
-
-  inline void on_fan_update() {
-    thermalManager.set_fan_speed(MenuItemBase::itemIndex, editable.uint8);
-  }
-
-  #if ENABLED(EXTRA_FAN_SPEED)
-    #define EDIT_EXTRA_FAN_SPEED(V...) EDIT_ITEM_FAST_N(V)
-  #else
-    #define EDIT_EXTRA_FAN_SPEED(...)
-  #endif
-
-  #define _FAN_EDIT_ITEMS(F,L) do{ \
-    editable.uint8 = thermalManager.fan_speed[F]; \
-    EDIT_ITEM_FAST_N(percent, F, MSG_##L, &editable.uint8, 0, 255, on_fan_update); \
-    EDIT_EXTRA_FAN_SPEED(percent, F, MSG_EXTRA_##L, &thermalManager.extra_fan_speed[F].speed, 3, 255); \
-  }while(0)
-
-  #if FAN_COUNT > 1
-    #define FAN_EDIT_ITEMS(F) _FAN_EDIT_ITEMS(F,FAN_SPEED_N)
-  #endif
-
-  #define SNFAN(N) (ENABLED(SINGLENOZZLE_STANDBY_FAN) && !HAS_FAN##N && EXTRUDERS > N)
-
-  #if SNFAN(1) || SNFAN(2) || SNFAN(3) || SNFAN(4) || SNFAN(5) || SNFAN(6) || SNFAN(7)
-    #define DEFINE_SINGLENOZZLE_ITEM() \
-      auto singlenozzle_item = [&](const uint8_t f) { \
-        editable.uint8 = thermalManager.singlenozzle_fan_speed[f]; \
-        EDIT_ITEM_FAST_N(percent, f, MSG_STORED_FAN_N, &editable.uint8, 0, 255, on_fan_update); \
-      }
-  #else
-    #define DEFINE_SINGLENOZZLE_ITEM() NOOP
-  #endif
-
+  
+    #include "../../module/temperature.h"
+  
+    inline void on_fan_update() {
+      thermalManager.set_fan_speed(MenuItemBase::itemIndex, editable.uint8);
+    }
+  
+    #if ENABLED(EXTRA_FAN_SPEED)
+        #define EDIT_EXTRA_FAN_SPEED(V...) EDIT_ITEM_FAST_N(V)
+    #else
+        #define EDIT_EXTRA_FAN_SPEED(...)
+    #endif
+  
+    #define _FAN_EDIT_ITEMS(F,L) do{ \
+      editable.uint8 = thermalManager.fan_speed[F]; \
+      EDIT_ITEM_FAST_N(percent, F, MSG_##L, &editable.uint8, 0, 255, on_fan_update); \
+      EDIT_EXTRA_FAN_SPEED(percent, F, MSG_EXTRA_##L, &thermalManager.extra_fan_speed[F].speed, 3, 255); \
+    }while(0)
+  
+    #if FAN_COUNT > 1
+        #define FAN_EDIT_ITEMS(F) _FAN_EDIT_ITEMS(F,FAN_SPEED_N)
+    #endif
+  
+    #define SNFAN(N) (ENABLED(SINGLENOZZLE_STANDBY_FAN) && !HAS_FAN##N && EXTRUDERS > N)
+  
+    #if SNFAN(1) || SNFAN(2) || SNFAN(3) || SNFAN(4) || SNFAN(5) || SNFAN(6) || SNFAN(7)
+        #define DEFINE_SINGLENOZZLE_ITEM() \
+          auto singlenozzle_item = [&](const uint8_t f) { \
+            editable.uint8 = thermalManager.singlenozzle_fan_speed[f]; \
+            EDIT_ITEM_FAST_N(percent, f, MSG_STORED_FAN_N, &editable.uint8, 0, 255, on_fan_update); \
+          }
+    #else
+        #define DEFINE_SINGLENOZZLE_ITEM() NOOP
+    #endif
+  
 #endif // HAS_FAN

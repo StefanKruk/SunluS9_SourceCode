@@ -35,13 +35,13 @@
 #include "../inc/MarlinConfigPre.h"
 
 #if ENABLED(USB_FLASH_DRIVE_SUPPORT)
-  #include "usb_flashdrive/Sd2Card_FlashDrive.h"
+    #include "usb_flashdrive/Sd2Card_FlashDrive.h"
 #endif
 
 #if NEED_SD2CARD_SDIO
-  #include "Sd2Card_sdio.h"
+    #include "Sd2Card_sdio.h"
 #elif NEED_SD2CARD_SPI
-  #include "Sd2Card.h"
+    #include "Sd2Card.h"
 #endif
 
 #include "SdFatConfig.h"
@@ -139,17 +139,17 @@ class SdVolume {
   static bool const CACHE_FOR_WRITE = true;
 
   #if USE_MULTIPLE_CARDS
-    cache_t cacheBuffer_;        // 512 byte cache for device blocks
-    uint32_t cacheBlockNumber_;  // Logical number of block in the cache
-    DiskIODriver *sdCard_;       // DiskIODriver object for cache
-    bool cacheDirty_;            // cacheFlush() will write block if true
-    uint32_t cacheMirrorBlock_;  // block number for mirror FAT
+      cache_t cacheBuffer_;        // 512 byte cache for device blocks
+      uint32_t cacheBlockNumber_;  // Logical number of block in the cache
+      DiskIODriver *sdCard_;       // DiskIODriver object for cache
+      bool cacheDirty_;            // cacheFlush() will write block if true
+      uint32_t cacheMirrorBlock_;  // block number for mirror FAT
   #else
-    static cache_t cacheBuffer_;        // 512 byte cache for device blocks
-    static uint32_t cacheBlockNumber_;  // Logical number of block in the cache
-    static DiskIODriver *sdCard_;       // DiskIODriver object for cache
-    static bool cacheDirty_;            // cacheFlush() will write block if true
-    static uint32_t cacheMirrorBlock_;  // block number for mirror FAT
+      static cache_t cacheBuffer_;        // 512 byte cache for device blocks
+      static uint32_t cacheBlockNumber_;  // Logical number of block in the cache
+      static DiskIODriver *sdCard_;       // DiskIODriver object for cache
+      static bool cacheDirty_;            // cacheFlush() will write block if true
+      static uint32_t cacheMirrorBlock_;  // block number for mirror FAT
   #endif
 
   uint32_t allocSearchStart_;   // start cluster for alloc search
@@ -173,11 +173,11 @@ class SdVolume {
   uint32_t cacheBlockNumber() const { return cacheBlockNumber_; }
 
   #if USE_MULTIPLE_CARDS
-    bool cacheFlush();
-    bool cacheRawBlock(uint32_t blockNumber, bool dirty);
+      bool cacheFlush();
+      bool cacheRawBlock(uint32_t blockNumber, bool dirty);
   #else
-    static bool cacheFlush();
-    static bool cacheRawBlock(uint32_t blockNumber, bool dirty);
+      static bool cacheFlush();
+      static bool cacheRawBlock(uint32_t blockNumber, bool dirty);
   #endif
 
   // used by SdBaseFile write to assign cache to SD location

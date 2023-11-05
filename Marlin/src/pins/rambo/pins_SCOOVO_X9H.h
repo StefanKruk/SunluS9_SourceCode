@@ -51,7 +51,7 @@
 // Z Probe (when not Z_MIN_IN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     30
+    #define Z_MIN_PROBE_PIN                     30
 #endif
 
 //
@@ -106,7 +106,7 @@
 #define HEATER_BED_PIN                         3
 
 #ifndef FAN_PIN
-  #define FAN_PIN                              8
+    #define FAN_PIN                              8
 #endif
 #define FAN1_PIN                               6
 #define FAN2_PIN                               2
@@ -119,7 +119,7 @@
 #define PS_ON_PIN                              4
 
 #ifndef FILWIDTH_PIN
-  #define FILWIDTH_PIN                         3  // Analog Input
+    #define FILWIDTH_PIN                         3  // Analog Input
 #endif
 
 //
@@ -144,14 +144,14 @@
 #define HOME_PIN                        BTN_HOME
 
 #if ANY(VIKI2, miniVIKI)
-  #define BEEPER_PIN                          44
-  // Pins for DOGM SPI LCD Support
-  #define DOGLCD_A0                           70
-  #define DOGLCD_CS                           71
-  #define LCD_SCREEN_ROT_180
-
-  #define SD_DETECT_PIN                       -1  // Pin 72 if using easy adapter board
-
-  #define STAT_LED_RED_PIN                    22
-  #define STAT_LED_BLUE_PIN                   32
+    #define BEEPER_PIN                          44
+    // Pins for DOGM SPI LCD Support
+    #define DOGLCD_A0                           70
+    #define DOGLCD_CS                           71
+    #define LCD_SCREEN_ROT_180
+  
+    #define SD_DETECT_PIN                       -1  // Pin 72 if using easy adapter board
+  
+    #define STAT_LED_RED_PIN                    22
+    #define STAT_LED_BLUE_PIN                   32
 #endif // VIKI2/miniVIKI

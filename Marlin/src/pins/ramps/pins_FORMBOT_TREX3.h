@@ -29,7 +29,7 @@
 #include "env_validate.h"
 
 #if HOTENDS > 2 || E_STEPPERS > 2
-  #error "Formbot supports up to 2 hotends / E-steppers. Comment out this line to continue."
+    #error "Formbot supports up to 2 hotends / E-steppers. Comment out this line to continue."
 #endif
 
 #define BOARD_INFO_NAME      "Formbot"
@@ -48,7 +48,7 @@
 //
 #define X_MIN_PIN                              3
 #ifndef X_MAX_PIN
-  #define X_MAX_PIN                            2
+    #define X_MAX_PIN                            2
 #endif
 #define Y_MIN_PIN                             14
 #define Y_MAX_PIN                             15
@@ -59,7 +59,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     32
+    #define Z_MIN_PROBE_PIN                     32
 #endif
 
 //
@@ -69,35 +69,35 @@
 #define X_DIR_PIN                             55
 #define X_ENABLE_PIN                          38
 #ifndef X_CS_PIN
-  #define X_CS_PIN                            53
+    #define X_CS_PIN                            53
 #endif
 
 #define Y_STEP_PIN                            60
 #define Y_DIR_PIN                             61
 #define Y_ENABLE_PIN                          56
 #ifndef Y_CS_PIN
-  #define Y_CS_PIN                            49
+    #define Y_CS_PIN                            49
 #endif
 
 #define Z_STEP_PIN                            46
 #define Z_DIR_PIN                             48
 #define Z_ENABLE_PIN                          62
 #ifndef Z_CS_PIN
-  #define Z_CS_PIN                            40
+    #define Z_CS_PIN                            40
 #endif
 
 #define E0_STEP_PIN                           26
 #define E0_DIR_PIN                            28
 #define E0_ENABLE_PIN                         24
 #ifndef E0_CS_PIN
-  #define E0_CS_PIN                           42
+    #define E0_CS_PIN                           42
 #endif
 
 #define E1_STEP_PIN                           36
 #define E1_DIR_PIN                            34
 #define E1_ENABLE_PIN                         30
 #ifndef E1_CS_PIN
-  #define E1_CS_PIN                           44
+    #define E1_CS_PIN                           44
 #endif
 
 #define E2_STEP_PIN                           42
@@ -113,9 +113,9 @@
 
 // SPI for Max6675 or Max31855 Thermocouple
 #if DISABLED(SDSUPPORT)
-  #define MAX6675_SS_PIN                      66  // Don't use 53 if using Display/SD card
+    #define MAX6675_SS_PIN                      66  // Don't use 53 if using Display/SD card
 #else
-  #define MAX6675_SS_PIN                      66  // Don't use 49 (SD_DETECT_PIN)
+    #define MAX6675_SS_PIN                      66  // Don't use 49 (SD_DETECT_PIN)
 #endif
 
 //
@@ -138,11 +138,11 @@
 #define SDSS                                  53
 
 #ifndef LED_PIN
-  #define LED_PIN                             13
+    #define LED_PIN                             13
 #endif
 
 #ifndef CASE_LIGHT_PIN
-  #define CASE_LIGHT_PIN                       5
+    #define CASE_LIGHT_PIN                       5
 #endif
 
 #define SPINDLE_LASER_PWM_PIN                 -1  // Hardware PWM
@@ -157,20 +157,20 @@
 // Formbot only supports REPRAP_DISCOUNT_SMART_CONTROLLER
 //
 #if IS_RRD_SC
-  #define LCD_PINS_RS                         16
-  #define LCD_PINS_ENABLE                     17
-  #define LCD_PINS_D4                         23
-  #define LCD_PINS_D5                         25
-  #define LCD_PINS_D6                         27
-  #define LCD_PINS_D7                         29
-  #define BTN_EN1                             31
-  #define BTN_EN2                             33
-  #define BTN_ENC                             35
-  #define SD_DETECT_PIN                       49
-  #ifndef KILL_PIN
-    #define KILL_PIN                          41
-  #endif
-  #ifndef BEEPER_PIN
-    #define BEEPER_PIN                        37
-  #endif
+    #define LCD_PINS_RS                         16
+    #define LCD_PINS_ENABLE                     17
+    #define LCD_PINS_D4                         23
+    #define LCD_PINS_D5                         25
+    #define LCD_PINS_D6                         27
+    #define LCD_PINS_D7                         29
+    #define BTN_EN1                             31
+    #define BTN_EN2                             33
+    #define BTN_ENC                             35
+    #define SD_DETECT_PIN                       49
+    #ifndef KILL_PIN
+        #define KILL_PIN                          41
+    #endif
+    #ifndef BEEPER_PIN
+        #define BEEPER_PIN                        37
+    #endif
 #endif

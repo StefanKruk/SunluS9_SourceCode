@@ -38,9 +38,9 @@
  */
 
 #if NOT_TARGET(__SAM3X8E__)
-  #error "Oops! Select 'Archim' in 'Tools > Board.'"
+    #error "Oops! Select 'Archim' in 'Tools > Board.'"
 #elif DISABLED(TMC_USE_SW_SPI)
-  #error "Archim2 requires Software SPI. Enable TMC_USE_SW_SPI in Configuration_adv.h."
+    #error "Archim2 requires Software SPI. Enable TMC_USE_SW_SPI in Configuration_adv.h."
 #endif
 
 #define BOARD_INFO_NAME "Archim 2.0"
@@ -60,40 +60,40 @@
 //
 
 #if ENABLED(SENSORLESS_HOMING)
-
-  // Only use Diag Pins when SENSORLESS_HOMING is enabled for the TMC2130 drivers.
-  // Otherwise use a physical endstop based configuration.
-
-  // TMC2130 Diag Pins
-  #define X_DIAG_PIN                          59  // PA4
-  #define Y_DIAG_PIN                          48  // PC15
-  #define Z_DIAG_PIN                          36  // PC4
-  #define E0_DIAG_PIN                         78  // PB23
-  #define E1_DIAG_PIN                         25  // PD0
-
-  #if X_HOME_TO_MIN
-    #define X_MIN_PIN                 X_DIAG_PIN
-    #define X_MAX_PIN                         32
-  #else
-    #define X_MIN_PIN                         14
-    #define X_MAX_PIN                 X_DIAG_PIN
-  #endif
-
-  #if Y_HOME_TO_MIN
-    #define Y_MIN_PIN                 Y_DIAG_PIN
-    #define Y_MAX_PIN                         15
-  #else
-    #define Y_MIN_PIN                         29
-    #define Y_MAX_PIN                 Y_DIAG_PIN
-  #endif
-
+  
+    // Only use Diag Pins when SENSORLESS_HOMING is enabled for the TMC2130 drivers.
+    // Otherwise use a physical endstop based configuration.
+  
+    // TMC2130 Diag Pins
+    #define X_DIAG_PIN                          59  // PA4
+    #define Y_DIAG_PIN                          48  // PC15
+    #define Z_DIAG_PIN                          36  // PC4
+    #define E0_DIAG_PIN                         78  // PB23
+    #define E1_DIAG_PIN                         25  // PD0
+  
+    #if X_HOME_TO_MIN
+        #define X_MIN_PIN                 X_DIAG_PIN
+        #define X_MAX_PIN                         32
+    #else
+        #define X_MIN_PIN                         14
+        #define X_MAX_PIN                 X_DIAG_PIN
+    #endif
+  
+    #if Y_HOME_TO_MIN
+        #define Y_MIN_PIN                 Y_DIAG_PIN
+        #define Y_MAX_PIN                         15
+    #else
+        #define Y_MIN_PIN                         29
+        #define Y_MAX_PIN                 Y_DIAG_PIN
+    #endif
+  
 #else
-
-  #define X_MIN_PIN                           14  // PD4 MIN ES1
-  #define X_MAX_PIN                           32  // PD10 MAX ES1
-  #define Y_MIN_PIN                           29  // PD6 MIN ES2
-  #define Y_MAX_PIN                           15  // PD5 MAX ES2
-
+  
+    #define X_MIN_PIN                           14  // PD4 MIN ES1
+    #define X_MAX_PIN                           32  // PD10 MAX ES1
+    #define Y_MIN_PIN                           29  // PD6 MIN ES2
+    #define Y_MAX_PIN                           15  // PD5 MAX ES2
+  
 #endif
 
 #define Z_MIN_PIN                             31  // PA7 MIN ES3
@@ -103,7 +103,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     32
+    #define Z_MIN_PROBE_PIN                     32
 #endif
 
 //
@@ -113,35 +113,35 @@
 #define X_DIR_PIN                             37  // PC5 X-DIR *
 #define X_ENABLE_PIN                          41  // PC9 EN1
 #ifndef X_CS_PIN
-  #define X_CS_PIN                            39  // PC7 X_nCS
+    #define X_CS_PIN                            39  // PC7 X_nCS
 #endif
 
 #define Y_STEP_PIN                            51  // PC12 Y-STEP *
 #define Y_DIR_PIN                             92  // PC11 Y-DIR -AddOns *
 #define Y_ENABLE_PIN                          49  // PC14 Y-EN *
 #ifndef Y_CS_PIN
-  #define Y_CS_PIN                            50  // PC13 Y_nCS
+    #define Y_CS_PIN                            50  // PC13 Y_nCS
 #endif
 
 #define Z_STEP_PIN                            46  // PC17 Z-STEP *
 #define Z_DIR_PIN                             47  // PC16 Z-DIR *
 #define Z_ENABLE_PIN                          44  // PC19 Z-END *
 #ifndef Z_CS_PIN
-  #define Z_CS_PIN                            45  // PC18 Z_nCS
+    #define Z_CS_PIN                            45  // PC18 Z_nCS
 #endif
 
 #define E0_STEP_PIN                          107  // PB10 E1-STEP -AddOns *
 #define E0_DIR_PIN                            96  // PC10 E1-DIR -AddOns *
 #define E0_ENABLE_PIN                        105  // PB22 E1-EN -AddOns *
 #ifndef E0_CS_PIN
-  #define E0_CS_PIN                          104  // PC20 E1_nCS -AddOns *
+    #define E0_CS_PIN                          104  // PC20 E1_nCS -AddOns *
 #endif
 
 #define E1_STEP_PIN                           22  // PB26 E2_STEP *
 #define E1_DIR_PIN                            97  // PB24 E2_DIR -AddOns *
 #define E1_ENABLE_PIN                         18  // PA11 E2-EN
 #ifndef E1_CS_PIN
-  #define E1_CS_PIN                           19  // PA10 E2_nCS
+    #define E1_CS_PIN                           19  // PA10 E2_nCS
 #endif
 
 //
@@ -149,15 +149,15 @@
 // Required for the Archim2 board.
 //
 #if ENABLED(TMC_USE_SW_SPI)
-  #ifndef TMC_SW_MOSI
-    #define TMC_SW_MOSI                       28  // PD3
-  #endif
-  #ifndef TMC_SW_MISO
-    #define TMC_SW_MISO                       26  // PD1
-  #endif
-  #ifndef TMC_SW_SCK
-    #define TMC_SW_SCK                        27  // PD2
-  #endif
+    #ifndef TMC_SW_MOSI
+        #define TMC_SW_MOSI                       28  // PD3
+    #endif
+    #ifndef TMC_SW_MISO
+        #define TMC_SW_MISO                       26  // PD1
+    #endif
+    #ifndef TMC_SW_SCK
+        #define TMC_SW_SCK                        27  // PD2
+    #endif
 #endif
 
 //
@@ -177,7 +177,7 @@
 #define HEATER_BED_PIN                         9  // D9 PC21 BED_PWM
 
 #ifndef FAN_PIN
-  #define FAN_PIN                              4  // D4 PC26 FET_PWM1
+    #define FAN_PIN                              4  // D4 PC26 FET_PWM1
 #endif
 #define FAN1_PIN                               5  // D5 PC25 FET_PWM2
 
@@ -217,7 +217,7 @@
 // Case Light
 
 #ifndef CASE_LIGHT_PIN
-  #define CASE_LIGHT_PIN          GPIO_PB1_J20_5
+    #define CASE_LIGHT_PIN          GPIO_PB1_J20_5
 #endif
 
 // 2MB SPI Flash
@@ -228,30 +228,30 @@
 //
 
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN        GPIO_PB15_J20_15
+    #define FIL_RUNOUT_PIN        GPIO_PB15_J20_15
 #endif
 #ifndef FIL_RUNOUT2_PIN
-  #define FIL_RUNOUT2_PIN       GPIO_PB16_J20_16
+    #define FIL_RUNOUT2_PIN       GPIO_PB16_J20_16
 #endif
 
 //
 // LCD / Controller
 //
 #if ANY(HAS_WIRED_LCD, TOUCH_UI_ULTIPANEL, TOUCH_UI_FTDI_EVE)
-  #define BEEPER_PIN                          23  // D24 PA15_CTS1
-  #define LCD_PINS_RS                         17  // D17 PA12_RXD1
-  #define LCD_PINS_ENABLE                     24  // D23 PA14_RTS1
-  #define LCD_PINS_D4                         69  // D69 PA0_CANTX0
-  #define LCD_PINS_D5                         54  // D54 PA16_SCK1
-  #define LCD_PINS_D6                         68  // D68 PA1_CANRX0
-  #define LCD_PINS_D7                         34  // D34 PC2_PWML0
-
-  #define SD_DETECT_PIN                        2  // D2  PB25_TIOA0
+    #define BEEPER_PIN                          23  // D24 PA15_CTS1
+    #define LCD_PINS_RS                         17  // D17 PA12_RXD1
+    #define LCD_PINS_ENABLE                     24  // D23 PA14_RTS1
+    #define LCD_PINS_D4                         69  // D69 PA0_CANTX0
+    #define LCD_PINS_D5                         54  // D54 PA16_SCK1
+    #define LCD_PINS_D6                         68  // D68 PA1_CANRX0
+    #define LCD_PINS_D7                         34  // D34 PC2_PWML0
+  
+    #define SD_DETECT_PIN                        2  // D2  PB25_TIOA0
 #endif
 
 #if ANY(IS_ULTIPANEL, TOUCH_UI_ULTIPANEL, TOUCH_UI_FTDI_EVE)
-  // Buttons on AUX-2
-  #define BTN_EN1                             60  // D60 PA3_TIOB1
-  #define BTN_EN2                             13  // D13 PB27_TIOB0
-  #define BTN_ENC                             16  // D16 PA13_TXD1 // the click
+    // Buttons on AUX-2
+    #define BTN_EN1                             60  // D60 PA3_TIOB1
+    #define BTN_EN2                             13  // D13 PB27_TIOB0
+    #define BTN_ENC                             16  // D16 PA13_TXD1 // the click
 #endif

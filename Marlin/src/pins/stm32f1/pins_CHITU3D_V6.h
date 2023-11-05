@@ -39,16 +39,16 @@
 //
 
 #if NO_EEPROM_SELECTED
-  #define FLASH_EEPROM_EMULATION
+    #define FLASH_EEPROM_EMULATION
 #endif
 
 #if ENABLED(FLASH_EEPROM_EMULATION)
-  // SoC Flash (framework-arduinoststm32-maple/STM32F1/libraries/EEPROM/EEPROM.h)
-  #define EEPROM_START_ADDRESS (0x8000000UL + (512 * 1024) - 2 * EEPROM_PAGE_SIZE)
-  #define EEPROM_PAGE_SIZE     (0x800U)           // 2KB, but will use 2x more (4KB)
-  #define MARLIN_EEPROM_SIZE    EEPROM_PAGE_SIZE
+    // SoC Flash (framework-arduinoststm32-maple/STM32F1/libraries/EEPROM/EEPROM.h)
+    #define EEPROM_START_ADDRESS (0x8000000UL + (512 * 1024) - 2 * EEPROM_PAGE_SIZE)
+    #define EEPROM_PAGE_SIZE     (0x800U)           // 2KB, but will use 2x more (4KB)
+    #define MARLIN_EEPROM_SIZE    EEPROM_PAGE_SIZE
 #else
-  #define MARLIN_EEPROM_SIZE              0x800U  // On SD, Limit to 2KB, require this amount of RAM
+    #define MARLIN_EEPROM_SIZE              0x800U  // On SD, Limit to 2KB, require this amount of RAM
 #endif
 
 //
@@ -113,16 +113,16 @@
 //#define POWER_LOSS_PIN                    PG2   // PG4 PW_DET
 
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN                    PA15  // MT_DET
+    #define FIL_RUNOUT_PIN                    PA15  // MT_DET
 #endif
 #ifndef FIL_RUNOUT2_PIN
-  #define FIL_RUNOUT2_PIN                   PF13
+    #define FIL_RUNOUT2_PIN                   PF13
 #endif
 
 // SPI Flash
 #define HAS_SPI_FLASH                          1
 #if HAS_SPI_FLASH
-  #define SPI_FLASH_SIZE                0x200000  // 2MB
+    #define SPI_FLASH_SIZE                0x200000  // 2MB
 #endif
 
 // SPI 2
@@ -136,53 +136,53 @@
 //
 
 #if HAS_FSMC_TFT
-
-  // Shared FSMC
-
-  #define TOUCH_CS_PIN                      PB7   // SPI1_NSS
-  #define TOUCH_SCK_PIN                     PA5   // SPI1_SCK
-  #define TOUCH_MISO_PIN                    PA6   // SPI1_MISO
-  #define TOUCH_MOSI_PIN                    PA7   // SPI1_MOSI
-
-  #define TFT_RESET_PIN                     PF11
-  #define TFT_BACKLIGHT_PIN                 PD13
-
-  #define LCD_USE_DMA_FSMC                        // Use DMA transfers to send data to the TFT
-  #define FSMC_CS_PIN                       PD7
-  #define FSMC_RS_PIN                       PD11
-  #define FSMC_DMA_DEV                      DMA2
-  #define FSMC_DMA_CHANNEL               DMA_CH5
-
+  
+    // Shared FSMC
+  
+    #define TOUCH_CS_PIN                      PB7   // SPI1_NSS
+    #define TOUCH_SCK_PIN                     PA5   // SPI1_SCK
+    #define TOUCH_MISO_PIN                    PA6   // SPI1_MISO
+    #define TOUCH_MOSI_PIN                    PA7   // SPI1_MOSI
+  
+    #define TFT_RESET_PIN                     PF11
+    #define TFT_BACKLIGHT_PIN                 PD13
+  
+    #define LCD_USE_DMA_FSMC                        // Use DMA transfers to send data to the TFT
+    #define FSMC_CS_PIN                       PD7
+    #define FSMC_RS_PIN                       PD11
+    #define FSMC_DMA_DEV                      DMA2
+    #define FSMC_DMA_CHANNEL               DMA_CH5
+  
 #endif
 
 #if ENABLED(TFT_LVGL_UI)
-  // LVGL
-  #define HAS_SPI_FLASH_FONT                   1
-  #define HAS_GCODE_PREVIEW                    1
-  #define HAS_GCODE_DEFAULT_VIEW_IN_FLASH      0
-  #define HAS_LANG_SELECT_SCREEN               1
-  #define HAS_BAK_VIEW_IN_FLASH                0
-  #define HAS_LOGO_IN_FLASH                    0
+    // LVGL
+    #define HAS_SPI_FLASH_FONT                   1
+    #define HAS_GCODE_PREVIEW                    1
+    #define HAS_GCODE_DEFAULT_VIEW_IN_FLASH      0
+    #define HAS_LANG_SELECT_SCREEN               1
+    #define HAS_BAK_VIEW_IN_FLASH                0
+    #define HAS_LOGO_IN_FLASH                    0
 #elif ENABLED(TFT_COLOR_UI)
-  // Color UI
-  #define TFT_DRIVER                     ILI9488
-  #define TFT_BUFFER_SIZE                  14400
+    // Color UI
+    #define TFT_DRIVER                     ILI9488
+    #define TFT_BUFFER_SIZE                  14400
 #endif
 
 // XPT2046 Touch Screen calibration
 #if ANY(TFT_LVGL_UI, TFT_COLOR_UI, TFT_CLASSIC_UI)
-  #ifndef TOUCH_CALIBRATION_X
-    #define TOUCH_CALIBRATION_X           -17181
-  #endif
-  #ifndef TOUCH_CALIBRATION_Y
-    #define TOUCH_CALIBRATION_Y            11434
-  #endif
-  #ifndef TOUCH_OFFSET_X
-    #define TOUCH_OFFSET_X                   501
-  #endif
-  #ifndef TOUCH_OFFSET_Y
-    #define TOUCH_OFFSET_Y                    -9
-  #endif
+    #ifndef TOUCH_CALIBRATION_X
+        #define TOUCH_CALIBRATION_X           -17181
+    #endif
+    #ifndef TOUCH_CALIBRATION_Y
+        #define TOUCH_CALIBRATION_Y            11434
+    #endif
+    #ifndef TOUCH_OFFSET_X
+        #define TOUCH_OFFSET_X                   501
+    #endif
+    #ifndef TOUCH_OFFSET_Y
+        #define TOUCH_OFFSET_Y                    -9
+    #endif
 #endif
 
 // SPI1(PA7)=LCD & SPI3(PB5)=STUFF, are not available

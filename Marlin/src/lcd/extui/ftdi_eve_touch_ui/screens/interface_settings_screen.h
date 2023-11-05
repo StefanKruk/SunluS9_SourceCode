@@ -50,7 +50,7 @@ class InterfaceSettingsScreen : public BaseScreen, public CachedScreen<INTERFACE
 
   public:
     #ifdef ARCHIM2_SPI_FLASH_EEPROM_BACKUP_SIZE
-      static bool backupEEPROM();
+        static bool backupEEPROM();
     #endif
 
     static void saveSettings(char *);

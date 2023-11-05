@@ -74,7 +74,7 @@
  */
 
 #if NOT_TARGET(__AVR_ATmega644__)
-  #error "Oops! Select 'Sanguino' in 'Tools > Board' and 'ATmega644' in 'Tools > Processor.'"
+    #error "Oops! Select 'Sanguino' in 'Tools > Board' and 'ATmega644' in 'Tools > Processor.'"
 #endif
 
 #define BOARD_INFO_NAME "Alpha OMCA"
@@ -124,7 +124,7 @@
 #define HEATER_0_PIN                           4
 
 #ifndef FAN_PIN
-  #define FAN_PIN                              3
+    #define FAN_PIN                              3
 #endif
 
 //

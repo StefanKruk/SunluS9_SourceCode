@@ -29,7 +29,7 @@
 #include "env_validate.h"
 
 #if HOTENDS > 2 || E_STEPPERS > 2
-  #error "Tenlog supports up to 2 hotends / E-steppers. Comment out this line to continue."
+    #error "Tenlog supports up to 2 hotends / E-steppers. Comment out this line to continue."
 #endif
 
 #define BOARD_INFO_NAME      "Tenlog D3 Hero"
@@ -57,7 +57,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     15  // Ramps is normally 32
+    #define Z_MIN_PROBE_PIN                     15  // Ramps is normally 32
 #endif
 
 //
@@ -125,9 +125,9 @@
 
 // SPI for Max6675 or Max31855 Thermocouple
 #if DISABLED(SDSUPPORT)
-  #define MAX6675_SS_PIN                      -1  // Don't use 53 if using Display/SD card
+    #define MAX6675_SS_PIN                      -1  // Don't use 53 if using Display/SD card
 #else
-  #define MAX6675_SS_PIN                      -1  // Don't use 49 (SD_DETECT_PIN)
+    #define MAX6675_SS_PIN                      -1  // Don't use 49 (SD_DETECT_PIN)
 #endif
 
 //

@@ -26,7 +26,7 @@
 #define BINARY_STREAM_COMPRESSION
 
 #if ENABLED(BINARY_STREAM_COMPRESSION)
-  #include "../libs/heatshrink/heatshrink_decoder.h"
+    #include "../libs/heatshrink/heatshrink_decoder.h"
 #endif
 
 inline bool bs_serial_data_available(const serial_index_t index) {
@@ -38,13 +38,13 @@ inline int bs_read_serial(const serial_index_t index) {
 }
 
 #if ENABLED(BINARY_STREAM_COMPRESSION)
-  static heatshrink_decoder hsd;
-  #if BOTH(ARDUINO_ARCH_STM32F1, SDIO_SUPPORT)
-    // STM32 requires a word-aligned buffer for SD card transfers via DMA
-    static __attribute__((aligned(sizeof(size_t)))) uint8_t decode_buffer[512] = {};
-  #else
-    static uint8_t decode_buffer[512] = {};
-  #endif
+    static heatshrink_decoder hsd;
+    #if BOTH(ARDUINO_ARCH_STM32F1, SDIO_SUPPORT)
+        // STM32 requires a word-aligned buffer for SD card transfers via DMA
+        static __attribute__((aligned(sizeof(size_t)))) uint8_t decode_buffer[512] = {};
+    #else
+        static uint8_t decode_buffer[512] = {};
+    #endif
 #endif
 
 class SDFileTransferProtocol  {
@@ -81,27 +81,27 @@ private:
 
   static bool file_write(char *buffer, const size_t length) {
     #if ENABLED(BINARY_STREAM_COMPRESSION)
-      if (compression) {
-        size_t total_processed = 0, processed_count = 0;
-        HSD_poll_res presult;
-
-        while (total_processed < length) {
-          heatshrink_decoder_sink(&hsd, reinterpret_cast<uint8_t*>(&buffer[total_processed]), length - total_processed, &processed_count);
-          total_processed += processed_count;
-          do {
-            presult = heatshrink_decoder_poll(&hsd, &decode_buffer[data_waiting], sizeof(decode_buffer) - data_waiting, &processed_count);
-            data_waiting += processed_count;
-            if (data_waiting == sizeof(decode_buffer)) {
-              if (!dummy_transfer)
-                if (card.write(decode_buffer, data_waiting) < 0) {
-                  return false;
-                }
-              data_waiting = 0;
-            }
-          } while (presult == HSDR_POLL_MORE);
+        if (compression) {
+          size_t total_processed = 0, processed_count = 0;
+          HSD_poll_res presult;
+  
+          while (total_processed < length) {
+            heatshrink_decoder_sink(&hsd, reinterpret_cast<uint8_t*>(&buffer[total_processed]), length - total_processed, &processed_count);
+            total_processed += processed_count;
+            do {
+              presult = heatshrink_decoder_poll(&hsd, &decode_buffer[data_waiting], sizeof(decode_buffer) - data_waiting, &processed_count);
+              data_waiting += processed_count;
+              if (data_waiting == sizeof(decode_buffer)) {
+                if (!dummy_transfer)
+                  if (card.write(decode_buffer, data_waiting) < 0) {
+                    return false;
+                  }
+                data_waiting = 0;
+              }
+            } while (presult == HSDR_POLL_MORE);
+          }
+          return true;
         }
-        return true;
-      }
     #endif
     return (dummy_transfer || card.write(buffer, length) >= 0);
   }
@@ -109,11 +109,11 @@ private:
   static bool file_close() {
     if (!dummy_transfer) {
       #if ENABLED(BINARY_STREAM_COMPRESSION)
-        // flush any buffered data
-        if (data_waiting) {
-          if (card.write(decode_buffer, data_waiting) < 0) return false;
-          data_waiting = 0;
-        }
+          // flush any buffered data
+          if (data_waiting) {
+            if (card.write(decode_buffer, data_waiting) < 0) return false;
+            data_waiting = 0;
+          }
       #endif
       card.closefile();
       card.release();
@@ -156,9 +156,9 @@ public:
       case FileTransfer::QUERY:
         SERIAL_ECHOPAIR("PFT:version:", VERSION_MAJOR, ".", VERSION_MINOR, ".", VERSION_PATCH);
         #if ENABLED(BINARY_STREAM_COMPRESSION)
-          SERIAL_ECHOLNPAIR(":compresion:heatshrink,", HEATSHRINK_STATIC_WINDOW_BITS, ",", HEATSHRINK_STATIC_LOOKAHEAD_BITS);
+            SERIAL_ECHOLNPAIR(":compresion:heatshrink,", HEATSHRINK_STATIC_WINDOW_BITS, ",", HEATSHRINK_STATIC_LOOKAHEAD_BITS);
         #else
-          SERIAL_ECHOLNPGM(":compresion:none");
+            SERIAL_ECHOLNPGM(":compresion:none");
         #endif
         break;
       case FileTransfer::OPEN:
@@ -290,7 +290,7 @@ public:
     millis_t transfer_window = millis() + RX_TIMESLICE;
 
     #if ENABLED(SDSUPPORT)
-      PORT_REDIRECT(SERIAL_PORTMASK(card.transfer_port_index));
+        PORT_REDIRECT(SERIAL_PORTMASK(card.transfer_port_index));
     #endif
 
     #pragma GCC diagnostic push

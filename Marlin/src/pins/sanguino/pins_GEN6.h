@@ -54,7 +54,7 @@
 #include "env_validate.h"
 
 #ifndef BOARD_INFO_NAME
-  #define BOARD_INFO_NAME "Gen6"
+    #define BOARD_INFO_NAME "Gen6"
 #endif
 
 //
@@ -94,8 +94,8 @@
 #define HEATER_0_PIN                          14  // changed @ rkoeppl 20110410
 
 #if !MB(GEN6)
-  #define HEATER_BED_PIN                       1  // changed @ rkoeppl 20110410
-  #define TEMP_BED_PIN                         0  // Analog Input
+    #define HEATER_BED_PIN                       1  // changed @ rkoeppl 20110410
+    #define TEMP_BED_PIN                         0  // Analog Input
 #endif
 
 //
@@ -105,7 +105,7 @@
 #define DEBUG_PIN                              0
 
 #ifndef CASE_LIGHT_PIN
-  #define CASE_LIGHT_PIN                      16  // Hardware PWM
+    #define CASE_LIGHT_PIN                      16  // Hardware PWM
 #endif
 
 // RS485 pins

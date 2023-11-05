@@ -22,7 +22,7 @@
 #pragma once
 
 #ifndef FORCEDINLINE
-  #define FORCEDINLINE __attribute__((always_inline)) inline
+    #define FORCEDINLINE __attribute__((always_inline)) inline
 #endif
 
 namespace FTDI {

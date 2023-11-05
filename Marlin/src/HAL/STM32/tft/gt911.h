@@ -26,13 +26,13 @@
 #define GT911_SLAVE_ADDRESS   0xBA
 
 #if !PIN_EXISTS(GT911_RST)
-  #error "GT911_RST_PIN is not defined."
+    #error "GT911_RST_PIN is not defined."
 #elif !PIN_EXISTS(GT911_INT)
-  #error "GT911_INT_PIN is not defined."
+    #error "GT911_INT_PIN is not defined."
 #elif !PIN_EXISTS(GT911_SW_I2C_SCL)
-  #error "GT911_SW_I2C_SCL_PIN is not defined."
+    #error "GT911_SW_I2C_SCL_PIN is not defined."
 #elif !PIN_EXISTS(GT911_SW_I2C_SDA)
-  #error "GT911_SW_I2C_SDA_PIN is not defined."
+    #error "GT911_SW_I2C_SDA_PIN is not defined."
 #endif
 
 class SW_IIC {

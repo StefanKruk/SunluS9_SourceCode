@@ -114,7 +114,7 @@
 #define HEATER_BED_PIN                        14  // C4 PWM3C - Bed
 
 #ifndef FAN_PIN
-  #define FAN_PIN                             16  // C6 PWM3A
+    #define FAN_PIN                             16  // C6 PWM3A
 #endif
 
 //
@@ -155,29 +155,29 @@
 #define LCD_PINS_ENABLE                       -1
 
 #if ENABLED(SAV_3DLCD)
-  // For LCD SHIFT register LCD
-  #define SR_DATA_PIN             EXT_AUX_SDA_D1
-  #define SR_CLK_PIN              EXT_AUX_SCL_D0
+    // For LCD SHIFT register LCD
+    #define SR_DATA_PIN             EXT_AUX_SDA_D1
+    #define SR_CLK_PIN              EXT_AUX_SCL_D0
 #endif
 
 #if EITHER(SAV_3DLCD, SAV_3DGLCD)
-
-  #define BTN_EN1                  EXT_AUX_A1_IO
-  #define BTN_EN2                  EXT_AUX_A0_IO
-  #define BTN_ENC                EXT_AUX_PWM_D24
-
-  #define KILL_PIN                 EXT_AUX_A2_IO
-  #define HOME_PIN                 EXT_AUX_A4_IO
-
+  
+    #define BTN_EN1                  EXT_AUX_A1_IO
+    #define BTN_EN2                  EXT_AUX_A0_IO
+    #define BTN_ENC                EXT_AUX_PWM_D24
+  
+    #define KILL_PIN                 EXT_AUX_A2_IO
+    #define HOME_PIN                 EXT_AUX_A4_IO
+  
 #else                                             // Use the expansion header for spindle control
-
-  //
-  // M3/M4/M5 - Spindle/Laser Control
-  //
-  #define SPINDLE_LASER_PWM_PIN               24  // B4  PWM2A
-  #define SPINDLE_LASER_ENA_PIN               39  // F1  Pin should have a pullup!
-  #define SPINDLE_DIR_PIN                     40  // F2
-
-  #define CASE_LIGHT_PIN                       0  // D0  PWM0B
-
+  
+    //
+    // M3/M4/M5 - Spindle/Laser Control
+    //
+    #define SPINDLE_LASER_PWM_PIN               24  // B4  PWM2A
+    #define SPINDLE_LASER_ENA_PIN               39  // F1  Pin should have a pullup!
+    #define SPINDLE_DIR_PIN                     40  // F2
+  
+    #define CASE_LIGHT_PIN                       0  // D0  PWM0B
+  
 #endif

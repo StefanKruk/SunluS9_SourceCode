@@ -40,23 +40,23 @@ GCodeQueue queue;
 #include "../core/multi_language.h"
 
 #if ENABLED(PRINTER_EVENT_LEDS)
-  #include "../feature/leds/printer_event_leds.h"
+    #include "../feature/leds/printer_event_leds.h"
 #endif
 
 #if HAS_ETHERNET
-  #include "../feature/ethernet.h"
+    #include "../feature/ethernet.h"
 #endif
 
 #if ENABLED(BINARY_FILE_TRANSFER)
-  #include "../feature/binary_stream.h"
+    #include "../feature/binary_stream.h"
 #endif
 
 #if ENABLED(POWER_LOSS_RECOVERY)
-  #include "../feature/powerloss.h"
+    #include "../feature/powerloss.h"
 #endif
 
 #if ENABLED(GCODE_REPEAT_MARKERS)
-  #include "../feature/repeat.h"
+    #include "../feature/repeat.h"
 #endif
 
 // Frequently used G-code strings
@@ -72,7 +72,7 @@ uint8_t GCodeQueue::online_print_cnt=0;
 
 
 #if NO_TIMEOUTS > 0
-  static millis_t last_command_time = 0;
+    static millis_t last_command_time = 0;
 #endif
 
 /**
@@ -112,7 +112,7 @@ bool GCodeQueue::RingBuffer::enqueue(const char *cmd, bool skip_ok/*=true*/
   strcpy(commands[index_w].buffer, cmd);
   commit_command(skip_ok
     #if HAS_MULTI_SERIAL
-      , serial_ind
+        , serial_ind
     #endif
   );
   return true;
@@ -242,26 +242,26 @@ void GCodeQueue::enqueue_now_P(PGM_P const pgcode) {
  */
 void GCodeQueue::RingBuffer::ok_to_send() {
   #if NO_TIMEOUTS > 0
-    // Start counting from the last command's execution
-    last_command_time = millis();
+      // Start counting from the last command's execution
+      last_command_time = millis();
   #endif
   CommandLine &command = commands[index_r];
   #if HAS_MULTI_SERIAL
-    const serial_index_t serial_ind = command.port;
-    if (!serial_ind.valid()) return;              // Optimization here, skip processing if it's not going anywhere
-    PORT_REDIRECT(SERIAL_PORTMASK(serial_ind));   // Reply to the serial port that sent the command
+      const serial_index_t serial_ind = command.port;
+      if (!serial_ind.valid()) return;              // Optimization here, skip processing if it's not going anywhere
+      PORT_REDIRECT(SERIAL_PORTMASK(serial_ind));   // Reply to the serial port that sent the command
   #endif
   if (command.skip_ok) return;
   SERIAL_ECHOPGM(STR_OK);
   #if ENABLED(ADVANCED_OK)
-    char* p = command.buffer;
-    if (*p == 'N') {
-      SERIAL_CHAR(' ', *p++);
-      while (NUMERIC_SIGNED(*p))
-        SERIAL_CHAR(*p++);
-    }
-    SERIAL_ECHOPAIR_P(SP_P_STR, planner.moves_free(),
-                      SP_B_STR, BUFSIZE - length);
+      char* p = command.buffer;
+      if (*p == 'N') {
+        SERIAL_CHAR(' ', *p++);
+        while (NUMERIC_SIGNED(*p))
+          SERIAL_CHAR(*p++);
+      }
+      SERIAL_ECHOPAIR_P(SP_P_STR, planner.moves_free(),
+                        SP_B_STR, BUFSIZE - length);
   #endif
   SERIAL_EOL();
 }
@@ -272,8 +272,8 @@ void GCodeQueue::RingBuffer::ok_to_send() {
  */
 void GCodeQueue::flush_and_request_resend(const serial_index_t serial_ind) {
   #if HAS_MULTI_SERIAL
-    if (!serial_ind.valid()) return;              // Optimization here, skip if the command came from SD or Flash Drive
-    PORT_REDIRECT(SERIAL_PORTMASK(serial_ind));   // Reply to the serial port that sent the command
+      if (!serial_ind.valid()) return;              // Optimization here, skip if the command came from SD or Flash Drive
+      PORT_REDIRECT(SERIAL_PORTMASK(serial_ind));   // Reply to the serial port that sent the command
   #endif
   SERIAL_FLUSH();
   SERIAL_ECHOLNPAIR(STR_RESEND, serial_state[serial_ind.index].last_N + 1);
@@ -283,22 +283,22 @@ void GCodeQueue::flush_and_request_resend(const serial_index_t serial_ind) {
 static bool serial_data_available(serial_index_t index) {
   const int a = SERIAL_IMPL.available(index);
   #if BOTH(RX_BUFFER_MONITOR, RX_BUFFER_SIZE)
-    if (a > RX_BUFFER_SIZE - 2) {
-      PORT_REDIRECT(SERIAL_PORTMASK(index));
-      SERIAL_ERROR_MSG("RX BUF overflow, increase RX_BUFFER_SIZE: ", a);
-    }
+      if (a > RX_BUFFER_SIZE - 2) {
+        PORT_REDIRECT(SERIAL_PORTMASK(index));
+        SERIAL_ERROR_MSG("RX BUF overflow, increase RX_BUFFER_SIZE: ", a);
+      }
   #endif
   return a > 0;
 }
 
 #if NO_TIMEOUTS > 0
-  // Multiserial already handles dispatch to/from multiple ports
-  static bool any_serial_data_available() {
-    LOOP_L_N(p, NUM_SERIAL)
-      if (serial_data_available(p))
-        return true;
-    return false;
-  }
+    // Multiserial already handles dispatch to/from multiple ports
+    static bool any_serial_data_available() {
+      LOOP_L_N(p, NUM_SERIAL)
+        if (serial_data_available(p))
+          return true;
+      return false;
+    }
 #endif
 
 inline int read_serial(const serial_index_t index) { return SERIAL_IMPL.read(index); }
@@ -328,10 +328,10 @@ inline void process_stream_char(const char c, uint8_t &sis, char (&buff)[MAX_CMD
   if (sis == PS_EOL) return;    // EOL comment or overflow
 
   #if ENABLED(PAREN_COMMENTS)
-    else if (sis == PS_PAREN) { // Inline comment
-      if (c == ')') sis = PS_NORMAL;
-      return;
-    }
+      else if (sis == PS_PAREN) { // Inline comment
+        if (c == ')') sis = PS_NORMAL;
+        return;
+      }
   #endif
 
   else if (sis >= PS_ESC)       // End escaped char
@@ -343,13 +343,13 @@ inline void process_stream_char(const char c, uint8_t &sis, char (&buff)[MAX_CMD
   }
 
   #if ENABLED(GCODE_QUOTED_STRINGS)
-
-    else if (sis == PS_QUOTED) {
-      if (c == '"') sis = PS_NORMAL; // End quoted string
-    }
-    else if (c == '"')          // Start quoted string
-      sis = PS_QUOTED;
-
+  
+      else if (sis == PS_QUOTED) {
+        if (c == '"') sis = PS_NORMAL; // End quoted string
+      }
+      else if (c == '"')          // Start quoted string
+        sis = PS_QUOTED;
+  
   #endif
 
   else if (c == ';') {          // Start end-of-line comment
@@ -358,10 +358,10 @@ inline void process_stream_char(const char c, uint8_t &sis, char (&buff)[MAX_CMD
   }
 
   #if ENABLED(PAREN_COMMENTS)
-    else if (c == '(') {        // Start inline comment
-      sis = PS_PAREN;
-      return;
-    }
+      else if (c == '(') {        // Start inline comment
+        sis = PS_PAREN;
+        return;
+      }
   #endif
 
   // Backspace erases previous characters
@@ -462,25 +462,25 @@ void GCodeQueue::get_serial_commands() {
 	static millis_t Tmp_last_time;
 	
   #if ENABLED(BINARY_FILE_TRANSFER)
-    if (card.flag.binary_mode) {
-      /**
-       * For binary stream file transfer, use serial_line_buffer as the working
-       * receive buffer (which limits the packet size to MAX_CMD_SIZE).
-       * The receive buffer also limits the packet size for reliable transmission.
-       */
-      binaryStream[card.transfer_port_index.index].receive(serial_state[card.transfer_port_index.index].line_buffer);
-      return;
-    }
+      if (card.flag.binary_mode) {
+        /**
+         * For binary stream file transfer, use serial_line_buffer as the working
+         * receive buffer (which limits the packet size to MAX_CMD_SIZE).
+         * The receive buffer also limits the packet size for reliable transmission.
+         */
+        binaryStream[card.transfer_port_index.index].receive(serial_state[card.transfer_port_index.index].line_buffer);
+        return;
+      }
   #endif
 
   // If the command buffer is empty for too long,
   // send "wait" to indicate Marlin is still waiting.
   #if NO_TIMEOUTS > 0
-    const millis_t ms = millis();
-    if (ring_buffer.empty() && !any_serial_data_available() && ELAPSED(ms, last_command_time + NO_TIMEOUTS)) {
-      SERIAL_ECHOLNPGM(STR_WAIT);
-      last_command_time = ms;
-    }
+      const millis_t ms = millis();
+      if (ring_buffer.empty() && !any_serial_data_available() && ELAPSED(ms, last_command_time + NO_TIMEOUTS)) {
+        SERIAL_ECHOLNPGM(STR_WAIT);
+        last_command_time = ms;
+      }
   #endif
 
   // Loop while serial characters are incoming and the queue is not full
@@ -559,11 +559,11 @@ void GCodeQueue::get_serial_commands() {
           serial.last_N = gcode_N;
         }
         #if ENABLED(SDSUPPORT)
-          // Pronterface "M29" and "M29 " has no line number
-          else if (card.flag.saving && !is_M29(command)) {
-            gcode_line_error(PSTR(STR_ERR_NO_CHECKSUM), p);
-            break;
-          }
+            // Pronterface "M29" and "M29 " has no line number
+            else if (card.flag.saving && !is_M29(command)) {
+              gcode_line_error(PSTR(STR_ERR_NO_CHECKSUM), p);
+              break;
+            }
         #endif
 
         //
@@ -586,57 +586,57 @@ void GCodeQueue::get_serial_commands() {
         }
 
         #if DISABLED(EMERGENCY_PARSER)
-          // Process critical commands early
-          if (command[0] == 'M') switch (command[3]) {
-            case '8': if (command[2] == '0' && command[1] == '1') { wait_for_heatup = false; TERN_(HAS_LCD_MENU, wait_for_user = false); } break;
-            case '2': if (command[2] == '1' && command[1] == '1') kill(M112_KILL_STR, nullptr, true); break;
-            case '0': if (command[1] == '4' && command[2] == '1') quickstop_stepper(); break;
-          }
+            // Process critical commands early
+            if (command[0] == 'M') switch (command[3]) {
+              case '8': if (command[2] == '0' && command[1] == '1') { wait_for_heatup = false; TERN_(HAS_LCD_MENU, wait_for_user = false); } break;
+              case '2': if (command[2] == '1' && command[1] == '1') kill(M112_KILL_STR, nullptr, true); break;
+              case '0': if (command[1] == '4' && command[2] == '1') quickstop_stepper(); break;
+            }
         #endif
 
         #if NO_TIMEOUTS > 0
-          last_command_time = ms;
+            last_command_time = ms;
         #endif
 
         // Add the command to the queue
         ring_buffer.enqueue(serial.line_buffer, false
           #if HAS_MULTI_SERIAL
-            , p
+              , p
           #endif
         );
 		
 
 #if 1
-		Tmp_cur_time=millis();
-
-		if(Tmp_cur_time-Tmp_last_time>=1000)
-		{	
-			Tmp_last_time=Tmp_cur_time;
-//			is_online_print=false;
-			online_print_cnt =0;
-
-		}
-		else if(Tmp_cur_time-Tmp_last_time<1000)
-		{
-			const bool M105 = !!strstr_P(command, PSTR("M105"));
-			if(M105)
-			{
-				if(online_print_cnt<10)
-				  online_print_cnt++;
-				else	 
-				{	
-	//				online_print_Enable=1;
-					is_online_print    =true;	
-					
-				}
-				
-			}
-			else
-			{
-				online_print_cnt =0;
-			}
-
-		}	
+  		Tmp_cur_time=millis();
+  
+  		if(Tmp_cur_time-Tmp_last_time>=1000)
+  		{	
+  			Tmp_last_time=Tmp_cur_time;
+  //			is_online_print=false;
+  			online_print_cnt =0;
+  
+  		}
+  		else if(Tmp_cur_time-Tmp_last_time<1000)
+  		{
+  			const bool M105 = !!strstr_P(command, PSTR("M105"));
+  			if(M105)
+  			{
+  				if(online_print_cnt<10)
+  				  online_print_cnt++;
+  				else	 
+  				{	
+  	//				online_print_Enable=1;
+  					is_online_print    =true;	
+  					
+  				}
+  				
+  			}
+  			else
+  			{
+  				online_print_cnt =0;
+  			}
+  
+  		}	
 #endif				
       }
       else
@@ -647,64 +647,64 @@ void GCodeQueue::get_serial_commands() {
 }
 
 #if ENABLED(SDSUPPORT)
-
-  /**
-   * Get lines from the SD Card until the command buffer is full
-   * or until the end of the file is reached. Because this method
-   * always receives complete command-lines, they can go directly
-   * into the main command queue.
-   */
-  inline void GCodeQueue::get_sdcard_commands() {
-    static uint8_t sd_input_state = PS_NORMAL;
-
-    // Get commands if there are more in the file
-    if (!IS_SD_FETCHING()) return;
-
-    int sd_count = 0;
-    while (!ring_buffer.full() && !card.eof()) {
-      const int16_t n = card.get();
-      const bool card_eof = card.eof();
-      if (n < 0 && !card_eof) {
-	  //ScreenHandler.sendinfoscreen(GET_TEXT(MSG_ERROR_SD), GET_TEXT(MSG_CHECK_SD), NUL_STR, GET_TEXT(MSG_PLEASE_RESET), true, true, true, true);
-	  //do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
-	  //ScreenHandler.GotoScreen(DGUSLCD_SCREEN_KILL); 
-	    kill(PSTR("SD ERROR Please Check SD card"));
-	  	SERIAL_ERROR_MSG(STR_SD_ERR_READ); continue; 
-	  }
-
-      CommandLine &command = ring_buffer.commands[ring_buffer.index_w];
-      const char sd_char = (char)n;
-      const bool is_eol = ISEOL(sd_char);
-      if (is_eol || card_eof) {
-
-        // Reset stream state, terminate the buffer, and commit a non-empty command
-        if (!is_eol && sd_count) ++sd_count;          // End of file with no newline
-        if (!process_line_done(sd_input_state, command.buffer, sd_count)) {
-
-          // M808 L saves the sdpos of the next line. M808 loops to a new sdpos.
-          TERN_(GCODE_REPEAT_MARKERS, repeat.early_parse_M808(command.buffer));
-
-          #if DISABLED(PARK_HEAD_ON_PAUSE)
-            // When M25 is non-blocking it can still suspend SD commands
-            // Otherwise the M125 handler needs to know SD printing is active
-            if (command.buffer[0] == 'M' && command.buffer[1] == '2' && command.buffer[2] == '5' && !NUMERIC(command.buffer[3]))
-              card.pauseSDPrint();
-          #endif
-
-          // Put the new command into the buffer (no "ok" sent)
-          ring_buffer.commit_command(true);
-
-          // Prime Power-Loss Recovery for the NEXT commit_command
-          TERN_(POWER_LOSS_RECOVERY, recovery.cmd_sdpos = card.getIndex());
+  
+    /**
+     * Get lines from the SD Card until the command buffer is full
+     * or until the end of the file is reached. Because this method
+     * always receives complete command-lines, they can go directly
+     * into the main command queue.
+     */
+    inline void GCodeQueue::get_sdcard_commands() {
+      static uint8_t sd_input_state = PS_NORMAL;
+  
+      // Get commands if there are more in the file
+      if (!IS_SD_FETCHING()) return;
+  
+      int sd_count = 0;
+      while (!ring_buffer.full() && !card.eof()) {
+        const int16_t n = card.get();
+        const bool card_eof = card.eof();
+        if (n < 0 && !card_eof) {
+  	  //ScreenHandler.sendinfoscreen(GET_TEXT(MSG_ERROR_SD), GET_TEXT(MSG_CHECK_SD), NUL_STR, GET_TEXT(MSG_PLEASE_RESET), true, true, true, true);
+  	  //do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
+  	  //ScreenHandler.GotoScreen(DGUSLCD_SCREEN_KILL); 
+  	    kill(PSTR("SD ERROR Please Check SD card"));
+  	  	SERIAL_ERROR_MSG(STR_SD_ERR_READ); continue; 
+  	  }
+  
+        CommandLine &command = ring_buffer.commands[ring_buffer.index_w];
+        const char sd_char = (char)n;
+        const bool is_eol = ISEOL(sd_char);
+        if (is_eol || card_eof) {
+  
+          // Reset stream state, terminate the buffer, and commit a non-empty command
+          if (!is_eol && sd_count) ++sd_count;          // End of file with no newline
+          if (!process_line_done(sd_input_state, command.buffer, sd_count)) {
+  
+            // M808 L saves the sdpos of the next line. M808 loops to a new sdpos.
+            TERN_(GCODE_REPEAT_MARKERS, repeat.early_parse_M808(command.buffer));
+  
+            #if DISABLED(PARK_HEAD_ON_PAUSE)
+                // When M25 is non-blocking it can still suspend SD commands
+                // Otherwise the M125 handler needs to know SD printing is active
+                if (command.buffer[0] == 'M' && command.buffer[1] == '2' && command.buffer[2] == '5' && !NUMERIC(command.buffer[3]))
+                  card.pauseSDPrint();
+            #endif
+  
+            // Put the new command into the buffer (no "ok" sent)
+            ring_buffer.commit_command(true);
+  
+            // Prime Power-Loss Recovery for the NEXT commit_command
+            TERN_(POWER_LOSS_RECOVERY, recovery.cmd_sdpos = card.getIndex());
+          }
+  
+          if (card.eof()) card.fileHasFinished();         // Handle end of file reached
         }
-
-        if (card.eof()) card.fileHasFinished();         // Handle end of file reached
+        else
+          process_stream_char(sd_char, sd_input_state, command.buffer, sd_count);
       }
-      else
-        process_stream_char(sd_char, sd_input_state, command.buffer, sd_count);
     }
-  }
-
+  
 #endif // SDSUPPORT
 
 /**
@@ -718,17 +718,17 @@ void GCodeQueue::get_available_commands() {
   if (ring_buffer.full()) return;
 
 #if 1
-  if(Run_Cnt++>=20000)//1s
-  {
-	  Run_Cnt =0;
-
-  }
-  if(is_online_print)
-  {
+    if(Run_Cnt++>=20000)//1s
+    {
+  	  Run_Cnt =0;
   
-	  if(ScreenHandler.GetFilamentState_Check())
-		return;
-  }
+    }
+    if(is_online_print)
+    {
+    
+  	  if(ScreenHandler.GetFilamentState_Check())
+  		return;
+    }
 #endif
 
   get_serial_commands();
@@ -758,41 +758,41 @@ void GCodeQueue::advance() {
   if (ring_buffer.empty()) return;
 
   #if ENABLED(SDSUPPORT)
-
-    if (card.flag.saving) {
-      char * const cmd = ring_buffer.peek_next_command_string();
-      if (is_M29(cmd)) {
-        // M29 closes the file
-        card.closefile();
-        SERIAL_ECHOLNPGM(STR_FILE_SAVED);
-
-        #if !defined(__AVR__) || !defined(USBCON)
-          #if ENABLED(SERIAL_STATS_DROPPED_RX)
-            SERIAL_ECHOLNPAIR("Dropped bytes: ", MYSERIAL1.dropped());
+  
+      if (card.flag.saving) {
+        char * const cmd = ring_buffer.peek_next_command_string();
+        if (is_M29(cmd)) {
+          // M29 closes the file
+          card.closefile();
+          SERIAL_ECHOLNPGM(STR_FILE_SAVED);
+  
+          #if !defined(__AVR__) || !defined(USBCON)
+              #if ENABLED(SERIAL_STATS_DROPPED_RX)
+                  SERIAL_ECHOLNPAIR("Dropped bytes: ", MYSERIAL1.dropped());
+              #endif
+              #if ENABLED(SERIAL_STATS_MAX_RX_QUEUED)
+                  SERIAL_ECHOLNPAIR("Max RX Queue Size: ", MYSERIAL1.rxMaxEnqueued());
+              #endif
           #endif
-          #if ENABLED(SERIAL_STATS_MAX_RX_QUEUED)
-            SERIAL_ECHOLNPAIR("Max RX Queue Size: ", MYSERIAL1.rxMaxEnqueued());
-          #endif
-        #endif
-
-        ok_to_send();
-      }
-      else {
-        // Write the string from the read buffer to SD
-        card.write_command(cmd);
-        if (card.flag.logging)
-          gcode.process_next_command(); // The card is saving because it's logging
-        else
+  
           ok_to_send();
+        }
+        else {
+          // Write the string from the read buffer to SD
+          card.write_command(cmd);
+          if (card.flag.logging)
+            gcode.process_next_command(); // The card is saving because it's logging
+          else
+            ok_to_send();
+        }
       }
-    }
-    else
-      gcode.process_next_command();
-
+      else
+        gcode.process_next_command();
+  
   #else
-
-    gcode.process_next_command();
-
+  
+      gcode.process_next_command();
+  
   #endif // SDSUPPORT
 
   // The queue may be reset by a command handler or by code invoked by idle() within a handler

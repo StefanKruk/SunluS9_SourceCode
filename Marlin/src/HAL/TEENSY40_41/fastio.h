@@ -28,7 +28,7 @@
  */
 
 #ifndef PWM
-  #define PWM OUTPUT
+    #define PWM OUTPUT
 #endif
 
 #define READ(IO)                digitalRead(IO)

@@ -38,7 +38,7 @@
  */
 
 #if NOT_TARGET(__SAM3X8E__)
-  #error "Oops! Select 'Archim' in 'Tools > Board.'"
+    #error "Oops! Select 'Archim' in 'Tools > Board.'"
 #endif
 
 #define BOARD_INFO_NAME "Archim 1.0"
@@ -74,14 +74,14 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     32
+    #define Z_MIN_PROBE_PIN                     32
 #endif
 
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN                      66  // D66 PB15 (Header J20 15)
+    #define FIL_RUNOUT_PIN                      66  // D66 PB15 (Header J20 15)
 #endif
 #ifndef FIL_RUNOUT2_PIN
-  #define FIL_RUNOUT2_PIN                     67  // D67 PB16 (Header J20 16)
+    #define FIL_RUNOUT2_PIN                     67  // D67 PB16 (Header J20 16)
 #endif
 
 //
@@ -155,7 +155,7 @@
 #define HEATER_BED_PIN                         9  // D9 PC21 BED_PWM
 
 #ifndef FAN_PIN
-  #define FAN_PIN                              4  // D4 PC26 FET_PWM1
+    #define FAN_PIN                              4  // D4 PC26 FET_PWM1
 #endif
 #define FAN1_PIN                               5  // D5 PC25 FET_PWM2
 
@@ -182,25 +182,25 @@
 // LCD / Controller
 //
 #if HAS_WIRED_LCD
-  #define BEEPER_PIN                          23  // D24 PA15_CTS1
-  #define LCD_PINS_RS                         17  // D17 PA12_RXD1
-  #define LCD_PINS_ENABLE                     24  // D23 PA14_RTS1
-  #define LCD_PINS_D4                         69  // D69 PA0_CANTX0
-  #define LCD_PINS_D5                         54  // D54 PA16_SCK1
-  #define LCD_PINS_D6                         68  // D68 PA1_CANRX0
-  #define LCD_PINS_D7                         34  // D34 PC2_PWML0
-
-  #define SD_DETECT_PIN                        2  // D2  PB25_TIOA0
-
-  #if IS_NEWPANEL
-    // Buttons on AUX-2
-    #define BTN_EN1                           60  // D60 PA3_TIOB1
-    #define BTN_EN2                           13  // D13 PB27_TIOB0
-    #define BTN_ENC                           16  // D16 PA13_TXD1
-  #endif // IS_NEWPANEL
-
-  #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
-    #define BTN_ENC_EN               LCD_PINS_D7  // Detect the presence of the encoder
-  #endif
-
+    #define BEEPER_PIN                          23  // D24 PA15_CTS1
+    #define LCD_PINS_RS                         17  // D17 PA12_RXD1
+    #define LCD_PINS_ENABLE                     24  // D23 PA14_RTS1
+    #define LCD_PINS_D4                         69  // D69 PA0_CANTX0
+    #define LCD_PINS_D5                         54  // D54 PA16_SCK1
+    #define LCD_PINS_D6                         68  // D68 PA1_CANRX0
+    #define LCD_PINS_D7                         34  // D34 PC2_PWML0
+  
+    #define SD_DETECT_PIN                        2  // D2  PB25_TIOA0
+  
+    #if IS_NEWPANEL
+        // Buttons on AUX-2
+        #define BTN_EN1                           60  // D60 PA3_TIOB1
+        #define BTN_EN2                           13  // D13 PB27_TIOB0
+        #define BTN_ENC                           16  // D16 PA13_TXD1
+    #endif // IS_NEWPANEL
+  
+    #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
+        #define BTN_ENC_EN               LCD_PINS_D7  // Detect the presence of the encoder
+    #endif
+  
 #endif // HAS_WIRED_LCD

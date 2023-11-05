@@ -24,7 +24,7 @@
  */
 
 #ifndef _usb_h_
-  #error "Never include usb_ch9.h directly; include Usb.h instead"
+    #error "Never include usb_ch9.h directly; include Usb.h instead"
 #endif
 
 /* USB chapter 9 structures */

@@ -25,36 +25,36 @@
 
 namespace Theme {
   #if ENABLED(TOUCH_UI_COCOA_THEME)
-    constexpr int      accent_hue           = 23;
-
-    // Browns and Oranges
-    constexpr uint32_t accent_color_1       = hsl_to_rgb(12.8,0.597,0.263); // Darkest
-    constexpr uint32_t accent_color_2       = hsl_to_rgb(12.8,0.597,0.263);
-    constexpr uint32_t accent_color_3       = hsl_to_rgb( 9.6,0.664,0.443);
-    constexpr uint32_t accent_color_4       = hsl_to_rgb(16.3,0.873,0.537);
-    constexpr uint32_t accent_color_5       = hsl_to_rgb(23.0,0.889,0.539);
-    constexpr uint32_t accent_color_6       = hsl_to_rgb(23.0,0.889,0.539); // Lightest
+      constexpr int      accent_hue           = 23;
+  
+      // Browns and Oranges
+      constexpr uint32_t accent_color_1       = hsl_to_rgb(12.8,0.597,0.263); // Darkest
+      constexpr uint32_t accent_color_2       = hsl_to_rgb(12.8,0.597,0.263);
+      constexpr uint32_t accent_color_3       = hsl_to_rgb( 9.6,0.664,0.443);
+      constexpr uint32_t accent_color_4       = hsl_to_rgb(16.3,0.873,0.537);
+      constexpr uint32_t accent_color_5       = hsl_to_rgb(23.0,0.889,0.539);
+      constexpr uint32_t accent_color_6       = hsl_to_rgb(23.0,0.889,0.539); // Lightest
   #else
-    // Use linear accent colors
-
-    #if ANY(TOUCH_UI_ROYAL_THEME, TOUCH_UI_FROZEN_THEME)
-        // Dark blue accent colors
-        constexpr int      accent_hue       = 216;
-        constexpr float    accent_sat       = 0.7;
-    #else
-        // Green accent colors
-        constexpr int      accent_hue       = 68;
-        constexpr float    accent_sat       = 0.68;
-    #endif
-
-    // Shades of accent color
-    constexpr uint32_t accent_color_0       = hsl_to_rgb(accent_hue, accent_sat, 0.15); // Darkest
-    constexpr uint32_t accent_color_1       = hsl_to_rgb(accent_hue, accent_sat, 0.26);
-    constexpr uint32_t accent_color_2       = hsl_to_rgb(accent_hue, accent_sat, 0.39);
-    constexpr uint32_t accent_color_3       = hsl_to_rgb(accent_hue, accent_sat, 0.52);
-    constexpr uint32_t accent_color_4       = hsl_to_rgb(accent_hue, accent_sat, 0.65);
-    constexpr uint32_t accent_color_5       = hsl_to_rgb(accent_hue, accent_sat, 0.78);
-    constexpr uint32_t accent_color_6       = hsl_to_rgb(accent_hue, accent_sat, 0.91); // Lightest
+      // Use linear accent colors
+  
+      #if ANY(TOUCH_UI_ROYAL_THEME, TOUCH_UI_FROZEN_THEME)
+            // Dark blue accent colors
+            constexpr int      accent_hue       = 216;
+            constexpr float    accent_sat       = 0.7;
+      #else
+            // Green accent colors
+            constexpr int      accent_hue       = 68;
+            constexpr float    accent_sat       = 0.68;
+      #endif
+  
+      // Shades of accent color
+      constexpr uint32_t accent_color_0       = hsl_to_rgb(accent_hue, accent_sat, 0.15); // Darkest
+      constexpr uint32_t accent_color_1       = hsl_to_rgb(accent_hue, accent_sat, 0.26);
+      constexpr uint32_t accent_color_2       = hsl_to_rgb(accent_hue, accent_sat, 0.39);
+      constexpr uint32_t accent_color_3       = hsl_to_rgb(accent_hue, accent_sat, 0.52);
+      constexpr uint32_t accent_color_4       = hsl_to_rgb(accent_hue, accent_sat, 0.65);
+      constexpr uint32_t accent_color_5       = hsl_to_rgb(accent_hue, accent_sat, 0.78);
+      constexpr uint32_t accent_color_6       = hsl_to_rgb(accent_hue, accent_sat, 0.91); // Lightest
   #endif
 
   // Shades of gray
@@ -69,86 +69,86 @@ namespace Theme {
   constexpr uint32_t gray_color_6           = hsl_to_rgb(accent_hue, gray_sat, 0.91); // Lightest
 
   #if ENABLED(TOUCH_UI_ROYAL_THEME)
-    constexpr uint32_t theme_darkest        = accent_color_1;
-    constexpr uint32_t theme_dark           = accent_color_4;
-
-    constexpr uint32_t bg_color             = gray_color_0;
-    constexpr uint32_t axis_label           = gray_color_1;
-
-    constexpr uint32_t bg_text_enabled      = accent_color_6;
-    constexpr uint32_t bg_text_disabled     = gray_color_0;
-    constexpr uint32_t bg_normal            = accent_color_4;
-    constexpr uint32_t fg_disabled          = gray_color_0;
-    constexpr uint32_t fg_normal            = accent_color_0;
-    constexpr uint32_t fg_action            = accent_color_1;
-
-    constexpr uint32_t logo_bg_rgb          = accent_color_1;
-    constexpr uint32_t logo_fill_rgb        = accent_color_0;
-    constexpr uint32_t logo_stroke_rgb      = accent_color_4;
-
-    constexpr uint32_t bed_mesh_lines_rgb   = 0xFFFFFF;
-    constexpr uint32_t bed_mesh_shadow_rgb  = 0x444444;
+      constexpr uint32_t theme_darkest        = accent_color_1;
+      constexpr uint32_t theme_dark           = accent_color_4;
+  
+      constexpr uint32_t bg_color             = gray_color_0;
+      constexpr uint32_t axis_label           = gray_color_1;
+  
+      constexpr uint32_t bg_text_enabled      = accent_color_6;
+      constexpr uint32_t bg_text_disabled     = gray_color_0;
+      constexpr uint32_t bg_normal            = accent_color_4;
+      constexpr uint32_t fg_disabled          = gray_color_0;
+      constexpr uint32_t fg_normal            = accent_color_0;
+      constexpr uint32_t fg_action            = accent_color_1;
+  
+      constexpr uint32_t logo_bg_rgb          = accent_color_1;
+      constexpr uint32_t logo_fill_rgb        = accent_color_0;
+      constexpr uint32_t logo_stroke_rgb      = accent_color_4;
+  
+      constexpr uint32_t bed_mesh_lines_rgb   = 0xFFFFFF;
+      constexpr uint32_t bed_mesh_shadow_rgb  = 0x444444;
   #elif ANY(TOUCH_UI_COCOA_THEME, TOUCH_UI_FROZEN_THEME)
-    constexpr uint32_t theme_darkest        = accent_color_1;
-    constexpr uint32_t theme_dark           = accent_color_4;
-
-    constexpr uint32_t bg_color             = 0xFFFFFF;
-    constexpr uint32_t axis_label           = gray_color_5;
-
-    constexpr uint32_t bg_text_enabled      = accent_color_1;
-    constexpr uint32_t bg_text_disabled     = gray_color_1;
-    constexpr uint32_t bg_normal            = accent_color_4;
-    constexpr uint32_t fg_disabled          = gray_color_6;
-    constexpr uint32_t fg_normal            = accent_color_1;
-    constexpr uint32_t fg_action            = accent_color_4;
-
-    constexpr uint32_t logo_bg_rgb          = accent_color_5;
-    constexpr uint32_t logo_fill_rgb        = accent_color_6;
-    constexpr uint32_t logo_stroke_rgb      = accent_color_2;
-
-    constexpr uint32_t bed_mesh_lines_rgb   = accent_color_6;
-    constexpr uint32_t bed_mesh_shadow_rgb  = 0x444444;
+      constexpr uint32_t theme_darkest        = accent_color_1;
+      constexpr uint32_t theme_dark           = accent_color_4;
+  
+      constexpr uint32_t bg_color             = 0xFFFFFF;
+      constexpr uint32_t axis_label           = gray_color_5;
+  
+      constexpr uint32_t bg_text_enabled      = accent_color_1;
+      constexpr uint32_t bg_text_disabled     = gray_color_1;
+      constexpr uint32_t bg_normal            = accent_color_4;
+      constexpr uint32_t fg_disabled          = gray_color_6;
+      constexpr uint32_t fg_normal            = accent_color_1;
+      constexpr uint32_t fg_action            = accent_color_4;
+  
+      constexpr uint32_t logo_bg_rgb          = accent_color_5;
+      constexpr uint32_t logo_fill_rgb        = accent_color_6;
+      constexpr uint32_t logo_stroke_rgb      = accent_color_2;
+  
+      constexpr uint32_t bed_mesh_lines_rgb   = accent_color_6;
+      constexpr uint32_t bed_mesh_shadow_rgb  = 0x444444;
   #else
-    constexpr uint32_t theme_darkest        = gray_color_1;
-    constexpr uint32_t theme_dark           = gray_color_2;
-
-    constexpr uint32_t bg_color             = gray_color_1;
-    constexpr uint32_t axis_label           = gray_color_2;
-
-    constexpr uint32_t bg_text_enabled      = 0xFFFFFF;
-    constexpr uint32_t bg_text_disabled     = gray_color_2;
-    constexpr uint32_t bg_normal            = gray_color_1;
-    constexpr uint32_t fg_disabled          = gray_color_1;
-    constexpr uint32_t fg_normal            = gray_color_2;
-    constexpr uint32_t fg_action            = accent_color_2;
-
-    constexpr uint32_t logo_bg_rgb          = accent_color_4;
-    constexpr uint32_t logo_fill_rgb        = accent_color_3;
-    constexpr uint32_t logo_stroke_rgb      = 0x000000;
-
-    constexpr uint32_t bed_mesh_lines_rgb   = 0xFFFFFF;
-    constexpr uint32_t bed_mesh_shadow_rgb  = 0x444444;
+      constexpr uint32_t theme_darkest        = gray_color_1;
+      constexpr uint32_t theme_dark           = gray_color_2;
+  
+      constexpr uint32_t bg_color             = gray_color_1;
+      constexpr uint32_t axis_label           = gray_color_2;
+  
+      constexpr uint32_t bg_text_enabled      = 0xFFFFFF;
+      constexpr uint32_t bg_text_disabled     = gray_color_2;
+      constexpr uint32_t bg_normal            = gray_color_1;
+      constexpr uint32_t fg_disabled          = gray_color_1;
+      constexpr uint32_t fg_normal            = gray_color_2;
+      constexpr uint32_t fg_action            = accent_color_2;
+  
+      constexpr uint32_t logo_bg_rgb          = accent_color_4;
+      constexpr uint32_t logo_fill_rgb        = accent_color_3;
+      constexpr uint32_t logo_stroke_rgb      = 0x000000;
+  
+      constexpr uint32_t bed_mesh_lines_rgb   = 0xFFFFFF;
+      constexpr uint32_t bed_mesh_shadow_rgb  = 0x444444;
   #endif
 
   constexpr uint32_t shadow_rgb             = gray_color_6;
   constexpr uint32_t stroke_rgb             = accent_color_1;
   constexpr uint32_t fill_rgb               = accent_color_3;
   #if ENABLED(TOUCH_UI_COCOA_PRESS)
-    constexpr uint32_t syringe_rgb          = 0xFFFFFF;
-    constexpr uint32_t fluid_rgb            = accent_color_5;
+      constexpr uint32_t syringe_rgb          = 0xFFFFFF;
+      constexpr uint32_t fluid_rgb            = accent_color_5;
   #else
-    constexpr uint32_t syringe_rgb          = accent_color_5;
-    constexpr uint32_t fluid_rgb            = accent_color_3;
+      constexpr uint32_t syringe_rgb          = accent_color_5;
+      constexpr uint32_t fluid_rgb            = accent_color_3;
   #endif
 
   #if ENABLED(TOUCH_UI_ROYAL_THEME)
-    constexpr uint32_t x_axis               = hsl_to_rgb(0,   1.00, 0.26);
-    constexpr uint32_t y_axis               = hsl_to_rgb(120, 1.00, 0.13);
-    constexpr uint32_t z_axis               = hsl_to_rgb(240, 1.00, 0.10);
+      constexpr uint32_t x_axis               = hsl_to_rgb(0,   1.00, 0.26);
+      constexpr uint32_t y_axis               = hsl_to_rgb(120, 1.00, 0.13);
+      constexpr uint32_t z_axis               = hsl_to_rgb(240, 1.00, 0.10);
   #else
-    constexpr uint32_t x_axis               = hsl_to_rgb(0,   1.00, 0.5);
-    constexpr uint32_t y_axis               = hsl_to_rgb(120, 1.00, 0.37);
-    constexpr uint32_t z_axis               = hsl_to_rgb(240, 1.00, 0.37);
+      constexpr uint32_t x_axis               = hsl_to_rgb(0,   1.00, 0.5);
+      constexpr uint32_t y_axis               = hsl_to_rgb(120, 1.00, 0.37);
+      constexpr uint32_t z_axis               = hsl_to_rgb(240, 1.00, 0.37);
   #endif
   constexpr uint32_t e_axis                 = axis_label;
   constexpr uint32_t feedrate               = axis_label;
@@ -158,11 +158,11 @@ namespace Theme {
   constexpr uint32_t progress               = axis_label;
   constexpr uint32_t status_msg             = axis_label;
   #if ENABLED(TOUCH_UI_ROYAL_THEME)
-    constexpr uint32_t fan_speed            = hsl_to_rgb(240, 0.5, 0.13);
-    constexpr uint32_t temp                 = hsl_to_rgb(343, 1.0, 0.23);
+      constexpr uint32_t fan_speed            = hsl_to_rgb(240, 0.5, 0.13);
+      constexpr uint32_t temp                 = hsl_to_rgb(343, 1.0, 0.23);
   #else
-    constexpr uint32_t fan_speed            = hsl_to_rgb(204, 0.47, 0.41);
-    constexpr uint32_t temp                 = hsl_to_rgb(311, 0.51, 0.35);
+      constexpr uint32_t fan_speed            = hsl_to_rgb(204, 0.47, 0.41);
+      constexpr uint32_t temp                 = hsl_to_rgb(311, 0.51, 0.35);
   #endif
 
   constexpr uint32_t disabled_icon          = gray_color_1;

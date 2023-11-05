@@ -28,7 +28,7 @@
 ****************************************************************************************/
 
 #if NOT_TARGET(IS_TEENSY41)
-  #error "Oops! Select 'Teensy 4.1' in 'Tools > Board.'"
+    #error "Oops! Select 'Teensy 4.1' in 'Tools > Board.'"
 #endif
 
 #define BOARD_INFO_NAME "Teensy4.1"
@@ -63,7 +63,7 @@
  */
 
 #ifndef SDCARD_CONNECTION
-  #define SDCARD_CONNECTION              ONBOARD
+    #define SDCARD_CONNECTION              ONBOARD
 #endif
 
 //

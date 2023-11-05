@@ -75,21 +75,21 @@ namespace Language_tr {
   PROGMEM Language_Str MSG_HOME_OFFSETS_APPLIED            = _UxGT("Ofset Tamam");
   PROGMEM Language_Str MSG_SET_ORIGIN                      = _UxGT("Sıfır Belirle");
   #if PREHEAT_COUNT
-    PROGMEM Language_Str MSG_PREHEAT_1                     = _UxGT("Ön Isınma ") PREHEAT_1_LABEL;
-    PROGMEM Language_Str MSG_PREHEAT_1_H                   = _UxGT("Ön Isınma ") PREHEAT_1_LABEL " ~";
-    PROGMEM Language_Str MSG_PREHEAT_1_END                 = _UxGT("Ön Isınma ") PREHEAT_1_LABEL _UxGT(" Nozul");
-    PROGMEM Language_Str MSG_PREHEAT_1_END_E               = _UxGT("Ön Isınma ") PREHEAT_1_LABEL _UxGT(" Nozul ~");
-    PROGMEM Language_Str MSG_PREHEAT_1_ALL                 = _UxGT("Ön Isınma ") PREHEAT_1_LABEL _UxGT(" Tüm");
-    PROGMEM Language_Str MSG_PREHEAT_1_BEDONLY             = _UxGT("Ön Isınma ") PREHEAT_1_LABEL _UxGT(" Tabla");
-    PROGMEM Language_Str MSG_PREHEAT_1_SETTINGS            = _UxGT("Ön Isınma ") PREHEAT_1_LABEL _UxGT(" Ayarlar");
-
-    PROGMEM Language_Str MSG_PREHEAT_M                     = _UxGT("Ön Isınma $");
-    PROGMEM Language_Str MSG_PREHEAT_M_H                   = _UxGT("Ön Isınma $ ~");
-    PROGMEM Language_Str MSG_PREHEAT_M_END                 = _UxGT("Ön Isınma $ Nozul");
-    PROGMEM Language_Str MSG_PREHEAT_M_END_E               = _UxGT("Ön Isınma $ Nozul ~");
-    PROGMEM Language_Str MSG_PREHEAT_M_ALL                 = _UxGT("Ön Isınma $ Tüm");
-    PROGMEM Language_Str MSG_PREHEAT_M_BEDONLY             = _UxGT("Ön Isınma $ Tabla");
-    PROGMEM Language_Str MSG_PREHEAT_M_SETTINGS            = _UxGT("Ön Isınma $ Ayarlar");
+      PROGMEM Language_Str MSG_PREHEAT_1                     = _UxGT("Ön Isınma ") PREHEAT_1_LABEL;
+      PROGMEM Language_Str MSG_PREHEAT_1_H                   = _UxGT("Ön Isınma ") PREHEAT_1_LABEL " ~";
+      PROGMEM Language_Str MSG_PREHEAT_1_END                 = _UxGT("Ön Isınma ") PREHEAT_1_LABEL _UxGT(" Nozul");
+      PROGMEM Language_Str MSG_PREHEAT_1_END_E               = _UxGT("Ön Isınma ") PREHEAT_1_LABEL _UxGT(" Nozul ~");
+      PROGMEM Language_Str MSG_PREHEAT_1_ALL                 = _UxGT("Ön Isınma ") PREHEAT_1_LABEL _UxGT(" Tüm");
+      PROGMEM Language_Str MSG_PREHEAT_1_BEDONLY             = _UxGT("Ön Isınma ") PREHEAT_1_LABEL _UxGT(" Tabla");
+      PROGMEM Language_Str MSG_PREHEAT_1_SETTINGS            = _UxGT("Ön Isınma ") PREHEAT_1_LABEL _UxGT(" Ayarlar");
+  
+      PROGMEM Language_Str MSG_PREHEAT_M                     = _UxGT("Ön Isınma $");
+      PROGMEM Language_Str MSG_PREHEAT_M_H                   = _UxGT("Ön Isınma $ ~");
+      PROGMEM Language_Str MSG_PREHEAT_M_END                 = _UxGT("Ön Isınma $ Nozul");
+      PROGMEM Language_Str MSG_PREHEAT_M_END_E               = _UxGT("Ön Isınma $ Nozul ~");
+      PROGMEM Language_Str MSG_PREHEAT_M_ALL                 = _UxGT("Ön Isınma $ Tüm");
+      PROGMEM Language_Str MSG_PREHEAT_M_BEDONLY             = _UxGT("Ön Isınma $ Tabla");
+      PROGMEM Language_Str MSG_PREHEAT_M_SETTINGS            = _UxGT("Ön Isınma $ Ayarlar");
   #endif
   PROGMEM Language_Str MSG_PREHEAT_CUSTOM                  = _UxGT("Özel Ön Isınma");
   PROGMEM Language_Str MSG_COOLDOWN                        = _UxGT("Soğut/(Durdur)");
@@ -149,8 +149,8 @@ namespace Language_tr {
   PROGMEM Language_Str MSG_UBL_BUILD_CUSTOM_MESH           = _UxGT("Özel Mesh Oluştur");
   PROGMEM Language_Str MSG_UBL_BUILD_MESH_MENU             = _UxGT("Mesh Oluştur");
   #if PREHEAT_COUNT
-    PROGMEM Language_Str MSG_UBL_BUILD_MESH_M              = _UxGT("Mesh Oluştur ($)");
-    PROGMEM Language_Str MSG_UBL_VALIDATE_MESH_M           = _UxGT("Doğrulama Mesh ($)");
+      PROGMEM Language_Str MSG_UBL_BUILD_MESH_M              = _UxGT("Mesh Oluştur ($)");
+      PROGMEM Language_Str MSG_UBL_VALIDATE_MESH_M           = _UxGT("Doğrulama Mesh ($)");
   #endif
   PROGMEM Language_Str MSG_UBL_BUILD_COLD_MESH             = _UxGT("Soğuk Mesh Oluştur");
   PROGMEM Language_Str MSG_UBL_MESH_HEIGHT_ADJUST          = _UxGT("Mesh Yükseklik Ayarı");
@@ -446,17 +446,17 @@ namespace Language_tr {
   PROGMEM Language_Str MSG_KILL_EXPECTED_PRINTER           = _UxGT("Yanlış Yazıcı");
 
   #if LCD_WIDTH >= 20
-    PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Baskı Sayısı");
-    PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Tamamlanan");
-    PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Toplam Baskı Süresi");
-    PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("En Uzun Baskı Süresi");
-    PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Toplam Filaman");
+      PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Baskı Sayısı");
+      PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Tamamlanan");
+      PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Toplam Baskı Süresi");
+      PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("En Uzun Baskı Süresi");
+      PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Toplam Filaman");
   #else
-    PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Baskı");
-    PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Tamamlanan");
-    PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Süre");
-    PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("En Uzun");
-    PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Filaman");
+      PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Baskı");
+      PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Tamamlanan");
+      PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Süre");
+      PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("En Uzun");
+      PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Filaman");
   #endif
 
   PROGMEM Language_Str MSG_INFO_MIN_TEMP                   = _UxGT("Min Sıc.");
@@ -533,30 +533,30 @@ namespace Language_tr {
   //                        ...veya 3 satırlı ekranda 2 satıra kadar
   //
   #if LCD_HEIGHT >= 4
-
-    PROGMEM Language_Str MSG_ADVANCED_PAUSE_WAITING        = _UxGT(MSG_2_LINE("Baskıya devam etmek", "için Butona bas"));
-    PROGMEM Language_Str MSG_PAUSE_PRINT_PARKING           = _UxGT(MSG_1_LINE("Park Ediliyor..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_3_LINE("Filaman değişimi", "için başlama", "bekleniyor"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_3_LINE("Filamanı yükle", "ve devam için", "tuşa bas..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_2_LINE("Nozulü Isıtmak için", "Butona Bas."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_2_LINE("Nozul Isınıyor", "Lütfen Bekleyin..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_2_LINE("Filamanın çıkması", "bekleniyor"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_2_LINE("Filamanın yüklenmesi", "bekleniyor.."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_PURGE         = _UxGT(MSG_2_LINE("Filaman Temizlemesi", "için bekle"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_CONT_PURGE    = _UxGT(MSG_2_LINE("Filaman Temizlemesi", "bitirmek için tıkla"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_2_LINE("Baskının devam ", "etmesi için bekle"));
+  
+      PROGMEM Language_Str MSG_ADVANCED_PAUSE_WAITING        = _UxGT(MSG_2_LINE("Baskıya devam etmek", "için Butona bas"));
+      PROGMEM Language_Str MSG_PAUSE_PRINT_PARKING           = _UxGT(MSG_1_LINE("Park Ediliyor..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_3_LINE("Filaman değişimi", "için başlama", "bekleniyor"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_3_LINE("Filamanı yükle", "ve devam için", "tuşa bas..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_2_LINE("Nozulü Isıtmak için", "Butona Bas."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_2_LINE("Nozul Isınıyor", "Lütfen Bekleyin..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_2_LINE("Filamanın çıkması", "bekleniyor"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_2_LINE("Filamanın yüklenmesi", "bekleniyor.."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_PURGE         = _UxGT(MSG_2_LINE("Filaman Temizlemesi", "için bekle"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_CONT_PURGE    = _UxGT(MSG_2_LINE("Filaman Temizlemesi", "bitirmek için tıkla"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_2_LINE("Baskının devam ", "etmesi için bekle"));
   #else
-    PROGMEM Language_Str MSG_ADVANCED_PAUSE_WAITING        = _UxGT(MSG_1_LINE("Sürdürmek İçin Tıkla"));
-    PROGMEM Language_Str MSG_PAUSE_PRINT_PARKING           = _UxGT(MSG_1_LINE("Park Ediliyor..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_1_LINE("Lütfen bekleyiniz..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_1_LINE("Yükle ve bas"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_1_LINE("Isıtmak için Tıkla"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_1_LINE("Isınıyor..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_1_LINE("Çıkartılıyor..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_1_LINE("Yüklüyor..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_PURGE         = _UxGT(MSG_1_LINE("Temizleniyor..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_CONT_PURGE    = _UxGT(MSG_1_LINE("Bitirmek için Tıkla"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_1_LINE("Sürdürülüyor..."));
+      PROGMEM Language_Str MSG_ADVANCED_PAUSE_WAITING        = _UxGT(MSG_1_LINE("Sürdürmek İçin Tıkla"));
+      PROGMEM Language_Str MSG_PAUSE_PRINT_PARKING           = _UxGT(MSG_1_LINE("Park Ediliyor..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_1_LINE("Lütfen bekleyiniz..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_1_LINE("Yükle ve bas"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_1_LINE("Isıtmak için Tıkla"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_1_LINE("Isınıyor..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_1_LINE("Çıkartılıyor..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_1_LINE("Yüklüyor..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_PURGE         = _UxGT(MSG_1_LINE("Temizleniyor..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_CONT_PURGE    = _UxGT(MSG_1_LINE("Bitirmek için Tıkla"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_1_LINE("Sürdürülüyor..."));
   #endif
   PROGMEM Language_Str MSG_TMC_DRIVERS                     = _UxGT("TMC Sürücüleri");
   PROGMEM Language_Str MSG_TMC_CURRENT                     = _UxGT("Sürücü Akımı");
@@ -575,9 +575,9 @@ namespace Language_tr {
 }
 
 #if FAN_COUNT == 1
-  #define MSG_FIRST_FAN_SPEED       MSG_FAN_SPEED
-  #define MSG_EXTRA_FIRST_FAN_SPEED MSG_EXTRA_FAN_SPEED
+    #define MSG_FIRST_FAN_SPEED       MSG_FAN_SPEED
+    #define MSG_EXTRA_FIRST_FAN_SPEED MSG_EXTRA_FAN_SPEED
 #else
-  #define MSG_FIRST_FAN_SPEED       MSG_FAN_SPEED_N
-  #define MSG_EXTRA_FIRST_FAN_SPEED MSG_EXTRA_FAN_SPEED_N
+    #define MSG_FIRST_FAN_SPEED       MSG_FAN_SPEED_N
+    #define MSG_EXTRA_FIRST_FAN_SPEED MSG_EXTRA_FAN_SPEED_N
 #endif

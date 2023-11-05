@@ -33,53 +33,53 @@ private:
   static uint8_t old_intensity;
 
   #if HAS_LEDS_OFF_FLAG
-    static bool leds_off_after_print;
+      static bool leds_off_after_print;
   #endif
 
   static inline void set_done() { TERN(LED_COLOR_PRESETS, leds.set_default(), leds.set_off()); }
 
 public:
   #if HAS_TEMP_HOTEND
-    static inline LEDColor onHotendHeatingStart() { old_intensity = 0; return leds.get_color(); }
-    static void onHotendHeating(const celsius_t start, const celsius_t current, const celsius_t target);
+      static inline LEDColor onHotendHeatingStart() { old_intensity = 0; return leds.get_color(); }
+      static void onHotendHeating(const celsius_t start, const celsius_t current, const celsius_t target);
   #endif
 
   #if HAS_HEATED_BED
-    static inline LEDColor onBedHeatingStart() { old_intensity = 127; return leds.get_color(); }
-    static void onBedHeating(const celsius_t start, const celsius_t current, const celsius_t target);
+      static inline LEDColor onBedHeatingStart() { old_intensity = 127; return leds.get_color(); }
+      static void onBedHeating(const celsius_t start, const celsius_t current, const celsius_t target);
   #endif
 
   #if HAS_HEATED_CHAMBER
-    static inline LEDColor onChamberHeatingStart() { old_intensity = 127; return leds.get_color(); }
-    static void onChamberHeating(const celsius_t start, const celsius_t current, const celsius_t target);
+      static inline LEDColor onChamberHeatingStart() { old_intensity = 127; return leds.get_color(); }
+      static void onChamberHeating(const celsius_t start, const celsius_t current, const celsius_t target);
   #endif
 
   #if HAS_TEMP_HOTEND || HAS_HEATED_BED || HAS_HEATED_CHAMBER
-    static inline void onHeatingDone()             { leds.set_white(); }
-    static inline void onPidTuningDone(LEDColor c) { leds.set_color(c); }
+      static inline void onHeatingDone()             { leds.set_white(); }
+      static inline void onPidTuningDone(LEDColor c) { leds.set_color(c); }
   #endif
 
   #if ENABLED(SDSUPPORT)
-
-    static inline void onPrintCompleted() {
-      leds.set_green();
-      #if HAS_LEDS_OFF_FLAG
-        leds_off_after_print = true;
-      #else
-        safe_delay(2000);
-        set_done();
-      #endif
-    }
-
-    static inline void onResumeAfterWait() {
-      #if HAS_LEDS_OFF_FLAG
-        if (leds_off_after_print) {
-          set_done();
-          leds_off_after_print = false;
-        }
-      #endif
-    }
-
+  
+      static inline void onPrintCompleted() {
+        leds.set_green();
+        #if HAS_LEDS_OFF_FLAG
+            leds_off_after_print = true;
+        #else
+            safe_delay(2000);
+            set_done();
+        #endif
+      }
+  
+      static inline void onResumeAfterWait() {
+        #if HAS_LEDS_OFF_FLAG
+            if (leds_off_after_print) {
+              set_done();
+              leds_off_after_print = false;
+            }
+        #endif
+      }
+  
   #endif // SDSUPPORT
 };
 

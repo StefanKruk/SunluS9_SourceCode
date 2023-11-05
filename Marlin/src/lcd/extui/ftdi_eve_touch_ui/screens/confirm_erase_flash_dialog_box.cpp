@@ -24,30 +24,30 @@
 #include "screens.h"
 
 #ifdef FTDI_CONFIRM_ERASE_FLASH_DIALOG_BOX
-
-#include "../archim2-flash/flash_storage.h"
-
-using namespace FTDI;
-
-void ConfirmEraseFlashDialogBox::onRedraw(draw_mode_t) {
-  drawMessage(GET_TEXT_F(MSG_ERASE_FLASH_WARNING));
-  drawYesNoButtons();
-}
-
-bool ConfirmEraseFlashDialogBox::onTouchEnd(uint8_t tag) {
-  switch (tag) {
-    case 1:
-      SpinnerDialogBox::show(GET_TEXT_F(MSG_ERASING));
-      UIFlashStorage::format_flash();
-      SpinnerDialogBox::hide();
-      AlertDialogBox::show(GET_TEXT_F(MSG_ERASED));
-      // Remove ConfirmEraseFlashDialogBox from the stack
-      // so the alert box doesn't return to me.
-      current_screen.forget();
-      return true;
-    default:
-      return DialogBoxBaseClass::onTouchEnd(tag);
+  
+  #include "../archim2-flash/flash_storage.h"
+  
+  using namespace FTDI;
+  
+  void ConfirmEraseFlashDialogBox::onRedraw(draw_mode_t) {
+    drawMessage(GET_TEXT_F(MSG_ERASE_FLASH_WARNING));
+    drawYesNoButtons();
   }
-}
-
+  
+  bool ConfirmEraseFlashDialogBox::onTouchEnd(uint8_t tag) {
+    switch (tag) {
+      case 1:
+        SpinnerDialogBox::show(GET_TEXT_F(MSG_ERASING));
+        UIFlashStorage::format_flash();
+        SpinnerDialogBox::hide();
+        AlertDialogBox::show(GET_TEXT_F(MSG_ERASED));
+        // Remove ConfirmEraseFlashDialogBox from the stack
+        // so the alert box doesn't return to me.
+        current_screen.forget();
+        return true;
+      default:
+        return DialogBoxBaseClass::onTouchEnd(tag);
+    }
+  }
+  
 #endif // FTDI_CONFIRM_ERASE_FLASH_DIALOG_BOX

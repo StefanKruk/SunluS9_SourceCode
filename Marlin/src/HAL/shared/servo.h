@@ -67,49 +67,49 @@
  */
 
 #if IS_TEENSY32
-  #include "../TEENSY31_32/Servo.h"
+    #include "../TEENSY31_32/Servo.h"
 #elif IS_TEENSY35 || IS_TEENSY36
-  #include "../TEENSY35_36/Servo.h"
+    #include "../TEENSY35_36/Servo.h"
 #elif IS_TEENSY40 || IS_TEENSY41
-  #include "../TEENSY40_41/Servo.h"
+    #include "../TEENSY40_41/Servo.h"
 #elif defined(TARGET_LPC1768)
-  #include "../LPC1768/Servo.h"
+    #include "../LPC1768/Servo.h"
 #elif defined(__STM32F1__) || defined(TARGET_STM32F1)
-  #include "../STM32F1/Servo.h"
+    #include "../STM32F1/Servo.h"
 #elif defined(ARDUINO_ARCH_STM32)
-  #include "../STM32/Servo.h"
+    #include "../STM32/Servo.h"
 #elif defined(ARDUINO_ARCH_ESP32)
-  #include "../ESP32/Servo.h"
+    #include "../ESP32/Servo.h"
 #else
-  #include <stdint.h>
-
-  #if defined(__AVR__) || defined(ARDUINO_ARCH_SAM) || defined(__SAMD51__)
-    // we're good to go
-  #else
-    #error "This library only supports boards with an AVR, SAM3X or SAMD51 processor."
-  #endif
-
-  #define Servo_VERSION           2     // software version of this library
-
-  class Servo {
-    public:
-      Servo();
-      int8_t attach(const int pin);      // attach the given pin to the next free channel, set pinMode, return channel number (-1 on fail)
-      int8_t attach(const int pin, const int min, const int max); // as above but also sets min and max values for writes.
-      void detach();
-      void write(int value);             // if value is < 200 it is treated as an angle, otherwise as pulse width in microseconds
-      void writeMicroseconds(int value); // write pulse width in microseconds
-      void move(const int value);        // attach the servo, then move to value
-                                         // if value is < 200 it is treated as an angle, otherwise as pulse width in microseconds
-                                         // if DEACTIVATE_SERVOS_AFTER_MOVE wait SERVO_DELAY, then detach
-      int read();                        // returns current pulse width as an angle between 0 and 180 degrees
-      int readMicroseconds();            // returns current pulse width in microseconds for this servo (was read_us() in first release)
-      bool attached();                   // return true if this servo is attached, otherwise false
-
-    private:
-      uint8_t servoIndex;               // index into the channel data for this servo
-      int8_t min;                       // minimum is this value times 4 added to MIN_PULSE_WIDTH
-      int8_t max;                       // maximum is this value times 4 added to MAX_PULSE_WIDTH
-  };
-
+    #include <stdint.h>
+  
+    #if defined(__AVR__) || defined(ARDUINO_ARCH_SAM) || defined(__SAMD51__)
+        // we're good to go
+    #else
+        #error "This library only supports boards with an AVR, SAM3X or SAMD51 processor."
+    #endif
+  
+    #define Servo_VERSION           2     // software version of this library
+  
+    class Servo {
+      public:
+        Servo();
+        int8_t attach(const int pin);      // attach the given pin to the next free channel, set pinMode, return channel number (-1 on fail)
+        int8_t attach(const int pin, const int min, const int max); // as above but also sets min and max values for writes.
+        void detach();
+        void write(int value);             // if value is < 200 it is treated as an angle, otherwise as pulse width in microseconds
+        void writeMicroseconds(int value); // write pulse width in microseconds
+        void move(const int value);        // attach the servo, then move to value
+                                           // if value is < 200 it is treated as an angle, otherwise as pulse width in microseconds
+                                           // if DEACTIVATE_SERVOS_AFTER_MOVE wait SERVO_DELAY, then detach
+        int read();                        // returns current pulse width as an angle between 0 and 180 degrees
+        int readMicroseconds();            // returns current pulse width in microseconds for this servo (was read_us() in first release)
+        bool attached();                   // return true if this servo is attached, otherwise false
+  
+      private:
+        uint8_t servoIndex;               // index into the channel data for this servo
+        int8_t min;                       // minimum is this value times 4 added to MIN_PULSE_WIDTH
+        int8_t max;                       // maximum is this value times 4 added to MAX_PULSE_WIDTH
+    };
+  
 #endif

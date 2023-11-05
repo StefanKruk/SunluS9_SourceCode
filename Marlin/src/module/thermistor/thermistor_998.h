@@ -24,7 +24,7 @@
 // User-defined table 1
 // Dummy Thermistor table.. It will ALWAYS read a fixed value.
 #ifndef DUMMY_THERMISTOR_998_VALUE
-  #define DUMMY_THERMISTOR_998_VALUE 25
+    #define DUMMY_THERMISTOR_998_VALUE 25
 #endif
 
 const temp_entry_t temptable_998[] PROGMEM = {

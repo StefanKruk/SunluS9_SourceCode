@@ -22,9 +22,9 @@
 #pragma once
 
 #if NOT_TARGET(TARGET_STM32F1)
-  #error "Oops! Select an STM32F1 board in 'Tools > Board.'"
+    #error "Oops! Select an STM32F1 board in 'Tools > Board.'"
 #elif HOTENDS > 1 || E_STEPPERS > 1
-  #error "CCROBOT-ONLINE MEEB_3DP only supports one hotend / E-stepper. Comment out this line to continue."
+    #error "CCROBOT-ONLINE MEEB_3DP only supports one hotend / E-stepper. Comment out this line to continue."
 #endif
 
 // https://github.com/ccrobot-online/MEEB_3DP
@@ -42,10 +42,10 @@
 // EEPROM
 //
 #if EITHER(NO_EEPROM_SELECTED, FLASH_EEPROM_EMULATION)
-  #define FLASH_EEPROM_EMULATION
-  #define EEPROM_PAGE_SIZE                0x800U  // 2KB
-  #define EEPROM_START_ADDRESS (0x8000000UL + (STM32_FLASH_SIZE) * 1024UL - (EEPROM_PAGE_SIZE) * 2UL)
-  #define MARLIN_EEPROM_SIZE              0x1000  // 4KB
+    #define FLASH_EEPROM_EMULATION
+    #define EEPROM_PAGE_SIZE                0x800U  // 2KB
+    #define EEPROM_START_ADDRESS (0x8000000UL + (STM32_FLASH_SIZE) * 1024UL - (EEPROM_PAGE_SIZE) * 2UL)
+    #define MARLIN_EEPROM_SIZE              0x1000  // 4KB
 #endif
 
 //
@@ -131,27 +131,27 @@
 // LCD / Controller
 //
 #if ENABLED(CR10_STOCKDISPLAY)
-  #define BEEPER_PIN                        PB5
-  #define BTN_EN1                           PA2
-  #define BTN_EN2                           PA3
-  #define BTN_ENC                           PB6
-
-  #define LCD_PINS_RS                       PB7   // CS -- SOFT SPI for ENDER3 LCD
-  #define LCD_PINS_D4                       PB8   // SCLK
-  #define LCD_PINS_ENABLE                   PA4   // DATA MOSI
+    #define BEEPER_PIN                        PB5
+    #define BTN_EN1                           PA2
+    #define BTN_EN2                           PA3
+    #define BTN_ENC                           PB6
+  
+    #define LCD_PINS_RS                       PB7   // CS -- SOFT SPI for ENDER3 LCD
+    #define LCD_PINS_D4                       PB8   // SCLK
+    #define LCD_PINS_ENABLE                   PA4   // DATA MOSI
 #endif
 
 // Alter timing for graphical display
 #if HAS_MARLINUI_U8GLIB
-  #ifndef BOARD_ST7920_DELAY_1
-    #define BOARD_ST7920_DELAY_1 DELAY_NS(125)
-  #endif
-  #ifndef BOARD_ST7920_DELAY_2
-    #define BOARD_ST7920_DELAY_2 DELAY_NS(125)
-  #endif
-  #ifndef BOARD_ST7920_DELAY_3
-    #define BOARD_ST7920_DELAY_3 DELAY_NS(125)
-  #endif
+    #ifndef BOARD_ST7920_DELAY_1
+        #define BOARD_ST7920_DELAY_1 DELAY_NS(125)
+    #endif
+    #ifndef BOARD_ST7920_DELAY_2
+        #define BOARD_ST7920_DELAY_2 DELAY_NS(125)
+    #endif
+    #ifndef BOARD_ST7920_DELAY_3
+        #define BOARD_ST7920_DELAY_3 DELAY_NS(125)
+    #endif
 #endif
 
 //
@@ -160,19 +160,19 @@
 #define CHDK_PIN                            PB15
 
 #if 0
-
-//
-// SD-NAND
-//
-#if SD_CONNECTION_IS(ONBOARD)
-  #define SD_DETECT_PIN                     -1
-  #define SD_SCK_PIN                        PA5
-  #define SD_MISO_PIN                       PA6
-  #define SD_MOSI_PIN                       PA7
-  #define SD_SS_PIN                         PA4
-#endif
-
-#define ONBOARD_SPI_DEVICE                     1  // SPI1
-#define ONBOARD_SD_CS_PIN                   PA4   // Chip select for SD-NAND
-
+  
+  //
+  // SD-NAND
+  //
+  #if SD_CONNECTION_IS(ONBOARD)
+      #define SD_DETECT_PIN                     -1
+      #define SD_SCK_PIN                        PA5
+      #define SD_MISO_PIN                       PA6
+      #define SD_MOSI_PIN                       PA7
+      #define SD_SS_PIN                         PA4
+  #endif
+  
+  #define ONBOARD_SPI_DEVICE                     1  // SPI1
+  #define ONBOARD_SD_CS_PIN                   PA4   // Chip select for SD-NAND
+  
 #endif

@@ -26,11 +26,11 @@
  */
 
 #if NOT_TARGET(__STM32F1__, STM32F1xx, STM32F0xx)
-  #error "Oops! Select an STM32 board in your IDE."
+    #error "Oops! Select an STM32 board in your IDE."
 #endif
 
 #ifndef BOARD_INFO_NAME
-  #define BOARD_INFO_NAME "Malyan M200"
+    #define BOARD_INFO_NAME "Malyan M200"
 #endif
 
 // Prevents hanging from an extra watchdog init
@@ -38,7 +38,7 @@
 
 // Assume Flash EEPROM
 #if NO_EEPROM_SELECTED
-  #define FLASH_EEPROM_EMULATION
+    #define FLASH_EEPROM_EMULATION
 #endif
 
 #define SDSS                           SD_SS_PIN  // Also in HAL/STM32F1/spi_pins.h

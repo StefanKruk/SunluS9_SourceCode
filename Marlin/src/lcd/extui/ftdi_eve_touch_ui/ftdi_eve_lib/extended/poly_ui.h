@@ -297,12 +297,12 @@ class GenericPolyUI {
 
     void shadow(poly_reader_t r, uint8_t offset) {
       #if FTDI_API_LEVEL >= 810
-        using namespace FTDI;
-        cmd.cmd(VERTEX_TRANSLATE_X(offset * 16));
-        cmd.cmd(VERTEX_TRANSLATE_Y(offset * 16));
-        fill(r, false);
-        cmd.cmd(VERTEX_TRANSLATE_X(0));
-        cmd.cmd(VERTEX_TRANSLATE_Y(0));
+          using namespace FTDI;
+          cmd.cmd(VERTEX_TRANSLATE_X(offset * 16));
+          cmd.cmd(VERTEX_TRANSLATE_Y(offset * 16));
+          fill(r, false);
+          cmd.cmd(VERTEX_TRANSLATE_X(0));
+          cmd.cmd(VERTEX_TRANSLATE_Y(0));
       #endif
     }
 
@@ -365,25 +365,25 @@ class GenericPolyUI {
       using namespace FTDI;
       // Draw the shadow
       #if FTDI_API_LEVEL >= 810
-      if (mode & BACKGROUND && style & SHADOW) {
-        cmd.cmd(SAVE_CONTEXT());
-        cmd.cmd(TAG(tag));
-        cmd.cmd(VERTEX_TRANSLATE_X(btn_shadow_depth * 16));
-        cmd.cmd(VERTEX_TRANSLATE_Y(btn_shadow_depth * 16));
-        cmd.cmd(COLOR_RGB(btn_shadow_color));
-        fill(r, false);
-        cmd.cmd(RESTORE_CONTEXT());
-      }
+        if (mode & BACKGROUND && style & SHADOW) {
+          cmd.cmd(SAVE_CONTEXT());
+          cmd.cmd(TAG(tag));
+          cmd.cmd(VERTEX_TRANSLATE_X(btn_shadow_depth * 16));
+          cmd.cmd(VERTEX_TRANSLATE_Y(btn_shadow_depth * 16));
+          cmd.cmd(COLOR_RGB(btn_shadow_color));
+          fill(r, false);
+          cmd.cmd(RESTORE_CONTEXT());
+        }
       #endif
 
       if (mode & FOREGROUND) {
         cmd.cmd(SAVE_CONTEXT());
         #if FTDI_API_LEVEL >= 810
-          if (EventLoop::get_pressed_tag() == tag) {
-            // "Push" the button
-            cmd.cmd(VERTEX_TRANSLATE_X(btn_shadow_depth * 16));
-            cmd.cmd(VERTEX_TRANSLATE_Y(btn_shadow_depth * 16));
-          }
+            if (EventLoop::get_pressed_tag() == tag) {
+              // "Push" the button
+              cmd.cmd(VERTEX_TRANSLATE_X(btn_shadow_depth * 16));
+              cmd.cmd(VERTEX_TRANSLATE_Y(btn_shadow_depth * 16));
+            }
         #endif
         // Draw the fill and stroke
         cmd.cmd(TAG(tag));

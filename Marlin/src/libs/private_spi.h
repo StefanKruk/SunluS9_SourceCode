@@ -44,11 +44,11 @@ class SPIclass<SD_MISO_PIN, SD_MOSI_PIN, SD_SCK_PIN> {
     }
     FORCE_INLINE static uint8_t receive() {
       #if defined(__AVR__) || defined(__MK20DX256__) || defined(__MK64FX512__) || defined(__MK66FX1M0__) || defined(__IMXRT1062__)
-        SPDR = 0;
-        for (;!TEST(SPSR, SPIF););
-        return SPDR;
+          SPDR = 0;
+          for (;!TEST(SPSR, SPIF););
+          return SPDR;
       #else
-        return spiRec();
+          return spiRec();
       #endif
     }
 };

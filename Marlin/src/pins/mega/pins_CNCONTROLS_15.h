@@ -43,7 +43,7 @@
 #define Z_STOP_PIN                            62
 
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     49
+    #define Z_MIN_PROBE_PIN                     49
 #endif
 
 //
@@ -73,7 +73,7 @@
 #define TEMP_BED_PIN                           4  // Analog Input
 
 #ifndef TEMP_CHAMBER_PIN
-  #define TEMP_CHAMBER_PIN                     5  // Analog Input
+    #define TEMP_CHAMBER_PIN                     5  // Analog Input
 #endif
 
 //
@@ -93,19 +93,19 @@
 //
 #define AUTO_FAN_PIN                          30
 #ifndef E0_AUTO_FAN_PIN
-  #define E0_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E0_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 #ifndef E1_AUTO_FAN_PIN
-  #define E1_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E1_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 #ifndef E2_AUTO_FAN_PIN
-  #define E2_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E2_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 #ifndef E3_AUTO_FAN_PIN
-  #define E3_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E3_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 #ifndef CHAMBER_AUTO_FAN_PIN
-  //#define CHAMBER_AUTO_FAN_PIN              10
+    //#define CHAMBER_AUTO_FAN_PIN              10
 #endif
 
 //

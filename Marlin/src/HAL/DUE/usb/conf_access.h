@@ -45,72 +45,72 @@
  */
 
 #ifndef _CONF_ACCESS_H_
-#define _CONF_ACCESS_H_
-
-#include "compiler.h"
-#include "../../../inc/MarlinConfigPre.h"
-
-/*! \name Activation of Logical Unit Numbers
- */
-//! @{
-
-#define LUN_0                ENABLE    //!< SD/MMC Card over MCI Slot 0.
-#define LUN_1                DISABLE
-#define LUN_2                DISABLE
-#define LUN_3                DISABLE
-#define LUN_4                DISABLE
-#define LUN_5                DISABLE
-#define LUN_6                DISABLE
-#define LUN_7                DISABLE
-#define LUN_USB              DISABLE
-//! @}
-
-/*! \name LUN 0 Definitions
- */
-//! @{
-#define SD_MMC_SPI_MEM                          LUN_0
-#define LUN_ID_SD_MMC_SPI_MEM                   LUN_ID_0
-#define LUN_0_INCLUDE                           "sd_mmc_spi_mem.h"
-#define Lun_0_test_unit_ready                   sd_mmc_spi_test_unit_ready
-#define Lun_0_read_capacity                     sd_mmc_spi_read_capacity
-#define Lun_0_unload                            sd_mmc_spi_unload
-#define Lun_0_wr_protect                        sd_mmc_spi_wr_protect
-#define Lun_0_removal                           sd_mmc_spi_removal
-#define Lun_0_usb_read_10                       sd_mmc_spi_usb_read_10
-#define Lun_0_usb_write_10                      sd_mmc_spi_usb_write_10
-#define LUN_0_NAME                              "\"SD/MMC Card\""
-//! @}
-
-
-/*! \name Actions Associated with Memory Accesses
- *
- * Write here the action to associate with each memory access.
- *
- * \warning Be careful not to waste time in order not to disturb the functions.
- */
-//! @{
-#define memory_start_read_action(nb_sectors)
-#define memory_stop_read_action()
-#define memory_start_write_action(nb_sectors)
-#define memory_stop_write_action()
-//! @}
-
-/*! \name Activation of Interface Features
- */
-//! @{
-#define ACCESS_USB           true    //!< MEM <-> USB interface.
-#define ACCESS_MEM_TO_RAM    false   //!< MEM <-> RAM interface.
-#define ACCESS_STREAM        false   //!< Streaming MEM <-> MEM interface.
-#define ACCESS_STREAM_RECORD false   //!< Streaming MEM <-> MEM interface in record mode.
-#define ACCESS_MEM_TO_MEM    false   //!< MEM <-> MEM interface.
-#define ACCESS_CODEC         false   //!< Codec interface.
-//! @}
-
-/*! \name Specific Options for Access Control
- */
-//! @{
-#define GLOBAL_WR_PROTECT    false   //!< Management of a global write protection.
-//! @}
-
-
+  #define _CONF_ACCESS_H_
+  
+  #include "compiler.h"
+  #include "../../../inc/MarlinConfigPre.h"
+  
+  /*! \name Activation of Logical Unit Numbers
+   */
+  //! @{
+  
+  #define LUN_0                ENABLE    //!< SD/MMC Card over MCI Slot 0.
+  #define LUN_1                DISABLE
+  #define LUN_2                DISABLE
+  #define LUN_3                DISABLE
+  #define LUN_4                DISABLE
+  #define LUN_5                DISABLE
+  #define LUN_6                DISABLE
+  #define LUN_7                DISABLE
+  #define LUN_USB              DISABLE
+  //! @}
+  
+  /*! \name LUN 0 Definitions
+   */
+  //! @{
+  #define SD_MMC_SPI_MEM                          LUN_0
+  #define LUN_ID_SD_MMC_SPI_MEM                   LUN_ID_0
+  #define LUN_0_INCLUDE                           "sd_mmc_spi_mem.h"
+  #define Lun_0_test_unit_ready                   sd_mmc_spi_test_unit_ready
+  #define Lun_0_read_capacity                     sd_mmc_spi_read_capacity
+  #define Lun_0_unload                            sd_mmc_spi_unload
+  #define Lun_0_wr_protect                        sd_mmc_spi_wr_protect
+  #define Lun_0_removal                           sd_mmc_spi_removal
+  #define Lun_0_usb_read_10                       sd_mmc_spi_usb_read_10
+  #define Lun_0_usb_write_10                      sd_mmc_spi_usb_write_10
+  #define LUN_0_NAME                              "\"SD/MMC Card\""
+  //! @}
+  
+  
+  /*! \name Actions Associated with Memory Accesses
+   *
+   * Write here the action to associate with each memory access.
+   *
+   * \warning Be careful not to waste time in order not to disturb the functions.
+   */
+  //! @{
+  #define memory_start_read_action(nb_sectors)
+  #define memory_stop_read_action()
+  #define memory_start_write_action(nb_sectors)
+  #define memory_stop_write_action()
+  //! @}
+  
+  /*! \name Activation of Interface Features
+   */
+  //! @{
+  #define ACCESS_USB           true    //!< MEM <-> USB interface.
+  #define ACCESS_MEM_TO_RAM    false   //!< MEM <-> RAM interface.
+  #define ACCESS_STREAM        false   //!< Streaming MEM <-> MEM interface.
+  #define ACCESS_STREAM_RECORD false   //!< Streaming MEM <-> MEM interface in record mode.
+  #define ACCESS_MEM_TO_MEM    false   //!< MEM <-> MEM interface.
+  #define ACCESS_CODEC         false   //!< Codec interface.
+  //! @}
+  
+  /*! \name Specific Options for Access Control
+   */
+  //! @{
+  #define GLOBAL_WR_PROTECT    false   //!< Management of a global write protection.
+  //! @}
+  
+  
 #endif // _CONF_ACCESS_H_

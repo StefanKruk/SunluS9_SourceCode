@@ -31,7 +31,7 @@
 #include "env_validate.h"
 
 #ifndef BOARD_INFO_NAME
-  #define BOARD_INFO_NAME "GT2560 3.x"
+    #define BOARD_INFO_NAME "GT2560 3.x"
 #endif
 
 //
@@ -43,48 +43,48 @@
 // Limit Switches
 //
 #ifndef X_STOP_PIN
-  #ifndef X_MIN_PIN
-    #define X_MIN_PIN                         24
-  #endif
-  #ifndef X_MAX_PIN
-    #define X_MAX_PIN                         22
-  #endif
+    #ifndef X_MIN_PIN
+        #define X_MIN_PIN                         24
+    #endif
+    #ifndef X_MAX_PIN
+        #define X_MAX_PIN                         22
+    #endif
 #endif
 #ifndef Y_STOP_PIN
-  #ifndef Y_MIN_PIN
-    #define Y_MIN_PIN                         28
-  #endif
-  #ifndef Y_MAX_PIN
-    #define Y_MAX_PIN                         26
-  #endif
+    #ifndef Y_MIN_PIN
+        #define Y_MIN_PIN                         28
+    #endif
+    #ifndef Y_MAX_PIN
+        #define Y_MAX_PIN                         26
+    #endif
 #endif
 #ifndef Z_STOP_PIN
-  #ifndef Z_MIN_PIN
-    #define Z_MIN_PIN                         30
-  #endif
-  #ifndef Z_MAX_PIN
-    #define Z_MAX_PIN                         32
-  #endif
+    #ifndef Z_MIN_PIN
+        #define Z_MIN_PIN                         30
+    #endif
+    #ifndef Z_MAX_PIN
+        #define Z_MAX_PIN                         32
+    #endif
 #endif
 
 //
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     32
+    #define Z_MIN_PROBE_PIN                     32
 #endif
 
 //
 // Runout Sensor
 //
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN                      66
+    #define FIL_RUNOUT_PIN                      66
 #endif
 #ifndef FIL_RUNOUT2_PIN
-  #define FIL_RUNOUT2_PIN                     67
+    #define FIL_RUNOUT2_PIN                     67
 #endif
 #ifndef FIL_RUNOUT3_PIN
-  #define FIL_RUNOUT3_PIN                     54
+    #define FIL_RUNOUT3_PIN                     54
 #endif
 
 //
@@ -148,11 +148,11 @@
 #define PS_ON_PIN                             12
 
 #if NUM_RUNOUT_SENSORS < 3
-  #define SUICIDE_PIN                         54  // This pin must be enabled at boot to keep power flowing
+    #define SUICIDE_PIN                         54  // This pin must be enabled at boot to keep power flowing
 #endif
 
 #ifndef CASE_LIGHT_PIN
-  #define CASE_LIGHT_PIN                       6  // 21
+    #define CASE_LIGHT_PIN                       6  // 21
 #endif
 
 //
@@ -161,57 +161,57 @@
 #define BEEPER_PIN                            18
 
 #if ENABLED(YHCB2004)
-  #ifndef YHCB2004_CLK
-    #define YHCB2004_CLK                       5
-    #define DIO52                   YHCB2004_CLK
-  #endif
-  #ifndef YHCB2004_MOSI
-    #define YHCB2004_MOSI                     21
-    #define DIO50                  YHCB2004_MOSI
-  #endif
-  #ifndef YHCB2004_MISO
-    #define YHCB2004_MISO                     36
-    #define DIO51                  YHCB2004_MISO
-  #endif
+    #ifndef YHCB2004_CLK
+        #define YHCB2004_CLK                       5
+        #define DIO52                   YHCB2004_CLK
+    #endif
+    #ifndef YHCB2004_MOSI
+        #define YHCB2004_MOSI                     21
+        #define DIO50                  YHCB2004_MOSI
+    #endif
+    #ifndef YHCB2004_MISO
+        #define YHCB2004_MISO                     36
+        #define DIO51                  YHCB2004_MISO
+    #endif
 #elif HAS_WIRED_LCD
-  #ifndef LCD_PINS_RS
-    #define LCD_PINS_RS                       20
-  #endif
-  #ifndef LCD_PINS_ENABLE
-    #define LCD_PINS_ENABLE                   17
-  #endif
-  #ifndef LCD_PINS_D4
-    #define LCD_PINS_D4                       16
-  #endif
-  #ifndef LCD_PINS_D5
-    #define LCD_PINS_D5                       21
-  #endif
-  #ifndef LCD_PINS_D6
-    #define LCD_PINS_D6                        5
-  #endif
-  #ifndef LCD_PINS_D7
-    #define LCD_PINS_D7                       36
-  #endif
+    #ifndef LCD_PINS_RS
+        #define LCD_PINS_RS                       20
+    #endif
+    #ifndef LCD_PINS_ENABLE
+        #define LCD_PINS_ENABLE                   17
+    #endif
+    #ifndef LCD_PINS_D4
+        #define LCD_PINS_D4                       16
+    #endif
+    #ifndef LCD_PINS_D5
+        #define LCD_PINS_D5                       21
+    #endif
+    #ifndef LCD_PINS_D6
+        #define LCD_PINS_D6                        5
+    #endif
+    #ifndef LCD_PINS_D7
+        #define LCD_PINS_D7                       36
+    #endif
 #endif
 
 #if ENABLED(YHCB2004)
-  #ifndef BTN_EN1
-    #define BTN_EN1                           16
-  #endif
-  #ifndef BTN_EN2
-    #define BTN_EN2                           17
-  #endif
-  #ifndef BTN_ENC
-    #define BTN_ENC                           19
-  #endif
+    #ifndef BTN_EN1
+        #define BTN_EN1                           16
+    #endif
+    #ifndef BTN_EN2
+        #define BTN_EN2                           17
+    #endif
+    #ifndef BTN_ENC
+        #define BTN_ENC                           19
+    #endif
 #elif IS_NEWPANEL
-  #ifndef BTN_EN1
-    #define BTN_EN1                           42
-  #endif
-  #ifndef BTN_EN2
-    #define BTN_EN2                           40
-  #endif
-  #ifndef BTN_ENC
-    #define BTN_ENC                           19
-  #endif
+    #ifndef BTN_EN1
+        #define BTN_EN1                           42
+    #endif
+    #ifndef BTN_EN2
+        #define BTN_EN2                           40
+    #endif
+    #ifndef BTN_ENC
+        #define BTN_ENC                           19
+    #endif
 #endif

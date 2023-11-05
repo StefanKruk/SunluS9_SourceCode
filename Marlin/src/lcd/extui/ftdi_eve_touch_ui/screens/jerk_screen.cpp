@@ -24,41 +24,41 @@
 #include "screens.h"
 
 #ifdef FTDI_JERK_SCREEN
-
-using namespace FTDI;
-using namespace ExtUI;
-using namespace Theme;
-
-void JerkScreen::onRedraw(draw_mode_t what) {
-
-  widgets_t w(what);
-  w.precision(1);
-  w.units(GET_TEXT_F(MSG_UNITS_MM_S));
-  w.heading(GET_TEXT_F(MSG_JERK));
-  w.color(x_axis) .adjuster( 2, GET_TEXT_F(MSG_AXIS_X), getAxisMaxJerk_mm_s(X) );
-  w.color(y_axis) .adjuster( 4, GET_TEXT_F(MSG_AXIS_Y), getAxisMaxJerk_mm_s(Y) );
-  w.color(z_axis) .adjuster( 6, GET_TEXT_F(MSG_AXIS_Z), getAxisMaxJerk_mm_s(Z) );
-  w.color(e_axis) .adjuster( 8, GET_TEXT_F(MSG_AXIS_E), getAxisMaxJerk_mm_s(E0) );
-  w.increments();
-}
-
-bool JerkScreen::onTouchHeld(uint8_t tag) {
+  
+  using namespace FTDI;
   using namespace ExtUI;
-  const float increment = getIncrement();
-  switch (tag) {
-    case  2: UI_DECREMENT(AxisMaxJerk_mm_s, X); break;
-    case  3: UI_INCREMENT(AxisMaxJerk_mm_s, X); break;
-    case  4: UI_DECREMENT(AxisMaxJerk_mm_s, Y); break;
-    case  5: UI_INCREMENT(AxisMaxJerk_mm_s, Y); break;
-    case  6: UI_DECREMENT(AxisMaxJerk_mm_s, Z); break;
-    case  7: UI_INCREMENT(AxisMaxJerk_mm_s, Z); break;
-    case  8: UI_DECREMENT(AxisMaxJerk_mm_s, E0); break;
-    case  9: UI_INCREMENT(AxisMaxJerk_mm_s, E0); break;
-    default:
-      return false;
+  using namespace Theme;
+  
+  void JerkScreen::onRedraw(draw_mode_t what) {
+  
+    widgets_t w(what);
+    w.precision(1);
+    w.units(GET_TEXT_F(MSG_UNITS_MM_S));
+    w.heading(GET_TEXT_F(MSG_JERK));
+    w.color(x_axis) .adjuster( 2, GET_TEXT_F(MSG_AXIS_X), getAxisMaxJerk_mm_s(X) );
+    w.color(y_axis) .adjuster( 4, GET_TEXT_F(MSG_AXIS_Y), getAxisMaxJerk_mm_s(Y) );
+    w.color(z_axis) .adjuster( 6, GET_TEXT_F(MSG_AXIS_Z), getAxisMaxJerk_mm_s(Z) );
+    w.color(e_axis) .adjuster( 8, GET_TEXT_F(MSG_AXIS_E), getAxisMaxJerk_mm_s(E0) );
+    w.increments();
   }
-  SaveSettingsDialogBox::settingsChanged();
-  return true;
-}
-
+  
+  bool JerkScreen::onTouchHeld(uint8_t tag) {
+    using namespace ExtUI;
+    const float increment = getIncrement();
+    switch (tag) {
+      case  2: UI_DECREMENT(AxisMaxJerk_mm_s, X); break;
+      case  3: UI_INCREMENT(AxisMaxJerk_mm_s, X); break;
+      case  4: UI_DECREMENT(AxisMaxJerk_mm_s, Y); break;
+      case  5: UI_INCREMENT(AxisMaxJerk_mm_s, Y); break;
+      case  6: UI_DECREMENT(AxisMaxJerk_mm_s, Z); break;
+      case  7: UI_INCREMENT(AxisMaxJerk_mm_s, Z); break;
+      case  8: UI_DECREMENT(AxisMaxJerk_mm_s, E0); break;
+      case  9: UI_INCREMENT(AxisMaxJerk_mm_s, E0); break;
+      default:
+        return false;
+    }
+    SaveSettingsDialogBox::settingsChanged();
+    return true;
+  }
+  
 #endif // FTDI_JERK_SCREEN

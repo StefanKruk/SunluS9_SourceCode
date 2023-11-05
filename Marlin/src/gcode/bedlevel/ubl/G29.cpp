@@ -27,21 +27,21 @@
 #include "../../../inc/MarlinConfig.h"
 
 #if ENABLED(AUTO_BED_LEVELING_UBL)
-
-#include "../../gcode.h"
-#include "../../../feature/bedlevel/bedlevel.h"
-
-#if ENABLED(FULL_REPORT_TO_HOST_FEATURE)
-  #include "../../../module/motion.h"
-#endif
-
-void GcodeSuite::G29() {
-
-  TERN_(FULL_REPORT_TO_HOST_FEATURE, set_and_report_grblstate(M_PROBE));
-
-  ubl.G29();
-
-  TERN_(FULL_REPORT_TO_HOST_FEATURE, set_and_report_grblstate(M_IDLE));
-}
-
+  
+  #include "../../gcode.h"
+  #include "../../../feature/bedlevel/bedlevel.h"
+  
+  #if ENABLED(FULL_REPORT_TO_HOST_FEATURE)
+      #include "../../../module/motion.h"
+  #endif
+  
+  void GcodeSuite::G29() {
+  
+    TERN_(FULL_REPORT_TO_HOST_FEATURE, set_and_report_grblstate(M_PROBE));
+  
+    ubl.G29();
+  
+    TERN_(FULL_REPORT_TO_HOST_FEATURE, set_and_report_grblstate(M_IDLE));
+  }
+  
 #endif // AUTO_BED_LEVELING_UBL

@@ -36,15 +36,15 @@
  * So we have to define them if needed.
  */
 #ifndef word
-  #define word(h, l)  ((uint8_t) ((h << 8) | l))
+    #define word(h, l)  ((uint8_t) ((h << 8) | l))
 #endif
 
 #ifndef lowByte
-  #define lowByte(w)  ((uint8_t) ((w) & 0xFF))
+    #define lowByte(w)  ((uint8_t) ((w) & 0xFF))
 #endif
 
 #ifndef highByte
-  #define highByte(w) ((uint8_t) ((w) >> 8))
+    #define highByte(w) ((uint8_t) ((w) >> 8))
 #endif
 
 #define defaultVDD     DAC_STEPPER_MAX //was 5000 but differs with internal Vref

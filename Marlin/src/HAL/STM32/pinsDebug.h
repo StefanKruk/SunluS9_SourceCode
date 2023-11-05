@@ -21,8 +21,8 @@
 #include <Arduino.h>
 
 #ifndef NUM_DIGITAL_PINS
-   // Only in ST's Arduino core (STM32duino, STM32Core)
-   #error "Expected NUM_DIGITAL_PINS not found"
+     // Only in ST's Arduino core (STM32duino, STM32Core)
+     #error "Expected NUM_DIGITAL_PINS not found"
 #endif
 
 /**
@@ -120,20 +120,20 @@ const XrefInfo pin_xref[] PROGMEM = {
 #define MULTI_NAME_PAD 33 // space needed to be pretty if not first name assigned to a pin
 
 #ifndef M43_NEVER_TOUCH
-  #define _M43_NEVER_TOUCH(Index) (Index >= 9 && Index <= 12) // SERIAL/USB pins: PA9(TX) PA10(RX) PA11(USB_DM) PA12(USB_DP)
-  #ifdef KILL_PIN
-    #define M43_NEVER_TOUCH(Index) m43_never_touch(Index)
-
-    bool m43_never_touch(const pin_t Index) {
-      static pin_t M43_kill_index = -1;
-      if (M43_kill_index < 0)
-        for (M43_kill_index = 0; M43_kill_index < NUMBER_PINS_TOTAL; M43_kill_index++)
-          if (KILL_PIN == GET_PIN_MAP_PIN_M43(M43_kill_index)) break;
-      return _M43_NEVER_TOUCH(Index) || Index == M43_kill_index; // KILL_PIN and SERIAL/USB
-    }
-  #else
-    #define M43_NEVER_TOUCH(Index) _M43_NEVER_TOUCH(Index)
-  #endif
+    #define _M43_NEVER_TOUCH(Index) (Index >= 9 && Index <= 12) // SERIAL/USB pins: PA9(TX) PA10(RX) PA11(USB_DM) PA12(USB_DP)
+    #ifdef KILL_PIN
+        #define M43_NEVER_TOUCH(Index) m43_never_touch(Index)
+    
+        bool m43_never_touch(const pin_t Index) {
+          static pin_t M43_kill_index = -1;
+          if (M43_kill_index < 0)
+            for (M43_kill_index = 0; M43_kill_index < NUMBER_PINS_TOTAL; M43_kill_index++)
+              if (KILL_PIN == GET_PIN_MAP_PIN_M43(M43_kill_index)) break;
+          return _M43_NEVER_TOUCH(Index) || Index == M43_kill_index; // KILL_PIN and SERIAL/USB
+        }
+    #else
+        #define M43_NEVER_TOUCH(Index) _M43_NEVER_TOUCH(Index)
+    #endif
 #endif
 
 uint8_t get_pin_mode(const pin_t Ard_num) {
@@ -204,61 +204,61 @@ bool pwm_status(const pin_t Ard_num) {
 
 void pwm_details(const pin_t Ard_num) {
   #ifndef STM32F1xx
-    if (pwm_status(Ard_num)) {
-      uint32_t alt_all = 0;
-      const PinName dp = digitalPinToPinName(Ard_num);
-      pin_t pin_number = uint8_t(PIN_NUM(dp));
-      const bool over_7 = pin_number >= 8;
-      const uint8_t ind = over_7 ? 1 : 0;
-      switch (PORT_ALPHA(dp)) {  // get alt function
-        case 'A' : alt_all = GPIOA->AFR[ind]; break;
-        case 'B' : alt_all = GPIOB->AFR[ind]; break;
-        case 'C' : alt_all = GPIOC->AFR[ind]; break;
-        case 'D' : alt_all = GPIOD->AFR[ind]; break;
-        #ifdef PE_0
-          case 'E' : alt_all = GPIOE->AFR[ind]; break;
-        #elif defined (PF_0)
-          case 'F' : alt_all = GPIOF->AFR[ind]; break;
-        #elif defined (PG_0)
-          case 'G' : alt_all = GPIOG->AFR[ind]; break;
-        #elif defined (PH_0)
-          case 'H' : alt_all = GPIOH->AFR[ind]; break;
-        #elif defined (PI_0)
-          case 'I' : alt_all = GPIOI->AFR[ind]; break;
-        #elif defined (PJ_0)
-          case 'J' : alt_all = GPIOJ->AFR[ind]; break;
-        #elif defined (PK_0)
-          case 'K' : alt_all = GPIOK->AFR[ind]; break;
-        #elif defined (PL_0)
-          case 'L' : alt_all = GPIOL->AFR[ind]; break;
-        #endif
+      if (pwm_status(Ard_num)) {
+        uint32_t alt_all = 0;
+        const PinName dp = digitalPinToPinName(Ard_num);
+        pin_t pin_number = uint8_t(PIN_NUM(dp));
+        const bool over_7 = pin_number >= 8;
+        const uint8_t ind = over_7 ? 1 : 0;
+        switch (PORT_ALPHA(dp)) {  // get alt function
+          case 'A' : alt_all = GPIOA->AFR[ind]; break;
+          case 'B' : alt_all = GPIOB->AFR[ind]; break;
+          case 'C' : alt_all = GPIOC->AFR[ind]; break;
+          case 'D' : alt_all = GPIOD->AFR[ind]; break;
+          #ifdef PE_0
+              case 'E' : alt_all = GPIOE->AFR[ind]; break;
+          #elif defined (PF_0)
+              case 'F' : alt_all = GPIOF->AFR[ind]; break;
+          #elif defined (PG_0)
+              case 'G' : alt_all = GPIOG->AFR[ind]; break;
+          #elif defined (PH_0)
+              case 'H' : alt_all = GPIOH->AFR[ind]; break;
+          #elif defined (PI_0)
+              case 'I' : alt_all = GPIOI->AFR[ind]; break;
+          #elif defined (PJ_0)
+              case 'J' : alt_all = GPIOJ->AFR[ind]; break;
+          #elif defined (PK_0)
+              case 'K' : alt_all = GPIOK->AFR[ind]; break;
+          #elif defined (PL_0)
+              case 'L' : alt_all = GPIOL->AFR[ind]; break;
+          #endif
+        }
+        if (over_7) pin_number -= 8;
+  
+        uint8_t alt_func = (alt_all >> (4 * pin_number)) & 0x0F;
+        SERIAL_ECHOPAIR("Alt Function: ", alt_func);
+        if (alt_func < 10) SERIAL_CHAR(' ');
+        SERIAL_ECHOPGM(" - ");
+        switch (alt_func) {
+          case  0 : SERIAL_ECHOPGM("system (misc. I/O)"); break;
+          case  1 : SERIAL_ECHOPGM("TIM1/TIM2 (probably PWM)"); break;
+          case  2 : SERIAL_ECHOPGM("TIM3..5 (probably PWM)"); break;
+          case  3 : SERIAL_ECHOPGM("TIM8..11 (probably PWM)"); break;
+          case  4 : SERIAL_ECHOPGM("I2C1..3"); break;
+          case  5 : SERIAL_ECHOPGM("SPI1/SPI2"); break;
+          case  6 : SERIAL_ECHOPGM("SPI3"); break;
+          case  7 : SERIAL_ECHOPGM("USART1..3"); break;
+          case  8 : SERIAL_ECHOPGM("USART4..6"); break;
+          case  9 : SERIAL_ECHOPGM("CAN1/CAN2, TIM12..14  (probably PWM)"); break;
+          case 10 : SERIAL_ECHOPGM("OTG"); break;
+          case 11 : SERIAL_ECHOPGM("ETH"); break;
+          case 12 : SERIAL_ECHOPGM("FSMC, SDIO, OTG"); break;
+          case 13 : SERIAL_ECHOPGM("DCMI"); break;
+          case 14 : SERIAL_ECHOPGM("unused (shouldn't see this)"); break;
+          case 15 : SERIAL_ECHOPGM("EVENTOUT"); break;
+        }
       }
-      if (over_7) pin_number -= 8;
-
-      uint8_t alt_func = (alt_all >> (4 * pin_number)) & 0x0F;
-      SERIAL_ECHOPAIR("Alt Function: ", alt_func);
-      if (alt_func < 10) SERIAL_CHAR(' ');
-      SERIAL_ECHOPGM(" - ");
-      switch (alt_func) {
-        case  0 : SERIAL_ECHOPGM("system (misc. I/O)"); break;
-        case  1 : SERIAL_ECHOPGM("TIM1/TIM2 (probably PWM)"); break;
-        case  2 : SERIAL_ECHOPGM("TIM3..5 (probably PWM)"); break;
-        case  3 : SERIAL_ECHOPGM("TIM8..11 (probably PWM)"); break;
-        case  4 : SERIAL_ECHOPGM("I2C1..3"); break;
-        case  5 : SERIAL_ECHOPGM("SPI1/SPI2"); break;
-        case  6 : SERIAL_ECHOPGM("SPI3"); break;
-        case  7 : SERIAL_ECHOPGM("USART1..3"); break;
-        case  8 : SERIAL_ECHOPGM("USART4..6"); break;
-        case  9 : SERIAL_ECHOPGM("CAN1/CAN2, TIM12..14  (probably PWM)"); break;
-        case 10 : SERIAL_ECHOPGM("OTG"); break;
-        case 11 : SERIAL_ECHOPGM("ETH"); break;
-        case 12 : SERIAL_ECHOPGM("FSMC, SDIO, OTG"); break;
-        case 13 : SERIAL_ECHOPGM("DCMI"); break;
-        case 14 : SERIAL_ECHOPGM("unused (shouldn't see this)"); break;
-        case 15 : SERIAL_ECHOPGM("EVENTOUT"); break;
-      }
-    }
   #else
-    // TODO: F1 doesn't support changing pins function, so we need to check the function of the PIN and if it's enabled
+      // TODO: F1 doesn't support changing pins function, so we need to check the function of the PIN and if it's enabled
   #endif
 } // pwm_details

@@ -46,7 +46,7 @@
 #define IS_32BIT_TEENSY 1
 #define IS_TEENSY_31_32 1
 #ifndef IS_TEENSY31
-  #define IS_TEENSY32 1
+    #define IS_TEENSY32 1
 #endif
 
 #include "../../core/serial_hook.h"
@@ -64,12 +64,12 @@ extern USBSerialType USBSerial;
 #define MSERIAL(X) _MSERIAL(X)
 
 #if SERIAL_PORT == -1
-  #define MYSERIAL1 USBSerial
+    #define MYSERIAL1 USBSerial
 #elif WITHIN(SERIAL_PORT, 0, 3)
-  DECLARE_SERIAL(SERIAL_PORT);
-  #define MYSERIAL1 MSERIAL(SERIAL_PORT)
+    DECLARE_SERIAL(SERIAL_PORT);
+    #define MYSERIAL1 MSERIAL(SERIAL_PORT)
 #else
-  #error "The required SERIAL_PORT must be from 0 to 3, or -1 for Native USB."
+    #error "The required SERIAL_PORT must be from 0 to 3, or -1 for Native USB."
 #endif
 
 #define HAL_SERVO_LIB libServo
@@ -77,7 +77,7 @@ extern USBSerialType USBSerial;
 typedef int8_t pin_t;
 
 #ifndef analogInputToDigitalPin
-  #define analogInputToDigitalPin(p) ((p < 12U) ? (p) + 54U : -1)
+    #define analogInputToDigitalPin(p) ((p < 12U) ? (p) + 54U : -1)
 #endif
 
 #define CRITICAL_SECTION_START()  uint32_t primask = __get_PRIMASK(); __disable_irq()
@@ -99,14 +99,14 @@ void HAL_reboot();
 FORCE_INLINE void _delay_ms(const int delay_ms) { delay(delay_ms); }
 
 #if GCC_VERSION <= 50000
-  #pragma GCC diagnostic push
-  #pragma GCC diagnostic ignored "-Wunused-function"
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wunused-function"
 #endif
 
 extern "C" int freeMemory();
 
 #if GCC_VERSION <= 50000
-  #pragma GCC diagnostic pop
+    #pragma GCC diagnostic pop
 #endif
 
 // ADC

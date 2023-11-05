@@ -25,7 +25,7 @@
 #pragma once
 
 #ifndef _usb_h_
-  #error "Never include printhex.h directly; include Usb.h instead"
+    #error "Never include printhex.h directly; include Usb.h instead"
 #endif
 
 void E_Notifyc(char c, int lvl);
@@ -68,13 +68,13 @@ void PrintHex2(Print *prn, T val) {
 
 template <class T> void D_PrintHex(T val __attribute__((unused)), int lvl __attribute__((unused))) {
   #ifdef DEBUG_USB_HOST
-    PrintHex<T > (val, lvl);
+      PrintHex<T > (val, lvl);
   #endif
 }
 
 template <class T>
 void D_PrintBin(T val, int lvl) {
   #ifdef DEBUG_USB_HOST
-    PrintBin<T > (val, lvl);
+      PrintBin<T > (val, lvl);
   #endif
 }

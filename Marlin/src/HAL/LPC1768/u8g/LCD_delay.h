@@ -31,7 +31,7 @@
  */
 
 #ifdef __cplusplus
-  extern "C" {
+    extern "C" {
 #endif
 
 void U8g_delay(int msec);
@@ -39,5 +39,5 @@ void u8g_MicroDelay();
 void u8g_10MicroDelay();
 
 #ifdef __cplusplus
-  }
+    }
 #endif

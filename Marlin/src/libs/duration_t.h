@@ -107,8 +107,8 @@ struct duration_t {
   }
 
   #if GCC_VERSION <= 50000
-    #pragma GCC diagnostic push
-    #pragma GCC diagnostic ignored "-Wformat-overflow"
+      #pragma GCC diagnostic push
+      #pragma GCC diagnostic ignored "-Wformat-overflow"
   #endif
 
   /**
@@ -171,6 +171,6 @@ struct duration_t {
   }
 
   #if GCC_VERSION <= 50000
-    #pragma GCC diagnostic pop
+      #pragma GCC diagnostic pop
   #endif
 };

@@ -59,19 +59,19 @@
 
 // define SPI_AVR_EIMSK for AVR boards with external interrupt pins
 #ifdef EIMSK
-  #define SPI_AVR_EIMSK EIMSK
+    #define SPI_AVR_EIMSK EIMSK
 #elif defined(GICR)
-  #define SPI_AVR_EIMSK GICR
+    #define SPI_AVR_EIMSK GICR
 #elif defined(GIMSK)
-  #define SPI_AVR_EIMSK GIMSK
+    #define SPI_AVR_EIMSK GIMSK
 #endif
 */
 
 #ifndef STM32_LSBFIRST
-  #define STM32_LSBFIRST 0
+    #define STM32_LSBFIRST 0
 #endif
 #ifndef STM32_MSBFIRST
-  #define STM32_MSBFIRST 1
+    #define STM32_MSBFIRST 1
 #endif
 
 // PC13 or PA4
@@ -397,13 +397,13 @@ private:
   void EventCallback();
 
   #if BOARD_NR_SPI >= 1
-    static void _spi1EventCallback();
+      static void _spi1EventCallback();
   #endif
   #if BOARD_NR_SPI >= 2
-    static void _spi2EventCallback();
+      static void _spi2EventCallback();
   #endif
   #if BOARD_NR_SPI >= 3
-    static void _spi3EventCallback();
+      static void _spi3EventCallback();
   #endif
   /*
   spi_dev *spi_d;

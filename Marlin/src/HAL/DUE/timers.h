@@ -38,16 +38,16 @@ typedef uint32_t hal_timer_t;
 #define HAL_TIMER_RATE         ((F_CPU) / 2)    // frequency of timers peripherals
 
 #ifndef STEP_TIMER_NUM
-  #define STEP_TIMER_NUM        2  // Timer Index for Stepper
+    #define STEP_TIMER_NUM        2  // Timer Index for Stepper
 #endif
 #ifndef PULSE_TIMER_NUM
-  #define PULSE_TIMER_NUM       STEP_TIMER_NUM
+    #define PULSE_TIMER_NUM       STEP_TIMER_NUM
 #endif
 #ifndef TEMP_TIMER_NUM
-  #define TEMP_TIMER_NUM        4  // Timer Index for Temperature
+    #define TEMP_TIMER_NUM        4  // Timer Index for Temperature
 #endif
 #ifndef TONE_TIMER_NUM
-  #define TONE_TIMER_NUM        6  // index of timer to use for beeper tones
+    #define TONE_TIMER_NUM        6  // index of timer to use for beeper tones
 #endif
 
 #define TEMP_TIMER_FREQUENCY   1000 // temperature interrupt frequency
@@ -67,13 +67,13 @@ typedef uint32_t hal_timer_t;
 #define DISABLE_TEMPERATURE_INTERRUPT() HAL_timer_disable_interrupt(TEMP_TIMER_NUM)
 
 #ifndef HAL_STEP_TIMER_ISR
-  #define HAL_STEP_TIMER_ISR() void TC2_Handler()
+    #define HAL_STEP_TIMER_ISR() void TC2_Handler()
 #endif
 #ifndef HAL_TEMP_TIMER_ISR
-  #define HAL_TEMP_TIMER_ISR() void TC4_Handler()
+    #define HAL_TEMP_TIMER_ISR() void TC4_Handler()
 #endif
 #ifndef HAL_TONE_TIMER_ISR
-  #define HAL_TONE_TIMER_ISR() void TC6_Handler()
+    #define HAL_TONE_TIMER_ISR() void TC6_Handler()
 #endif
 
 // ------------------------

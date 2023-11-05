@@ -71,15 +71,15 @@
 // Default pins for TMC software SPI
 //
 #if ENABLED(TMC_USE_SW_SPI)
-  #ifndef TMC_SW_MOSI
-    #define TMC_SW_MOSI                    P1_16  // Ethernet Expansion - Pin 5
-  #endif
-  #ifndef TMC_SW_MISO
-    #define TMC_SW_MISO                    P1_17  // Ethernet Expansion - Pin 6
-  #endif
-  #ifndef TMC_SW_SCK
-    #define TMC_SW_SCK                     P1_08  // Ethernet Expansion - Pin 7
-  #endif
+    #ifndef TMC_SW_MOSI
+        #define TMC_SW_MOSI                    P1_16  // Ethernet Expansion - Pin 5
+    #endif
+    #ifndef TMC_SW_MISO
+        #define TMC_SW_MISO                    P1_17  // Ethernet Expansion - Pin 6
+    #endif
+    #ifndef TMC_SW_SCK
+        #define TMC_SW_SCK                     P1_08  // Ethernet Expansion - Pin 7
+    #endif
 #endif
 
 //
@@ -95,7 +95,7 @@
 #define HEATER_BED_PIN                     P2_05
 #define HEATER_0_PIN                       P2_07  // FET 1
 #ifndef FAN_PIN
-  #define FAN_PIN                          P2_06  // FET 3
+    #define FAN_PIN                          P2_06  // FET 3
 #endif
 
 //
@@ -103,13 +103,13 @@
 //
 #define AUTO_FAN_PIN                       P2_04  // FET 4
 #ifndef E0_AUTO_FAN_PIN
-  #define E0_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E0_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 #ifndef E1_AUTO_FAN_PIN
-  #define E1_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E1_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 #ifndef E2_AUTO_FAN_PIN
-  #define E2_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E2_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 
 //
@@ -121,12 +121,12 @@
 // M3/M4/M5 - Spindle/Laser Control
 //
 #if HAS_CUTTER
-  #undef HEATER_0_PIN
-  #define SPINDLE_LASER_ENA_PIN            P2_07  // FET 1
-  #undef HEATER_BED_PIN
-  #define SPINDLE_LASER_PWM_PIN            P2_05  // Bed FET
-  #undef FAN_PIN
-  #define SPINDLE_DIR_PIN                  P2_06  // FET 3
+    #undef HEATER_0_PIN
+    #define SPINDLE_LASER_ENA_PIN            P2_07  // FET 1
+    #undef HEATER_BED_PIN
+    #define SPINDLE_LASER_PWM_PIN            P2_05  // Bed FET
+    #undef FAN_PIN
+    #define SPINDLE_DIR_PIN                  P2_06  // FET 3
 #endif
 
 //
@@ -140,24 +140,24 @@
 // G-code files from the onboard SD card.
 //
 #if HAS_WIRED_LCD
-
-  #define BEEPER_PIN                       P0_27  // EXP2-7 - open drain
-
-  #define BTN_EN1                          P3_26  // EXP2-5
-  #define BTN_EN2                          P3_25  // EXP2-3
-  #define BTN_ENC                          P1_30  // EXP1-2
-
-  #define LCD_PINS_RS                      P0_16  // EXP1-4
-  #define LCD_SDSS                         P0_28  // EXP2-4
-  #define LCD_PINS_ENABLE                  P0_18  // EXP1-3
-  #define LCD_PINS_D4                      P0_15  // EXP1-5
-
-  #define KILL_PIN                         P2_11  // EXP2-10
-
-  #if ENABLED(SDSUPPORT)
-    #error "SDSUPPORT is not currently supported by the Cohesion3D boards"
-  #endif
-
+  
+    #define BEEPER_PIN                       P0_27  // EXP2-7 - open drain
+  
+    #define BTN_EN1                          P3_26  // EXP2-5
+    #define BTN_EN2                          P3_25  // EXP2-3
+    #define BTN_ENC                          P1_30  // EXP1-2
+  
+    #define LCD_PINS_RS                      P0_16  // EXP1-4
+    #define LCD_SDSS                         P0_28  // EXP2-4
+    #define LCD_PINS_ENABLE                  P0_18  // EXP1-3
+    #define LCD_PINS_D4                      P0_15  // EXP1-5
+  
+    #define KILL_PIN                         P2_11  // EXP2-10
+  
+    #if ENABLED(SDSUPPORT)
+        #error "SDSUPPORT is not currently supported by the Cohesion3D boards"
+    #endif
+  
 #endif // HAS_WIRED_LCD
 
 //

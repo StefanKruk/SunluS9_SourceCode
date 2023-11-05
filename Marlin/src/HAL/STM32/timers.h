@@ -43,13 +43,13 @@
 #define NUM_HARDWARE_TIMERS 2
 
 #ifndef STEP_TIMER_NUM
-  #define STEP_TIMER_NUM        0  // Timer Index for Stepper
+    #define STEP_TIMER_NUM        0  // Timer Index for Stepper
 #endif
 #ifndef PULSE_TIMER_NUM
-  #define PULSE_TIMER_NUM       STEP_TIMER_NUM
+    #define PULSE_TIMER_NUM       STEP_TIMER_NUM
 #endif
 #ifndef TEMP_TIMER_NUM
-  #define TEMP_TIMER_NUM        1  // Timer Index for Temperature
+    #define TEMP_TIMER_NUM        1  // Timer Index for Temperature
 #endif
 
 #define TEMP_TIMER_FREQUENCY 1000   // Temperature::isr() is expected to be called at around 1kHz
@@ -75,10 +75,10 @@ extern void Step_Handler();
 extern void Temp_Handler();
 
 #ifndef HAL_STEP_TIMER_ISR
-  #define HAL_STEP_TIMER_ISR() void Step_Handler()
+    #define HAL_STEP_TIMER_ISR() void Step_Handler()
 #endif
 #ifndef HAL_TEMP_TIMER_ISR
-  #define HAL_TEMP_TIMER_ISR() void Temp_Handler()
+    #define HAL_TEMP_TIMER_ISR() void Temp_Handler()
 #endif
 
 // ------------------------

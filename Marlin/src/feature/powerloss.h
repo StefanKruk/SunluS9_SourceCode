@@ -31,19 +31,19 @@
 #include "../inc/MarlinConfig.h"
 
 #if ENABLED(GCODE_REPEAT_MARKERS)
-  #include "../feature/repeat.h"
+    #include "../feature/repeat.h"
 #endif
 
 #if ENABLED(MIXING_EXTRUDER)
-  #include "../feature/mixing.h"
+    #include "../feature/mixing.h"
 #endif
 
 #if !defined(POWER_LOSS_STATE) && PIN_EXISTS(POWER_LOSS)
-  #define POWER_LOSS_STATE HIGH
+    #define POWER_LOSS_STATE HIGH
 #endif
 
 #ifndef POWER_LOSS_ZRAISE
-  #define POWER_LOSS_ZRAISE 2
+    #define POWER_LOSS_ZRAISE 2
 #endif
 
 //#define DEBUG_POWER_LOSS_RECOVERY
@@ -61,48 +61,48 @@ typedef struct {
 
   // Repeat information
   #if ENABLED(GCODE_REPEAT_MARKERS)
-    Repeat stored_repeat;
+      Repeat stored_repeat;
   #endif
 
   #if ENABLED(HAS_HOME_OFFSET)
-    xyz_pos_t home_offset;
+      xyz_pos_t home_offset;
   #endif
   #if ENABLED(HAS_POSITION_SHIFT)
-    xyz_pos_t position_shift;
+      xyz_pos_t position_shift;
   #endif
   #if ENABLED(HAS_MULTI_EXTRUDER)
-    uint8_t active_extruder;
+      uint8_t active_extruder;
   #endif
 
   #if DISABLED(NO_VOLUMETRICS)
-    float filament_size[EXTRUDERS];
+      float filament_size[EXTRUDERS];
   #endif
 
   #if ENABLED(HAS_HOTEND)
-    celsius_t target_temperature[HOTENDS];
+      celsius_t target_temperature[HOTENDS];
   #endif
   #if ENABLED(HAS_HEATED_BED)
-    celsius_t target_temperature_bed;
+      celsius_t target_temperature_bed;
   #endif
   #if ENABLED(HAS_FAN)
-    uint8_t fan_speed[FAN_COUNT];
+      uint8_t fan_speed[FAN_COUNT];
   #endif
 
   #if ENABLED(HAS_LEVELING)
-    float fade;
+      float fade;
   #endif
 
   #if ENABLED(FWRETRACT)
-    float retract[EXTRUDERS], retract_hop;
+      float retract[EXTRUDERS], retract_hop;
   #endif
 
   // Mixing extruder and gradient
   #if ENABLED(MIXING_EXTRUDER)
-    //uint_fast8_t selected_vtool;
-    //mixer_comp_t color[NR_MIXING_VIRTUAL_TOOLS][MIXING_STEPPERS];
-    #if ENABLED(GRADIENT_MIX)
-      gradient_t gradient;
-    #endif
+      //uint_fast8_t selected_vtool;
+      //mixer_comp_t color[NR_MIXING_VIRTUAL_TOOLS][MIXING_STEPPERS];
+      #if ENABLED(GRADIENT_MIX)
+          gradient_t gradient;
+      #endif
   #endif
 
   // SD Filename and position
@@ -124,10 +124,10 @@ typedef struct {
     bool dryrun:1;                // M111 S8
     bool allow_cold_extrusion:1;  // M302 P1
     #if ENABLED(HAS_LEVELING)
-      bool leveling:1;            // M420 S
+        bool leveling:1;            // M420 S
     #endif
     #if DISABLED(NO_VOLUMETRICS)
-      bool volumetric_enabled:1;  // M200 S D
+        bool volumetric_enabled:1;  // M200 S D
     #endif
   } flag;
 
@@ -149,7 +149,7 @@ class PrintJobRecovery {
                     sdpos[BUFSIZE];   //!< SD positions of queued commands
 
     #if ENABLED(DWIN_CREALITY_LCD)
-      static bool dwin_flag;
+        static bool dwin_flag;
     #endif
 
     static void init();
@@ -157,13 +157,13 @@ class PrintJobRecovery {
 
     static inline void setup() {
       #if PIN_EXISTS(POWER_LOSS)
-        #if ENABLED(POWER_LOSS_PULLUP)
-          SET_INPUT_PULLUP(POWER_LOSS_PIN);
-        #elif ENABLED(POWER_LOSS_PULLDOWN)
-          SET_INPUT_PULLDOWN(POWER_LOSS_PIN);
-        #else
-          SET_INPUT(POWER_LOSS_PIN);
-        #endif
+          #if ENABLED(POWER_LOSS_PULLUP)
+              SET_INPUT_PULLUP(POWER_LOSS_PIN);
+          #elif ENABLED(POWER_LOSS_PULLDOWN)
+              SET_INPUT_PULLDOWN(POWER_LOSS_PIN);
+          #else
+              SET_INPUT(POWER_LOSS_PIN);
+          #endif
       #endif
     }
 
@@ -189,16 +189,16 @@ class PrintJobRecovery {
     static void save(const bool force=ENABLED(SAVE_EACH_CMD_MODE), const float zraise=POWER_LOSS_ZRAISE, const bool raised=false);
 
     #if PIN_EXISTS(POWER_LOSS)
-      static inline void outage() {
-        static constexpr uint8_t OUTAGE_THRESHOLD = 3;
-        static uint8_t outage_counter = 0;
-        if (enabled && READ(POWER_LOSS_PIN) == POWER_LOSS_STATE) {
-          outage_counter++;
-          if (outage_counter >= OUTAGE_THRESHOLD) _outage();
+        static inline void outage() {
+          static constexpr uint8_t OUTAGE_THRESHOLD = 3;
+          static uint8_t outage_counter = 0;
+          if (enabled && READ(POWER_LOSS_PIN) == POWER_LOSS_STATE) {
+            outage_counter++;
+            if (outage_counter >= OUTAGE_THRESHOLD) _outage();
+          }
+          else
+            outage_counter = 0;
         }
-        else
-          outage_counter = 0;
-      }
     #endif
 
     // The referenced file exists
@@ -207,21 +207,21 @@ class PrintJobRecovery {
     static inline bool valid() { return info.valid() && interrupted_file_exists(); }
 
     #if ENABLED(DEBUG_POWER_LOSS_RECOVERY)
-      static void debug(PGM_P const prefix);
+        static void debug(PGM_P const prefix);
     #else
-      static inline void debug(PGM_P const) {}
+        static inline void debug(PGM_P const) {}
     #endif
 
   private:
     static void write();
 
     #if ENABLED(BACKUP_POWER_SUPPLY)
-      static void retract_and_lift(const_float_t zraise);
+        static void retract_and_lift(const_float_t zraise);
     #endif
 
     #if PIN_EXISTS(POWER_LOSS)
-      friend class GcodeSuite;
-      static void _outage();
+        friend class GcodeSuite;
+        static void _outage();
     #endif
 };
 

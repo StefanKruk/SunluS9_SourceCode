@@ -23,26 +23,26 @@
 #include "../../inc/MarlinConfig.h"
 
 #if ENABLED(PIDTEMPCHAMBER)
-
-#include "../gcode.h"
-#include "../../module/temperature.h"
-
-/**
- * M309 - Set and/or Report the current Chamber PID values
- *
- *  P<pval> - Set the P value
- *  I<ival> - Set the I value
- *  D<dval> - Set the D value
- */
-void GcodeSuite::M309() {
-  if (parser.seen('P')) thermalManager.temp_chamber.pid.Kp = parser.value_float();
-  if (parser.seen('I')) thermalManager.temp_chamber.pid.Ki = scalePID_i(parser.value_float());
-  if (parser.seen('D')) thermalManager.temp_chamber.pid.Kd = scalePID_d(parser.value_float());
-
-  SERIAL_ECHO_START();
-  SERIAL_ECHOLNPAIR(" p:", thermalManager.temp_chamber.pid.Kp,
-                    " i:", unscalePID_i(thermalManager.temp_chamber.pid.Ki),
-                    " d:", unscalePID_d(thermalManager.temp_chamber.pid.Kd));
-}
-
+  
+  #include "../gcode.h"
+  #include "../../module/temperature.h"
+  
+  /**
+   * M309 - Set and/or Report the current Chamber PID values
+   *
+   *  P<pval> - Set the P value
+   *  I<ival> - Set the I value
+   *  D<dval> - Set the D value
+   */
+  void GcodeSuite::M309() {
+    if (parser.seen('P')) thermalManager.temp_chamber.pid.Kp = parser.value_float();
+    if (parser.seen('I')) thermalManager.temp_chamber.pid.Ki = scalePID_i(parser.value_float());
+    if (parser.seen('D')) thermalManager.temp_chamber.pid.Kd = scalePID_d(parser.value_float());
+  
+    SERIAL_ECHO_START();
+    SERIAL_ECHOLNPAIR(" p:", thermalManager.temp_chamber.pid.Kp,
+                      " i:", unscalePID_i(thermalManager.temp_chamber.pid.Ki),
+                      " d:", unscalePID_d(thermalManager.temp_chamber.pid.Kd));
+  }
+  
 #endif // PIDTEMPCHAMBER

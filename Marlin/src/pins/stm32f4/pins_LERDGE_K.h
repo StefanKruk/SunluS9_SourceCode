@@ -22,7 +22,7 @@
 #include "env_validate.h"
 
 #if HOTENDS > 2 || E_STEPPERS > 2
-  #error "LERDGE K supports up to 2 hotends / E-steppers."
+    #error "LERDGE K supports up to 2 hotends / E-steppers."
 #endif
 
 #define BOARD_INFO_NAME      "Lerdge K"
@@ -30,11 +30,11 @@
 
 // EEPROM
 #if NO_EEPROM_SELECTED
-  #define I2C_EEPROM
-  #define SOFT_I2C_EEPROM                         // Force the use of Software I2C
-  #define I2C_SCL_PIN                       PG14
-  #define I2C_SDA_PIN                       PG13
-  #define MARLIN_EEPROM_SIZE             0x10000
+    #define I2C_EEPROM
+    #define SOFT_I2C_EEPROM                         // Force the use of Software I2C
+    #define I2C_SCL_PIN                       PG14
+    #define I2C_SDA_PIN                       PG13
+    #define MARLIN_EEPROM_SIZE             0x10000
 #endif
 
 // USB Flash Drive support
@@ -111,47 +111,47 @@
 //#endif
 
 #if HAS_TMC_UART
-  /**
-   * TMC2208/TMC2209 stepper drivers
-   */
-  #ifndef X_SERIAL_TX_PIN
-    #define X_SERIAL_TX_PIN                 PB2
-  #endif
-  #ifndef X_SERIAL_RX_PIN
-    #define X_SERIAL_RX_PIN                 PB2
-  #endif
-  #ifndef Y_SERIAL_TX_PIN
-    #define Y_SERIAL_TX_PIN                 PE2
-  #endif
-  #ifndef Y_SERIAL_RX_PIN
-    #define Y_SERIAL_RX_PIN                 PE2
-  #endif
-  #ifndef Z_SERIAL_TX_PIN
-    #define Z_SERIAL_TX_PIN                 PE3
-  #endif
-  #ifndef Z_SERIAL_RX_PIN
-    #define Z_SERIAL_RX_PIN                 PE3
-  #endif
-  #ifndef E0_SERIAL_TX_PIN
-    #define E0_SERIAL_TX_PIN                PE4
-  #endif
-  #ifndef E0_SERIAL_RX_PIN
-    #define E0_SERIAL_RX_PIN                PE4
-  #endif
-  #ifndef E1_SERIAL_TX_PIN
-    #define E1_SERIAL_TX_PIN                PE1
-  #endif
-  #ifndef E1_SERIAL_RX_PIN
-    #define E1_SERIAL_RX_PIN                PE1
-  #endif
-  #ifndef EX_SERIAL_TX_PIN
-    #define E2_SERIAL_TX_PIN                PE0
-  #endif
-  #ifndef EX_SERIAL_RX_PIN
-    #define E2_SERIAL_RX_PIN                PE0
-  #endif
-  // Reduce baud rate to improve software serial reliability
-  #define TMC_BAUD_RATE                    19200
+    /**
+     * TMC2208/TMC2209 stepper drivers
+     */
+    #ifndef X_SERIAL_TX_PIN
+        #define X_SERIAL_TX_PIN                 PB2
+    #endif
+    #ifndef X_SERIAL_RX_PIN
+        #define X_SERIAL_RX_PIN                 PB2
+    #endif
+    #ifndef Y_SERIAL_TX_PIN
+        #define Y_SERIAL_TX_PIN                 PE2
+    #endif
+    #ifndef Y_SERIAL_RX_PIN
+        #define Y_SERIAL_RX_PIN                 PE2
+    #endif
+    #ifndef Z_SERIAL_TX_PIN
+        #define Z_SERIAL_TX_PIN                 PE3
+    #endif
+    #ifndef Z_SERIAL_RX_PIN
+        #define Z_SERIAL_RX_PIN                 PE3
+    #endif
+    #ifndef E0_SERIAL_TX_PIN
+        #define E0_SERIAL_TX_PIN                PE4
+    #endif
+    #ifndef E0_SERIAL_RX_PIN
+        #define E0_SERIAL_RX_PIN                PE4
+    #endif
+    #ifndef E1_SERIAL_TX_PIN
+        #define E1_SERIAL_TX_PIN                PE1
+    #endif
+    #ifndef E1_SERIAL_RX_PIN
+        #define E1_SERIAL_RX_PIN                PE1
+    #endif
+    #ifndef EX_SERIAL_TX_PIN
+        #define E2_SERIAL_TX_PIN                PE0
+    #endif
+    #ifndef EX_SERIAL_RX_PIN
+        #define E2_SERIAL_RX_PIN                PE0
+    #endif
+    // Reduce baud rate to improve software serial reliability
+    #define TMC_BAUD_RATE                    19200
 #endif
 
 //
@@ -175,17 +175,17 @@
 #define HEATER_BED_PIN                      PA2
 
 #ifndef FAN_PIN
-  #define FAN_PIN                           PF7
+    #define FAN_PIN                           PF7
 #endif
 
 #define FAN1_PIN                            PF6
 
 #ifndef E0_AUTO_FAN_PIN
-  #define E0_AUTO_FAN_PIN                   PB1
+    #define E0_AUTO_FAN_PIN                   PB1
 #endif
 
 #ifndef E1_AUTO_FAN_PIN
-  #define E1_AUTO_FAN_PIN                   PB0
+    #define E1_AUTO_FAN_PIN                   PB0
 #endif
 
 #define CONTROLLER_FAN_PIN                  PF8
@@ -197,13 +197,13 @@
 //#define CASE_LIGHT_PIN_DO                 -1
 //#define NEOPIXEL_PIN                      -1
 #ifndef RGB_LED_R_PIN
-  #define RGB_LED_R_PIN                     PB8   // swap R and G pin for compatibility with real wires
+    #define RGB_LED_R_PIN                     PB8   // swap R and G pin for compatibility with real wires
 #endif
 #ifndef RGB_LED_G_PIN
-  #define RGB_LED_G_PIN                     PB7
+    #define RGB_LED_G_PIN                     PB7
 #endif
 #ifndef RGB_LED_B_PIN
-  #define RGB_LED_B_PIN                     PB9
+    #define RGB_LED_B_PIN                     PB9
 #endif
 
 //
@@ -234,22 +234,22 @@
 //
 
 #if HAS_FSMC_TFT
-  //#define TFT_DRIVER             LERDGE_ST7796
-
-  #define TFT_RESET_PIN                     PD6
-  #define TFT_BACKLIGHT_PIN                 PD3
-
-  #define TFT_CS_PIN                        PD7
-  #define TFT_RS_PIN                        PD11
-
-  #define TOUCH_CS_PIN                      PG15
-  #define TOUCH_SCK_PIN                     PB3
-  #define TOUCH_MOSI_PIN                    PB5
-  #define TOUCH_MISO_PIN                    PB4
+    //#define TFT_DRIVER             LERDGE_ST7796
+  
+    #define TFT_RESET_PIN                     PD6
+    #define TFT_BACKLIGHT_PIN                 PD3
+  
+    #define TFT_CS_PIN                        PD7
+    #define TFT_RS_PIN                        PD11
+  
+    #define TOUCH_CS_PIN                      PG15
+    #define TOUCH_SCK_PIN                     PB3
+    #define TOUCH_MOSI_PIN                    PB5
+    #define TOUCH_MISO_PIN                    PB4
 #endif
 
 #if IS_NEWPANEL
-  #define BTN_EN1                           PG10
-  #define BTN_EN2                           PG11
-  #define BTN_ENC                           PG9
+    #define BTN_EN1                           PG10
+    #define BTN_EN2                           PG11
+    #define BTN_ENC                           PG9
 #endif

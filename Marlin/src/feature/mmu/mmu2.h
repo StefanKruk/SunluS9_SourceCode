@@ -24,15 +24,15 @@
 #include "../../inc/MarlinConfig.h"
 
 #if HAS_FILAMENT_SENSOR
-  #include "../runout.h"
+    #include "../runout.h"
 #endif
 
 #if SERIAL_USB
-  #define MMU_RX_SIZE 256
-  #define MMU_TX_SIZE 256
+    #define MMU_RX_SIZE 256
+    #define MMU_TX_SIZE 256
 #else
-  #define MMU_RX_SIZE  16
-  #define MMU_TX_SIZE  16
+    #define MMU_RX_SIZE  16
+    #define MMU_TX_SIZE  16
 #endif
 
 struct E_Step;
@@ -76,16 +76,16 @@ private:
   static void filament_runout();
 
   #if HAS_PRUSA_MMU2S
-    static bool mmu2s_triggered;
-    static void check_filament();
-    static bool can_load();
-    static bool load_to_gears();
+      static bool mmu2s_triggered;
+      static void check_filament();
+      static bool can_load();
+      static bool load_to_gears();
   #else
-    FORCE_INLINE static bool load_to_gears() { return true; }
+      FORCE_INLINE static bool load_to_gears() { return true; }
   #endif
 
   #if ENABLED(MMU_EXTRUDER_SENSOR)
-    static void mmu_continue_loading();
+      static void mmu_continue_loading();
   #endif
 
   static bool enabled, ready, mmu_print_saved;
@@ -101,7 +101,7 @@ private:
   static inline void set_runout_valid(const bool valid) {
     finda_runout_valid = valid;
     #if HAS_FILAMENT_SENSOR
-      if (valid) runout.reset();
+        if (valid) runout.reset();
     #endif
   }
 

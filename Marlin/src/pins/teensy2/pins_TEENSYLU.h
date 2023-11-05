@@ -76,7 +76,7 @@
 #include "env_validate.h"
 
 #if NOT_TARGET(__AVR_AT90USB1286__, __AVR_AT90USB1286P__)
-  #error "Oops! Select 'Teensy++ 2.0' or 'Printrboard' in 'Tools > Board.'"
+    #error "Oops! Select 'Teensy++ 2.0' or 'Printrboard' in 'Tools > Board.'"
 #endif
 
 #define BOARD_INFO_NAME "Teensylu"
@@ -129,7 +129,7 @@
 #define HEATER_BED_PIN                        14  // C4 PWM3C
 
 #ifndef FAN_PIN
-  #define FAN_PIN                             16  // C6 PWM3A
+    #define FAN_PIN                             16  // C6 PWM3A
 #endif
 
 //
@@ -138,25 +138,25 @@
 #define SDSS                                  20  // B0 JP31-6
 
 #ifndef CASE_LIGHT_PIN
-  #define CASE_LIGHT_PIN                       0  // D0 IO-14  PWM0B
+    #define CASE_LIGHT_PIN                       0  // D0 IO-14  PWM0B
 #endif
 
 //
 // LCD / Controller
 //
 #if IS_ULTRA_LCD && IS_NEWPANEL
-
-  #define BEEPER_PIN                          -1
-
-  #if ENABLED(LCD_I2C_PANELOLU2)
-    #define BTN_EN1                            3  // D3 IO-8
-    #define BTN_EN2                            2  // D2 IO-10
-    #define BTN_ENC                           41  // F3 IO-7
-    #define SDSS                              38  // F0 IO-13 use SD card on Panelolu2
-  #endif
-
-  #define SD_DETECT_PIN                       -1
-
+  
+    #define BEEPER_PIN                          -1
+  
+    #if ENABLED(LCD_I2C_PANELOLU2)
+        #define BTN_EN1                            3  // D3 IO-8
+        #define BTN_EN2                            2  // D2 IO-10
+        #define BTN_ENC                           41  // F3 IO-7
+        #define SDSS                              38  // F0 IO-13 use SD card on Panelolu2
+    #endif
+  
+    #define SD_DETECT_PIN                       -1
+  
 #endif // IS_ULTRA_LCD && IS_NEWPANEL
 
 //

@@ -26,15 +26,15 @@
  */
 
 #ifndef BOARD_INFO_NAME
-  #define BOARD_INFO_NAME "3Drag"
+    #define BOARD_INFO_NAME "3Drag"
 #endif
 
 #ifndef DEFAULT_MACHINE_NAME
-  #define DEFAULT_MACHINE_NAME BOARD_INFO_NAME
+    #define DEFAULT_MACHINE_NAME BOARD_INFO_NAME
 #endif
 
 #ifndef DEFAULT_SOURCE_CODE_URL
-  #define DEFAULT_SOURCE_CODE_URL "3dprint.elettronicain.it"
+    #define DEFAULT_SOURCE_CODE_URL "3dprint.elettronicain.it"
 #endif
 
 //
@@ -50,7 +50,7 @@
 #define SDSS                                  25
 
 #ifndef CASE_LIGHT_PIN
-  #define CASE_LIGHT_PIN                      -1  // Hardware PWM but one is not available on expansion header
+    #define CASE_LIGHT_PIN                      -1  // Hardware PWM but one is not available on expansion header
 #endif
 
 #include "pins_RAMPS.h"
@@ -78,33 +78,33 @@
 // LCD / Controller
 //
 #if IS_ULTRA_LCD && IS_NEWPANEL
-  #undef BEEPER_PIN
-
-  #undef LCD_PINS_RS
-  #undef LCD_PINS_ENABLE
-  #undef LCD_PINS_D4
-  #undef LCD_PINS_D5
-  #undef LCD_PINS_D6
-  #undef LCD_PINS_D7
-  #define LCD_PINS_RS                         27
-  #define LCD_PINS_ENABLE                     29
-  #define LCD_PINS_D4                         37
-  #define LCD_PINS_D5                         35
-  #define LCD_PINS_D6                         33
-  #define LCD_PINS_D7                         31
-
-  // Buttons
-  #undef BTN_EN1
-  #undef BTN_EN2
-  #undef BTN_ENC
-  #define BTN_EN1                             16
-  #define BTN_EN2                             17
-  #define BTN_ENC                             23
-
+    #undef BEEPER_PIN
+  
+    #undef LCD_PINS_RS
+    #undef LCD_PINS_ENABLE
+    #undef LCD_PINS_D4
+    #undef LCD_PINS_D5
+    #undef LCD_PINS_D6
+    #undef LCD_PINS_D7
+    #define LCD_PINS_RS                         27
+    #define LCD_PINS_ENABLE                     29
+    #define LCD_PINS_D4                         37
+    #define LCD_PINS_D5                         35
+    #define LCD_PINS_D6                         33
+    #define LCD_PINS_D7                         31
+  
+    // Buttons
+    #undef BTN_EN1
+    #undef BTN_EN2
+    #undef BTN_ENC
+    #define BTN_EN1                             16
+    #define BTN_EN2                             17
+    #define BTN_ENC                             23
+  
 #else
-
-  #define BEEPER_PIN                          33
-
+  
+    #define BEEPER_PIN                          33
+  
 #endif // IS_ULTRA_LCD && IS_NEWPANEL
 
 /**
@@ -143,21 +143,21 @@
 #undef SPINDLE_DIR_PIN
 
 #if HAS_CUTTER
-  #if !HAS_EXTRUDERS
-    #undef E0_DIR_PIN
-    #undef E0_ENABLE_PIN
-    #undef E0_STEP_PIN
-    #undef Z_DIR_PIN
-    #undef Z_ENABLE_PIN
-    #undef Z_STEP_PIN
-    #define Z_DIR_PIN                         28
-    #define Z_ENABLE_PIN                      24
-    #define Z_STEP_PIN                        26
-    #define SPINDLE_LASER_PWM_PIN             46  // Hardware PWM
-    #define SPINDLE_LASER_ENA_PIN             62  // Pullup!
-    #define SPINDLE_DIR_PIN                   48
-  #elif !BOTH(IS_ULTRA_LCD, IS_NEWPANEL)          // Use expansion header if no LCD in use
-    #define SPINDLE_LASER_ENA_PIN             16  // Pullup or pulldown!
-    #define SPINDLE_DIR_PIN                   17
-  #endif
+    #if !HAS_EXTRUDERS
+        #undef E0_DIR_PIN
+        #undef E0_ENABLE_PIN
+        #undef E0_STEP_PIN
+        #undef Z_DIR_PIN
+        #undef Z_ENABLE_PIN
+        #undef Z_STEP_PIN
+        #define Z_DIR_PIN                         28
+        #define Z_ENABLE_PIN                      24
+        #define Z_STEP_PIN                        26
+        #define SPINDLE_LASER_PWM_PIN             46  // Hardware PWM
+        #define SPINDLE_LASER_ENA_PIN             62  // Pullup!
+        #define SPINDLE_DIR_PIN                   48
+    #elif !BOTH(IS_ULTRA_LCD, IS_NEWPANEL)          // Use expansion header if no LCD in use
+        #define SPINDLE_LASER_ENA_PIN             16  // Pullup or pulldown!
+        #define SPINDLE_DIR_PIN                   17
+    #endif
 #endif

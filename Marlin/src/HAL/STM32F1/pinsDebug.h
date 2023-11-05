@@ -27,7 +27,7 @@
  */
 
 #ifndef BOARD_NR_GPIO_PINS  // Only in STM32GENERIC (Maple)
-   #error "Expected BOARD_NR_GPIO_PINS not found"
+     #error "Expected BOARD_NR_GPIO_PINS not found"
 #endif
 
 #include "fastio.h"
@@ -47,7 +47,7 @@ extern const stm32_pin_info PIN_MAP[BOARD_NR_GPIO_PINS];
 
 // pins that will cause hang/reset/disconnect in M43 Toggle and Watch utilities
 #ifndef M43_NEVER_TOUCH
-  #define M43_NEVER_TOUCH(Q) (Q >= 9 && Q <= 12) // SERIAL/USB pins PA9(TX) PA10(RX)
+    #define M43_NEVER_TOUCH(Q) (Q >= 9 && Q <= 12) // SERIAL/USB pins PA9(TX) PA10(RX)
 #endif
 
 static inline int8_t get_pin_mode(pin_t pin) {
@@ -58,7 +58,7 @@ static inline pin_t DIGITAL_PIN_TO_ANALOG_PIN(pin_t pin) {
   if (!VALID_PIN(pin)) return -1;
   int8_t adc_channel = int8_t(PIN_MAP[pin].adc_channel);
   #ifdef NUM_ANALOG_INPUTS
-    if (adc_channel >= NUM_ANALOG_INPUTS) adc_channel = ADCx;
+      if (adc_channel >= NUM_ANALOG_INPUTS) adc_channel = ADCx;
   #endif
   return pin_t(adc_channel);
 }
@@ -67,7 +67,7 @@ static inline bool IS_ANALOG(pin_t pin) {
   if (!VALID_PIN(pin)) return false;
   if (PIN_MAP[pin].adc_channel != ADCx) {
     #ifdef NUM_ANALOG_INPUTS
-      if (PIN_MAP[pin].adc_channel >= NUM_ANALOG_INPUTS) return false;
+        if (PIN_MAP[pin].adc_channel >= NUM_ANALOG_INPUTS) return false;
     #endif
     return _GET_MODE(pin) == GPIO_INPUT_ANALOG && !M43_NEVER_TOUCH(pin);
   }
@@ -82,7 +82,7 @@ static inline bool GET_ARRAY_IS_DIGITAL(const int16_t array_pin) {
   const pin_t pin = GET_ARRAY_PIN(array_pin);
   return (!IS_ANALOG(pin)
     #ifdef NUM_ANALOG_INPUTS
-      || PIN_MAP[pin].adc_channel >= NUM_ANALOG_INPUTS
+        || PIN_MAP[pin].adc_channel >= NUM_ANALOG_INPUTS
     #endif
   );
 }
@@ -95,8 +95,8 @@ static inline void pwm_details(const pin_t pin) {
     const uint8_t channel = PIN_MAP[pin].timer_channel;
     const char num = (
       #if EITHER(STM32_HIGH_DENSITY, STM32_XL_DENSITY)
-        tdev == &timer8 ? '8' :
-        tdev == &timer5 ? '5' :
+          tdev == &timer8 ? '8' :
+          tdev == &timer5 ? '5' :
       #endif
       tdev == &timer4 ? '4' :
       tdev == &timer3 ? '3' :

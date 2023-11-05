@@ -24,37 +24,37 @@
 #include "screens.h"
 
 #ifdef FTDI_DISPLAY_TUNING_SCREEN
-
-using namespace FTDI;
-using namespace Theme;
-
-void DisplayTuningScreen::onRedraw(draw_mode_t what) {
-  widgets_t w(what);
-  w.precision(0, BaseNumericAdjustmentScreen::DEFAULT_LOWEST);
-  w.units(F(""));
-  w.heading(GET_TEXT_F(MSG_DISPLAY_MENU));
-  w.color(other);
-  w.adjuster( 2, GET_TEXT_F(MSG_H_OFFSET), CLCD::mem_read_16(CLCD::REG::HOFFSET) );
-  w.adjuster( 4, GET_TEXT_F(MSG_V_OFFSET), CLCD::mem_read_16(CLCD::REG::VOFFSET) );
-  w.increments();
-  w.heading(     GET_TEXT_F(MSG_TOUCH_SCREEN));
-  w.button(6,    GET_TEXT_F(MSG_CALIBRATE));
-}
-
-bool DisplayTuningScreen::onTouchHeld(uint8_t tag) {
-  #define REG_INCREMENT(a,i) CLCD::mem_write_16(CLCD::REG::a, CLCD::mem_read_16(CLCD::REG::a) + i)
-  const float increment = getIncrement();
-  switch (tag) {
-    case  2: REG_INCREMENT(HOFFSET, -increment);  break;
-    case  3: REG_INCREMENT(HOFFSET,  increment);  break;
-    case  4: REG_INCREMENT(VOFFSET, -increment);  break;
-    case  5: REG_INCREMENT(VOFFSET,  increment);  break;
-    case  6: GOTO_SCREEN(TouchCalibrationScreen); break;
-    default:
-      return false;
+  
+  using namespace FTDI;
+  using namespace Theme;
+  
+  void DisplayTuningScreen::onRedraw(draw_mode_t what) {
+    widgets_t w(what);
+    w.precision(0, BaseNumericAdjustmentScreen::DEFAULT_LOWEST);
+    w.units(F(""));
+    w.heading(GET_TEXT_F(MSG_DISPLAY_MENU));
+    w.color(other);
+    w.adjuster( 2, GET_TEXT_F(MSG_H_OFFSET), CLCD::mem_read_16(CLCD::REG::HOFFSET) );
+    w.adjuster( 4, GET_TEXT_F(MSG_V_OFFSET), CLCD::mem_read_16(CLCD::REG::VOFFSET) );
+    w.increments();
+    w.heading(     GET_TEXT_F(MSG_TOUCH_SCREEN));
+    w.button(6,    GET_TEXT_F(MSG_CALIBRATE));
   }
-  SaveSettingsDialogBox::settingsChanged();
-  return true;
-}
-
+  
+  bool DisplayTuningScreen::onTouchHeld(uint8_t tag) {
+    #define REG_INCREMENT(a,i) CLCD::mem_write_16(CLCD::REG::a, CLCD::mem_read_16(CLCD::REG::a) + i)
+    const float increment = getIncrement();
+    switch (tag) {
+      case  2: REG_INCREMENT(HOFFSET, -increment);  break;
+      case  3: REG_INCREMENT(HOFFSET,  increment);  break;
+      case  4: REG_INCREMENT(VOFFSET, -increment);  break;
+      case  5: REG_INCREMENT(VOFFSET,  increment);  break;
+      case  6: GOTO_SCREEN(TouchCalibrationScreen); break;
+      default:
+        return false;
+    }
+    SaveSettingsDialogBox::settingsChanged();
+    return true;
+  }
+  
 #endif // FTDI_DISPLAY_TUNING_SCREEN

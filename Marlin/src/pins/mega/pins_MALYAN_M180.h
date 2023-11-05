@@ -40,7 +40,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     -1
+    #define Z_MIN_PROBE_PIN                     -1
 #endif
 
 //
@@ -92,9 +92,9 @@
 #define HEATER_BED_PIN                        45
 
 #ifndef FAN_PIN
-  #define FAN_PIN                              7  // M106 Sxxx command supported and tested. M107 as well.
+    #define FAN_PIN                              7  // M106 Sxxx command supported and tested. M107 as well.
 #endif
 
 #ifndef FAN_PIN1
-  #define FAN_PIN1                            12  // Currently Unsupported by Marlin
+    #define FAN_PIN1                            12  // Currently Unsupported by Marlin
 #endif

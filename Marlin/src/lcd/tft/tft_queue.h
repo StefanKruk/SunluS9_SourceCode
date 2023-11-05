@@ -26,7 +26,7 @@
 #include "tft_image.h"
 
 #ifndef TFT_QUEUE_SIZE
-  #define TFT_QUEUE_SIZE              8192
+    #define TFT_QUEUE_SIZE              8192
 #endif
 
 enum QueueTaskType : uint8_t {

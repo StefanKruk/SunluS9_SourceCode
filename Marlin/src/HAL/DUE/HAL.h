@@ -51,47 +51,47 @@ extern DefaultSerial4 MSerial3;
 #define MSERIAL(X) _MSERIAL(X)
 
 #if SERIAL_PORT == -1 || ENABLED(EMERGENCY_PARSER)
-  #define MYSERIAL1 customizedSerial1
+    #define MYSERIAL1 customizedSerial1
 #elif WITHIN(SERIAL_PORT, 0, 3)
-  #define MYSERIAL1 MSERIAL(SERIAL_PORT)
+    #define MYSERIAL1 MSERIAL(SERIAL_PORT)
 #else
-  #error "The required SERIAL_PORT must be from 0 to 3, or -1 for USB Serial."
+    #error "The required SERIAL_PORT must be from 0 to 3, or -1 for USB Serial."
 #endif
 
 #ifdef SERIAL_PORT_2
-  #if SERIAL_PORT_2 == -1 || ENABLED(EMERGENCY_PARSER)
-    #define MYSERIAL2 customizedSerial2
-  #elif WITHIN(SERIAL_PORT_2, 0, 3)
-    #define MYSERIAL2 MSERIAL(SERIAL_PORT_2)
-  #else
-    #error "SERIAL_PORT_2 must be from 0 to 3, or -1 for USB Serial."
-  #endif
+    #if SERIAL_PORT_2 == -1 || ENABLED(EMERGENCY_PARSER)
+        #define MYSERIAL2 customizedSerial2
+    #elif WITHIN(SERIAL_PORT_2, 0, 3)
+        #define MYSERIAL2 MSERIAL(SERIAL_PORT_2)
+    #else
+        #error "SERIAL_PORT_2 must be from 0 to 3, or -1 for USB Serial."
+    #endif
 #endif
 
 #ifdef SERIAL_PORT_3
-  #if SERIAL_PORT_3 == -1 || ENABLED(EMERGENCY_PARSER)
-    #define MYSERIAL3 customizedSerial3
-  #elif WITHIN(SERIAL_PORT_3, 0, 3)
-    #define MYSERIAL3 MSERIAL(SERIAL_PORT_3)
-  #else
-    #error "SERIAL_PORT_3 must be from 0 to 3, or -1 for USB Serial."
-  #endif
+    #if SERIAL_PORT_3 == -1 || ENABLED(EMERGENCY_PARSER)
+        #define MYSERIAL3 customizedSerial3
+    #elif WITHIN(SERIAL_PORT_3, 0, 3)
+        #define MYSERIAL3 MSERIAL(SERIAL_PORT_3)
+    #else
+        #error "SERIAL_PORT_3 must be from 0 to 3, or -1 for USB Serial."
+    #endif
 #endif
 
 #ifdef MMU2_SERIAL_PORT
-  #if WITHIN(MMU2_SERIAL_PORT, 0, 3)
-    #define MMU2_SERIAL MSERIAL(MMU2_SERIAL_PORT)
-  #else
-    #error "MMU2_SERIAL_PORT must be from 0 to 3."
-  #endif
+    #if WITHIN(MMU2_SERIAL_PORT, 0, 3)
+        #define MMU2_SERIAL MSERIAL(MMU2_SERIAL_PORT)
+    #else
+        #error "MMU2_SERIAL_PORT must be from 0 to 3."
+    #endif
 #endif
 
 #ifdef LCD_SERIAL_PORT
-  #if WITHIN(LCD_SERIAL_PORT, 0, 3)
-    #define LCD_SERIAL MSERIAL(LCD_SERIAL_PORT)
-  #else
-    #error "LCD_SERIAL_PORT must be from 0 to 3."
-  #endif
+    #if WITHIN(LCD_SERIAL_PORT, 0, 3)
+        #define LCD_SERIAL MSERIAL(LCD_SERIAL_PORT)
+    #else
+        #error "LCD_SERIAL_PORT must be from 0 to 3."
+    #endif
 #endif
 
 #include "MarlinSerial.h"
@@ -128,7 +128,7 @@ void HAL_reboot();
 extern uint16_t HAL_adc_result;     // result of last ADC conversion
 
 #ifndef analogInputToDigitalPin
-  #define analogInputToDigitalPin(p) ((p < 12U) ? (p) + 54U : -1)
+    #define analogInputToDigitalPin(p) ((p < 12U) ? (p) + 54U : -1)
 #endif
 
 #define HAL_ANALOG_SELECT(ch)
@@ -169,20 +169,20 @@ void HAL_init();
 void _delay_ms(const int delay);
 
 #if GCC_VERSION <= 50000
-  #pragma GCC diagnostic push
-  #pragma GCC diagnostic ignored "-Wunused-function"
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wunused-function"
 #endif
 
 int freeMemory();
 
 #if GCC_VERSION <= 50000
-  #pragma GCC diagnostic pop
+    #pragma GCC diagnostic pop
 #endif
 
 #ifdef __cplusplus
-  extern "C" {
+    extern "C" {
 #endif
 char *dtostrf(double __val, signed char __width, unsigned char __prec, char *__s);
 #ifdef __cplusplus
-  }
+    }
 #endif

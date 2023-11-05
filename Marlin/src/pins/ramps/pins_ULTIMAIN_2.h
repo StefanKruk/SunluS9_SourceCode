@@ -75,7 +75,7 @@
 #define MOTOR_CURRENT_PWM_E_PIN               46
 // Motor current PWM conversion, PWM value = MotorCurrentSetting * 255 / range
 #ifndef MOTOR_CURRENT_PWM_RANGE
-  #define MOTOR_CURRENT_PWM_RANGE            2000
+    #define MOTOR_CURRENT_PWM_RANGE            2000
 #endif
 #define DEFAULT_PWM_MOTOR_CURRENT  {1300, 1300, 1250}
 
@@ -94,11 +94,11 @@
 #define HEATER_BED_PIN                         4
 
 #ifndef FAN_PIN
-  #define FAN_PIN                              7
+    #define FAN_PIN                              7
 #endif
 
 #ifndef E0_AUTO_FAN_PIN
-  #define E0_AUTO_FAN_PIN                     77
+    #define E0_AUTO_FAN_PIN                     77
 #endif
 
 //
@@ -131,11 +131,11 @@
 // M3/M4/M5 - Spindle/Laser Control
 //
 #if HAS_CUTTER                                    // use the LED_PIN for spindle speed control or case light
-  #undef LED_PIN
-  #define SPINDLE_DIR_PIN                     16
-  #define SPINDLE_LASER_ENA_PIN               17  // Pullup!
-  #define SPINDLE_LASER_PWM_PIN                8  // Hardware PWM
+    #undef LED_PIN
+    #define SPINDLE_DIR_PIN                     16
+    #define SPINDLE_LASER_ENA_PIN               17  // Pullup!
+    #define SPINDLE_LASER_PWM_PIN                8  // Hardware PWM
 #else
-  #undef LED_PIN
-  #define CASE_LIGHT_PIN                       8
+    #undef LED_PIN
+    #define CASE_LIGHT_PIN                       8
 #endif

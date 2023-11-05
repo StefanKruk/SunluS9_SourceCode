@@ -43,7 +43,7 @@
 #include "env_validate.h"
 
 #ifndef MACHINE_NAME
-  #define MACHINE_NAME "STEVAL-3DP001V1"
+    #define MACHINE_NAME "STEVAL-3DP001V1"
 #endif
 
 //
@@ -113,18 +113,18 @@
 #define E5_CS_PIN                             16  // PA4     SPI_CS
 
 #if HAS_L64XX
-  #define L6470_CHAIN_SCK_PIN                 17  // PA5
-  #define L6470_CHAIN_MISO_PIN                18  // PA6
-  #define L6470_CHAIN_MOSI_PIN                19  // PA7
-  #define L6470_CHAIN_SS_PIN                  16  // PA4
-
-  //#define SD_SCK_PIN       L6470_CHAIN_SCK_PIN
-  //#define SD_MISO_PIN     L6470_CHAIN_MISO_PIN
-  //#define SD_MOSI_PIN     L6470_CHAIN_MOSI_PIN
+    #define L6470_CHAIN_SCK_PIN                 17  // PA5
+    #define L6470_CHAIN_MISO_PIN                18  // PA6
+    #define L6470_CHAIN_MOSI_PIN                19  // PA7
+    #define L6470_CHAIN_SS_PIN                  16  // PA4
+  
+    //#define SD_SCK_PIN       L6470_CHAIN_SCK_PIN
+    //#define SD_MISO_PIN     L6470_CHAIN_MISO_PIN
+    //#define SD_MOSI_PIN     L6470_CHAIN_MOSI_PIN
 #else
-  //#define SD_SCK_PIN                        13  // PB13    SPI_S
-  //#define SD_MISO_PIN                       12  // PB14    SPI_M
-  //#define SD_MOSI_PIN                       11  // PB15    SPI_M
+    //#define SD_SCK_PIN                        13  // PB13    SPI_S
+    //#define SD_MISO_PIN                       12  // PB14    SPI_M
+    //#define SD_MOSI_PIN                       11  // PB15    SPI_M
 #endif
 
 /**
@@ -167,7 +167,7 @@
 #define FAN2_PIN                              59  // PE8   E3_FAN   PWM pin, Controller fan FET
 
 #ifndef E0_AUTO_FAN_PIN
-  #define E0_AUTO_FAN_PIN                     58  // FAN1_PIN
+    #define E0_AUTO_FAN_PIN                     58  // FAN1_PIN
 #endif
 
 //
@@ -236,23 +236,23 @@
 #define SDIO_CMD_PIN                          29  // PD2   SDIO_CMD
 
 #ifndef SDCARD_CONNECTION
-  #define SDCARD_CONNECTION              ONBOARD
+    #define SDCARD_CONNECTION              ONBOARD
 #endif
 
 #if SD_CONNECTION_IS(ONBOARD)
-  #define SDIO_SUPPORT                            // Use SDIO for onboard SD
-
-  #ifndef SDIO_SUPPORT
-    #define SOFTWARE_SPI                          // Use soft SPI for onboard SD
-    #define SDSS                     SDIO_D3_PIN
-    #define SD_SCK_PIN               SDIO_CK_PIN
-    #define SD_MISO_PIN              SDIO_D0_PIN
-    #define SD_MOSI_PIN             SDIO_CMD_PIN
-  #endif
+    #define SDIO_SUPPORT                            // Use SDIO for onboard SD
+  
+    #ifndef SDIO_SUPPORT
+        #define SOFTWARE_SPI                          // Use soft SPI for onboard SD
+        #define SDSS                     SDIO_D3_PIN
+        #define SD_SCK_PIN               SDIO_CK_PIN
+        #define SD_MISO_PIN              SDIO_D0_PIN
+        #define SD_MOSI_PIN             SDIO_CMD_PIN
+    #endif
 #endif
 
 #ifndef SDSS
-  #define SDSS                                16  // PA4    SPI_CS
+    #define SDSS                                16  // PA4    SPI_CS
 #endif
 
 // OTG

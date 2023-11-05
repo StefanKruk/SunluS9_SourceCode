@@ -25,104 +25,104 @@
 #include "screens.h"
 
 #ifdef FTDI_BOOT_SCREEN
-
-#include "../archim2-flash/flash_storage.h"
-
-#if ENABLED(SHOW_CUSTOM_BOOTSCREEN)
-  #if ENABLED(TOUCH_UI_PORTRAIT)
-    #include "../theme/bootscreen_logo_portrait.h"
+  
+  #include "../archim2-flash/flash_storage.h"
+  
+  #if ENABLED(SHOW_CUSTOM_BOOTSCREEN)
+      #if ENABLED(TOUCH_UI_PORTRAIT)
+          #include "../theme/bootscreen_logo_portrait.h"
+      #else
+          #include "../theme/_bootscreen_landscape.h"
+      #endif
   #else
-    #include "../theme/_bootscreen_landscape.h"
+      #if ENABLED(TOUCH_UI_PORTRAIT)
+          #include "../theme/marlin_bootscreen_portrait.h"
+      #else
+          #include "../theme/marlin_bootscreen_landscape.h"
+      #endif
   #endif
-#else
-  #if ENABLED(TOUCH_UI_PORTRAIT)
-    #include "../theme/marlin_bootscreen_portrait.h"
-  #else
-    #include "../theme/marlin_bootscreen_landscape.h"
-  #endif
-#endif
-
-using namespace FTDI;
-using namespace Theme;
-
-void BootScreen::onRedraw(draw_mode_t) {
-  CommandProcessor cmd;
-  cmd.cmd(CLEAR_COLOR_RGB(0x000000));
-  cmd.cmd(CLEAR(true,true,true));
-
-  CLCD::turn_on_backlight();
-  SoundPlayer::set_volume(255);
-}
-
-void BootScreen::onIdle() {
-  if (CLCD::is_touching()) {
-    // If the user is touching the screen at startup, then
-    // assume the user wants to re-calibrate the screen.
-    // This gives the user the ability to recover a
-    // miscalibration that has been stored to EEPROM.
-
-    // Also reset display parameters to defaults, just
-    // in case the display is borked.
-    InterfaceSettingsScreen::failSafeSettings();
-
-    StatusScreen::loadBitmaps();
-    StatusScreen::setStatusMessage(GET_TEXT_F(WELCOME_MSG));
-    GOTO_SCREEN(TouchCalibrationScreen);
-    current_screen.forget();
-    PUSH_SCREEN(StatusScreen);
+  
+  using namespace FTDI;
+  using namespace Theme;
+  
+  void BootScreen::onRedraw(draw_mode_t) {
+    CommandProcessor cmd;
+    cmd.cmd(CLEAR_COLOR_RGB(0x000000));
+    cmd.cmd(CLEAR(true,true,true));
+  
+    CLCD::turn_on_backlight();
+    SoundPlayer::set_volume(255);
   }
-  else {
-    if (!UIFlashStorage::is_valid()) {
+  
+  void BootScreen::onIdle() {
+    if (CLCD::is_touching()) {
+      // If the user is touching the screen at startup, then
+      // assume the user wants to re-calibrate the screen.
+      // This gives the user the ability to recover a
+      // miscalibration that has been stored to EEPROM.
+  
+      // Also reset display parameters to defaults, just
+      // in case the display is borked.
+      InterfaceSettingsScreen::failSafeSettings();
+  
       StatusScreen::loadBitmaps();
-      SpinnerDialogBox::show(GET_TEXT_F(MSG_PLEASE_WAIT));
-      UIFlashStorage::format_flash();
-      SpinnerDialogBox::hide();
-    }
-
-    #if DISABLED(TOUCH_UI_NO_BOOTSCREEN)
-      if (UIData::animations_enabled()) {
-        // If there is a startup video in the flash SPI, play
-        // that, otherwise show a static splash screen.
-        if (!MediaPlayerScreen::playBootMedia())
-          showSplashScreen();
-      }
-    #endif
-
-    StatusScreen::loadBitmaps();
-
-    #if ENABLED(TOUCH_UI_LULZBOT_BIO)
-      GOTO_SCREEN(BioConfirmHomeXYZ);
+      StatusScreen::setStatusMessage(GET_TEXT_F(WELCOME_MSG));
+      GOTO_SCREEN(TouchCalibrationScreen);
       current_screen.forget();
       PUSH_SCREEN(StatusScreen);
-      PUSH_SCREEN(BioConfirmHomeE);
-    #elif NUM_LANGUAGES > 1
-      StatusScreen::setStatusMessage(GET_TEXT_F(WELCOME_MSG));
-      GOTO_SCREEN(LanguageMenu);
-    #else
-      StatusScreen::setStatusMessage(GET_TEXT_F(WELCOME_MSG));
-      GOTO_SCREEN(StatusScreen);
-    #endif
+    }
+    else {
+      if (!UIFlashStorage::is_valid()) {
+        StatusScreen::loadBitmaps();
+        SpinnerDialogBox::show(GET_TEXT_F(MSG_PLEASE_WAIT));
+        UIFlashStorage::format_flash();
+        SpinnerDialogBox::hide();
+      }
+  
+      #if DISABLED(TOUCH_UI_NO_BOOTSCREEN)
+          if (UIData::animations_enabled()) {
+            // If there is a startup video in the flash SPI, play
+            // that, otherwise show a static splash screen.
+            if (!MediaPlayerScreen::playBootMedia())
+              showSplashScreen();
+          }
+      #endif
+  
+      StatusScreen::loadBitmaps();
+  
+      #if ENABLED(TOUCH_UI_LULZBOT_BIO)
+          GOTO_SCREEN(BioConfirmHomeXYZ);
+          current_screen.forget();
+          PUSH_SCREEN(StatusScreen);
+          PUSH_SCREEN(BioConfirmHomeE);
+      #elif NUM_LANGUAGES > 1
+          StatusScreen::setStatusMessage(GET_TEXT_F(WELCOME_MSG));
+          GOTO_SCREEN(LanguageMenu);
+      #else
+          StatusScreen::setStatusMessage(GET_TEXT_F(WELCOME_MSG));
+          GOTO_SCREEN(StatusScreen);
+      #endif
+    }
   }
-}
-
-void BootScreen::showSplashScreen() {
-  CommandProcessor cmd;
-  cmd.cmd(CMD_DLSTART);
-  cmd.cmd(CLEAR_COLOR_RGB(LOGO_BACKGROUND));
-  cmd.cmd(CLEAR(true,true,true));
-
-  #define POLY(A) PolyUI::poly_reader_t(A, sizeof(A)/sizeof(A[0]))
-  #define LOGO_PAINT_PATH(rgb, path) cmd.cmd(COLOR_RGB(rgb)); ui.fill(POLY(path));
-
-  PolyUI ui(cmd);
-
-  LOGO_PAINT_PATHS
-
-  cmd.cmd(DL::DL_DISPLAY);
-  cmd.cmd(CMD_SWAP);
-  cmd.execute();
-
-  ExtUI::delay_ms(2500);
-}
-
+  
+  void BootScreen::showSplashScreen() {
+    CommandProcessor cmd;
+    cmd.cmd(CMD_DLSTART);
+    cmd.cmd(CLEAR_COLOR_RGB(LOGO_BACKGROUND));
+    cmd.cmd(CLEAR(true,true,true));
+  
+    #define POLY(A) PolyUI::poly_reader_t(A, sizeof(A)/sizeof(A[0]))
+    #define LOGO_PAINT_PATH(rgb, path) cmd.cmd(COLOR_RGB(rgb)); ui.fill(POLY(path));
+  
+    PolyUI ui(cmd);
+  
+    LOGO_PAINT_PATHS
+  
+    cmd.cmd(DL::DL_DISPLAY);
+    cmd.cmd(CMD_SWAP);
+    cmd.execute();
+  
+    ExtUI::delay_ms(2500);
+  }
+  
 #endif // FTDI_BOOT_SCREEN

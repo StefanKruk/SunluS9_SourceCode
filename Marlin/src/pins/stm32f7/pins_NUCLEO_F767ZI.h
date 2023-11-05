@@ -22,21 +22,21 @@
 #pragma once
 
 #if NOT_TARGET(STM32F767xx)
-  #error "Oops! Select an STM32F767 environment"
+    #error "Oops! Select an STM32F767 environment"
 #endif
 
 #define BOARD_INFO_NAME      "NUCLEO-F767ZI"
 #define DEFAULT_MACHINE_NAME "Prototype Board"
 
 #if NO_EEPROM_SELECTED
-  #define FLASH_EEPROM_EMULATION                  // Use Flash-based EEPROM emulation
+    #define FLASH_EEPROM_EMULATION                  // Use Flash-based EEPROM emulation
 #endif
 
 #if ENABLED(FLASH_EEPROM_EMULATION)
-  // Decrease delays and flash wear by spreading writes across the
-  // 128 kB sector allocated for EEPROM emulation.
-  // Not yet supported on F7 hardware
-  //#define FLASH_EEPROM_LEVELING
+    // Decrease delays and flash wear by spreading writes across the
+    // 128 kB sector allocated for EEPROM emulation.
+    // Not yet supported on F7 hardware
+    //#define FLASH_EEPROM_LEVELING
 #endif
 
 /**
@@ -129,17 +129,17 @@
 #define E0_CS_PIN                           PG9
 
 #if HAS_TMC_UART
-  #define X_SERIAL_TX_PIN                   PB9
-  #define X_SERIAL_RX_PIN                   PB9
-
-  #define Y_SERIAL_TX_PIN                   PE3
-  #define Y_SERIAL_RX_PIN                   PE3
-
-  #define Z_SERIAL_TX_PIN                   PE12
-  #define Z_SERIAL_RX_PIN                   PE12
-
-  #define E_SERIAL_TX_PIN                   PG9
-  #define E_SERIAL_RX_PIN                   PG9
+    #define X_SERIAL_TX_PIN                   PB9
+    #define X_SERIAL_RX_PIN                   PB9
+  
+    #define Y_SERIAL_TX_PIN                   PE3
+    #define Y_SERIAL_RX_PIN                   PE3
+  
+    #define Z_SERIAL_TX_PIN                   PE12
+    #define Z_SERIAL_RX_PIN                   PE12
+  
+    #define E_SERIAL_TX_PIN                   PG9
+    #define E_SERIAL_RX_PIN                   PG9
 #endif
 
 //
@@ -155,12 +155,12 @@
 #define HEATER_BED_PIN                      PB3   // PWM Capable, TIM2_CH2
 
 #ifndef FAN_PIN
-  #define FAN_PIN                           PB10  // PWM Capable, TIM2_CH3
+    #define FAN_PIN                           PB10  // PWM Capable, TIM2_CH3
 #endif
 #define FAN1_PIN                            PB11  // PWM Capable, TIM2_CH4
 
 #ifndef E0_AUTO_FAN_PIN
-  #define E0_AUTO_FAN_PIN               FAN1_PIN
+    #define E0_AUTO_FAN_PIN               FAN1_PIN
 #endif
 
 //
@@ -182,16 +182,16 @@
 // LCD / Controller
 //
 #if IS_RRD_FG_SC
-  #define BEEPER_PIN                        PC7   // LCD_BEEPER
-  #define BTN_ENC                           PE11  // BTN_ENC
-  #define SD_DETECT_PIN                     PD14
-  #define LCD_PINS_RS                       PF12  // LCD_RS
-  #define LCD_PINS_ENABLE                   PD15  // LCD_EN
-  #define LCD_PINS_D4                       PB13  // LCD_D4
-  #define BTN_EN1                           PF13  // BTN_EN1
-  #define BTN_EN2                           PE9   // BTN_EN2
-
-  #define BOARD_ST7920_DELAY_1  DELAY_NS(125)
-  #define BOARD_ST7920_DELAY_2  DELAY_NS(63)
-  #define BOARD_ST7920_DELAY_3  DELAY_NS(780)
+    #define BEEPER_PIN                        PC7   // LCD_BEEPER
+    #define BTN_ENC                           PE11  // BTN_ENC
+    #define SD_DETECT_PIN                     PD14
+    #define LCD_PINS_RS                       PF12  // LCD_RS
+    #define LCD_PINS_ENABLE                   PD15  // LCD_EN
+    #define LCD_PINS_D4                       PB13  // LCD_D4
+    #define BTN_EN1                           PF13  // BTN_EN1
+    #define BTN_EN2                           PE9   // BTN_EN2
+  
+    #define BOARD_ST7920_DELAY_1  DELAY_NS(125)
+    #define BOARD_ST7920_DELAY_2  DELAY_NS(63)
+    #define BOARD_ST7920_DELAY_3  DELAY_NS(780)
 #endif

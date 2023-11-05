@@ -52,8 +52,8 @@
 
 // Enable EEPROM Emulation for this board as it doesn't have EEPROM
 #if EITHER(NO_EEPROM_SELECTED, FLASH_EEPROM_EMULATION)
-  #define FLASH_EEPROM_EMULATION
-  #define MARLIN_EEPROM_SIZE              0x1000  // 4KB
+    #define FLASH_EEPROM_EMULATION
+    #define MARLIN_EEPROM_SIZE              0x1000  // 4KB
 #endif
 
 //
@@ -115,7 +115,7 @@
 #define FAN2_PIN                            PB7   // EXT2 port
 
 #ifndef E0_AUTO_FAN_PIN
-  #define E0_AUTO_FAN_PIN                   PB9   // EXT0 port, used as main extruder fan
+    #define E0_AUTO_FAN_PIN                   PB9   // EXT0 port, used as main extruder fan
 #endif
 
 //
@@ -135,63 +135,63 @@
 // LCD / Controller
 //
 #if HAS_WIRED_LCD
-
- #if IS_RRD_SC
-
-    //
-    // LCD display on J2 FFC40
-    // Geeetech's LCD2004A Control Panel is very much like
-    // RepRapDiscount Smart Controller, but adds an FFC40 connector
-    // connected with a flat wire to J2 connector on the board.
-    //
-    #define LCD_PINS_RS                     PA12  // CS chip select /SS chip slave select
-    // RW is hardwired to VSS
-    #define LCD_PINS_ENABLE                 PC7   // SID (MOSI)
-    #define LCD_PINS_D4                     PD1   // SCK (CLK) clock
-    #define LCD_PINS_D5                     PD4
-    #define LCD_PINS_D6                     PD5
-    #define LCD_PINS_D7                     PD7
-
-    #define BTN_EN1                         PE8
-    #define BTN_EN2                         PE9
-    #define BTN_ENC                         PE13
-
-    //#define GTM32_PRO_VB_USE_LCD_BEEPER
-    #define GTM32_PRO_VB_USE_EXT_SDCARD
-
-  #else
-    //
-    // Serial LCDs can be implemented in ExtUI
-    //
-    //#define LCD_UART_TX                   PD8
-    //#define LCD_UART_RX                   PD9
-  #endif
-
-  #if HAS_MARLINUI_U8GLIB
-    #ifndef BOARD_ST7920_DELAY_1
-      #define BOARD_ST7920_DELAY_1  DELAY_NS(96)
+  
+   #if IS_RRD_SC
+    
+        //
+        // LCD display on J2 FFC40
+        // Geeetech's LCD2004A Control Panel is very much like
+        // RepRapDiscount Smart Controller, but adds an FFC40 connector
+        // connected with a flat wire to J2 connector on the board.
+        //
+        #define LCD_PINS_RS                     PA12  // CS chip select /SS chip slave select
+        // RW is hardwired to VSS
+        #define LCD_PINS_ENABLE                 PC7   // SID (MOSI)
+        #define LCD_PINS_D4                     PD1   // SCK (CLK) clock
+        #define LCD_PINS_D5                     PD4
+        #define LCD_PINS_D6                     PD5
+        #define LCD_PINS_D7                     PD7
+    
+        #define BTN_EN1                         PE8
+        #define BTN_EN2                         PE9
+        #define BTN_ENC                         PE13
+    
+        //#define GTM32_PRO_VB_USE_LCD_BEEPER
+        #define GTM32_PRO_VB_USE_EXT_SDCARD
+    
+    #else
+        //
+        // Serial LCDs can be implemented in ExtUI
+        //
+        //#define LCD_UART_TX                   PD8
+        //#define LCD_UART_RX                   PD9
     #endif
-    #ifndef BOARD_ST7920_DELAY_2
-      #define BOARD_ST7920_DELAY_2  DELAY_NS(48)
+  
+    #if HAS_MARLINUI_U8GLIB
+        #ifndef BOARD_ST7920_DELAY_1
+            #define BOARD_ST7920_DELAY_1  DELAY_NS(96)
+        #endif
+        #ifndef BOARD_ST7920_DELAY_2
+            #define BOARD_ST7920_DELAY_2  DELAY_NS(48)
+        #endif
+        #ifndef BOARD_ST7920_DELAY_3
+            #define BOARD_ST7920_DELAY_3 DELAY_NS(715)
+        #endif
     #endif
-    #ifndef BOARD_ST7920_DELAY_3
-      #define BOARD_ST7920_DELAY_3 DELAY_NS(715)
-    #endif
-  #endif
-
+  
 #endif // HAS_WIRED_LCD
 
 //
 // Beeper
 //
 #ifdef GTM32_PRO_VB_USE_LCD_BEEPER
-  // This is pin 32 on J2 FFC40 and pin, goes to the beeper
-  // on Geeetech's version of RepRapDiscount Smart Controller
-  // (e.g. on Rostock 301)
-  #define BEEPER_PIN                        PE12
+    // This is pin 32 on J2 FFC40 and pin, goes to the beeper
+    // on Geeetech's version of RepRapDiscount Smart Controller
+    // (e.g. on Rostock 301)
+    #define BEEPER_PIN                        PE12
 #else
-  // This is the beeper on the board itself
-  #define BEEPER_PIN                        PB10
+    // This is the beeper on the board itself
+    #define BEEPER_PIN                        PB10
 #endif
 
 /**
@@ -206,24 +206,24 @@
  * a single SPI Flash device (as of 2019-07-05) so only one is enabled here.
  */
 #if ENABLED(GTM32_PRO_VB_USE_EXT_SDCARD)
-  //
-  // SD Card on RepRapDiscount Smart Controller (J2) or on SD_CARD connector
-  //
-  #define SD_SS_PIN                         PB12  // PC11
-  #define SD_SCK_PIN                        PB13  // PC12 // PC1
-  #define SD_MOSI_PIN                       PB15  // PD2  // PD2
-  #define SD_MISO_PIN                       PB14  // PC8
-  #define SD_DETECT_PIN                     PC7
-
+    //
+    // SD Card on RepRapDiscount Smart Controller (J2) or on SD_CARD connector
+    //
+    #define SD_SS_PIN                         PB12  // PC11
+    #define SD_SCK_PIN                        PB13  // PC12 // PC1
+    #define SD_MOSI_PIN                       PB15  // PD2  // PD2
+    #define SD_MISO_PIN                       PB14  // PC8
+    #define SD_DETECT_PIN                     PC7
+  
 #else
-  //
-  // Use the on-board card socket labeled TF_CARD_SOCKET
-  //
-  #define SD_SS_PIN                         PA4
-  #define SD_SCK_PIN                        PA5
-  #define SD_MOSI_PIN                       PA7
-  #define SD_MISO_PIN                       PA6   // PA6
-  #define SD_DETECT_PIN                     -1    // Card detect is not connected
+    //
+    // Use the on-board card socket labeled TF_CARD_SOCKET
+    //
+    #define SD_SS_PIN                         PA4
+    #define SD_SCK_PIN                        PA5
+    #define SD_MOSI_PIN                       PA7
+    #define SD_MISO_PIN                       PA6   // PA6
+    #define SD_DETECT_PIN                     -1    // Card detect is not connected
 #endif
 
 #define SDSS                           SD_SS_PIN

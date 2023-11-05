@@ -27,7 +27,7 @@
 
 // Fallback if no language is set. DON'T CHANGE
 #ifndef LCD_LANGUAGE
-  #define LCD_LANGUAGE en
+    #define LCD_LANGUAGE en
 #endif
 
 // For character-based LCD controllers (DISPLAY_CHARSET_HD44780)
@@ -76,20 +76,20 @@
 // zh_TW      Chinese (Traditional)
 
 #ifdef DEFAULT_SOURCE_CODE_URL
-  #undef  SOURCE_CODE_URL
-  #define SOURCE_CODE_URL DEFAULT_SOURCE_CODE_URL
+    #undef  SOURCE_CODE_URL
+    #define SOURCE_CODE_URL DEFAULT_SOURCE_CODE_URL
 #endif
 
 #ifdef CUSTOM_MACHINE_NAME
-  #undef  MACHINE_NAME
-  #define MACHINE_NAME CUSTOM_MACHINE_NAME
+    #undef  MACHINE_NAME
+    #define MACHINE_NAME CUSTOM_MACHINE_NAME
 #elif defined(DEFAULT_MACHINE_NAME)
-  #undef  MACHINE_NAME
-  #define MACHINE_NAME DEFAULT_MACHINE_NAME
+    #undef  MACHINE_NAME
+    #define MACHINE_NAME DEFAULT_MACHINE_NAME
 #endif
 
 #ifndef MACHINE_UUID
-  #define MACHINE_UUID DEFAULT_MACHINE_UUID
+    #define MACHINE_UUID DEFAULT_MACHINE_UUID
 #endif
 
 #define MARLIN_WEBSITE_URL "marlinfw.org"
@@ -288,13 +288,13 @@
 #define STR_Z "Z"
 #define STR_E "E"
 #if IS_KINEMATIC
-  #define STR_A "A"
-  #define STR_B "B"
-  #define STR_C "C"
+    #define STR_A "A"
+    #define STR_B "B"
+    #define STR_C "C"
 #else
-  #define STR_A "X"
-  #define STR_B "Y"
-  #define STR_C "Z"
+    #define STR_A "X"
+    #define STR_B "Y"
+    #define STR_C "Z"
 #endif
 #define STR_X2 "X2"
 #define STR_Y2 "Y2"
@@ -308,41 +308,41 @@
 #define LCD_STR_E STR_E
 
 #if EITHER(HAS_MARLINUI_HD44780, IS_TFTGLCD_PANEL)
-
-  // Custom characters defined in the first 8 characters of the LCD
-  #define LCD_STR_BEDTEMP     "\x00" // Print only as a char. This will have 'unexpected' results when used in a string!
-  #define LCD_STR_DEGREE      "\x01"
-  #define LCD_STR_THERMOMETER "\x02" // Still used with string concatenation
-  #define LCD_STR_UPLEVEL     "\x03"
-  #define LCD_STR_REFRESH     "\x04"
-  #define LCD_STR_FOLDER      "\x05"
-  #define LCD_STR_FEEDRATE    "\x06"
-  #define LCD_STR_CLOCK       "\x07"
-  #define LCD_STR_ARROW_RIGHT ">"  /* from the default character set */
-
+  
+    // Custom characters defined in the first 8 characters of the LCD
+    #define LCD_STR_BEDTEMP     "\x00" // Print only as a char. This will have 'unexpected' results when used in a string!
+    #define LCD_STR_DEGREE      "\x01"
+    #define LCD_STR_THERMOMETER "\x02" // Still used with string concatenation
+    #define LCD_STR_UPLEVEL     "\x03"
+    #define LCD_STR_REFRESH     "\x04"
+    #define LCD_STR_FOLDER      "\x05"
+    #define LCD_STR_FEEDRATE    "\x06"
+    #define LCD_STR_CLOCK       "\x07"
+    #define LCD_STR_ARROW_RIGHT ">"  /* from the default character set */
+  
 #else
-  //
-  // Custom characters from Marlin_symbols.fon which was merged into ISO10646-0-3.bdf
-  // \x00 intentionally skipped to avoid problems in strings
-  //
-  #define LCD_STR_REFRESH     "\x01"
-  #define LCD_STR_FOLDER      "\x02"
-  #define LCD_STR_ARROW_RIGHT "\x03"
-  #define LCD_STR_UPLEVEL     "\x04"
-  #define LCD_STR_CLOCK       "\x05"
-  #define LCD_STR_FEEDRATE    "\x06"
-  #define LCD_STR_BEDTEMP     "\x07"
-  #define LCD_STR_THERMOMETER "\x08"
-  #define LCD_STR_DEGREE      "\x09"
-
-  #define LCD_STR_SPECIAL_MAX '\x09'
-  // Maximum here is 0x1F because 0x20 is ' ' (space) and the normal charsets begin.
-  // Better stay below 0x10 because DISPLAY_CHARSET_HD44780_WESTERN begins here.
-
-  // Symbol characters
-  #define LCD_STR_FILAM_DIA   "\xF8"
-  #define LCD_STR_FILAM_MUL   "\xA4"
-
+    //
+    // Custom characters from Marlin_symbols.fon which was merged into ISO10646-0-3.bdf
+    // \x00 intentionally skipped to avoid problems in strings
+    //
+    #define LCD_STR_REFRESH     "\x01"
+    #define LCD_STR_FOLDER      "\x02"
+    #define LCD_STR_ARROW_RIGHT "\x03"
+    #define LCD_STR_UPLEVEL     "\x04"
+    #define LCD_STR_CLOCK       "\x05"
+    #define LCD_STR_FEEDRATE    "\x06"
+    #define LCD_STR_BEDTEMP     "\x07"
+    #define LCD_STR_THERMOMETER "\x08"
+    #define LCD_STR_DEGREE      "\x09"
+  
+    #define LCD_STR_SPECIAL_MAX '\x09'
+    // Maximum here is 0x1F because 0x20 is ' ' (space) and the normal charsets begin.
+    // Better stay below 0x10 because DISPLAY_CHARSET_HD44780_WESTERN begins here.
+  
+    // Symbol characters
+    #define LCD_STR_FILAM_DIA   "\xF8"
+    #define LCD_STR_FILAM_MUL   "\xA4"
+  
 #endif
 
 /**
@@ -354,25 +354,25 @@
  * make these indexes consistent but this defies expectation.
  */
 #if ENABLED(NUMBER_TOOLS_FROM_0)
-  #define LCD_FIRST_TOOL 0
-  #define LCD_STR_N0 "0"
-  #define LCD_STR_N1 "1"
-  #define LCD_STR_N2 "2"
-  #define LCD_STR_N3 "3"
-  #define LCD_STR_N4 "4"
-  #define LCD_STR_N5 "5"
-  #define LCD_STR_N6 "6"
-  #define LCD_STR_N7 "7"
+    #define LCD_FIRST_TOOL 0
+    #define LCD_STR_N0 "0"
+    #define LCD_STR_N1 "1"
+    #define LCD_STR_N2 "2"
+    #define LCD_STR_N3 "3"
+    #define LCD_STR_N4 "4"
+    #define LCD_STR_N5 "5"
+    #define LCD_STR_N6 "6"
+    #define LCD_STR_N7 "7"
 #else
-  #define LCD_FIRST_TOOL 1
-  #define LCD_STR_N0 "1"
-  #define LCD_STR_N1 "2"
-  #define LCD_STR_N2 "3"
-  #define LCD_STR_N3 "4"
-  #define LCD_STR_N4 "5"
-  #define LCD_STR_N5 "6"
-  #define LCD_STR_N6 "7"
-  #define LCD_STR_N7 "8"
+    #define LCD_FIRST_TOOL 1
+    #define LCD_STR_N0 "1"
+    #define LCD_STR_N1 "2"
+    #define LCD_STR_N2 "3"
+    #define LCD_STR_N3 "4"
+    #define LCD_STR_N4 "5"
+    #define LCD_STR_N5 "6"
+    #define LCD_STR_N6 "7"
+    #define LCD_STR_N7 "8"
 #endif
 
 #define LCD_STR_E0 "E" LCD_STR_N0
@@ -406,13 +406,13 @@
 #include LANGUAGE_INCL(LCD_LANGUAGE_5)
 
 #if NONE(DISPLAY_CHARSET_ISO10646_1, \
-         DISPLAY_CHARSET_ISO10646_5, \
-         DISPLAY_CHARSET_ISO10646_KANA, \
-         DISPLAY_CHARSET_ISO10646_GREEK, \
-         DISPLAY_CHARSET_ISO10646_CN, \
-         DISPLAY_CHARSET_ISO10646_TR, \
-         DISPLAY_CHARSET_ISO10646_PL, \
-         DISPLAY_CHARSET_ISO10646_CZ, \
-         DISPLAY_CHARSET_ISO10646_SK)
-  #define DISPLAY_CHARSET_ISO10646_1 // use the better font on full graphic displays.
+           DISPLAY_CHARSET_ISO10646_5, \
+           DISPLAY_CHARSET_ISO10646_KANA, \
+           DISPLAY_CHARSET_ISO10646_GREEK, \
+           DISPLAY_CHARSET_ISO10646_CN, \
+           DISPLAY_CHARSET_ISO10646_TR, \
+           DISPLAY_CHARSET_ISO10646_PL, \
+           DISPLAY_CHARSET_ISO10646_CZ, \
+           DISPLAY_CHARSET_ISO10646_SK)
+    #define DISPLAY_CHARSET_ISO10646_1 // use the better font on full graphic displays.
 #endif

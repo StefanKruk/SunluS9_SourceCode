@@ -26,18 +26,18 @@
 
 #include "../../inc/MarlinConfigPre.h"
 #if ENABLED(EMERGENCY_PARSER)
-  #include "../../feature/e_parser.h"
+    #include "../../feature/e_parser.h"
 #endif
 #include "../../core/serial_hook.h"
 
 #ifndef SERIAL_PORT
-  #define SERIAL_PORT 0
+    #define SERIAL_PORT 0
 #endif
 #ifndef RX_BUFFER_SIZE
-  #define RX_BUFFER_SIZE 128
+    #define RX_BUFFER_SIZE 128
 #endif
 #ifndef TX_BUFFER_SIZE
-  #define TX_BUFFER_SIZE 32
+    #define TX_BUFFER_SIZE 32
 #endif
 
 class MarlinSerial : public HardwareSerial<RX_BUFFER_SIZE, TX_BUFFER_SIZE> {
@@ -47,7 +47,7 @@ public:
   void end() {}
 
   #if ENABLED(EMERGENCY_PARSER)
-    bool recv_callback(const char c) override;
+      bool recv_callback(const char c) override;
   #endif
 };
 
@@ -63,5 +63,5 @@ extern MSerialT MSerial3;
 // Consequently, we can't use a RuntimeSerial either. The workaround would be to use
 // a RuntimeSerial<ForwardSerial<MarlinSerial>> type here. Ignore for now until it's actually required.
 #if ENABLED(SERIAL_RUNTIME_HOOK)
-  #error "SERIAL_RUNTIME_HOOK is not yet supported for LPC176x."
+    #error "SERIAL_RUNTIME_HOOK is not yet supported for LPC176x."
 #endif

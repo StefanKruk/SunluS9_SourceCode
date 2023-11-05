@@ -73,7 +73,7 @@
 #define MOTOR_CURRENT_PWM_E_PIN               46
 // Motor current PWM conversion, PWM value = MotorCurrentSetting * 255 / range
 #ifndef MOTOR_CURRENT_PWM_RANGE
-  #define MOTOR_CURRENT_PWM_RANGE            2000
+    #define MOTOR_CURRENT_PWM_RANGE            2000
 #endif
 #define DEFAULT_PWM_MOTOR_CURRENT  { 1300, 1300, 1250 }
 
@@ -92,7 +92,7 @@
 #define HEATER_BED_PIN                         4
 
 #ifndef FAN_PIN
-  #define FAN_PIN                              7  //默认不使用PWM_FAN冷却喷嘴，如果需要，则取消注释
+    #define FAN_PIN                              7  //默认不使用PWM_FAN冷却喷嘴，如果需要，则取消注释
 #endif
 
 //
@@ -103,7 +103,7 @@
 //#define LED_PIN                              8
 
 #ifndef CASE_LIGHT_PIN
-  #define CASE_LIGHT_PIN                       8  // 8 默认挤出机风扇作为Case LED，如果需要PWM FAN,则需要将FAN_PIN置为7，LED_PIN置为8
+    #define CASE_LIGHT_PIN                       8  // 8 默认挤出机风扇作为Case LED，如果需要PWM FAN,则需要将FAN_PIN置为7，LED_PIN置为8
 #endif
 
 //#define SAFETY_TRIGGERED_PIN                28  // PIN to detect the safety circuit has triggered
@@ -113,59 +113,59 @@
 // M3/M4/M5 - Spindle/Laser Control
 //
 #if ENABLED(SPINDLE_LASER_ENABLE)
-  #define SPINDLE_DIR_PIN                     16
-  #define SPINDLE_LASER_ENABLE_PIN            17  // Pin should have a pullup!
-  #define SPINDLE_LASER_PWM_PIN                9  // Hardware PWM
+    #define SPINDLE_DIR_PIN                     16
+    #define SPINDLE_LASER_ENABLE_PIN            17  // Pin should have a pullup!
+    #define SPINDLE_LASER_PWM_PIN                9  // Hardware PWM
 #endif
 
 //
 // LCD / Controller
 //
 #if HAS_WIRED_LCD
-
-  #define BEEPER_PIN                          18
-
-  #if IS_NEWPANEL
-
-    #define LCD_PINS_RS                       20  // LCD_CS
-    #define LCD_PINS_ENABLE                   15  // LCD_SDA
-    #define LCD_PINS_D4                       14  // LCD_SCK
-
-    #if ENABLED(HJC_LCD_SMART_CONTROLLER)
-      #define LCD_BACKLIGHT_PIN                5  // LCD_Backlight
-      //#ifndef LCD_CONTRAST_PIN
-      //  #define LCD_CONTRAST_PIN  5   // LCD_Contrast
-      //#endif
-      #ifndef FIL_RUNOUT_PIN
-        #define FIL_RUNOUT_PIN                24  // Filament runout
-      #endif
+  
+    #define BEEPER_PIN                          18
+  
+    #if IS_NEWPANEL
+    
+        #define LCD_PINS_RS                       20  // LCD_CS
+        #define LCD_PINS_ENABLE                   15  // LCD_SDA
+        #define LCD_PINS_D4                       14  // LCD_SCK
+    
+        #if ENABLED(HJC_LCD_SMART_CONTROLLER)
+            #define LCD_BACKLIGHT_PIN                5  // LCD_Backlight
+            //#ifndef LCD_CONTRAST_PIN
+            //  #define LCD_CONTRAST_PIN  5   // LCD_Contrast
+            //#endif
+            #ifndef FIL_RUNOUT_PIN
+                #define FIL_RUNOUT_PIN                24  // Filament runout
+            #endif
+        #else
+            #define LCD_PINS_D5                     21
+            #define LCD_PINS_D6                      5
+            #define LCD_PINS_D7                      6
+        #endif
+    
+        #define BTN_EN1                           41
+        #define BTN_EN2                           40
+        #define BTN_ENC                           19
+    
+        #define SD_DETECT_PIN                     39
+    
     #else
-      #define LCD_PINS_D5                     21
-      #define LCD_PINS_D6                      5
-      #define LCD_PINS_D7                      6
-    #endif
-
-    #define BTN_EN1                           41
-    #define BTN_EN2                           40
-    #define BTN_ENC                           19
-
-    #define SD_DETECT_PIN                     39
-
-  #else
-
-    // Buttons attached to a shift register
-    #define SHIFT_CLK_PIN                     38
-    #define SHIFT_LD_PIN                      42
-    #define SHIFT_OUT_PIN                     40
-    #define SHIFT_EN_PIN                      17
-
-    #define LCD_PINS_RS                       16
-    #define LCD_PINS_ENABLE                    5
-    #define LCD_PINS_D4                        6
-    #define LCD_PINS_D5                       21
-    #define LCD_PINS_D6                       20
-    #define LCD_PINS_D7                       19
-
-  #endif // !IS_NEWPANEL
-
+    
+        // Buttons attached to a shift register
+        #define SHIFT_CLK_PIN                     38
+        #define SHIFT_LD_PIN                      42
+        #define SHIFT_OUT_PIN                     40
+        #define SHIFT_EN_PIN                      17
+    
+        #define LCD_PINS_RS                       16
+        #define LCD_PINS_ENABLE                    5
+        #define LCD_PINS_D4                        6
+        #define LCD_PINS_D5                       21
+        #define LCD_PINS_D6                       20
+        #define LCD_PINS_D7                       19
+    
+    #endif // !IS_NEWPANEL
+  
 #endif // HAS_WIRED_LCD

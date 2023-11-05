@@ -35,11 +35,11 @@
  */
 
 #ifdef ARDUINO_ARCH_SAM
-
-// ISR handler type
-typedef void (*pfnISR_Handler)();
-
-// Install a new interrupt vector handler for the given irq, returning the old one
-pfnISR_Handler install_isr(IRQn_Type irq, pfnISR_Handler newHandler);
-
+  
+  // ISR handler type
+  typedef void (*pfnISR_Handler)();
+  
+  // Install a new interrupt vector handler for the given irq, returning the old one
+  pfnISR_Handler install_isr(IRQn_Type irq, pfnISR_Handler newHandler);
+  
 #endif // ARDUINO_ARCH_SAM

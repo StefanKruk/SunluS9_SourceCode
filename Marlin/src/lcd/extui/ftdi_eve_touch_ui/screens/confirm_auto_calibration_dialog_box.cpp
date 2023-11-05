@@ -24,24 +24,24 @@
 #include "screens.h"
 
 #ifdef FTDI_CONFIRM_AUTO_CALIBRATION_DIALOG_BOX
-
-using namespace ExtUI;
-using namespace Theme;
-
-void ConfirmAutoCalibrationDialogBox::onRedraw(draw_mode_t) {
-  drawMessage(GET_TEXT_F(MSG_CALIBRATION_WARNING));
-  drawYesNoButtons();
-}
-
-bool ConfirmAutoCalibrationDialogBox::onTouchEnd(uint8_t tag) {
-  switch (tag) {
-    case 1:
-      GOTO_SCREEN(StatusScreen);
-      injectCommands_P(PSTR("G425"));
-      return true;
-    default:
-      return DialogBoxBaseClass::onTouchEnd(tag);
+  
+  using namespace ExtUI;
+  using namespace Theme;
+  
+  void ConfirmAutoCalibrationDialogBox::onRedraw(draw_mode_t) {
+    drawMessage(GET_TEXT_F(MSG_CALIBRATION_WARNING));
+    drawYesNoButtons();
   }
-}
-
+  
+  bool ConfirmAutoCalibrationDialogBox::onTouchEnd(uint8_t tag) {
+    switch (tag) {
+      case 1:
+        GOTO_SCREEN(StatusScreen);
+        injectCommands_P(PSTR("G425"));
+        return true;
+      default:
+        return DialogBoxBaseClass::onTouchEnd(tag);
+    }
+  }
+  
 #endif // FTDI_CONFIRM_AUTO_CALIBRATION_DIALOG_BOX

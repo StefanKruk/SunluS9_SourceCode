@@ -30,9 +30,9 @@
 #include "env_validate.h"
 
 #if EXTRUDERS > 1 || E_STEPPERS > 1
-  #error "E4d@box only supports one E Stepper. Comment out this line to continue."
+    #error "E4d@box only supports one E Stepper. Comment out this line to continue."
 #elif HOTENDS > 1
-  #error "E4d@box only supports one hotend / E-stepper. Comment out this line to continue."
+    #error "E4d@box only supports one hotend / E-stepper. Comment out this line to continue."
 #endif
 
 #define BOARD_INFO_NAME       "E4D@BOX"

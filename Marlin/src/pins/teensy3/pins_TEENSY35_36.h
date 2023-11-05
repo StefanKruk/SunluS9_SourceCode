@@ -28,13 +28,13 @@
 ****************************************************************************************/
 
 #if NOT_TARGET(IS_TEENSY_35_36)
-  #error "Oops! Select 'Teensy 3.5' or 'Teensy 3.6' in 'Tools > Board.'"
+    #error "Oops! Select 'Teensy 3.5' or 'Teensy 3.6' in 'Tools > Board.'"
 #endif
 
 #if IS_TEENSY35
-  #define BOARD_INFO_NAME "Teensy3.5"
+    #define BOARD_INFO_NAME "Teensy3.5"
 #elif IS_TEENSY36
-  #define BOARD_INFO_NAME "Teensy3.6"
+    #define BOARD_INFO_NAME "Teensy3.6"
 #endif
 
 /**
@@ -110,7 +110,7 @@
 #define HEATER_1_PIN                          36
 #define HEATER_BED_PIN                        31
 #ifndef FAN_PIN
-  #define FAN_PIN                              2
+    #define FAN_PIN                              2
 #endif
 
 #define TEMP_0_PIN                             2  // Extruder / Analog pin numbering: 2 => A2
@@ -131,22 +131,22 @@
 #define SDSS                                  39  // 8
 
 #if HAS_WIRED_LCD
-  #define LCD_PINS_RS                         40
-  #define LCD_PINS_ENABLE                     41
-  #define LCD_PINS_D4                         42
-  #define LCD_PINS_D5                         43
-  #define LCD_PINS_D6                         44
-  #define LCD_PINS_D7                         45
+    #define LCD_PINS_RS                         40
+    #define LCD_PINS_ENABLE                     41
+    #define LCD_PINS_D4                         42
+    #define LCD_PINS_D5                         43
+    #define LCD_PINS_D6                         44
+    #define LCD_PINS_D7                         45
 #endif
 
 #if IS_NEWPANEL
-  #define BTN_EN1                             46
-  #define BTN_EN2                             47
-  #define BTN_ENC                             48
+    #define BTN_EN1                             46
+    #define BTN_EN2                             47
+    #define BTN_ENC                             48
 #endif
 
 #if IS_RRW_KEYPAD
-  #define SHIFT_OUT_PIN                       40
-  #define SHIFT_CLK_PIN                       44
-  #define SHIFT_LD_PIN                        42
+    #define SHIFT_OUT_PIN                       40
+    #define SHIFT_CLK_PIN                       44
+    #define SHIFT_LD_PIN                        42
 #endif

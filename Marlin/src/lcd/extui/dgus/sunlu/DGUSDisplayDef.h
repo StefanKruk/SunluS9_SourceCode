@@ -423,18 +423,18 @@ constexpr uint8_t VP_MSGSTR4_LEN = 0x20;
 // Buttons on the SD-Card File listing.
 
 #if 0
-constexpr uint16_t VP_SD_ScrollEvent = 0x2020; // Data: 0 for "up a directory", numbers are the amount to scroll, e.g -1 one up, 1 one down
-constexpr uint16_t VP_SD_FileSelected = 0x2022; // Number of file field selected.
-constexpr uint16_t VP_SD_FileSelectConfirm = 0x2024; // (This is a virtual VP and emulated by the Confirm Screen when a file has been confirmed)
+  constexpr uint16_t VP_SD_ScrollEvent = 0x2020; // Data: 0 for "up a directory", numbers are the amount to scroll, e.g -1 one up, 1 one down
+  constexpr uint16_t VP_SD_FileSelected = 0x2022; // Number of file field selected.
+  constexpr uint16_t VP_SD_FileSelectConfirm = 0x2024; // (This is a virtual VP and emulated by the Confirm Screen when a file has been confirmed)
 #else
-constexpr uint16_t VP_SD_ScrollEvent = 0x1009; // Data: 0 for "up a directory", numbers are the amount to scroll, e.g -1 one up, 1 one down
-constexpr uint16_t VP_SD_FileSelected = 0x1005; // Number of file field selected.
-constexpr uint16_t VP_SD_FileSelectConfirm = 0x1006; // (This is a virtual VP and emulated by the Confirm Screen when a file has been confirmed)
-constexpr uint16_t VP_SD_FilePrint_AutoLeve = 0x1007; // 
-constexpr uint16_t VP_SD_FilePrint_FilamentRunout = 0x1008; // 
-constexpr uint16_t VP_SD_FilePrint_Filament_Jams = 0x100a; // 
-//constexpr uint16_t VP_SD_AbortPrintConfirmed = 0x1101; // Abort print confirmation (virtual, will be injected by the confirm dialog)
-constexpr uint16_t VP_SD_FileName_LEN = 32; // LEN is shared for all entries.
-constexpr uint16_t DGUS_SD_FILESPERSCREEN = 4; // FIXME move that info to the display and read it from there.
+  constexpr uint16_t VP_SD_ScrollEvent = 0x1009; // Data: 0 for "up a directory", numbers are the amount to scroll, e.g -1 one up, 1 one down
+  constexpr uint16_t VP_SD_FileSelected = 0x1005; // Number of file field selected.
+  constexpr uint16_t VP_SD_FileSelectConfirm = 0x1006; // (This is a virtual VP and emulated by the Confirm Screen when a file has been confirmed)
+  constexpr uint16_t VP_SD_FilePrint_AutoLeve = 0x1007; // 
+  constexpr uint16_t VP_SD_FilePrint_FilamentRunout = 0x1008; // 
+  constexpr uint16_t VP_SD_FilePrint_Filament_Jams = 0x100a; // 
+  //constexpr uint16_t VP_SD_AbortPrintConfirmed = 0x1101; // Abort print confirmation (virtual, will be injected by the confirm dialog)
+  constexpr uint16_t VP_SD_FileName_LEN = 32; // LEN is shared for all entries.
+  constexpr uint16_t DGUS_SD_FILESPERSCREEN = 4; // FIXME move that info to the display and read it from there.
 #endif
 

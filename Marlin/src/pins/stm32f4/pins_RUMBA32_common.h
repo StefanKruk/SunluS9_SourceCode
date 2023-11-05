@@ -28,7 +28,7 @@
 #include "env_validate.h"
 
 #if HOTENDS > 3 || E_STEPPERS > 3
-  #error "RUMBA32 boards support up to 3 hotends / E-steppers."
+    #error "RUMBA32 boards support up to 3 hotends / E-steppers."
 #endif
 
 #define DEFAULT_MACHINE_NAME BOARD_INFO_NAME
@@ -92,15 +92,15 @@
 #define E2_CS_PIN                           PD1
 
 #if ENABLED(TMC_USE_SW_SPI)
-  #ifndef TMC_SW_MOSI
-    #define TMC_SW_MOSI                     PA7
-  #endif
-  #ifndef TMC_SW_MISO
-    #define TMC_SW_MISO                     PA6
-  #endif
-  #ifndef TMC_SW_SCK
-    #define TMC_SW_SCK                      PA5
-  #endif
+    #ifndef TMC_SW_MOSI
+        #define TMC_SW_MOSI                     PA7
+    #endif
+    #ifndef TMC_SW_MISO
+        #define TMC_SW_MISO                     PA6
+    #endif
+    #ifndef TMC_SW_SCK
+        #define TMC_SW_SCK                      PA5
+    #endif
 #endif
 
 //
@@ -146,42 +146,42 @@
 // LCD / Controller
 //
 #if HAS_WIRED_LCD
-
-  #define BTN_EN1                           PB2
-  #define BTN_EN2                           PB1
-  #define BTN_ENC                           PE7
-
-  #define LCD_PINS_RS                       PE10
-  #define LCD_PINS_ENABLE                   PE9
-  #define LCD_PINS_D4                       PE12
-
-  #if ENABLED(MKS_MINI_12864)
-    #define DOGLCD_CS                       PE13
-    #define DOGLCD_A0                       PE14
-  #endif
-
-  #if IS_ULTIPANEL
-    #define LCD_PINS_D5                     PE13
-    #define LCD_PINS_D6                     PE14
-    #define LCD_PINS_D7                     PE15
-
-    #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
-      #define BTN_ENC_EN             LCD_PINS_D7  // Detect the presence of the encoder
+  
+    #define BTN_EN1                           PB2
+    #define BTN_EN2                           PB1
+    #define BTN_ENC                           PE7
+  
+    #define LCD_PINS_RS                       PE10
+    #define LCD_PINS_ENABLE                   PE9
+    #define LCD_PINS_D4                       PE12
+  
+    #if ENABLED(MKS_MINI_12864)
+        #define DOGLCD_CS                       PE13
+        #define DOGLCD_A0                       PE14
     #endif
-
-  #endif
-
-  // Alter timing for graphical display
-  #if HAS_MARLINUI_U8GLIB
-    #ifndef BOARD_ST7920_DELAY_1
-      #define BOARD_ST7920_DELAY_1 DELAY_NS(96)
+  
+    #if IS_ULTIPANEL
+        #define LCD_PINS_D5                     PE13
+        #define LCD_PINS_D6                     PE14
+        #define LCD_PINS_D7                     PE15
+    
+        #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
+            #define BTN_ENC_EN             LCD_PINS_D7  // Detect the presence of the encoder
+        #endif
+    
     #endif
-    #ifndef BOARD_ST7920_DELAY_2
-      #define BOARD_ST7920_DELAY_2 DELAY_NS(48)
+  
+    // Alter timing for graphical display
+    #if HAS_MARLINUI_U8GLIB
+        #ifndef BOARD_ST7920_DELAY_1
+            #define BOARD_ST7920_DELAY_1 DELAY_NS(96)
+        #endif
+        #ifndef BOARD_ST7920_DELAY_2
+            #define BOARD_ST7920_DELAY_2 DELAY_NS(48)
+        #endif
+        #ifndef BOARD_ST7920_DELAY_3
+            #define BOARD_ST7920_DELAY_3 DELAY_NS(640)
+        #endif
     #endif
-    #ifndef BOARD_ST7920_DELAY_3
-      #define BOARD_ST7920_DELAY_3 DELAY_NS(640)
-    #endif
-  #endif
-
+  
 #endif

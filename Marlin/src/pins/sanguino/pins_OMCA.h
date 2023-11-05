@@ -76,7 +76,7 @@
  */
 
 #if NOT_TARGET(__AVR_ATmega644P__, __AVR_ATmega644__)
-  #error "Oops! Select 'Sanguino' in 'Tools > Board' and 'ATmega644' or 'ATmega644P' in 'Tools > Processor.'"
+    #error "Oops! Select 'Sanguino' in 'Tools > Board' and 'ATmega644' or 'ATmega644P' in 'Tools > Processor.'"
 #endif
 
 #define BOARD_INFO_NAME "Final OMCA"
@@ -129,7 +129,7 @@
 #define HEATER_BED_PIN                         4
 
 #ifndef FAN_PIN
-  #define FAN_PIN                             14  // PWM on MIDDLE connector
+    #define FAN_PIN                             14  // PWM on MIDDLE connector
 #endif
 
 //

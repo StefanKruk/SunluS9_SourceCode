@@ -31,9 +31,9 @@
 #include "env_validate.h"
 
 #if EXTRUDERS > 2 || E_STEPPERS > 2
-  #error "MRR ESPE only supports two E Steppers. Comment out this line to continue."
+    #error "MRR ESPE only supports two E Steppers. Comment out this line to continue."
 #elif HOTENDS > 1
-  #error "MRR ESPE only supports one hotend / E-stepper. Comment out this line to continue."
+    #error "MRR ESPE only supports one hotend / E-stepper. Comment out this line to continue."
 #endif
 
 #define BOARD_INFO_NAME      "MRR ESPE"
@@ -123,33 +123,33 @@
 //////////////////////////
 
 #if HAS_MARLINUI_U8GLIB
-
-  #define LCD_PINS_RS                         13
-  #define LCD_PINS_ENABLE                     17
-  #define LCD_PINS_D4                         16
-
-  #if ENABLED(CR10_STOCKDISPLAY)
-
-    #define BEEPER_PIN                       151
-
-  #elif IS_RRD_FG_SC
-
-    #define BEEPER_PIN                       151
-
-    //#define LCD_PINS_D5                    150
-    //#define LCD_PINS_D6                    152
-    //#define LCD_PINS_D7                    153
-
-  #else
-
-    #error "Only CR10_STOCKDISPLAY and REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER are currently supported. Comment out this line to continue."
-
-  #endif
-
-  #define BTN_EN1                              0
-  #define BTN_EN2                             12
-  #define BTN_ENC                             14
-
+  
+    #define LCD_PINS_RS                         13
+    #define LCD_PINS_ENABLE                     17
+    #define LCD_PINS_D4                         16
+  
+    #if ENABLED(CR10_STOCKDISPLAY)
+    
+        #define BEEPER_PIN                       151
+    
+    #elif IS_RRD_FG_SC
+    
+        #define BEEPER_PIN                       151
+    
+        //#define LCD_PINS_D5                    150
+        //#define LCD_PINS_D6                    152
+        //#define LCD_PINS_D7                    153
+    
+    #else
+    
+        #error "Only CR10_STOCKDISPLAY and REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER are currently supported. Comment out this line to continue."
+    
+    #endif
+  
+    #define BTN_EN1                              0
+    #define BTN_EN2                             12
+    #define BTN_ENC                             14
+  
 #endif // HAS_MARLINUI_U8GLIB
 
 // Hardware serial pins

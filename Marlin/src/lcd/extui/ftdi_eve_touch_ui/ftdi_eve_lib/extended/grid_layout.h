@@ -34,17 +34,17 @@
 // the layout
 
 #ifdef TOUCH_UI_800x480
-  #define MARGIN_L         5
-  #define MARGIN_R         5
-  #define MARGIN_T         5
-  #define MARGIN_B         5
-  #define MARGIN_DEFAULT   5
+    #define MARGIN_L         5
+    #define MARGIN_R         5
+    #define MARGIN_T         5
+    #define MARGIN_B         5
+    #define MARGIN_DEFAULT   5
 #else
-  #define MARGIN_L         3
-  #define MARGIN_R         3
-  #define MARGIN_T         3
-  #define MARGIN_B         3
-  #define MARGIN_DEFAULT   3
+    #define MARGIN_L         3
+    #define MARGIN_R         3
+    #define MARGIN_T         3
+    #define MARGIN_B         3
+    #define MARGIN_DEFAULT   3
 #endif
 
 // EDGE_R adds some black space on the right edge of the display
@@ -102,10 +102,10 @@
 
 namespace FTDI {
   #if ENABLED(TOUCH_UI_PORTRAIT)
-    constexpr uint16_t display_width  = Vsize;
-    constexpr uint16_t display_height = Hsize;
+      constexpr uint16_t display_width  = Vsize;
+      constexpr uint16_t display_height = Hsize;
   #else
-    constexpr uint16_t display_width  = Hsize;
-    constexpr uint16_t display_height = Vsize;
+      constexpr uint16_t display_width  = Hsize;
+      constexpr uint16_t display_height = Vsize;
   #endif
 }

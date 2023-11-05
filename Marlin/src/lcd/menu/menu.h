@@ -40,13 +40,13 @@ typedef void (*selectFunc_t)();
 #define SS_DEFAULT SS_CENTER
 
 #if HAS_MARLINUI_U8GLIB && EITHER(BABYSTEP_ZPROBE_GFX_OVERLAY, MESH_EDIT_GFX_OVERLAY)
-  void _lcd_zoffset_overlay_gfx(const_float_t zvalue);
+    void _lcd_zoffset_overlay_gfx(const_float_t zvalue);
 #endif
 
 #if ENABLED(BABYSTEP_ZPROBE_OFFSET) && Z_PROBE_OFFSET_RANGE_MIN >= -9 && Z_PROBE_OFFSET_RANGE_MAX <= 9
-  #define BABYSTEP_TO_STR(N) ftostr43sign(N)
+    #define BABYSTEP_TO_STR(N) ftostr43sign(N)
 #elif ENABLED(BABYSTEPPING)
-  #define BABYSTEP_TO_STR(N) ftostr53sign(N)
+    #define BABYSTEP_TO_STR(N) ftostr53sign(N)
 #endif
 
 ////////////////////////////////////////////
@@ -183,12 +183,12 @@ class MenuEditItemBase : public MenuItemBase {
 };
 
 #if ENABLED(SDSUPPORT)
-  class CardReader;
-  class MenuItem_sdbase {
-    public:
-      // Implemented for HD44780 and DOGM
-      static void draw(const bool sel, const uint8_t row, PGM_P const pstr, CardReader &theCard, const bool isDir);
-  };
+    class CardReader;
+    class MenuItem_sdbase {
+      public:
+        // Implemented for HD44780 and DOGM
+        static void draw(const bool sel, const uint8_t row, PGM_P const pstr, CardReader &theCard, const bool isDir);
+    };
 #endif
 
 ////////////////////////////////////////////
@@ -199,7 +199,7 @@ void menu_main();
 void menu_move();
 
 #if ENABLED(SDSUPPORT)
-  void menu_media();
+    void menu_media();
 #endif
 
 ////////////////////////////////////////////
@@ -212,38 +212,38 @@ void _lcd_draw_homing();
 #define HAS_LINE_TO_Z ANY(DELTA, PROBE_MANUALLY, MESH_BED_LEVELING, LEVEL_BED_CORNERS)
 
 #if HAS_LINE_TO_Z
-  void line_to_z(const_float_t z);
+    void line_to_z(const_float_t z);
 #endif
 
 #if ENABLED(PROBE_OFFSET_WIZARD)
-  void goto_probe_offset_wizard();
+    void goto_probe_offset_wizard();
 #endif
 
 #if ENABLED(LCD_BED_LEVELING) || (HAS_LEVELING && DISABLED(SLIM_LCD_MENUS))
-  void _lcd_toggle_bed_leveling();
+    void _lcd_toggle_bed_leveling();
 #endif
 
 #if ENABLED(BABYSTEPPING)
-  #if ENABLED(BABYSTEP_ZPROBE_OFFSET)
-    void lcd_babystep_zoffset();
-  #else
-    void lcd_babystep_z();
-  #endif
-
-  #if ENABLED(BABYSTEP_MILLIMETER_UNITS)
-    #define BABYSTEP_SIZE_X int32_t((BABYSTEP_MULTIPLICATOR_XY) * planner.settings.axis_steps_per_mm[X_AXIS])
-    #define BABYSTEP_SIZE_Y int32_t((BABYSTEP_MULTIPLICATOR_XY) * planner.settings.axis_steps_per_mm[Y_AXIS])
-    #define BABYSTEP_SIZE_Z int32_t((BABYSTEP_MULTIPLICATOR_Z)  * planner.settings.axis_steps_per_mm[Z_AXIS])
-  #else
-    #define BABYSTEP_SIZE_X BABYSTEP_MULTIPLICATOR_XY
-    #define BABYSTEP_SIZE_Y BABYSTEP_MULTIPLICATOR_XY
-    #define BABYSTEP_SIZE_Z BABYSTEP_MULTIPLICATOR_Z
-  #endif
-
+    #if ENABLED(BABYSTEP_ZPROBE_OFFSET)
+        void lcd_babystep_zoffset();
+    #else
+        void lcd_babystep_z();
+    #endif
+  
+    #if ENABLED(BABYSTEP_MILLIMETER_UNITS)
+        #define BABYSTEP_SIZE_X int32_t((BABYSTEP_MULTIPLICATOR_XY) * planner.settings.axis_steps_per_mm[X_AXIS])
+        #define BABYSTEP_SIZE_Y int32_t((BABYSTEP_MULTIPLICATOR_XY) * planner.settings.axis_steps_per_mm[Y_AXIS])
+        #define BABYSTEP_SIZE_Z int32_t((BABYSTEP_MULTIPLICATOR_Z)  * planner.settings.axis_steps_per_mm[Z_AXIS])
+    #else
+        #define BABYSTEP_SIZE_X BABYSTEP_MULTIPLICATOR_XY
+        #define BABYSTEP_SIZE_Y BABYSTEP_MULTIPLICATOR_XY
+        #define BABYSTEP_SIZE_Z BABYSTEP_MULTIPLICATOR_Z
+    #endif
+  
 #endif
 
 #if ENABLED(TOUCH_SCREEN_CALIBRATION)
-  void touch_screen_calibration();
+    void touch_screen_calibration();
 #endif
 
 extern uint8_t screen_history_depth;

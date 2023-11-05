@@ -85,7 +85,7 @@
 #define HEATER_2_PIN                           8
 #define HEATER_BED_PIN                         9
 #ifndef FAN_PIN
-  #define FAN_PIN                              3
+    #define FAN_PIN                              3
 #endif
 #define FAN2_PIN                              58  // additional fan or light control output
 
@@ -93,7 +93,7 @@
 // Other board specific pins
 //
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN                      37  // board input labeled as F-DET
+    #define FIL_RUNOUT_PIN                      37  // board input labeled as F-DET
 #endif
 #define Z_MIN_PROBE_PIN                       36  // additional external board input labeled as E-SENS (should be used for Z-probe)
 #define LED_PIN                               13
@@ -104,7 +104,7 @@
 #define KILL_PIN                              46
 
 #ifndef FILWIDTH_PIN
-  #define FILWIDTH_PIN                        11  // shared with TEMP_3 analog input
+    #define FILWIDTH_PIN                        11  // shared with TEMP_3 analog input
 #endif
 
 //
@@ -118,7 +118,7 @@
 #define LCD_PINS_D7                           40
 
 #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
-  #define BTN_ENC_EN                 LCD_PINS_D7  // Detect the presence of the encoder
+    #define BTN_ENC_EN                 LCD_PINS_D7  // Detect the presence of the encoder
 #endif
 
 //
@@ -127,12 +127,12 @@
 #define BEEPER_PIN                            44
 
 #if ENABLED(SDSUPPORT)
-  #define SDSS                                53
-  #define SD_DETECT_PIN                       49
+    #define SDSS                                53
+    #define SD_DETECT_PIN                       49
 #endif
 
 #if IS_NEWPANEL
-  #define BTN_EN1                             11
-  #define BTN_EN2                             12
-  #define BTN_ENC                             43
+    #define BTN_EN1                             11
+    #define BTN_EN2                             12
+    #define BTN_ENC                             43
 #endif

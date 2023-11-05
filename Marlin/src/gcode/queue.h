@@ -74,7 +74,7 @@ public:
     char buffer[MAX_CMD_SIZE];      //!< The command buffer
     bool skip_ok;                   //!< Skip sending ok when command is processed?
     #if ENABLED(HAS_MULTI_SERIAL)
-      serial_index_t port;          //!< Serial port the command was received on
+        serial_index_t port;          //!< Serial port the command was received on
     #endif
   };
 
@@ -218,7 +218,7 @@ private:
   static void get_serial_commands();
 
   #if ENABLED(SDSUPPORT)
-    static void get_sdcard_commands();
+      static void get_sdcard_commands();
   #endif
 
   // Process the next "immediate" command (PROGMEM)

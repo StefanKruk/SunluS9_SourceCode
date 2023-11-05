@@ -26,14 +26,14 @@
  */
 
 #ifndef BOARD_INFO_NAME
-  #define BOARD_INFO_NAME "RigidBoard"
+    #define BOARD_INFO_NAME "RigidBoard"
 #endif
 
 //
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     19  // Z-MAX pin J14 End Stops
+    #define Z_MIN_PROBE_PIN                     19  // Z-MAX pin J14 End Stops
 #endif
 
 //
@@ -78,9 +78,9 @@
 // SPI for Max6675 or Max31855 Thermocouple
 #undef MAX6675_SS_PIN
 #if DISABLED(SDSUPPORT)
-  #define MAX6675_SS_PIN                      53  // Don't use pin 53 if there is even the remote possibility of using Display/SD card
+    #define MAX6675_SS_PIN                      53  // Don't use pin 53 if there is even the remote possibility of using Display/SD card
 #else
-  #define MAX6675_SS_PIN                      49  // Don't use pin 49 as this is tied to the switch inside the SD card socket to detect if there is an SD card present
+    #define MAX6675_SS_PIN                      49  // Don't use pin 49 as this is tied to the switch inside the SD card socket to detect if there is an SD card present
 #endif
 
 //
@@ -90,7 +90,7 @@
 #define HEATER_BED_PIN                        10
 
 #ifndef FAN_PIN
-  #define FAN_PIN                              8  // Same as RAMPS_13_EEF
+    #define FAN_PIN                              8  // Same as RAMPS_13_EEF
 #endif
 
 //
@@ -103,33 +103,33 @@
 //
 // LCD Panel options for the RigidBoard
 #if ENABLED(RIGIDBOT_PANEL)
-
-  #undef BEEPER_PIN
-  #define BEEPER_PIN                          -1
-
-  // Direction buttons
-  #define BTN_UP                              37
-  #define BTN_DWN                             35
-  #define BTN_LFT                             33
-  #define BTN_RT                              32
-
-  // 'R' button
-  #undef BTN_ENC
-  #define BTN_ENC                             31
-
-  // Disable encoder
-  #undef BTN_EN1
-  #undef BTN_EN2
-
-  #undef SD_DETECT_PIN
-  #define SD_DETECT_PIN                       22
-
+  
+    #undef BEEPER_PIN
+    #define BEEPER_PIN                          -1
+  
+    // Direction buttons
+    #define BTN_UP                              37
+    #define BTN_DWN                             35
+    #define BTN_LFT                             33
+    #define BTN_RT                              32
+  
+    // 'R' button
+    #undef BTN_ENC
+    #define BTN_ENC                             31
+  
+    // Disable encoder
+    #undef BTN_EN1
+    #undef BTN_EN2
+  
+    #undef SD_DETECT_PIN
+    #define SD_DETECT_PIN                       22
+  
 #elif IS_RRD_SC
-
-  #undef SD_DETECT_PIN
-  #define SD_DETECT_PIN                       22
-
-  #undef KILL_PIN
-  #define KILL_PIN                            32
-
+  
+    #undef SD_DETECT_PIN
+    #define SD_DETECT_PIN                       22
+  
+    #undef KILL_PIN
+    #define KILL_PIN                            32
+  
 #endif

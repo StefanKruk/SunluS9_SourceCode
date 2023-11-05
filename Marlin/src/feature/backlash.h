@@ -29,28 +29,28 @@ constexpr uint8_t all_on = 0xFF, all_off = 0x00;
 class Backlash {
 public:
   #if ENABLED(BACKLASH_GCODE)
-    static xyz_float_t distance_mm;
-    static uint8_t correction;
-    #ifdef BACKLASH_SMOOTHING_MM
-      static float smoothing_mm;
-    #endif
-
-    static inline void set_correction(const_float_t v) { correction = _MAX(0, _MIN(1.0, v)) * all_on; }
-    static inline float get_correction() { return float(ui8_to_percent(correction)) / 100.0f; }
+      static xyz_float_t distance_mm;
+      static uint8_t correction;
+      #ifdef BACKLASH_SMOOTHING_MM
+          static float smoothing_mm;
+      #endif
+  
+      static inline void set_correction(const_float_t v) { correction = _MAX(0, _MIN(1.0, v)) * all_on; }
+      static inline float get_correction() { return float(ui8_to_percent(correction)) / 100.0f; }
   #else
-    static constexpr uint8_t correction = (BACKLASH_CORRECTION) * 0xFF;
-    static const xyz_float_t distance_mm;
-    #ifdef BACKLASH_SMOOTHING_MM
-      static constexpr float smoothing_mm = BACKLASH_SMOOTHING_MM;
-    #endif
+      static constexpr uint8_t correction = (BACKLASH_CORRECTION) * 0xFF;
+      static const xyz_float_t distance_mm;
+      #ifdef BACKLASH_SMOOTHING_MM
+          static constexpr float smoothing_mm = BACKLASH_SMOOTHING_MM;
+      #endif
   #endif
 
   #if ENABLED(MEASURE_BACKLASH_WHEN_PROBING)
-    private:
-      static xyz_float_t measured_mm;
-      static xyz_uint8_t measured_count;
-    public:
-      static void measure_with_probe();
+      private:
+        static xyz_float_t measured_mm;
+        static xyz_uint8_t measured_count;
+      public:
+        static void measure_with_probe();
   #endif
 
   static inline float get_measurement(const AxisEnum a) {

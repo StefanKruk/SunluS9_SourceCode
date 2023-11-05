@@ -23,22 +23,22 @@
 #include "../../inc/MarlinConfig.h"
 
 #if HAS_MULTI_LANGUAGE
-
-#include "../gcode.h"
-#include "../../MarlinCore.h"
-#include "../../lcd/marlinui.h"
-
-/**
- * M414: Set the language for the UI
- *
- * Parameters
- *  S<index> : The language to select
- */
-void GcodeSuite::M414() {
-
-  if (parser.seenval('S'))
-    ui.set_language(parser.value_byte());
-
-}
-
+  
+  #include "../gcode.h"
+  #include "../../MarlinCore.h"
+  #include "../../lcd/marlinui.h"
+  
+  /**
+   * M414: Set the language for the UI
+   *
+   * Parameters
+   *  S<index> : The language to select
+   */
+  void GcodeSuite::M414() {
+  
+    if (parser.seenval('S'))
+      ui.set_language(parser.value_byte());
+  
+  }
+  
 #endif // HAS_MULTI_LANGUAGE

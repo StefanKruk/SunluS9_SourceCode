@@ -22,7 +22,7 @@
 #pragma once
 
 #if NOT_TARGET(STM32F4) && (DISABLED(ALLOW_STM32DUINO) || NOT_TARGET(STM32F4xx))
-  #error "Oops! Select an STM32F4 board in 'Tools > Board.'"
+    #error "Oops! Select an STM32F4 board in 'Tools > Board.'"
 #endif
 
 #undef ALLOW_STM32DUINO

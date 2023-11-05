@@ -26,7 +26,7 @@
 #include "../../module/stepper.h"
 
 #if ENABLED(AUTO_BED_LEVELING_UBL)
-  #include "../../feature/bedlevel/bedlevel.h"
+    #include "../../feature/bedlevel/bedlevel.h"
 #endif
 
 /**

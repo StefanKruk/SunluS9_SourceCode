@@ -107,7 +107,7 @@
 #define HEATER_BED_PIN                        69  // PA0
 
 #ifndef FAN_PIN
-  #define FAN_PIN                             92  // PA5
+    #define FAN_PIN                             92  // PA5
 #endif
 #define FAN1_PIN                              31  // PA7
 
@@ -142,16 +142,16 @@
 // LCD / Controller
 //
 #if IS_RRD_FG_SC
-  #define LCD_PINS_RS                         18
-  #define LCD_PINS_ENABLE                     15
-  #define LCD_PINS_D4                         19
-  #define BEEPER_PIN                          64
-  #undef UI_VOLTAGE_LEVEL
-  #define UI_VOLTAGE_LEVEL                     1
+    #define LCD_PINS_RS                         18
+    #define LCD_PINS_ENABLE                     15
+    #define LCD_PINS_D4                         19
+    #define BEEPER_PIN                          64
+    #undef UI_VOLTAGE_LEVEL
+    #define UI_VOLTAGE_LEVEL                     1
 #endif
 
 #if IS_NEWPANEL
-  #define BTN_EN1                             14
-  #define BTN_EN2                             16
-  #define BTN_ENC                             17
+    #define BTN_EN1                             14
+    #define BTN_EN2                             16
+    #define BTN_ENC                             17
 #endif

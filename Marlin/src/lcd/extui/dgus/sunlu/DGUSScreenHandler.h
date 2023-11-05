@@ -94,8 +94,8 @@ public:
   // Hook for "Change Flowrate"
   static void HandleFlowRateChanged(DGUS_VP_Variable &var, void *val_ptr);
   #if ENABLED(DGUS_UI_MOVE_DIS_OPTION)
-    // Hook for manual move option
-    static void HandleManualMoveOption(DGUS_VP_Variable &var, void *val_ptr);
+      // Hook for manual move option
+      static void HandleManualMoveOption(DGUS_VP_Variable &var, void *val_ptr);
   #endif
 
   // Hook for manual move.
@@ -105,8 +105,8 @@ public:
   // Hook for motor lock and unlook
   static void HandleMotorLockUnlock(DGUS_VP_Variable &var, void *val_ptr);
   #if ENABLED(POWER_LOSS_RECOVERY)
-    // Hook for power loss recovery.
-    static void HandlePowerLossRecovery(DGUS_VP_Variable &var, void *val_ptr);
+      // Hook for power loss recovery.
+      static void HandlePowerLossRecovery(DGUS_VP_Variable &var, void *val_ptr);
   #endif
   // Hook for settings
   static void HandleSettings(DGUS_VP_Variable &var, void *val_ptr);
@@ -114,73 +114,73 @@ public:
   static void HandleStepPerMMExtruderChanged(DGUS_VP_Variable &var, void *val_ptr);
 
   #if HAS_PID_HEATING
-    // Hook for "Change this temperature PID para"
-    static void HandleTemperaturePIDChanged(DGUS_VP_Variable &var, void *val_ptr);
-    // Hook for PID autotune
-    static void HandlePIDAutotune(DGUS_VP_Variable &var, void *val_ptr);
+      // Hook for "Change this temperature PID para"
+      static void HandleTemperaturePIDChanged(DGUS_VP_Variable &var, void *val_ptr);
+      // Hook for PID autotune
+      static void HandlePIDAutotune(DGUS_VP_Variable &var, void *val_ptr);
   #endif
   #if HAS_BED_PROBE
-    // Hook for "Change probe offset z"
-    static void HandleProbeOffsetZChanged(DGUS_VP_Variable &var, void *val_ptr);
+      // Hook for "Change probe offset z"
+      static void HandleProbeOffsetZChanged(DGUS_VP_Variable &var, void *val_ptr);
   #endif
   #if ENABLED(BABYSTEPPING)
-    // Hook for live z adjust action
-    static void HandleLiveAdjustZ(DGUS_VP_Variable &var, void *val_ptr);
+      // Hook for live z adjust action
+      static void HandleLiveAdjustZ(DGUS_VP_Variable &var, void *val_ptr);
   #endif
   #if HAS_FAN
-    // Hook for fan control
-    static void HandleFanControl(DGUS_VP_Variable &var, void *val_ptr);
+      // Hook for fan control
+      static void HandleFanControl(DGUS_VP_Variable &var, void *val_ptr);
   #endif
   // Hook for heater control
   static void HandleHeaterControl(DGUS_VP_Variable &var, void *val_ptr);
   #if ENABLED(DGUS_PREHEAT_UI)
-    // Hook for preheat
-    static void HandlePreheat(DGUS_VP_Variable &var, void *val_ptr);
+      // Hook for preheat
+      static void HandlePreheat(DGUS_VP_Variable &var, void *val_ptr);
   #endif
   #if ENABLED(DGUS_FILAMENT_LOADUNLOAD)
-    // Hook for filament load and unload filament option
-    static void HandleFilamentOption(DGUS_VP_Variable &var, void *val_ptr);
-    // Hook for filament load and unload
-    static void HandleFilamentLoadUnload(DGUS_VP_Variable &var);
+      // Hook for filament load and unload filament option
+      static void HandleFilamentOption(DGUS_VP_Variable &var, void *val_ptr);
+      // Hook for filament load and unload
+      static void HandleFilamentLoadUnload(DGUS_VP_Variable &var);
   #endif
 
   #if ENABLED(SDSUPPORT)
-    // Callback for VP "Display wants to change screen when there is a SD card"
-    static void ScreenChangeHookIfSD(DGUS_VP_Variable &var, void *val_ptr);
-    // Scroll buttons on the file listing screen.
-    static void DGUSLCD_SD_ScrollFilelist(DGUS_VP_Variable &var, void *val_ptr);
-    // File touched.
-    static void DGUSLCD_SD_FileSelected(DGUS_VP_Variable &var, void *val_ptr);
-    // start print after confirmation received.
-    static void DGUSLCD_SD_StartPrint(DGUS_VP_Variable &var, void *val_ptr);
-    // User hit the pause, resume or abort button.
-    static void DGUSLCD_SD_ResumePauseAbort(DGUS_VP_Variable &var, void *val_ptr);
-    static void DGUSLCD_SD_Enterdrybox(DGUS_VP_Variable &var, void *val_ptr);
-	
-    static void DGUSLCD_SD_FilamentResumePauseAbort(DGUS_VP_Variable &var, void *val_ptr);
-	
-    static void Filament_AutoHoming_Resume_Z();
-    static void Filament_Runout_AutoRecovery();
-    static void Set_Filament_Length(float input_AxisPosition_mm);
-    static void Set_Filament_State();
-    static void Reset_e_Position(float input_AxisPosition_mm);
-	
-    static bool GetFilamentState_Check();
-    static void InitLevelData();
-
-	
-    // User confirmed the abort action
-    static void DGUSLCD_SD_ReallyAbort(DGUS_VP_Variable &var, void *val_ptr);
-    // User hit the tune button
-    static void DGUSLCD_SD_PrintTune(DGUS_VP_Variable &var, void *val_ptr);
-    // Send a single filename to the display.
-    static void DGUSLCD_SD_SendFilename(DGUS_VP_Variable &var);
-    // Marlin informed us that a new SD has been inserted.
-    static void SDCardInserted();
-    // Marlin informed us that the SD Card has been removed().
-    static void SDCardRemoved();
-    // Marlin informed us about a bad SD Card.
-    static void SDCardError();
+      // Callback for VP "Display wants to change screen when there is a SD card"
+      static void ScreenChangeHookIfSD(DGUS_VP_Variable &var, void *val_ptr);
+      // Scroll buttons on the file listing screen.
+      static void DGUSLCD_SD_ScrollFilelist(DGUS_VP_Variable &var, void *val_ptr);
+      // File touched.
+      static void DGUSLCD_SD_FileSelected(DGUS_VP_Variable &var, void *val_ptr);
+      // start print after confirmation received.
+      static void DGUSLCD_SD_StartPrint(DGUS_VP_Variable &var, void *val_ptr);
+      // User hit the pause, resume or abort button.
+      static void DGUSLCD_SD_ResumePauseAbort(DGUS_VP_Variable &var, void *val_ptr);
+      static void DGUSLCD_SD_Enterdrybox(DGUS_VP_Variable &var, void *val_ptr);
+  	
+      static void DGUSLCD_SD_FilamentResumePauseAbort(DGUS_VP_Variable &var, void *val_ptr);
+  	
+      static void Filament_AutoHoming_Resume_Z();
+      static void Filament_Runout_AutoRecovery();
+      static void Set_Filament_Length(float input_AxisPosition_mm);
+      static void Set_Filament_State();
+      static void Reset_e_Position(float input_AxisPosition_mm);
+  	
+      static bool GetFilamentState_Check();
+      static void InitLevelData();
+  
+  	
+      // User confirmed the abort action
+      static void DGUSLCD_SD_ReallyAbort(DGUS_VP_Variable &var, void *val_ptr);
+      // User hit the tune button
+      static void DGUSLCD_SD_PrintTune(DGUS_VP_Variable &var, void *val_ptr);
+      // Send a single filename to the display.
+      static void DGUSLCD_SD_SendFilename(DGUS_VP_Variable &var);
+      // Marlin informed us that a new SD has been inserted.
+      static void SDCardInserted();
+      // Marlin informed us that the SD Card has been removed().
+      static void SDCardRemoved();
+      // Marlin informed us about a bad SD Card.
+      static void SDCardError();
   #endif
 
   // OK Button the Confirm screen.
@@ -209,15 +209,15 @@ public:
   static void DGUSLCD_SendPrintTimeToDisplay(DGUS_VP_Variable &var);
 
   #if ENABLED(PRINTCOUNTER)
-    static void DGUSLCD_SendPrintAccTimeToDisplay(DGUS_VP_Variable &var);
-    static void DGUSLCD_SendPrintsTotalToDisplay(DGUS_VP_Variable &var);
+      static void DGUSLCD_SendPrintAccTimeToDisplay(DGUS_VP_Variable &var);
+      static void DGUSLCD_SendPrintsTotalToDisplay(DGUS_VP_Variable &var);
   #endif
   #if HAS_FAN
-    static void DGUSLCD_SendFanStatusToDisplay(DGUS_VP_Variable &var);
+      static void DGUSLCD_SendFanStatusToDisplay(DGUS_VP_Variable &var);
   #endif
   static void DGUSLCD_SendHeaterStatusToDisplay(DGUS_VP_Variable &var);
   #if ENABLED(DGUS_UI_WAITING)
-    static void DGUSLCD_SendWaitingStatusToDisplay(DGUS_VP_Variable &var);
+      static void DGUSLCD_SendWaitingStatusToDisplay(DGUS_VP_Variable &var);
   #endif
 
   // Send a value from 0..100 to a variable with a range from 0..255
@@ -276,7 +276,7 @@ public:
 
 //DGUSLCD_UTILITIES_Deal
 #if 0
-  static void DGUSLCD_DEAL_EVENT(DGUS_VP_Variable &var);
+    static void DGUSLCD_DEAL_EVENT(DGUS_VP_Variable &var);
 #endif
   static void DGUSLCD_UTILITIES_Deal(DGUS_VP_Variable &var,void *val_ptr);
   static void DGUSLCD_UTILITIES_Leveling(DGUS_VP_Variable &var,void *val_ptr);
@@ -310,15 +310,15 @@ private:
   static uint16_t skipVP;         //< When updating the screen data, skip this one, because the user is interacting with it.
 
   #if ENABLED(SDSUPPORT)
-    static int16_t top_file;      //< file on top of file chooser
-    static int16_t file_to_print; //< touched file to be confirmed
-    static int16_t gcode_file_offset; //
+      static int16_t top_file;      //< file on top of file chooser
+      static int16_t file_to_print; //< touched file to be confirmed
+      static int16_t gcode_file_offset; //
   #endif
 
   static void (*confirm_action_cb)();
 };
 
 #if ENABLED(POWER_LOSS_RECOVERY)//david need if 0
-  #define PLR_SCREEN_RECOVER DGUSLCD_SCREEN_SDPRINTMANIPULATION
-  #define PLR_SCREEN_CANCEL 100//DGUSLCD_SCREEN_STATUS
+    #define PLR_SCREEN_RECOVER DGUSLCD_SCREEN_SDPRINTMANIPULATION
+    #define PLR_SCREEN_CANCEL 100//DGUSLCD_SCREEN_STATUS
 #endif

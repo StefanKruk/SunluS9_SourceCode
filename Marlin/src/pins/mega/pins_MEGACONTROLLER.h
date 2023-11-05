@@ -26,7 +26,7 @@
  */
 
 #if HOTENDS > 2 || E_STEPPERS > 2
-  #error "Mega Controller supports up to 2 hotends / E-steppers. Comment out this line to continue."
+    #error "Mega Controller supports up to 2 hotends / E-steppers. Comment out this line to continue."
 #endif
 
 #include "env_validate.h"
@@ -55,7 +55,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                     37
+    #define Z_MIN_PROBE_PIN                     37
 #endif
 
 //
@@ -85,23 +85,23 @@
 // Temperature Sensors
 //
 #if TEMP_SENSOR_0 == -1
-  #define TEMP_0_PIN                           4  // Analog Input
+    #define TEMP_0_PIN                           4  // Analog Input
 #else
-  #define TEMP_0_PIN                           0  // Analog Input
+    #define TEMP_0_PIN                           0  // Analog Input
 #endif
 
 #if TEMP_SENSOR_1 == -1
-  #define TEMP_1_PIN                           5  // Analog Input
+    #define TEMP_1_PIN                           5  // Analog Input
 #else
-  #define TEMP_1_PIN                           2  // Analog Input
+    #define TEMP_1_PIN                           2  // Analog Input
 #endif
 
 #define TEMP_2_PIN                             3  // Analog Input
 
 #if TEMP_SENSOR_BED == -1
-  #define TEMP_BED_PIN                         6  // Analog Input
+    #define TEMP_BED_PIN                         6  // Analog Input
 #else
-  #define TEMP_BED_PIN                         1  // Analog Input
+    #define TEMP_BED_PIN                         1  // Analog Input
 #endif
 
 //
@@ -112,13 +112,13 @@
 #define HEATER_BED_PIN                        28
 
 #ifndef FAN_PIN
-  #define FAN_PIN                             39
+    #define FAN_PIN                             39
 #endif
 #define FAN1_PIN                              35
 #define FAN2_PIN                              36
 
 #ifndef CONTROLLER_FAN_PIN
-  #define CONTROLLER_FAN_PIN            FAN2_PIN
+    #define CONTROLLER_FAN_PIN            FAN2_PIN
 #endif
 
 #define FAN_SOFT_PWM
@@ -130,33 +130,33 @@
 #define LED_PIN                               13
 
 #ifndef CASE_LIGHT_PIN
-  #define CASE_LIGHT_PIN                       2
+    #define CASE_LIGHT_PIN                       2
 #endif
 
 //
 // LCD / Controller
 //
 #if ENABLED(MINIPANEL)
-
-  #define BEEPER_PIN                          46
-  // Pins for DOGM SPI LCD Support
-  #define DOGLCD_A0                           47
-  #define DOGLCD_CS                           45
-  #define LCD_BACKLIGHT_PIN                   44  // backlight LED on PA3
-
-  #define KILL_PIN                            12
-  // GLCD features
-  // Uncomment screen orientation
-  //#define LCD_SCREEN_ROT_90
-  //#define LCD_SCREEN_ROT_180
-  //#define LCD_SCREEN_ROT_270
-
-  #define BTN_EN1                             48
-  #define BTN_EN2                             11
-  #define BTN_ENC                             10
-
-  #define SD_DETECT_PIN                       49
-
+  
+    #define BEEPER_PIN                          46
+    // Pins for DOGM SPI LCD Support
+    #define DOGLCD_A0                           47
+    #define DOGLCD_CS                           45
+    #define LCD_BACKLIGHT_PIN                   44  // backlight LED on PA3
+  
+    #define KILL_PIN                            12
+    // GLCD features
+    // Uncomment screen orientation
+    //#define LCD_SCREEN_ROT_90
+    //#define LCD_SCREEN_ROT_180
+    //#define LCD_SCREEN_ROT_270
+  
+    #define BTN_EN1                             48
+    #define BTN_EN2                             11
+    #define BTN_ENC                             10
+  
+    #define SD_DETECT_PIN                       49
+  
 #endif // MINIPANEL
 
 //

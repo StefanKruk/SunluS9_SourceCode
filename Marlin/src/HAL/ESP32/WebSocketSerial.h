@@ -27,15 +27,15 @@
 #include <Stream.h>
 
 #ifndef TX_BUFFER_SIZE
-  #define TX_BUFFER_SIZE 32
+    #define TX_BUFFER_SIZE 32
 #endif
 #if ENABLED(WIFISUPPORT)
-  #ifndef RX_BUFFER_SIZE
-    #define RX_BUFFER_SIZE 128
-  #endif
-  #if TX_BUFFER_SIZE <= 0
-    #error "TX_BUFFER_SIZE is required for the WebSocket."
-  #endif
+    #ifndef RX_BUFFER_SIZE
+        #define RX_BUFFER_SIZE 128
+    #endif
+    #if TX_BUFFER_SIZE <= 0
+        #error "TX_BUFFER_SIZE is required for the WebSocket."
+    #endif
 #endif
 
 typedef uint16_t ring_buffer_pos_t;
@@ -73,11 +73,11 @@ public:
   size_t write(const uint8_t *buffer, size_t size);
 
   #if ENABLED(SERIAL_STATS_DROPPED_RX)
-    FORCE_INLINE uint32_t dropped() { return 0; }
+      FORCE_INLINE uint32_t dropped() { return 0; }
   #endif
 
   #if ENABLED(SERIAL_STATS_MAX_RX_QUEUED)
-    FORCE_INLINE int rxMaxEnqueued() { return 0; }
+      FORCE_INLINE int rxMaxEnqueued() { return 0; }
   #endif
 };
 

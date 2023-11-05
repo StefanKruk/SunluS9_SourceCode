@@ -28,11 +28,11 @@
  */
 
 #if NOT_TARGET(IS_TEENSY_31_32)
-  #error "Oops! Select 'Teensy 3.1' or 'Teensy 3.2' in 'Tools > Board.'"
+    #error "Oops! Select 'Teensy 3.1' or 'Teensy 3.2' in 'Tools > Board.'"
 #endif
 
 #ifndef BOARD_INFO_NAME
-  #define BOARD_INFO_NAME "Teensy3.2"
+    #define BOARD_INFO_NAME "Teensy3.2"
 #endif
 
 //
@@ -72,7 +72,7 @@
 //#define HEATER_1_PIN                        36
 #define HEATER_BED_PIN                        21
 #ifndef FAN_PIN
-  #define FAN_PIN                             22
+    #define FAN_PIN                             22
 #endif
 
 //
@@ -83,7 +83,7 @@
 #define TEMP_BED_PIN                          15  // Analog Input - Bed
 
 #ifndef FILWIDTH_PIN
-  #define FILWIDTH_PIN                         6  // Analog Input
+    #define FILWIDTH_PIN                         6  // Analog Input
 #endif
 
 //
@@ -99,14 +99,14 @@
 
 /*
 #if HAS_WIRED_LCD
-  #define LCD_PINS_RS                         40
-  #define LCD_PINS_ENABLE                     41
-  #define LCD_PINS_D4                         42
-  #define LCD_PINS_D5                         43
-  #define LCD_PINS_D6                         44
-  #define LCD_PINS_D7                         45
-  #define BTN_EN1                             46
-  #define BTN_EN2                             47
-  #define BTN_ENC                             48
+    #define LCD_PINS_RS                         40
+    #define LCD_PINS_ENABLE                     41
+    #define LCD_PINS_D4                         42
+    #define LCD_PINS_D5                         43
+    #define LCD_PINS_D6                         44
+    #define LCD_PINS_D7                         45
+    #define BTN_EN1                             46
+    #define BTN_EN2                             47
+    #define BTN_ENC                             48
 #endif
 */

@@ -28,35 +28,35 @@
 void safe_delay(millis_t ms);           // Delay ensuring that temperatures are updated and the watchdog is kept alive.
 
 #if ENABLED(SERIAL_OVERRUN_PROTECTION)
-  void serial_delay(const millis_t ms);
+    void serial_delay(const millis_t ms);
 #else
-  inline void serial_delay(const millis_t) {}
+    inline void serial_delay(const millis_t) {}
 #endif
 
 #if (GRID_MAX_POINTS_X) && (GRID_MAX_POINTS_Y)
-
-  // 16x16 bit arrays
-  template <int W, int H>
-  struct FlagBits {
-    typename IF<(W>8), uint16_t, uint8_t>::type bits[H];
-    void fill()                                   { memset(bits, 0xFF, sizeof(bits)); }
-    void reset()                                  { memset(bits, 0x00, sizeof(bits)); }
-    void unmark(const uint8_t x, const uint8_t y) { CBI(bits[y], x); }
-    void mark(const uint8_t x, const uint8_t y)   { SBI(bits[y], x); }
-    bool marked(const uint8_t x, const uint8_t y) { return TEST(bits[y], x); }
-    inline void unmark(const xy_int8_t &xy)       { unmark(xy.x, xy.y); }
-    inline void mark(const xy_int8_t &xy)         { mark(xy.x, xy.y); }
-    inline bool marked(const xy_int8_t &xy)       { return marked(xy.x, xy.y); }
-  };
-
-  typedef FlagBits<GRID_MAX_POINTS_X, GRID_MAX_POINTS_Y> MeshFlags;
-
+  
+    // 16x16 bit arrays
+    template <int W, int H>
+    struct FlagBits {
+      typename IF<(W>8), uint16_t, uint8_t>::type bits[H];
+      void fill()                                   { memset(bits, 0xFF, sizeof(bits)); }
+      void reset()                                  { memset(bits, 0x00, sizeof(bits)); }
+      void unmark(const uint8_t x, const uint8_t y) { CBI(bits[y], x); }
+      void mark(const uint8_t x, const uint8_t y)   { SBI(bits[y], x); }
+      bool marked(const uint8_t x, const uint8_t y) { return TEST(bits[y], x); }
+      inline void unmark(const xy_int8_t &xy)       { unmark(xy.x, xy.y); }
+      inline void mark(const xy_int8_t &xy)         { mark(xy.x, xy.y); }
+      inline bool marked(const xy_int8_t &xy)       { return marked(xy.x, xy.y); }
+    };
+  
+    typedef FlagBits<GRID_MAX_POINTS_X, GRID_MAX_POINTS_Y> MeshFlags;
+  
 #endif
 
 #if ENABLED(DEBUG_LEVELING_FEATURE)
-  void log_machine_info();
+    void log_machine_info();
 #else
-  #define log_machine_info() NOOP
+    #define log_machine_info() NOOP
 #endif
 
 template<typename T>

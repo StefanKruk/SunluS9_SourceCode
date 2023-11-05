@@ -24,39 +24,39 @@
 #include "screens.h"
 
 #ifdef FTDI_DEFAULT_ACCELERATION_SCREEN
-
-using namespace FTDI;
-using namespace ExtUI;
-using namespace Theme;
-
-void DefaultAccelerationScreen::onRedraw(draw_mode_t what) {
-  widgets_t w(what);
-  w.precision(0);
-  w.units(GET_TEXT_F(MSG_UNITS_MM_S2));
-  w.heading(      GET_TEXT_F(MSG_ACCELERATION));
-  w.color(other);
-  w.adjuster(  2, GET_TEXT_F(MSG_ACCEL_PRINTING), getPrintingAcceleration_mm_s2() );
-  w.adjuster(  4, GET_TEXT_F(MSG_ACCEL_TRAVEL),   getTravelAcceleration_mm_s2() );
-  w.adjuster(  6, GET_TEXT_F(MSG_ACCEL_RETRACT),  getRetractAcceleration_mm_s2() );
-  w.increments();
-  w.button(   8, GET_TEXT_F(MSG_SET_MAXIMUM));
-}
-
-bool DefaultAccelerationScreen::onTouchHeld(uint8_t tag) {
-  const float increment = getIncrement();
-  switch (tag) {
-    case  2: UI_DECREMENT(PrintingAcceleration_mm_s2); break;
-    case  3: UI_INCREMENT(PrintingAcceleration_mm_s2); break;
-    case  4: UI_DECREMENT(TravelAcceleration_mm_s2);   break;
-    case  5: UI_INCREMENT(TravelAcceleration_mm_s2);   break;
-    case  6: UI_DECREMENT(RetractAcceleration_mm_s2);  break;
-    case  7: UI_INCREMENT(RetractAcceleration_mm_s2);  break;
-    case  8: GOTO_SCREEN(MaxAccelerationScreen);       break;
-    default:
-      return false;
+  
+  using namespace FTDI;
+  using namespace ExtUI;
+  using namespace Theme;
+  
+  void DefaultAccelerationScreen::onRedraw(draw_mode_t what) {
+    widgets_t w(what);
+    w.precision(0);
+    w.units(GET_TEXT_F(MSG_UNITS_MM_S2));
+    w.heading(      GET_TEXT_F(MSG_ACCELERATION));
+    w.color(other);
+    w.adjuster(  2, GET_TEXT_F(MSG_ACCEL_PRINTING), getPrintingAcceleration_mm_s2() );
+    w.adjuster(  4, GET_TEXT_F(MSG_ACCEL_TRAVEL),   getTravelAcceleration_mm_s2() );
+    w.adjuster(  6, GET_TEXT_F(MSG_ACCEL_RETRACT),  getRetractAcceleration_mm_s2() );
+    w.increments();
+    w.button(   8, GET_TEXT_F(MSG_SET_MAXIMUM));
   }
-  SaveSettingsDialogBox::settingsChanged();
-  return true;
-}
-
+  
+  bool DefaultAccelerationScreen::onTouchHeld(uint8_t tag) {
+    const float increment = getIncrement();
+    switch (tag) {
+      case  2: UI_DECREMENT(PrintingAcceleration_mm_s2); break;
+      case  3: UI_INCREMENT(PrintingAcceleration_mm_s2); break;
+      case  4: UI_DECREMENT(TravelAcceleration_mm_s2);   break;
+      case  5: UI_INCREMENT(TravelAcceleration_mm_s2);   break;
+      case  6: UI_DECREMENT(RetractAcceleration_mm_s2);  break;
+      case  7: UI_INCREMENT(RetractAcceleration_mm_s2);  break;
+      case  8: GOTO_SCREEN(MaxAccelerationScreen);       break;
+      default:
+        return false;
+    }
+    SaveSettingsDialogBox::settingsChanged();
+    return true;
+  }
+  
 #endif // FTDI_DEFAULT_ACCELERATION_SCREEN

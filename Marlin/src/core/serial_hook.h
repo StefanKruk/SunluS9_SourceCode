@@ -299,8 +299,8 @@ struct MultiSerial : public SerialBase< MultiSerial< REPEAT(NUM_SERIAL, _S_NAME)
 #define Serial1Class TERN(SERIAL_RUNTIME_HOOK, RuntimeSerial, BaseSerial)
 #define ForwardSerial1Class TERN(SERIAL_RUNTIME_HOOK, RuntimeSerial, ForwardSerial)
 #ifdef HAS_MULTI_SERIAL
-  #define Serial2Class ConditionalSerial
-  #if NUM_SERIAL >= 3
-    #define Serial3Class ConditionalSerial
-  #endif
+    #define Serial2Class ConditionalSerial
+    #if NUM_SERIAL >= 3
+        #define Serial3Class ConditionalSerial
+    #endif
 #endif

@@ -25,7 +25,7 @@
 #include "../inc/MarlinConfig.h"
 
 #if ENABLED(EXTENSIBLE_UI)
-  #include "../lcd/extui/ui_api.h"
+    #include "../lcd/extui/ui_api.h"
 #endif
 
 Stopwatch::State Stopwatch::state;
@@ -94,13 +94,13 @@ millis_t Stopwatch::duration() {
 }
 
 #if ENABLED(DEBUG_STOPWATCH)
-
-  void Stopwatch::debug(const char func[]) {
-    if (DEBUGGING(INFO)) {
-      SERIAL_ECHOPGM("Stopwatch::");
-      SERIAL_ECHOPGM_P(func);
-      SERIAL_ECHOLNPGM("()");
+  
+    void Stopwatch::debug(const char func[]) {
+      if (DEBUGGING(INFO)) {
+        SERIAL_ECHOPGM("Stopwatch::");
+        SERIAL_ECHOPGM_P(func);
+        SERIAL_ECHOLNPGM("()");
+      }
     }
-  }
-
+  
 #endif

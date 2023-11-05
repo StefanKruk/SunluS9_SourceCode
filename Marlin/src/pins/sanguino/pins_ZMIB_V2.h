@@ -91,9 +91,9 @@
 #define Y_MIN_PIN                             18
 
 #if EITHER(Z6S_ZFAULT, Z6BS_ZFAULT)
-  #define Z_MIN_PIN                           25
+    #define Z_MIN_PIN                           25
 #else
-  #define Z_MIN_PIN                           13
+    #define Z_MIN_PIN                           13
 #endif
 
 //
@@ -108,21 +108,21 @@
 #define Y_ENABLE_PIN                          24
 
 #if EITHER(Z6S_ZFAULT, Z6BS_ZFAULT)
-  #define Z_STEP_PIN                          27
-  #define Z_DIR_PIN                           26
+    #define Z_STEP_PIN                          27
+    #define Z_DIR_PIN                           26
 #else
-  #define Z_STEP_PIN                          17
-  #define Z_DIR_PIN                           16
+    #define Z_STEP_PIN                          17
+    #define Z_DIR_PIN                           16
 #endif
 
 #define Z_ENABLE_PIN                          24
 
 #if EITHER(Z6S_ZFAULT, Z6BS_ZFAULT)
-  #define E0_STEP_PIN                         15
-  #define E0_DIR_PIN                          14
+    #define E0_STEP_PIN                         15
+    #define E0_DIR_PIN                          14
 #else
-  #define E0_STEP_PIN                         27
-  #define E0_DIR_PIN                          26
+    #define E0_STEP_PIN                         27
+    #define E0_DIR_PIN                          26
 #endif
 
 #define E0_ENABLE_PIN                         24
@@ -149,16 +149,16 @@
 //filament run out sensor
 //
 #if EITHER(Z6S_ZFAULT, Z6BS_ZFAULT)
-  #define FIL_RUNOUT_PIN                      13
+    #define FIL_RUNOUT_PIN                      13
 #else
-  #define FIL_RUNOUT_PIN                      25  // Z-MIN
+    #define FIL_RUNOUT_PIN                      25  // Z-MIN
 #endif
 
 //
 // SD card
 //
 #if ENABLED(SDSUPPORT)
-  #define SDSS                                 4
+    #define SDSS                                 4
 #endif
 #define SD_DETECT_PIN                         -1
 
@@ -175,59 +175,59 @@
  *==================================================*/
 
 #if ENABLED(ZONESTAR_12864LCD)
-  //
-  // LCD 128x64
-  //
-  #define LCDSCREEN_NAME  "ZONESTAR_12864LCD"
-  #define FORCE_SOFT_SPI
-  //#define LCD_SDSS                          11
-  #define LCD_PINS_RS                         11  // ST7920_CS_PIN    LCD_PIN_RS    (PIN4 of LCD module)
-  #ifdef IS_ZMIB_V2
-    #define LCD_PINS_ENABLE                    3  // ST7920_DAT_PIN LCD_PIN_R/W   (PIN5 of LCD module)
-  #else
-    #define LCD_PINS_ENABLE                    4  // ST7920_DAT_PIN LCD_PIN_R/W   (PIN5 of LCD module)
-  #endif
-  #define LCD_PINS_D4                         10  // ST7920_CLK_PIN LCD_PIN_ENABLE (PIN6 of LCD module)
-
-  // Alter timing for graphical display
-  #define ST7920_DELAY_1             DELAY_2_NOP
-  #define ST7920_DELAY_2             DELAY_2_NOP
-  #define ST7920_DELAY_3             DELAY_2_NOP
-
+    //
+    // LCD 128x64
+    //
+    #define LCDSCREEN_NAME  "ZONESTAR_12864LCD"
+    #define FORCE_SOFT_SPI
+    //#define LCD_SDSS                          11
+    #define LCD_PINS_RS                         11  // ST7920_CS_PIN    LCD_PIN_RS    (PIN4 of LCD module)
+    #ifdef IS_ZMIB_V2
+        #define LCD_PINS_ENABLE                    3  // ST7920_DAT_PIN LCD_PIN_R/W   (PIN5 of LCD module)
+    #else
+        #define LCD_PINS_ENABLE                    4  // ST7920_DAT_PIN LCD_PIN_R/W   (PIN5 of LCD module)
+    #endif
+    #define LCD_PINS_D4                         10  // ST7920_CLK_PIN LCD_PIN_ENABLE (PIN6 of LCD module)
+  
+    // Alter timing for graphical display
+    #define ST7920_DELAY_1             DELAY_2_NOP
+    #define ST7920_DELAY_2             DELAY_2_NOP
+    #define ST7920_DELAY_3             DELAY_2_NOP
+  
 #elif EITHER(ZONESTAR_12864OLED, ZONESTAR_12864OLED_SSD1306)
-  //
-  // OLED 128x64
-  //
-  #define LCDSCREEN_NAME "ZONESTAR 12864OLED"
-  #define FORCE_SOFT_SPI
-  #ifdef IS_ZMIB_V2
-    #define LCD_PINS_RS                        3  // RESET
-  #else
-    #define LCD_PINS_RS                        4  // RESET
-  #endif
-  #define LCD_PINS_DC                         10  // DC
-  #define DOGLCD_CS                           11  // CS
-  #if ENABLED(OLED_HW_IIC)
-    #error "Oops! can't choose HW IIC for ZMIB board!!"
-  #elif ENABLED(OLED_HW_SPI)
-    // HW SPI
-    #define DOGLCD_A0                LCD_PINS_DC  // A0 = DC
-  #else
-    // SW SPI
-    #define DOGLCD_A0                LCD_PINS_DC  // A0 = DC
-    #define DOGLCD_MOSI             AVR_MOSI_PIN  // SDA
-    #define DOGLCD_SCK               AVR_SCK_PIN  // SCK
-  #endif
-
+    //
+    // OLED 128x64
+    //
+    #define LCDSCREEN_NAME "ZONESTAR 12864OLED"
+    #define FORCE_SOFT_SPI
+    #ifdef IS_ZMIB_V2
+        #define LCD_PINS_RS                        3  // RESET
+    #else
+        #define LCD_PINS_RS                        4  // RESET
+    #endif
+    #define LCD_PINS_DC                         10  // DC
+    #define DOGLCD_CS                           11  // CS
+    #if ENABLED(OLED_HW_IIC)
+        #error "Oops! can't choose HW IIC for ZMIB board!!"
+    #elif ENABLED(OLED_HW_SPI)
+        // HW SPI
+        #define DOGLCD_A0                LCD_PINS_DC  // A0 = DC
+    #else
+        // SW SPI
+        #define DOGLCD_A0                LCD_PINS_DC  // A0 = DC
+        #define DOGLCD_MOSI             AVR_MOSI_PIN  // SDA
+        #define DOGLCD_SCK               AVR_SCK_PIN  // SCK
+    #endif
+  
 #endif
 
 //
 // All the above are also RRDSC with rotary encoder
 //
 #if IS_RRD_SC
-  #define BTN_EN1                              2
-  #define BTN_EN2                             12
-  #define BTN_ENC                             29
-  #define BEEPER_PIN                          -1
-  #define KILL_PIN                            -1
+    #define BTN_EN1                              2
+    #define BTN_EN2                             12
+    #define BTN_ENC                             29
+    #define BEEPER_PIN                          -1
+    #define KILL_PIN                            -1
 #endif

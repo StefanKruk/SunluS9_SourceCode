@@ -22,16 +22,16 @@
 #pragma once
 
 #ifdef __cplusplus
-  extern "C" { /* C-declarations for C++ */
+    extern "C" { /* C-declarations for C++ */
 #endif
 
 #ifndef PGM_P
-  #define PGM_P const char *
+    #define PGM_P const char *
 #endif
 
 void lv_draw_error_message(PGM_P const msg);
 void lv_clear_error_message();
 
 #ifdef __cplusplus
-  } /* C-declarations for C++ */
+    } /* C-declarations for C++ */
 #endif

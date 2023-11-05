@@ -29,39 +29,39 @@
 #include "../../inc/MarlinConfig.h"
 
 #if HAS_COOLER
-
-#include "../../feature/cooler.h"
-extern Cooler cooler;
-
-#include "../gcode.h"
-#include "../../module/temperature.h"
-#include "../../lcd/marlinui.h"
-
-/**
- * M143: Set cooler temperature
- */
-void GcodeSuite::M143() {
-  if (DEBUGGING(DRYRUN)) return;
-  if (parser.seenval('S')) {
-    thermalManager.setTargetCooler(parser.value_celsius());
-    parser.value_celsius() ? cooler.enable() : cooler.disable();
-  }
-}
-
-/**
- * M193: Sxxx Wait for laser current temp to reach target temp. Waits only when cooling.
- */
-void GcodeSuite::M193() {
-  if (DEBUGGING(DRYRUN)) return;
-
-  if (parser.seenval('S')) {
-    cooler.enable();
-    thermalManager.setTargetCooler(parser.value_celsius());
-    if (thermalManager.isLaserCooling()) {
-      ui.set_status_P(GET_TEXT(MSG_LASER_COOLING));
-      thermalManager.wait_for_cooler(true);
+  
+  #include "../../feature/cooler.h"
+  extern Cooler cooler;
+  
+  #include "../gcode.h"
+  #include "../../module/temperature.h"
+  #include "../../lcd/marlinui.h"
+  
+  /**
+   * M143: Set cooler temperature
+   */
+  void GcodeSuite::M143() {
+    if (DEBUGGING(DRYRUN)) return;
+    if (parser.seenval('S')) {
+      thermalManager.setTargetCooler(parser.value_celsius());
+      parser.value_celsius() ? cooler.enable() : cooler.disable();
     }
   }
-}
-
+  
+  /**
+   * M193: Sxxx Wait for laser current temp to reach target temp. Waits only when cooling.
+   */
+  void GcodeSuite::M193() {
+    if (DEBUGGING(DRYRUN)) return;
+  
+    if (parser.seenval('S')) {
+      cooler.enable();
+      thermalManager.setTargetCooler(parser.value_celsius());
+      if (thermalManager.isLaserCooling()) {
+        ui.set_status_P(GET_TEXT(MSG_LASER_COOLING));
+        thermalManager.wait_for_cooler(true);
+      }
+    }
+  }
+  
 #endif // HAS_COOLER

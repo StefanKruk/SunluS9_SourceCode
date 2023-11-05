@@ -90,7 +90,7 @@
 #define HEATER_BED_PIN                      PB9   // BED
 
 #ifndef FAN_PIN
-  #define FAN_PIN                           PB10
+    #define FAN_PIN                           PB10
 #endif
 
 #define FAN_SOFT_PWM
@@ -107,39 +107,39 @@
 // LCD Pins
 //
 #if HAS_WIRED_LCD
-
-  #if ENABLED(REPRAPWORLD_GRAPHICAL_LCD)
-    #error "REPRAPWORLD_GRAPHICAL_LCD is not supported."
-  #else
-    #define LCD_PINS_RS                     PB8
-    #define LCD_PINS_ENABLE                 PD2
-    #define LCD_PINS_D4                     PB12
-    #define LCD_PINS_D5                     PB13
-    #define LCD_PINS_D6                     PB14
-    #define LCD_PINS_D7                     PB15
-    #if !IS_NEWPANEL
-      #error "Non-NEWPANEL LCD is not supported."
-    #endif
-  #endif
-
-  #if IS_NEWPANEL
-    #if IS_RRD_SC
-      #error "RRD Smart Controller is not supported."
-    #elif ENABLED(REPRAPWORLD_GRAPHICAL_LCD)
-      #error "REPRAPWORLD_GRAPHICAL_LCD is not supported."
-    #elif ENABLED(LCD_I2C_PANELOLU2)
-      #error "LCD_I2C_PANELOLU2 is not supported."
-    #elif ENABLED(LCD_I2C_VIKI)
-      #error "LCD_I2C_VIKI is not supported."
-    #elif ANY(VIKI2, miniVIKI)
-      #error "VIKI2 / miniVIKI is not supported."
-    #elif ENABLED(ELB_FULL_GRAPHIC_CONTROLLER)
-      #error "ELB_FULL_GRAPHIC_CONTROLLER is not supported."
-    #elif ENABLED(MINIPANEL)
-      #error "MINIPANEL is not supported."
+  
+    #if ENABLED(REPRAPWORLD_GRAPHICAL_LCD)
+        #error "REPRAPWORLD_GRAPHICAL_LCD is not supported."
     #else
-      #error "Other generic NEWPANEL LCD is not supported."
+        #define LCD_PINS_RS                     PB8
+        #define LCD_PINS_ENABLE                 PD2
+        #define LCD_PINS_D4                     PB12
+        #define LCD_PINS_D5                     PB13
+        #define LCD_PINS_D6                     PB14
+        #define LCD_PINS_D7                     PB15
+        #if !IS_NEWPANEL
+            #error "Non-NEWPANEL LCD is not supported."
+        #endif
     #endif
-  #endif // IS_NEWPANEL
-
+  
+    #if IS_NEWPANEL
+        #if IS_RRD_SC
+            #error "RRD Smart Controller is not supported."
+        #elif ENABLED(REPRAPWORLD_GRAPHICAL_LCD)
+            #error "REPRAPWORLD_GRAPHICAL_LCD is not supported."
+        #elif ENABLED(LCD_I2C_PANELOLU2)
+            #error "LCD_I2C_PANELOLU2 is not supported."
+        #elif ENABLED(LCD_I2C_VIKI)
+            #error "LCD_I2C_VIKI is not supported."
+        #elif ANY(VIKI2, miniVIKI)
+            #error "VIKI2 / miniVIKI is not supported."
+        #elif ENABLED(ELB_FULL_GRAPHIC_CONTROLLER)
+            #error "ELB_FULL_GRAPHIC_CONTROLLER is not supported."
+        #elif ENABLED(MINIPANEL)
+            #error "MINIPANEL is not supported."
+        #else
+            #error "Other generic NEWPANEL LCD is not supported."
+        #endif
+    #endif // IS_NEWPANEL
+  
 #endif // HAS_WIRED_LCD

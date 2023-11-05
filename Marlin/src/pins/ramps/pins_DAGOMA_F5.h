@@ -22,7 +22,7 @@
 #pragma once
 
 #if HOTENDS > 2 || E_STEPPERS > 2
-  #error "Dagoma3D F5 supports only 2 hotends / E-steppers. Comment out this line to continue."
+    #error "Dagoma3D F5 supports only 2 hotends / E-steppers. Comment out this line to continue."
 #endif
 
 #define BOARD_INFO_NAME "Dagoma3D F5"
@@ -36,16 +36,16 @@
 
 #define FIL_RUNOUT_PIN                        39
 #if EXTRUDERS > 1
-  #define FIL_RUNOUT2_PIN                     14
+    #define FIL_RUNOUT2_PIN                     14
 #endif
 
 //
 // LCD delays
 //
 #if HAS_MARLINUI_U8GLIB
-  #define BOARD_ST7920_DELAY_1 DELAY_NS(0)
-  #define BOARD_ST7920_DELAY_2 DELAY_NS(250)
-  #define BOARD_ST7920_DELAY_3 DELAY_NS(250)
+    #define BOARD_ST7920_DELAY_1 DELAY_NS(0)
+    #define BOARD_ST7920_DELAY_2 DELAY_NS(250)
+    #define BOARD_ST7920_DELAY_3 DELAY_NS(250)
 #endif
 
 //

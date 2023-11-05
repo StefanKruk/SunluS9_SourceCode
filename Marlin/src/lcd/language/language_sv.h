@@ -81,21 +81,21 @@ namespace Language_sv {
   PROGMEM Language_Str MSG_LAST_VALUE_SP                   = _UxGT("Senaste värde ");
 
   #if PREHEAT_COUNT
-    PROGMEM Language_Str MSG_PREHEAT_1                     = _UxGT("Förvärmning ") PREHEAT_1_LABEL;
-    PROGMEM Language_Str MSG_PREHEAT_1_H                   = _UxGT("Förvärmning ") PREHEAT_1_LABEL " ~";
-    PROGMEM Language_Str MSG_PREHEAT_1_END                 = _UxGT("Förvärmning ") PREHEAT_1_LABEL _UxGT(" Stoppa");
-    PROGMEM Language_Str MSG_PREHEAT_1_END_E               = _UxGT("Förvärmning ") PREHEAT_1_LABEL _UxGT(" Stoppa ~");
-    PROGMEM Language_Str MSG_PREHEAT_1_ALL                 = _UxGT("Förvärmning ") PREHEAT_1_LABEL _UxGT(" Alla");
-    PROGMEM Language_Str MSG_PREHEAT_1_BEDONLY             = _UxGT("Förvärmning ") PREHEAT_1_LABEL _UxGT(" Bädd");
-    PROGMEM Language_Str MSG_PREHEAT_1_SETTINGS            = _UxGT("Förvärmning ") PREHEAT_1_LABEL _UxGT(" Konf");
-
-    PROGMEM Language_Str MSG_PREHEAT_M                     = _UxGT("Förvärmning $");
-    PROGMEM Language_Str MSG_PREHEAT_M_H                   = _UxGT("Förvärmning $ ~");
-    PROGMEM Language_Str MSG_PREHEAT_M_END                 = _UxGT("Förvärmning $ Stoppa");
-    PROGMEM Language_Str MSG_PREHEAT_M_END_E               = _UxGT("Förvärmning $ Stoppa ~");
-    PROGMEM Language_Str MSG_PREHEAT_M_ALL                 = _UxGT("Förvärmning $ Alla");
-    PROGMEM Language_Str MSG_PREHEAT_M_BEDONLY             = _UxGT("Förvärmning $ Bädd");
-    PROGMEM Language_Str MSG_PREHEAT_M_SETTINGS            = _UxGT("Förvärmning $ Donf");
+      PROGMEM Language_Str MSG_PREHEAT_1                     = _UxGT("Förvärmning ") PREHEAT_1_LABEL;
+      PROGMEM Language_Str MSG_PREHEAT_1_H                   = _UxGT("Förvärmning ") PREHEAT_1_LABEL " ~";
+      PROGMEM Language_Str MSG_PREHEAT_1_END                 = _UxGT("Förvärmning ") PREHEAT_1_LABEL _UxGT(" Stoppa");
+      PROGMEM Language_Str MSG_PREHEAT_1_END_E               = _UxGT("Förvärmning ") PREHEAT_1_LABEL _UxGT(" Stoppa ~");
+      PROGMEM Language_Str MSG_PREHEAT_1_ALL                 = _UxGT("Förvärmning ") PREHEAT_1_LABEL _UxGT(" Alla");
+      PROGMEM Language_Str MSG_PREHEAT_1_BEDONLY             = _UxGT("Förvärmning ") PREHEAT_1_LABEL _UxGT(" Bädd");
+      PROGMEM Language_Str MSG_PREHEAT_1_SETTINGS            = _UxGT("Förvärmning ") PREHEAT_1_LABEL _UxGT(" Konf");
+  
+      PROGMEM Language_Str MSG_PREHEAT_M                     = _UxGT("Förvärmning $");
+      PROGMEM Language_Str MSG_PREHEAT_M_H                   = _UxGT("Förvärmning $ ~");
+      PROGMEM Language_Str MSG_PREHEAT_M_END                 = _UxGT("Förvärmning $ Stoppa");
+      PROGMEM Language_Str MSG_PREHEAT_M_END_E               = _UxGT("Förvärmning $ Stoppa ~");
+      PROGMEM Language_Str MSG_PREHEAT_M_ALL                 = _UxGT("Förvärmning $ Alla");
+      PROGMEM Language_Str MSG_PREHEAT_M_BEDONLY             = _UxGT("Förvärmning $ Bädd");
+      PROGMEM Language_Str MSG_PREHEAT_M_SETTINGS            = _UxGT("Förvärmning $ Donf");
   #endif
 
   PROGMEM Language_Str MSG_PREHEAT_CUSTOM                  = _UxGT("Förvärmning Anpassad");
@@ -516,17 +516,17 @@ namespace Language_sv {
   PROGMEM Language_Str MSG_KILL_EXPECTED_PRINTER           = _UxGT("INKORREKT SKRIVARE");
 
   #if LCD_WIDTH >= 20
-    PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Utskriftsantal");
-    PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Färdiga");
-    PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Total Utskriftstid");
-    PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Längsta Jobbtid");
-    PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Extruderade Totalt");
+      PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Utskriftsantal");
+      PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Färdiga");
+      PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Total Utskriftstid");
+      PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Längsta Jobbtid");
+      PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Extruderade Totalt");
   #else
-    PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Utskrift");
-    PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Färdig");
-    PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Total");
-    PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Längsta");
-    PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Extruderad");
+      PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Utskrift");
+      PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Färdig");
+      PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Total");
+      PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Längsta");
+      PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Extruderad");
   #endif
 
   PROGMEM Language_Str MSG_INFO_MIN_TEMP                   = _UxGT("Min Temp");
@@ -617,29 +617,29 @@ namespace Language_sv {
   //                        ...or up to 2 lines on a 3-line display
   //
   #if LCD_HEIGHT >= 4
-    PROGMEM Language_Str MSG_ADVANCED_PAUSE_WAITING        = _UxGT(MSG_2_LINE("Tryck på knappen", "för att fortsätta utskrift"));
-    PROGMEM Language_Str MSG_PAUSE_PRINT_PARKING           = _UxGT(MSG_1_LINE("Parkera..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_3_LINE("Vänta på", "trådbyte", "att börja"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_3_LINE("Sätt in tråd", "och tryck på knappen", "för att fortsätta"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_2_LINE("Tryck på knappen", "för att värma munstycke"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_2_LINE("Munstycke värms", "Var snäll och vänta..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_2_LINE("Väntar på", "trådlossning"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_2_LINE("Väntar på", "trådladdning"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_PURGE         = _UxGT(MSG_2_LINE("Väntar på", "tråd utrensning"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_CONT_PURGE    = _UxGT(MSG_2_LINE("Klicka för att slutföra", "tråd utrensning"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_2_LINE("Väntar på utskrift", "att återstarta..."));
+      PROGMEM Language_Str MSG_ADVANCED_PAUSE_WAITING        = _UxGT(MSG_2_LINE("Tryck på knappen", "för att fortsätta utskrift"));
+      PROGMEM Language_Str MSG_PAUSE_PRINT_PARKING           = _UxGT(MSG_1_LINE("Parkera..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_3_LINE("Vänta på", "trådbyte", "att börja"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_3_LINE("Sätt in tråd", "och tryck på knappen", "för att fortsätta"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_2_LINE("Tryck på knappen", "för att värma munstycke"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_2_LINE("Munstycke värms", "Var snäll och vänta..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_2_LINE("Väntar på", "trådlossning"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_2_LINE("Väntar på", "trådladdning"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_PURGE         = _UxGT(MSG_2_LINE("Väntar på", "tråd utrensning"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_CONT_PURGE    = _UxGT(MSG_2_LINE("Klicka för att slutföra", "tråd utrensning"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_2_LINE("Väntar på utskrift", "att återstarta..."));
   #else
-    PROGMEM Language_Str MSG_ADVANCED_PAUSE_WAITING        = _UxGT(MSG_1_LINE("Klick för att fortsätta"));
-    PROGMEM Language_Str MSG_PAUSE_PRINT_PARKING           = _UxGT(MSG_1_LINE("Parkera..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_1_LINE("Vänta..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_1_LINE("Sätt in och klicka"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_1_LINE("Klicka för att värma"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_1_LINE("Värmer..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_1_LINE("Lossar..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_1_LINE("Laddar..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_PURGE         = _UxGT(MSG_1_LINE("Rensar..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_CONT_PURGE    = _UxGT(MSG_1_LINE("Klicka för att slutföra"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_1_LINE("Återgår..."));
+      PROGMEM Language_Str MSG_ADVANCED_PAUSE_WAITING        = _UxGT(MSG_1_LINE("Klick för att fortsätta"));
+      PROGMEM Language_Str MSG_PAUSE_PRINT_PARKING           = _UxGT(MSG_1_LINE("Parkera..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_1_LINE("Vänta..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_1_LINE("Sätt in och klicka"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_1_LINE("Klicka för att värma"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_1_LINE("Värmer..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_1_LINE("Lossar..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_1_LINE("Laddar..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_PURGE         = _UxGT(MSG_1_LINE("Rensar..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_CONT_PURGE    = _UxGT(MSG_1_LINE("Klicka för att slutföra"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_1_LINE("Återgår..."));
   #endif
   PROGMEM Language_Str MSG_TMC_DRIVERS                     = _UxGT("TMC Drivers");
   PROGMEM Language_Str MSG_TMC_CURRENT                     = _UxGT("Driver Ström");
@@ -659,9 +659,9 @@ namespace Language_sv {
   PROGMEM Language_Str MSG_LEVEL_X_AXIS                    = _UxGT("Nivå X Axel");
   PROGMEM Language_Str MSG_AUTO_CALIBRATE                  = _UxGT("Auto Kalibrera");
   #if ENABLED(TOUCH_UI_FTDI_EVE)
-    PROGMEM Language_Str MSG_HEATER_TIMEOUT                = _UxGT("Overksam tidsgräns, temperatur minskning. Tryck ok för att återvärma och igen för att fortsätta.");
+      PROGMEM Language_Str MSG_HEATER_TIMEOUT                = _UxGT("Overksam tidsgräns, temperatur minskning. Tryck ok för att återvärma och igen för att fortsätta.");
   #else
-    PROGMEM Language_Str MSG_HEATER_TIMEOUT                = _UxGT("Värmare Tidsgräns");
+      PROGMEM Language_Str MSG_HEATER_TIMEOUT                = _UxGT("Värmare Tidsgräns");
   #endif
   PROGMEM Language_Str MSG_REHEAT                          = _UxGT("Återvärm");
   PROGMEM Language_Str MSG_REHEATING                       = _UxGT("Återvärmning...");

@@ -24,11 +24,11 @@
 #include "env_validate.h"
 
 #if HOTENDS > 1 || E_STEPPERS > 1
-  #error "MKS Robin Lite only supports one hotend / E-stepper. Comment out this line to continue."
+    #error "MKS Robin Lite only supports one hotend / E-stepper. Comment out this line to continue."
 #endif
 
 #ifndef BOARD_INFO_NAME
-  #define BOARD_INFO_NAME "MKS Robin Lite"
+    #define BOARD_INFO_NAME "MKS Robin Lite"
 #endif
 #define BOARD_WEBSITE_URL "github.com/makerbase-mks"
 
@@ -83,47 +83,47 @@
 // LCD Pins
 //
 #if HAS_WIRED_LCD
-  #define BEEPER_PIN                        PD2
-  #define BTN_ENC                           PB3
-  #define LCD_PINS_RS                       PC3
-
-  #define BTN_EN1                           PB5
-  #define BTN_EN2                           PB4
-
-  #define LCD_PINS_ENABLE                   PC2
-
-  #if ENABLED(MKS_MINI_12864)
-
-    #define LCD_BACKLIGHT_PIN               -1
-    #define LCD_RESET_PIN                   -1
-    #define DOGLCD_A0                       PC1
-    #define DOGLCD_CS                       PC2
-    #define DOGLCD_SCK                      PB13
-    #define DOGLCD_MOSI                     PB15
-
-  #else                                           // !MKS_MINI_12864
-
-    #define LCD_PINS_D4                     PC1
-    #if IS_ULTIPANEL
-      #define LCD_PINS_D5                   -1
-      #define LCD_PINS_D6                   -1
-      #define LCD_PINS_D7                   -1
+    #define BEEPER_PIN                        PD2
+    #define BTN_ENC                           PB3
+    #define LCD_PINS_RS                       PC3
+  
+    #define BTN_EN1                           PB5
+    #define BTN_EN2                           PB4
+  
+    #define LCD_PINS_ENABLE                   PC2
+  
+    #if ENABLED(MKS_MINI_12864)
+    
+        #define LCD_BACKLIGHT_PIN               -1
+        #define LCD_RESET_PIN                   -1
+        #define DOGLCD_A0                       PC1
+        #define DOGLCD_CS                       PC2
+        #define DOGLCD_SCK                      PB13
+        #define DOGLCD_MOSI                     PB15
+    
+    #else                                           // !MKS_MINI_12864
+    
+        #define LCD_PINS_D4                     PC1
+        #if IS_ULTIPANEL
+            #define LCD_PINS_D5                   -1
+            #define LCD_PINS_D6                   -1
+            #define LCD_PINS_D7                   -1
+        #endif
+    
+    #endif // !MKS_MINI_12864
+  
+    #if HAS_MARLINUI_U8GLIB
+        #ifndef BOARD_ST7920_DELAY_1
+            #define BOARD_ST7920_DELAY_1 DELAY_NS(125)
+        #endif
+        #ifndef BOARD_ST7920_DELAY_2
+            #define BOARD_ST7920_DELAY_2 DELAY_NS(125)
+        #endif
+        #ifndef BOARD_ST7920_DELAY_3
+            #define BOARD_ST7920_DELAY_3 DELAY_NS(125)
+        #endif
     #endif
-
-  #endif // !MKS_MINI_12864
-
-  #if HAS_MARLINUI_U8GLIB
-    #ifndef BOARD_ST7920_DELAY_1
-      #define BOARD_ST7920_DELAY_1 DELAY_NS(125)
-    #endif
-    #ifndef BOARD_ST7920_DELAY_2
-      #define BOARD_ST7920_DELAY_2 DELAY_NS(125)
-    #endif
-    #ifndef BOARD_ST7920_DELAY_3
-      #define BOARD_ST7920_DELAY_3 DELAY_NS(125)
-    #endif
-  #endif
-
+  
 #endif // HAS_WIRED_LCD
 
 // Motor current PWM pins

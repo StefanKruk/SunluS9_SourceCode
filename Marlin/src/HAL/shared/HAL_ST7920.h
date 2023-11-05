@@ -28,9 +28,9 @@
  */
 
 #if BOTH(HAS_MARLINUI_U8GLIB, LIGHTWEIGHT_UI)
-  void ST7920_cs();
-  void ST7920_ncs();
-  void ST7920_set_cmd();
-  void ST7920_set_dat();
-  void ST7920_write_byte(const uint8_t data);
+    void ST7920_cs();
+    void ST7920_ncs();
+    void ST7920_set_cmd();
+    void ST7920_set_dat();
+    void ST7920_write_byte(const uint8_t data);
 #endif

@@ -33,31 +33,31 @@ typedef uint64_t hal_timer_t;
 #define HAL_TIMER_TYPE_MAX 0xFFFFFFFFFFFFFFFFULL
 
 #ifndef STEP_TIMER_NUM
-  #define STEP_TIMER_NUM        0  // Timer Index for Stepper
+    #define STEP_TIMER_NUM        0  // Timer Index for Stepper
 #endif
 #ifndef PULSE_TIMER_NUM
-  #define PULSE_TIMER_NUM       STEP_TIMER_NUM
+    #define PULSE_TIMER_NUM       STEP_TIMER_NUM
 #endif
 #ifndef TEMP_TIMER_NUM
-  #define TEMP_TIMER_NUM        1  // Timer Index for Temperature
+    #define TEMP_TIMER_NUM        1  // Timer Index for Temperature
 #endif
 #ifndef PWM_TIMER_NUM
-  #define PWM_TIMER_NUM         2  // index of timer to use for PWM outputs
+    #define PWM_TIMER_NUM         2  // index of timer to use for PWM outputs
 #endif
 #ifndef TONE_TIMER_NUM
-  #define TONE_TIMER_NUM        3  // index of timer for beeper tones
+    #define TONE_TIMER_NUM        3  // index of timer for beeper tones
 #endif
 
 #define HAL_TIMER_RATE APB_CLK_FREQ // frequency of timer peripherals
 
 #if ENABLED(I2S_STEPPER_STREAM)
-  #define STEPPER_TIMER_PRESCALE     1
-  #define STEPPER_TIMER_RATE         250000                           // 250khz, 4µs pulses of i2s word clock
-  #define STEPPER_TIMER_TICKS_PER_US ((STEPPER_TIMER_RATE) / 1000000) // stepper timer ticks per µs // wrong would be 0.25
+    #define STEPPER_TIMER_PRESCALE     1
+    #define STEPPER_TIMER_RATE         250000                           // 250khz, 4µs pulses of i2s word clock
+    #define STEPPER_TIMER_TICKS_PER_US ((STEPPER_TIMER_RATE) / 1000000) // stepper timer ticks per µs // wrong would be 0.25
 #else
-  #define STEPPER_TIMER_PRESCALE     40
-  #define STEPPER_TIMER_RATE         ((HAL_TIMER_RATE) / (STEPPER_TIMER_PRESCALE)) // frequency of stepper timer, 2MHz
-  #define STEPPER_TIMER_TICKS_PER_US ((STEPPER_TIMER_RATE) / 1000000)              // stepper timer ticks per µs
+    #define STEPPER_TIMER_PRESCALE     40
+    #define STEPPER_TIMER_RATE         ((HAL_TIMER_RATE) / (STEPPER_TIMER_PRESCALE)) // frequency of stepper timer, 2MHz
+    #define STEPPER_TIMER_TICKS_PER_US ((STEPPER_TIMER_RATE) / 1000000)              // stepper timer ticks per µs
 #endif
 
 #define STEP_TIMER_MIN_INTERVAL   8 // minimum time in µs between stepper interrupts
@@ -69,9 +69,9 @@ typedef uint64_t hal_timer_t;
 
 #define PWM_TIMER_PRESCALE       10
 #if ENABLED(FAST_PWM_FAN)
-  #define PWM_TIMER_FREQUENCY  FAST_PWM_FAN_FREQUENCY
+    #define PWM_TIMER_FREQUENCY  FAST_PWM_FAN_FREQUENCY
 #else
-  #define PWM_TIMER_FREQUENCY  (50*128) // 50Hz and 7bit resolution
+    #define PWM_TIMER_FREQUENCY  (50*128) // 50Hz and 7bit resolution
 #endif
 #define MAX_PWM_PINS             32 // Number of PWM pin-slots
 
@@ -87,16 +87,16 @@ typedef uint64_t hal_timer_t;
 #define DISABLE_TEMPERATURE_INTERRUPT() HAL_timer_disable_interrupt(TEMP_TIMER_NUM)
 
 #ifndef HAL_TEMP_TIMER_ISR
-  #define HAL_TEMP_TIMER_ISR() extern "C" void tempTC_Handler()
+    #define HAL_TEMP_TIMER_ISR() extern "C" void tempTC_Handler()
 #endif
 #ifndef HAL_STEP_TIMER_ISR
-  #define HAL_STEP_TIMER_ISR() extern "C" void stepTC_Handler()
+    #define HAL_STEP_TIMER_ISR() extern "C" void stepTC_Handler()
 #endif
 #ifndef HAL_PWM_TIMER_ISR
-  #define HAL_PWM_TIMER_ISR() extern "C" void pwmTC_Handler()
+    #define HAL_PWM_TIMER_ISR() extern "C" void pwmTC_Handler()
 #endif
 #ifndef HAL_TONE_TIMER_ISR
-  #define HAL_TONE_TIMER_ISR() extern "C" void toneTC_Handler()
+    #define HAL_TONE_TIMER_ISR() extern "C" void toneTC_Handler()
 #endif
 
 extern "C" {

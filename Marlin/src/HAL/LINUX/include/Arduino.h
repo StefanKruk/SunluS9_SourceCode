@@ -52,10 +52,10 @@ typedef uint8_t byte;
 #define abs(x) ((x)>0?(x):-(x))
 
 #ifndef isnan
-  #define isnan std::isnan
+    #define isnan std::isnan
 #endif
 #ifndef isinf
-  #define isinf std::isinf
+    #define isinf std::isinf
 #endif
 
 #define sq(v) ((v) * (v))

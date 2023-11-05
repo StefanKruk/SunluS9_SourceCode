@@ -34,16 +34,16 @@
 #include "../ui_api.h"
 
 #if NONE(CHIRON_TFT_STANDARD, CHIRON_TFT_NEW)
-  #define AUTO_DETECT_CHIRON_TFT 1
+    #define AUTO_DETECT_CHIRON_TFT 1
 #endif
 
 namespace Anycubic {
 
 class ChironTFT {
   #if AUTO_DETECT_CHIRON_TFT
-    static panel_type_t panel_type;
+      static panel_type_t panel_type;
   #else
-    static constexpr panel_type_t panel_type = TERN(CHIRON_TFT_NEW, AC_panel_new, AC_panel_standard);
+      static constexpr panel_type_t panel_type = TERN(CHIRON_TFT_NEW, AC_panel_new, AC_panel_standard);
   #endif
   static last_error_t last_error;
   static printer_state_t  printer_state;

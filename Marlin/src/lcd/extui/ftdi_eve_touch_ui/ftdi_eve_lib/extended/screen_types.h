@@ -161,7 +161,7 @@ class UncachedScreen {
       CommandProcessor cmd;
       cmd.cmd(CMD_DLSTART);
       #if ENABLED(TOUCH_UI_USE_UTF8)
-        load_utf8_bitmaps(cmd);
+          load_utf8_bitmaps(cmd);
       #endif
 
       current_screen.onRedraw(BOTH);
@@ -202,7 +202,7 @@ class CachedScreen {
 
       cmd.cmd(CMD_DLSTART);
       #if ENABLED(TOUCH_UI_USE_UTF8)
-        load_utf8_bitmaps(cmd);
+          load_utf8_bitmaps(cmd);
       #endif
       current_screen.onRedraw(BACKGROUND);
 
@@ -212,7 +212,7 @@ class CachedScreen {
   public:
     static void onRefresh() {
       #if ENABLED(TOUCH_UI_DEBUG)
-        const uint32_t start_time = millis();
+          const uint32_t start_time = millis();
       #endif
       using namespace FTDI;
       DLCache dlcache(DL_SLOT);
@@ -225,7 +225,7 @@ class CachedScreen {
       }
       else {
         #if ENABLED(TOUCH_UI_USE_UTF8)
-          load_utf8_bitmaps(cmd);
+            load_utf8_bitmaps(cmd);
         #endif
         current_screen.onRedraw(BACKGROUND);
         dlcache.store(DL_SIZE);
@@ -237,7 +237,7 @@ class CachedScreen {
       cmd.cmd(CMD_SWAP);
       cmd.execute();
       #if ENABLED(TOUCH_UI_DEBUG)
-        SERIAL_ECHOLNPAIR("Time to draw screen (ms): ", millis() - start_time);
+          SERIAL_ECHOLNPAIR("Time to draw screen (ms): ", millis() - start_time);
       #endif
     }
 };

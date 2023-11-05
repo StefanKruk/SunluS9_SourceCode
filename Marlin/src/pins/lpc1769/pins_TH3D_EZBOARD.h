@@ -46,7 +46,7 @@
 // Filament Runout Sensor
 //
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN                   P1_27
+    #define FIL_RUNOUT_PIN                   P1_27
 #endif
 
 //
@@ -73,21 +73,21 @@
 #define E1_ENABLE_PIN                      P4_29
 
 #if HAS_TMC_UART
-  //
-  // TMC220x stepper drivers
-  // Software serial
-  //
-  #define X_SERIAL_TX_PIN                  P0_04
-  #define X_SERIAL_RX_PIN                  P0_05
-  #define Y_SERIAL_TX_PIN                  P0_10
-  #define Y_SERIAL_RX_PIN                  P0_11
-  #define Z_SERIAL_TX_PIN                  P0_19
-  #define Z_SERIAL_RX_PIN                  P0_20
-  #define E0_SERIAL_TX_PIN                 P0_22
-  #define E0_SERIAL_RX_PIN                 P0_21
-
-  // Reduce baud rate to improve software serial reliability
-  #define TMC_BAUD_RATE                    19200
+    //
+    // TMC220x stepper drivers
+    // Software serial
+    //
+    #define X_SERIAL_TX_PIN                  P0_04
+    #define X_SERIAL_RX_PIN                  P0_05
+    #define Y_SERIAL_TX_PIN                  P0_10
+    #define Y_SERIAL_RX_PIN                  P0_11
+    #define Z_SERIAL_TX_PIN                  P0_19
+    #define Z_SERIAL_RX_PIN                  P0_20
+    #define E0_SERIAL_TX_PIN                 P0_22
+    #define E0_SERIAL_RX_PIN                 P0_21
+  
+    // Reduce baud rate to improve software serial reliability
+    #define TMC_BAUD_RATE                    19200
 #endif
 
 //
@@ -95,18 +95,18 @@
 //  3.3V max when defined as an Analog Input!
 //
 #if TEMP_SENSOR_0 == 20                           // PT100 Adapter
-  #define TEMP_0_PIN                    P0_02_A7  // Analog Input
+    #define TEMP_0_PIN                    P0_02_A7  // Analog Input
 #else
-  #define TEMP_0_PIN                    P0_23_A0  // Analog Input P0_23
+    #define TEMP_0_PIN                    P0_23_A0  // Analog Input P0_23
 #endif
 
 #define TEMP_BED_PIN                    P0_24_A1  // Analog Input P0_24
 #define TEMP_1_PIN                      P0_25_A2  // Analog Input P0_25
 
 #if ENABLED(FILAMENT_WIDTH_SENSOR)
-  #define FILWIDTH_PIN                  P0_26_A3  // Analog Input P0_26
+    #define FILWIDTH_PIN                  P0_26_A3  // Analog Input P0_26
 #else
-  #define TEMP_2_PIN                    P0_26_A3  // Analog Input P0_26
+    #define TEMP_2_PIN                    P0_26_A3  // Analog Input P0_26
 #endif
 
 //
@@ -115,7 +115,7 @@
 #define HEATER_BED_PIN                     P2_05
 #define HEATER_0_PIN                       P2_07
 #ifndef FAN_PIN
-  #define FAN_PIN                          P2_06
+    #define FAN_PIN                          P2_06
 #endif
 #define FAN1_PIN                           P1_22
 
@@ -124,13 +124,13 @@
 //
 #define AUTO_FAN_PIN                       P1_22  // FET 3
 #ifndef E0_AUTO_FAN_PIN
-  #define E0_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E0_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 #ifndef E1_AUTO_FAN_PIN
-  #define E1_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E1_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 #ifndef E2_AUTO_FAN_PIN
-  #define E2_AUTO_FAN_PIN           AUTO_FAN_PIN
+    #define E2_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
 
 //
@@ -167,14 +167,14 @@
  */
 
 #if ENABLED(CR10_STOCKDISPLAY)
-  #define BEEPER_PIN                       P1_31
-  #define BTN_EN1                          P3_26
-  #define BTN_EN2                          P3_25
-  #define BTN_ENC                          P1_30
-  #define LCD_PINS_RS                      P0_16
-  #define LCD_PINS_ENABLE                  P0_18
-  #define LCD_PINS_D4                      P0_15
-  #define KILL_PIN                         P2_11
+    #define BEEPER_PIN                       P1_31
+    #define BTN_EN1                          P3_26
+    #define BTN_EN2                          P3_25
+    #define BTN_ENC                          P1_30
+    #define LCD_PINS_RS                      P0_16
+    #define LCD_PINS_ENABLE                  P0_18
+    #define LCD_PINS_D4                      P0_15
+    #define KILL_PIN                         P2_11
 #elif HAS_WIRED_LCD
-  #error "Only the CR10_STOCKDISPLAY is supported with TH3D EZBoard."
+    #error "Only the CR10_STOCKDISPLAY is supported with TH3D EZBoard."
 #endif

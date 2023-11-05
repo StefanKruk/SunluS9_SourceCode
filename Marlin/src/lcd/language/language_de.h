@@ -72,21 +72,21 @@ namespace Language_de {
   PROGMEM Language_Str MSG_HOME_OFFSETS_APPLIED            = _UxGT("Homeversatz aktiv");
   PROGMEM Language_Str MSG_SET_ORIGIN                      = _UxGT("Setze Nullpunkte"); //"G92 X0 Y0 Z0" commented out in marlinui.cpp
   #if PREHEAT_COUNT
-    PROGMEM Language_Str MSG_PREHEAT_1                     = PREHEAT_1_LABEL _UxGT(" Vorwärmen");
-    PROGMEM Language_Str MSG_PREHEAT_1_H                   = PREHEAT_1_LABEL _UxGT(" Vorwärmen ~");
-    PROGMEM Language_Str MSG_PREHEAT_1_END                 = PREHEAT_1_LABEL _UxGT(" Extr. Vorwärmen");
-    PROGMEM Language_Str MSG_PREHEAT_1_END_E               = PREHEAT_1_LABEL _UxGT(" Extr. Vorwärm. ~");
-    PROGMEM Language_Str MSG_PREHEAT_1_ALL                 = PREHEAT_1_LABEL _UxGT(" Alles Vorwärmen");
-    PROGMEM Language_Str MSG_PREHEAT_1_BEDONLY             = PREHEAT_1_LABEL _UxGT(" Bett Vorwärmen");
-    PROGMEM Language_Str MSG_PREHEAT_1_SETTINGS            = PREHEAT_1_LABEL _UxGT(" Einstellungen");
-
-    PROGMEM Language_Str MSG_PREHEAT_M                     = _UxGT("$ Vorwärmen");
-    PROGMEM Language_Str MSG_PREHEAT_M_H                   = _UxGT("$ Vorwärmen") " ~";
-    PROGMEM Language_Str MSG_PREHEAT_M_END                 = _UxGT("$ Extr. Vorwärmen");
-    PROGMEM Language_Str MSG_PREHEAT_M_END_E               = _UxGT("$ Extr. Vorwärm. ~");
-    PROGMEM Language_Str MSG_PREHEAT_M_ALL                 = _UxGT("$ Alles Vorwärmen");
-    PROGMEM Language_Str MSG_PREHEAT_M_BEDONLY             = _UxGT("$ Bett Vorwärmen");
-    PROGMEM Language_Str MSG_PREHEAT_M_SETTINGS            = _UxGT("$ Einstellungen");
+      PROGMEM Language_Str MSG_PREHEAT_1                     = PREHEAT_1_LABEL _UxGT(" Vorwärmen");
+      PROGMEM Language_Str MSG_PREHEAT_1_H                   = PREHEAT_1_LABEL _UxGT(" Vorwärmen ~");
+      PROGMEM Language_Str MSG_PREHEAT_1_END                 = PREHEAT_1_LABEL _UxGT(" Extr. Vorwärmen");
+      PROGMEM Language_Str MSG_PREHEAT_1_END_E               = PREHEAT_1_LABEL _UxGT(" Extr. Vorwärm. ~");
+      PROGMEM Language_Str MSG_PREHEAT_1_ALL                 = PREHEAT_1_LABEL _UxGT(" Alles Vorwärmen");
+      PROGMEM Language_Str MSG_PREHEAT_1_BEDONLY             = PREHEAT_1_LABEL _UxGT(" Bett Vorwärmen");
+      PROGMEM Language_Str MSG_PREHEAT_1_SETTINGS            = PREHEAT_1_LABEL _UxGT(" Einstellungen");
+  
+      PROGMEM Language_Str MSG_PREHEAT_M                     = _UxGT("$ Vorwärmen");
+      PROGMEM Language_Str MSG_PREHEAT_M_H                   = _UxGT("$ Vorwärmen") " ~";
+      PROGMEM Language_Str MSG_PREHEAT_M_END                 = _UxGT("$ Extr. Vorwärmen");
+      PROGMEM Language_Str MSG_PREHEAT_M_END_E               = _UxGT("$ Extr. Vorwärm. ~");
+      PROGMEM Language_Str MSG_PREHEAT_M_ALL                 = _UxGT("$ Alles Vorwärmen");
+      PROGMEM Language_Str MSG_PREHEAT_M_BEDONLY             = _UxGT("$ Bett Vorwärmen");
+      PROGMEM Language_Str MSG_PREHEAT_M_SETTINGS            = _UxGT("$ Einstellungen");
   #endif
   PROGMEM Language_Str MSG_PREHEAT_CUSTOM                  = _UxGT("benutzerdef. Heizen");
   PROGMEM Language_Str MSG_COOLDOWN                        = _UxGT("Abkühlen");
@@ -148,8 +148,8 @@ namespace Language_de {
   PROGMEM Language_Str MSG_UBL_BUILD_CUSTOM_MESH           = _UxGT("Eigenes Netz erst.");
   PROGMEM Language_Str MSG_UBL_BUILD_MESH_MENU             = _UxGT("Netz erstellen");
   #if PREHEAT_COUNT
-    PROGMEM Language_Str MSG_UBL_BUILD_MESH_M              = _UxGT("$ Netz erstellen");
-    PROGMEM Language_Str MSG_UBL_VALIDATE_MESH_M           = _UxGT("$ Netz validieren");
+      PROGMEM Language_Str MSG_UBL_BUILD_MESH_M              = _UxGT("$ Netz erstellen");
+      PROGMEM Language_Str MSG_UBL_VALIDATE_MESH_M           = _UxGT("$ Netz validieren");
   #endif
   PROGMEM Language_Str MSG_UBL_BUILD_COLD_MESH             = _UxGT("Netz erstellen kalt");
   PROGMEM Language_Str MSG_UBL_MESH_HEIGHT_ADJUST          = _UxGT("Netzhöhe einst.");
@@ -482,17 +482,17 @@ namespace Language_de {
   PROGMEM Language_Str MSG_KILL_EXPECTED_PRINTER           = _UxGT("Falscher Drucker");
 
   #if LCD_WIDTH >= 20
-    PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Gesamte Drucke");
-    PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Komplette Drucke");
-    PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Gesamte Druckzeit");
-    PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Längste Druckzeit");
-    PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Gesamt Extrudiert");
+      PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Gesamte Drucke");
+      PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Komplette Drucke");
+      PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Gesamte Druckzeit");
+      PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Längste Druckzeit");
+      PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Gesamt Extrudiert");
   #else
-    PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Drucke");
-    PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Komplette");
-    PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Gesamte");
-    PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Längste");
-    PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Extrud.");
+      PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Drucke");
+      PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Komplette");
+      PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Gesamte");
+      PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Längste");
+      PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Extrud.");
   #endif
 
   PROGMEM Language_Str MSG_INFO_MIN_TEMP                   = _UxGT("Min Temp");
@@ -581,29 +581,29 @@ namespace Language_de {
   // Die Filament-Change-Bildschirme können bis zu 3 Zeilen auf einem 4-Zeilen-Display anzeigen
   //                                       ...oder 2 Zeilen auf einem 3-Zeilen-Display.
   #if LCD_HEIGHT >= 4
-    PROGMEM Language_Str MSG_ADVANCED_PAUSE_WAITING        = _UxGT(MSG_2_LINE("Knopf drücken um", "Druck fortzusetzen"));
-    PROGMEM Language_Str MSG_PAUSE_PRINT_PARKING           = _UxGT(MSG_2_LINE("Druck ist", "pausiert..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_3_LINE("Warte auf den", "Start des", "Filamentwechsels..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_3_LINE("Filament einlegen", "und Knopf drücken", "um fortzusetzen"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_2_LINE("Knopf drücken um", "Düse aufzuheizen"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_2_LINE("Düse heizt auf", "bitte warten..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_3_LINE("Warte auf", "Entnahme", "des Filaments..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_3_LINE("Warte auf", "Laden des", "Filaments..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_PURGE         = _UxGT(MSG_3_LINE("Warte auf", "Spülung", "der Düse..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_CONT_PURGE    = _UxGT(MSG_3_LINE("Klicke um", "die Düsenspülung", "zu beenden"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_3_LINE("Warte auf", "Fortsetzen des", "Drucks..."));
+      PROGMEM Language_Str MSG_ADVANCED_PAUSE_WAITING        = _UxGT(MSG_2_LINE("Knopf drücken um", "Druck fortzusetzen"));
+      PROGMEM Language_Str MSG_PAUSE_PRINT_PARKING           = _UxGT(MSG_2_LINE("Druck ist", "pausiert..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_3_LINE("Warte auf den", "Start des", "Filamentwechsels..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_3_LINE("Filament einlegen", "und Knopf drücken", "um fortzusetzen"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_2_LINE("Knopf drücken um", "Düse aufzuheizen"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_2_LINE("Düse heizt auf", "bitte warten..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_3_LINE("Warte auf", "Entnahme", "des Filaments..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_3_LINE("Warte auf", "Laden des", "Filaments..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_PURGE         = _UxGT(MSG_3_LINE("Warte auf", "Spülung", "der Düse..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_CONT_PURGE    = _UxGT(MSG_3_LINE("Klicke um", "die Düsenspülung", "zu beenden"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_3_LINE("Warte auf", "Fortsetzen des", "Drucks..."));
   #else // LCD_HEIGHT < 4
-    PROGMEM Language_Str MSG_ADVANCED_PAUSE_WAITING        = _UxGT(MSG_1_LINE("Klick zum Fortsetzen"));
-    PROGMEM Language_Str MSG_PAUSE_PRINT_PARKING           = _UxGT(MSG_1_LINE("Pausiert..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_1_LINE("Bitte warten..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_1_LINE("Laden und Klick"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_1_LINE("Klick zum Heizen"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_1_LINE("Heizen..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_1_LINE("Entnehmen..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_1_LINE("Laden..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_PURGE         = _UxGT(MSG_1_LINE("Spülen..."));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_CONT_PURGE    = _UxGT(MSG_2_LINE("Klick zum beenden", "der Düsenspülung"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_1_LINE("Fortsetzen..."));
+      PROGMEM Language_Str MSG_ADVANCED_PAUSE_WAITING        = _UxGT(MSG_1_LINE("Klick zum Fortsetzen"));
+      PROGMEM Language_Str MSG_PAUSE_PRINT_PARKING           = _UxGT(MSG_1_LINE("Pausiert..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_1_LINE("Bitte warten..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_1_LINE("Laden und Klick"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEAT          = _UxGT(MSG_1_LINE("Klick zum Heizen"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_HEATING       = _UxGT(MSG_1_LINE("Heizen..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_UNLOAD        = _UxGT(MSG_1_LINE("Entnehmen..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_LOAD          = _UxGT(MSG_1_LINE("Laden..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_PURGE         = _UxGT(MSG_1_LINE("Spülen..."));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_CONT_PURGE    = _UxGT(MSG_2_LINE("Klick zum beenden", "der Düsenspülung"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME        = _UxGT(MSG_1_LINE("Fortsetzen..."));
   #endif // LCD_HEIGHT < 4
 
   PROGMEM Language_Str MSG_TMC_DRIVERS                     = _UxGT("TMC Treiber"); // Max length 18 characters
@@ -623,9 +623,9 @@ namespace Language_de {
   PROGMEM Language_Str MSG_LEVEL_X_AXIS                    = _UxGT("X Achse leveln");
   PROGMEM Language_Str MSG_AUTO_CALIBRATE                  = _UxGT("Auto. Kalibiren");
   #if ENABLED(TOUCH_UI_FTDI_EVE)
-    PROGMEM Language_Str MSG_HEATER_TIMEOUT                = _UxGT("Idle Timeout, Temperatur fällt. Drücke Okay, um erneut aufzuheizen und fortzufahren.");
+      PROGMEM Language_Str MSG_HEATER_TIMEOUT                = _UxGT("Idle Timeout, Temperatur fällt. Drücke Okay, um erneut aufzuheizen und fortzufahren.");
   #else
-    PROGMEM Language_Str MSG_HEATER_TIMEOUT                = _UxGT("Heizungs Timeout");
+      PROGMEM Language_Str MSG_HEATER_TIMEOUT                = _UxGT("Heizungs Timeout");
   #endif
   PROGMEM Language_Str MSG_REHEAT                          = _UxGT("Erneut aufheizen");
   PROGMEM Language_Str MSG_REHEATING                       = _UxGT("Erneut aufhei. ...");

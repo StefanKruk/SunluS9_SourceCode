@@ -29,7 +29,7 @@ struct NudgeNozzleScreenData {
   struct BaseNumericAdjustmentScreenData placeholder;
   xyz_int_t rel;
   #if HAS_MULTI_EXTRUDER
-    bool link_nozzles;
+      bool link_nozzles;
   #endif
   bool show_offsets;
 };

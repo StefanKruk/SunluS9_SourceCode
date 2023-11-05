@@ -54,76 +54,76 @@
  */
 
 #ifdef TARGET_LPC1768
-
-#include "../../../inc/MarlinConfigPre.h"
-
-#if HAS_MARLINUI_U8GLIB
-
-#include <U8glib.h>
-#include "../../shared/HAL_SPI.h"
-
-#ifndef LCD_SPI_SPEED
-  #ifdef SD_SPI_SPEED
-    #define LCD_SPI_SPEED SD_SPI_SPEED    // Assume SPI speed shared with SD
-  #else
-    #define LCD_SPI_SPEED SPI_FULL_SPEED  // Use full speed if SD speed is not supplied
-  #endif
-#endif
-
-uint8_t u8g_com_HAL_LPC1768_hw_spi_fn(u8g_t *u8g, uint8_t msg, uint8_t arg_val, void *arg_ptr) {
-  switch (msg) {
-    case U8G_COM_MSG_STOP:
-      break;
-
-    case U8G_COM_MSG_INIT:
-      u8g_SetPILevel(u8g, U8G_PI_CS, 1);
-      u8g_SetPILevel(u8g, U8G_PI_A0, 1);
-      u8g_SetPILevel(u8g, U8G_PI_RESET, 1);
-      u8g_SetPIOutput(u8g, U8G_PI_CS);
-      u8g_SetPIOutput(u8g, U8G_PI_A0);
-      u8g_SetPIOutput(u8g, U8G_PI_RESET);
-      u8g_Delay(5);
-      spiBegin();
-      spiInit(LCD_SPI_SPEED);
-      break;
-
-    case U8G_COM_MSG_ADDRESS:                     /* define cmd (arg_val = 0) or data mode (arg_val = 1) */
-      u8g_SetPILevel(u8g, U8G_PI_A0, arg_val);
-      break;
-
-    case U8G_COM_MSG_CHIP_SELECT:
-      u8g_SetPILevel(u8g, U8G_PI_CS, (arg_val ? 0 : 1));
-      break;
-
-    case U8G_COM_MSG_RESET:
-      u8g_SetPILevel(u8g, U8G_PI_RESET, arg_val);
-      break;
-
-    case U8G_COM_MSG_WRITE_BYTE:
-      spiSend((uint8_t)arg_val);
-      break;
-
-    case U8G_COM_MSG_WRITE_SEQ: {
-        uint8_t *ptr = (uint8_t*) arg_ptr;
-        while (arg_val > 0) {
-          spiSend(*ptr++);
-          arg_val--;
-        }
+  
+  #include "../../../inc/MarlinConfigPre.h"
+  
+  #if HAS_MARLINUI_U8GLIB
+    
+    #include <U8glib.h>
+    #include "../../shared/HAL_SPI.h"
+    
+    #ifndef LCD_SPI_SPEED
+        #ifdef SD_SPI_SPEED
+            #define LCD_SPI_SPEED SD_SPI_SPEED    // Assume SPI speed shared with SD
+        #else
+            #define LCD_SPI_SPEED SPI_FULL_SPEED  // Use full speed if SD speed is not supplied
+        #endif
+    #endif
+    
+    uint8_t u8g_com_HAL_LPC1768_hw_spi_fn(u8g_t *u8g, uint8_t msg, uint8_t arg_val, void *arg_ptr) {
+      switch (msg) {
+        case U8G_COM_MSG_STOP:
+          break;
+    
+        case U8G_COM_MSG_INIT:
+          u8g_SetPILevel(u8g, U8G_PI_CS, 1);
+          u8g_SetPILevel(u8g, U8G_PI_A0, 1);
+          u8g_SetPILevel(u8g, U8G_PI_RESET, 1);
+          u8g_SetPIOutput(u8g, U8G_PI_CS);
+          u8g_SetPIOutput(u8g, U8G_PI_A0);
+          u8g_SetPIOutput(u8g, U8G_PI_RESET);
+          u8g_Delay(5);
+          spiBegin();
+          spiInit(LCD_SPI_SPEED);
+          break;
+    
+        case U8G_COM_MSG_ADDRESS:                     /* define cmd (arg_val = 0) or data mode (arg_val = 1) */
+          u8g_SetPILevel(u8g, U8G_PI_A0, arg_val);
+          break;
+    
+        case U8G_COM_MSG_CHIP_SELECT:
+          u8g_SetPILevel(u8g, U8G_PI_CS, (arg_val ? 0 : 1));
+          break;
+    
+        case U8G_COM_MSG_RESET:
+          u8g_SetPILevel(u8g, U8G_PI_RESET, arg_val);
+          break;
+    
+        case U8G_COM_MSG_WRITE_BYTE:
+          spiSend((uint8_t)arg_val);
+          break;
+    
+        case U8G_COM_MSG_WRITE_SEQ: {
+            uint8_t *ptr = (uint8_t*) arg_ptr;
+            while (arg_val > 0) {
+              spiSend(*ptr++);
+              arg_val--;
+            }
+          }
+          break;
+    
+        case U8G_COM_MSG_WRITE_SEQ_P: {
+            uint8_t *ptr = (uint8_t*) arg_ptr;
+            while (arg_val > 0) {
+              spiSend(*ptr++);
+              arg_val--;
+            }
+          }
+          break;
       }
-      break;
-
-    case U8G_COM_MSG_WRITE_SEQ_P: {
-        uint8_t *ptr = (uint8_t*) arg_ptr;
-        while (arg_val > 0) {
-          spiSend(*ptr++);
-          arg_val--;
-        }
-      }
-      break;
-  }
-  return 1;
-}
-
-#endif // HAS_MARLINUI_U8GLIB
-
+      return 1;
+    }
+    
+  #endif // HAS_MARLINUI_U8GLIB
+  
 #endif // TARGET_LPC1768

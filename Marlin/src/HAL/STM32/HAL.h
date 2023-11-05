@@ -41,71 +41,71 @@
 // Serial Ports
 //
 #ifdef USBCON
-  #include <USBSerial.h>
-  #include "../../core/serial_hook.h"
-  typedef ForwardSerial1Class< decltype(SerialUSB) > DefaultSerial1;
-  extern DefaultSerial1 MSerial0;
+    #include <USBSerial.h>
+    #include "../../core/serial_hook.h"
+    typedef ForwardSerial1Class< decltype(SerialUSB) > DefaultSerial1;
+    extern DefaultSerial1 MSerial0;
 #endif
 
 #define _MSERIAL(X) MSerial##X
 #define MSERIAL(X) _MSERIAL(X)
 
 #if SERIAL_PORT == -1
-  #define MYSERIAL1 MSerial0
+    #define MYSERIAL1 MSerial0
 #elif WITHIN(SERIAL_PORT, 1, 6)
-  #define MYSERIAL1 MSERIAL(SERIAL_PORT)
+    #define MYSERIAL1 MSERIAL(SERIAL_PORT)
 #else
-  #error "SERIAL_PORT must be from 1 to 6. You can also use -1 if the board supports Native USB."
+    #error "SERIAL_PORT must be from 1 to 6. You can also use -1 if the board supports Native USB."
 #endif
 
 #ifdef SERIAL_PORT_2
-  #if SERIAL_PORT_2 == -1
-    #define MYSERIAL2 MSerial0
-  #elif WITHIN(SERIAL_PORT_2, 1, 6)
-    #define MYSERIAL2 MSERIAL(SERIAL_PORT_2)
-  #else
-    #error "SERIAL_PORT_2 must be from 1 to 6. You can also use -1 if the board supports Native USB."
-  #endif
+    #if SERIAL_PORT_2 == -1
+        #define MYSERIAL2 MSerial0
+    #elif WITHIN(SERIAL_PORT_2, 1, 6)
+        #define MYSERIAL2 MSERIAL(SERIAL_PORT_2)
+    #else
+        #error "SERIAL_PORT_2 must be from 1 to 6. You can also use -1 if the board supports Native USB."
+    #endif
 #endif
 
 #ifdef SERIAL_PORT_3
-  #if SERIAL_PORT_3 == -1
-    #define MYSERIAL3 MSerial0
-  #elif WITHIN(SERIAL_PORT_3, 1, 6)
-    #define MYSERIAL3 MSERIAL(SERIAL_PORT_3)
-  #else
-    #error "SERIAL_PORT_3 must be from 1 to 6. You can also use -1 if the board supports Native USB."
-  #endif
+    #if SERIAL_PORT_3 == -1
+        #define MYSERIAL3 MSerial0
+    #elif WITHIN(SERIAL_PORT_3, 1, 6)
+        #define MYSERIAL3 MSERIAL(SERIAL_PORT_3)
+    #else
+        #error "SERIAL_PORT_3 must be from 1 to 6. You can also use -1 if the board supports Native USB."
+    #endif
 #endif
 
 #ifdef MMU2_SERIAL_PORT
-  #if MMU2_SERIAL_PORT == -1
-    #define MMU2_SERIAL MSerial0
-  #elif WITHIN(MMU2_SERIAL_PORT, 1, 6)
-    #define MMU2_SERIAL MSERIAL(MMU2_SERIAL_PORT)
-  #else
-    #error "MMU2_SERIAL_PORT must be from 1 to 6. You can also use -1 if the board supports Native USB."
-  #endif
+    #if MMU2_SERIAL_PORT == -1
+        #define MMU2_SERIAL MSerial0
+    #elif WITHIN(MMU2_SERIAL_PORT, 1, 6)
+        #define MMU2_SERIAL MSERIAL(MMU2_SERIAL_PORT)
+    #else
+        #error "MMU2_SERIAL_PORT must be from 1 to 6. You can also use -1 if the board supports Native USB."
+    #endif
 #endif
 
 #ifdef LCD_SERIAL_PORT
-  #if LCD_SERIAL_PORT == -1
-    #define LCD_SERIAL MSerial0
-  #elif WITHIN(LCD_SERIAL_PORT, 1, 6)
-    #define LCD_SERIAL MSERIAL(LCD_SERIAL_PORT)
-  #else
-    #error "LCD_SERIAL_PORT must be from 1 to 6. You can also use -1 if the board supports Native USB."
-  #endif
-  #if HAS_DGUS_LCD
-    #define SERIAL_GET_TX_BUFFER_FREE() LCD_SERIAL.availableForWrite()
-  #endif
+    #if LCD_SERIAL_PORT == -1
+        #define LCD_SERIAL MSerial0
+    #elif WITHIN(LCD_SERIAL_PORT, 1, 6)
+        #define LCD_SERIAL MSERIAL(LCD_SERIAL_PORT)
+    #else
+        #error "LCD_SERIAL_PORT must be from 1 to 6. You can also use -1 if the board supports Native USB."
+    #endif
+    #if HAS_DGUS_LCD
+        #define SERIAL_GET_TX_BUFFER_FREE() LCD_SERIAL.availableForWrite()
+    #endif
 #endif
 
 /**
  * TODO: review this to return 1 for pins that are not analog input
  */
 #ifndef analogInputToDigitalPin
-  #define analogInputToDigitalPin(p) (p)
+    #define analogInputToDigitalPin(p) (p)
 #endif
 
 #define CRITICAL_SECTION_START()  uint32_t primask = __get_PRIMASK(); __disable_irq()
@@ -193,8 +193,8 @@ uint16_t HAL_adc_get_result();
 #define PARSED_PIN_INDEX(code, dval) parser.intval(code, dval)
 
 #ifdef STM32F1xx
-  #define JTAG_DISABLE() AFIO_DBGAFR_CONFIG(AFIO_MAPR_SWJ_CFG_JTAGDISABLE)
-  #define JTAGSWD_DISABLE() AFIO_DBGAFR_CONFIG(AFIO_MAPR_SWJ_CFG_DISABLE)
+    #define JTAG_DISABLE() AFIO_DBGAFR_CONFIG(AFIO_MAPR_SWJ_CFG_JTAGDISABLE)
+    #define JTAGSWD_DISABLE() AFIO_DBGAFR_CONFIG(AFIO_MAPR_SWJ_CFG_DISABLE)
 #endif
 
 #define PLATFORM_M997_SUPPORT

@@ -22,5 +22,5 @@
 #pragma once
 
 #if NOT_TARGET(ARDUINO_ARCH_ESP32)
-  #error "Oops! Select an ESP32 board in 'Tools > Board.'"
+    #error "Oops! Select an ESP32 board in 'Tools > Board.'"
 #endif

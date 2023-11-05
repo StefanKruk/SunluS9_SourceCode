@@ -28,62 +28,62 @@
 #include "../../inc/MarlinConfig.h"
 
 #if ENABLED(I2C_EEPROM)
-
-#include "eeprom_if.h"
-
-#if ENABLED(SOFT_I2C_EEPROM)
-  #include <SlowSoftWire.h>
-  SlowSoftWire Wire = SlowSoftWire(I2C_SDA_PIN, I2C_SCL_PIN, true);
-#else
-  #include <Wire.h>
-#endif
-
-void eeprom_init() {
-  Wire.begin(
-    #if PINS_EXIST(I2C_SCL, I2C_SDA) && DISABLED(SOFT_I2C_EEPROM)
-      uint8_t(I2C_SDA_PIN), uint8_t(I2C_SCL_PIN)
+  
+  #include "eeprom_if.h"
+  
+  #if ENABLED(SOFT_I2C_EEPROM)
+      #include <SlowSoftWire.h>
+      SlowSoftWire Wire = SlowSoftWire(I2C_SDA_PIN, I2C_SCL_PIN, true);
+  #else
+      #include <Wire.h>
+  #endif
+  
+  void eeprom_init() {
+    Wire.begin(
+      #if PINS_EXIST(I2C_SCL, I2C_SDA) && DISABLED(SOFT_I2C_EEPROM)
+          uint8_t(I2C_SDA_PIN), uint8_t(I2C_SCL_PIN)
+      #endif
+    );
+  }
+  
+  #if ENABLED(USE_SHARED_EEPROM)
+    
+    #ifndef EEPROM_WRITE_DELAY
+        #define EEPROM_WRITE_DELAY    5
     #endif
-  );
-}
-
-#if ENABLED(USE_SHARED_EEPROM)
-
-#ifndef EEPROM_WRITE_DELAY
-  #define EEPROM_WRITE_DELAY    5
-#endif
-#ifndef EEPROM_DEVICE_ADDRESS
-  #define EEPROM_DEVICE_ADDRESS  0x50
-#endif
-
-static constexpr uint8_t eeprom_device_address = I2C_ADDRESS(EEPROM_DEVICE_ADDRESS);
-
-// ------------------------
-// Public functions
-// ------------------------
-
-static void _eeprom_begin(uint8_t * const pos) {
-  const unsigned eeprom_address = (unsigned)pos;
-  Wire.beginTransmission(eeprom_device_address);
-  Wire.write(int(eeprom_address >> 8));   // Address High
-  Wire.write(int(eeprom_address & 0xFF)); // Address Low
-}
-
-void eeprom_write_byte(uint8_t *pos, uint8_t value) {
-  _eeprom_begin(pos);
-  Wire.write(value);
-  Wire.endTransmission();
-
-  // wait for write cycle to complete
-  // this could be done more efficiently with "acknowledge polling"
-  delay(EEPROM_WRITE_DELAY);
-}
-
-uint8_t eeprom_read_byte(uint8_t *pos) {
-  _eeprom_begin(pos);
-  Wire.endTransmission();
-  Wire.requestFrom(eeprom_device_address, (byte)1);
-  return Wire.available() ? Wire.read() : 0xFF;
-}
-
-#endif // USE_SHARED_EEPROM
+    #ifndef EEPROM_DEVICE_ADDRESS
+        #define EEPROM_DEVICE_ADDRESS  0x50
+    #endif
+    
+    static constexpr uint8_t eeprom_device_address = I2C_ADDRESS(EEPROM_DEVICE_ADDRESS);
+    
+    // ------------------------
+    // Public functions
+    // ------------------------
+    
+    static void _eeprom_begin(uint8_t * const pos) {
+      const unsigned eeprom_address = (unsigned)pos;
+      Wire.beginTransmission(eeprom_device_address);
+      Wire.write(int(eeprom_address >> 8));   // Address High
+      Wire.write(int(eeprom_address & 0xFF)); // Address Low
+    }
+    
+    void eeprom_write_byte(uint8_t *pos, uint8_t value) {
+      _eeprom_begin(pos);
+      Wire.write(value);
+      Wire.endTransmission();
+    
+      // wait for write cycle to complete
+      // this could be done more efficiently with "acknowledge polling"
+      delay(EEPROM_WRITE_DELAY);
+    }
+    
+    uint8_t eeprom_read_byte(uint8_t *pos) {
+      _eeprom_begin(pos);
+      Wire.endTransmission();
+      Wire.requestFrom(eeprom_device_address, (byte)1);
+      return Wire.available() ? Wire.read() : 0xFF;
+    }
+    
+  #endif // USE_SHARED_EEPROM
 #endif // I2C_EEPROM

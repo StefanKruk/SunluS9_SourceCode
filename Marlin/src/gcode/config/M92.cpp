@@ -29,17 +29,17 @@ void report_M92(const bool echo=true, const int8_t e=-1) {
                           SP_Y_STR, LINEAR_UNIT(planner.settings.axis_steps_per_mm[Y_AXIS]),
                           SP_Z_STR, LINEAR_UNIT(planner.settings.axis_steps_per_mm[Z_AXIS]));
   #if DISABLED(DISTINCT_E_FACTORS)
-    SERIAL_ECHOPAIR_P(SP_E_STR, VOLUMETRIC_UNIT(planner.settings.axis_steps_per_mm[E_AXIS]));
+      SERIAL_ECHOPAIR_P(SP_E_STR, VOLUMETRIC_UNIT(planner.settings.axis_steps_per_mm[E_AXIS]));
   #endif
   SERIAL_EOL();
 
   #if ENABLED(DISTINCT_E_FACTORS)
-    LOOP_L_N(i, E_STEPPERS) {
-      if (e >= 0 && i != e) continue;
-      if (echo) SERIAL_ECHO_START(); else SERIAL_CHAR(' ');
-      SERIAL_ECHOLNPAIR_P(PSTR(" M92 T"), i,
-                        SP_E_STR, VOLUMETRIC_UNIT(planner.settings.axis_steps_per_mm[E_AXIS_N(i)]));
-    }
+      LOOP_L_N(i, E_STEPPERS) {
+        if (e >= 0 && i != e) continue;
+        if (echo) SERIAL_ECHO_START(); else SERIAL_CHAR(' ');
+        SERIAL_ECHOLNPAIR_P(PSTR(" M92 T"), i,
+                          SP_E_STR, VOLUMETRIC_UNIT(planner.settings.axis_steps_per_mm[E_AXIS_N(i)]));
+      }
   #endif
 
   UNUSED(e);
@@ -74,7 +74,7 @@ void GcodeSuite::M92() {
         if (value < 20) {
           float factor = planner.settings.axis_steps_per_mm[E_AXIS_N(target_extruder)] / value; // increase e constants if M92 E14 is given for netfab.
           #if HAS_CLASSIC_JERK && HAS_CLASSIC_E_JERK
-            planner.max_jerk.e *= factor;
+              planner.max_jerk.e *= factor;
           #endif
           planner.settings.max_feedrate_mm_s[E_AXIS_N(target_extruder)] *= factor;
           planner.max_acceleration_steps_per_s2[E_AXIS_N(target_extruder)] *= factor;
@@ -89,23 +89,23 @@ void GcodeSuite::M92() {
   planner.refresh_positioning();
 
   #if ENABLED(MAGIC_NUMBERS_GCODE)
-    #ifndef Z_MICROSTEPS
-      #define Z_MICROSTEPS 16
-    #endif
-    const float wanted = parser.floatval('L');
-    if (parser.seen('H') || wanted) {
-      const uint16_t argH = parser.ushortval('H'),
-                     micro_steps = argH ?: Z_MICROSTEPS;
-      const float z_full_step_mm = micro_steps * planner.steps_to_mm[Z_AXIS];
-      SERIAL_ECHO_START();
-      SERIAL_ECHOPAIR("{ micro_steps:", micro_steps, ", z_full_step_mm:", z_full_step_mm);
-      if (wanted) {
-        const float best = uint16_t(wanted / z_full_step_mm) * z_full_step_mm;
-        SERIAL_ECHOPAIR(", best:[", best);
-        if (best != wanted) { SERIAL_CHAR(','); SERIAL_DECIMAL(best + z_full_step_mm); }
-        SERIAL_CHAR(']');
+      #ifndef Z_MICROSTEPS
+          #define Z_MICROSTEPS 16
+      #endif
+      const float wanted = parser.floatval('L');
+      if (parser.seen('H') || wanted) {
+        const uint16_t argH = parser.ushortval('H'),
+                       micro_steps = argH ?: Z_MICROSTEPS;
+        const float z_full_step_mm = micro_steps * planner.steps_to_mm[Z_AXIS];
+        SERIAL_ECHO_START();
+        SERIAL_ECHOPAIR("{ micro_steps:", micro_steps, ", z_full_step_mm:", z_full_step_mm);
+        if (wanted) {
+          const float best = uint16_t(wanted / z_full_step_mm) * z_full_step_mm;
+          SERIAL_ECHOPAIR(", best:[", best);
+          if (best != wanted) { SERIAL_CHAR(','); SERIAL_DECIMAL(best + z_full_step_mm); }
+          SERIAL_CHAR(']');
+        }
+        SERIAL_ECHOLNPGM(" }");
       }
-      SERIAL_ECHOLNPGM(" }");
-    }
   #endif
 }

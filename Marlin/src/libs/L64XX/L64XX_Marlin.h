@@ -25,7 +25,7 @@
 
 #include <L6470.h>
 #if !(L6470_LIBRARY_VERSION >= 0x000800)
-  #error 'L6470_LIBRARY_VERSION 0x000800 or later required'
+    #error 'L6470_LIBRARY_VERSION 0x000800 or later required'
 #endif
 
 #define L6470_GETPARAM(P,Q) stepper##Q.GetParam(P)
@@ -72,19 +72,19 @@ public:
 
   static void say_axis(const L64XX_axis_t axis, const uint8_t label=true);
   #if ENABLED(L6470_CHITCHAT)
-    static void error_status_decode(
-      const uint16_t status, const L64XX_axis_t axis,
-      const uint16_t _status_axis_th_sd, const uint16_t _status_axis_th_wrn,
-      const uint16_t _status_axis_step_loss_a, const uint16_t _status_axis_step_loss_b,
-      const uint16_t _status_axis_ocd, const uint8_t _status_axis_layout
-    );
+      static void error_status_decode(
+        const uint16_t status, const L64XX_axis_t axis,
+        const uint16_t _status_axis_th_sd, const uint16_t _status_axis_th_wrn,
+        const uint16_t _status_axis_step_loss_a, const uint16_t _status_axis_step_loss_b,
+        const uint16_t _status_axis_ocd, const uint8_t _status_axis_layout
+      );
   #else
-    FORCE_INLINE static void error_status_decode(
-      const uint16_t, const L64XX_axis_t,
-      const uint16_t, const uint16_t,
-      const uint16_t, const uint16_t,
-      const uint16_t, const uint8_t
-    ){}
+      FORCE_INLINE static void error_status_decode(
+        const uint16_t, const L64XX_axis_t,
+        const uint16_t, const uint16_t,
+        const uint16_t, const uint16_t,
+        const uint16_t, const uint8_t
+      ){}
   #endif
 
   // ~40 bytes SRAM to simplify status decode routines
@@ -115,12 +115,12 @@ public:
   static L64XX_shadow_t shadow;
 
   #if ENABLED(MONITOR_L6470_DRIVER_STATUS)
-    static bool monitor_paused;
-    static inline void pause_monitor(const bool p) { monitor_paused = p; }
-    static void monitor_update(L64XX_axis_t stepper_index);
-    static void monitor_driver();
+      static bool monitor_paused;
+      static inline void pause_monitor(const bool p) { monitor_paused = p; }
+      static void monitor_update(L64XX_axis_t stepper_index);
+      static void monitor_driver();
   #else
-    static inline void pause_monitor(const bool) {}
+      static inline void pause_monitor(const bool) {}
   #endif
 
 //protected:

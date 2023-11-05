@@ -45,22 +45,22 @@
 
 // manually add pins that have names that are macros which don't play well with these macros
 #if ANY(AVR_ATmega2560_FAMILY, AVR_ATmega1284_FAMILY, ARDUINO_ARCH_SAM, TARGET_LPC1768)
-  #if CONF_SERIAL_IS(0)
-    static const char RXD_NAME_0[] PROGMEM = { "RXD0" };
-    static const char TXD_NAME_0[] PROGMEM = { "TXD0" };
-  #endif
-  #if CONF_SERIAL_IS(1)
-    static const char RXD_NAME_1[] PROGMEM = { "RXD1" };
-    static const char TXD_NAME_1[] PROGMEM = { "TXD1" };
-  #endif
-  #if CONF_SERIAL_IS(2)
-    static const char RXD_NAME_2[] PROGMEM = { "RXD2" };
-    static const char TXD_NAME_2[] PROGMEM = { "TXD2" };
-  #endif
-  #if CONF_SERIAL_IS(3)
-    static const char RXD_NAME_3[] PROGMEM = { "RXD3" };
-    static const char TXD_NAME_3[] PROGMEM = { "TXD3" };
-  #endif
+    #if CONF_SERIAL_IS(0)
+        static const char RXD_NAME_0[] PROGMEM = { "RXD0" };
+        static const char TXD_NAME_0[] PROGMEM = { "TXD0" };
+    #endif
+    #if CONF_SERIAL_IS(1)
+        static const char RXD_NAME_1[] PROGMEM = { "RXD1" };
+        static const char TXD_NAME_1[] PROGMEM = { "TXD1" };
+    #endif
+    #if CONF_SERIAL_IS(2)
+        static const char RXD_NAME_2[] PROGMEM = { "RXD2" };
+        static const char TXD_NAME_2[] PROGMEM = { "TXD2" };
+    #endif
+    #if CONF_SERIAL_IS(3)
+        static const char RXD_NAME_3[] PROGMEM = { "RXD3" };
+        static const char TXD_NAME_3[] PROGMEM = { "TXD3" };
+    #endif
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
@@ -96,67 +96,67 @@ const PinInfo pin_array[] PROGMEM = {
    */
 
   #if CONF_SERIAL_IS(0)
-    #if EITHER(AVR_ATmega2560_FAMILY, ARDUINO_ARCH_SAM)
-      { RXD_NAME_0, 0, true },
-      { TXD_NAME_0, 1, true },
-    #elif AVR_ATmega1284_FAMILY
-      { RXD_NAME_0, 8, true },
-      { TXD_NAME_0, 9, true },
-    #elif defined(TARGET_LPC1768)           // TX P0_02  RX P0_03
-      { RXD_NAME_0, 3, true },
-      { TXD_NAME_0, 2, true },
-    #endif
+      #if EITHER(AVR_ATmega2560_FAMILY, ARDUINO_ARCH_SAM)
+          { RXD_NAME_0, 0, true },
+          { TXD_NAME_0, 1, true },
+      #elif AVR_ATmega1284_FAMILY
+          { RXD_NAME_0, 8, true },
+          { TXD_NAME_0, 9, true },
+      #elif defined(TARGET_LPC1768)           // TX P0_02  RX P0_03
+          { RXD_NAME_0, 3, true },
+          { TXD_NAME_0, 2, true },
+      #endif
   #endif
 
   #if CONF_SERIAL_IS(1)
-    #if EITHER(AVR_ATmega2560_FAMILY, ARDUINO_ARCH_SAM)
-      { RXD_NAME_1, 19, true },
-      { TXD_NAME_1, 18, true },
-    #elif AVR_ATmega1284_FAMILY
-      { RXD_NAME_1, 10, true },
-      { TXD_NAME_1, 11, true },
-    #elif defined(TARGET_LPC1768)
-      #ifdef LPC_PINCFG_UART1_P2_00         // TX P2_00  RX P2_01
-        { RXD_NAME_1, 0x41, true },
-        { TXD_NAME_1, 0x40, true },
-      #else                                 // TX P0_15  RX P0_16
-        { RXD_NAME_1, 16, true },
-        { TXD_NAME_1, 15, true },
+      #if EITHER(AVR_ATmega2560_FAMILY, ARDUINO_ARCH_SAM)
+          { RXD_NAME_1, 19, true },
+          { TXD_NAME_1, 18, true },
+      #elif AVR_ATmega1284_FAMILY
+          { RXD_NAME_1, 10, true },
+          { TXD_NAME_1, 11, true },
+      #elif defined(TARGET_LPC1768)
+          #ifdef LPC_PINCFG_UART1_P2_00         // TX P2_00  RX P2_01
+              { RXD_NAME_1, 0x41, true },
+              { TXD_NAME_1, 0x40, true },
+          #else                                 // TX P0_15  RX P0_16
+              { RXD_NAME_1, 16, true },
+              { TXD_NAME_1, 15, true },
+          #endif
       #endif
-    #endif
   #endif
 
   #if CONF_SERIAL_IS(2)
-    #if EITHER(AVR_ATmega2560_FAMILY, ARDUINO_ARCH_SAM)
-      { RXD_NAME_2, 17, true },
-      { TXD_NAME_2, 16, true },
-    #elif defined(TARGET_LPC1768)
-      #ifdef LPC_PINCFG_UART2_P2_08         // TX P2_08  RX P2_09
-        { RXD_NAME_2, 0x49, true },
-        { TXD_NAME_2, 0x48, true },
-      #else                                 // TX P0_10  RX P0_11
-        { RXD_NAME_2, 11, true },
-        { TXD_NAME_2, 10, true },
+      #if EITHER(AVR_ATmega2560_FAMILY, ARDUINO_ARCH_SAM)
+          { RXD_NAME_2, 17, true },
+          { TXD_NAME_2, 16, true },
+      #elif defined(TARGET_LPC1768)
+          #ifdef LPC_PINCFG_UART2_P2_08         // TX P2_08  RX P2_09
+              { RXD_NAME_2, 0x49, true },
+              { TXD_NAME_2, 0x48, true },
+          #else                                 // TX P0_10  RX P0_11
+              { RXD_NAME_2, 11, true },
+              { TXD_NAME_2, 10, true },
+          #endif
       #endif
-    #endif
   #endif
 
   #if CONF_SERIAL_IS(3)
-    #if EITHER(AVR_ATmega2560_FAMILY, ARDUINO_ARCH_SAM)
-      { RXD_NAME_3, 15, true },
-      { TXD_NAME_3, 14, true },
-    #elif defined(TARGET_LPC1768)
-      #ifdef LPC_PINCFG_UART3_P0_25         // TX P0_25  RX P0_26
-        { RXD_NAME_3, 0x1A, true },
-        { TXD_NAME_3, 0x19, true },
-      #elif defined(LPC_PINCFG_UART3_P4_28) // TX P4_28  RX P4_29
-        { RXD_NAME_3, 0x9D, true },
-        { TXD_NAME_3, 0x9C, true },
-      #else                                 // TX P0_00  RX P0_01
-        { RXD_NAME_3, 1, true },
-        { TXD_NAME_3, 0, true },
+      #if EITHER(AVR_ATmega2560_FAMILY, ARDUINO_ARCH_SAM)
+          { RXD_NAME_3, 15, true },
+          { TXD_NAME_3, 14, true },
+      #elif defined(TARGET_LPC1768)
+          #ifdef LPC_PINCFG_UART3_P0_25         // TX P0_25  RX P0_26
+              { RXD_NAME_3, 0x1A, true },
+              { TXD_NAME_3, 0x19, true },
+          #elif defined(LPC_PINCFG_UART3_P4_28) // TX P4_28  RX P4_29
+              { RXD_NAME_3, 0x9D, true },
+              { TXD_NAME_3, 0x9C, true },
+          #else                                 // TX P0_00  RX P0_01
+              { RXD_NAME_3, 1, true },
+              { TXD_NAME_3, 0, true },
+          #endif
       #endif
-    #endif
   #endif
 
   #include "pinsDebug_list.h"
@@ -167,7 +167,7 @@ const PinInfo pin_array[] PROGMEM = {
 #include HAL_PATH(../HAL, pinsDebug.h)  // get the correct support file for this CPU
 
 #ifndef M43_NEVER_TOUCH
-  #define M43_NEVER_TOUCH(Q) false
+    #define M43_NEVER_TOUCH(Q) false
 #endif
 
 static void print_input_or_output(const bool isout) {
@@ -181,17 +181,17 @@ inline void report_pin_state_extended(pin_t pin, const bool ignore, const bool e
 
   auto alt_pin_echo = [](const pin_t &pin) {
     #if AVR_AT90USB1286_FAMILY
-      // Use FastIO for pins Teensy doesn't expose
-      if (pin == 46) {
-        print_input_or_output(IS_OUTPUT(46));
-        SERIAL_CHAR('0' + READ(46));
-        return false;
-      }
-      else if (pin == 47) {
-        print_input_or_output(IS_OUTPUT(47));
-        SERIAL_CHAR('0' + READ(47));
-        return false;
-      }
+        // Use FastIO for pins Teensy doesn't expose
+        if (pin == 46) {
+          print_input_or_output(IS_OUTPUT(46));
+          SERIAL_CHAR('0' + READ(46));
+          return false;
+        }
+        else if (pin == 47) {
+          print_input_or_output(IS_OUTPUT(47));
+          SERIAL_CHAR('0' + READ(47));
+          return false;
+        }
     #endif
     return true;
   };

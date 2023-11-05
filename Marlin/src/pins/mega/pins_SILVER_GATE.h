@@ -22,7 +22,7 @@
 #pragma once
 
 #if NOT_TARGET(__AVR_ATmega1281__, __AVR_ATmega2561__)
-  #error "Oops! Select 'Silvergate' in 'Tools > Board.'"
+    #error "Oops! Select 'Silvergate' in 'Tools > Board.'"
 #endif
 
 #define BOARD_INFO_NAME "Silver Gate"
@@ -52,17 +52,17 @@
 #define SDSS                                  16
 
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN                      34  // X_MAX unless overridden
+    #define FIL_RUNOUT_PIN                      34  // X_MAX unless overridden
 #endif
 
 #ifndef FAN_PIN
-  #define FAN_PIN                              5
+    #define FAN_PIN                              5
 #endif
 
 #define HEATER_0_PIN                           7
 
 #ifndef E0_AUTO_FAN_PIN
-  #define E0_AUTO_FAN_PIN                      3
+    #define E0_AUTO_FAN_PIN                      3
 #endif
 
 #define CONTROLLER_FAN_PIN                     2
@@ -73,20 +73,20 @@
 #define TEMP_BED_PIN                           6
 
 #if HAS_MARLINUI_U8GLIB
-  #if ENABLED(U8GLIB_ST7920)                      // SPI GLCD 12864 ST7920
-    #define LCD_PINS_RS                       30
-    #define LCD_PINS_ENABLE                   20
-    #define LCD_PINS_D4                       25
-    #define BEEPER_PIN                        29
-    #define BTN_EN1                           19
-    #define BTN_EN2                           22
-    #define BTN_ENC                           24
-    #define LCD_BACKLIGHT_PIN                  6
-    #if ENABLED(SILVER_GATE_GLCD_CONTROLLER)
-      #define KILL_PIN                        21
-      #define HOME_PIN                        28
+    #if ENABLED(U8GLIB_ST7920)                      // SPI GLCD 12864 ST7920
+        #define LCD_PINS_RS                       30
+        #define LCD_PINS_ENABLE                   20
+        #define LCD_PINS_D4                       25
+        #define BEEPER_PIN                        29
+        #define BTN_EN1                           19
+        #define BTN_EN2                           22
+        #define BTN_ENC                           24
+        #define LCD_BACKLIGHT_PIN                  6
+        #if ENABLED(SILVER_GATE_GLCD_CONTROLLER)
+            #define KILL_PIN                        21
+            #define HOME_PIN                        28
+        #endif
     #endif
-  #endif
 #endif
 
 #define SD_DETECT_PIN                         15
@@ -95,5 +95,5 @@
 #define STAT_LED_BLUE_PIN                     26
 
 #ifndef CASE_LIGHT_PIN
-  #define CASE_LIGHT_PIN                      51
+    #define CASE_LIGHT_PIN                      51
 #endif

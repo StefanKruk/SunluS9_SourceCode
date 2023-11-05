@@ -35,7 +35,7 @@
 void GcodeSuite::M118() {
   bool hasE = false, hasA = false;
   #if HAS_MULTI_SERIAL
-    int8_t port = -1; // Assume no redirect
+      int8_t port = -1; // Assume no redirect
   #endif
   char *p = parser.string_arg;
   for (uint8_t i = 3; i--;) {
@@ -45,7 +45,7 @@ void GcodeSuite::M118() {
       case 'A': hasA = true; break;
       case 'E': hasE = true; break;
       #if HAS_MULTI_SERIAL
-        case 'P': port = p[1] - '0'; break;
+          case 'P': port = p[1] - '0'; break;
       #endif
     }
     p += 2;

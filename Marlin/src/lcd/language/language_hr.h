@@ -55,21 +55,21 @@ namespace Language_hr {
   PROGMEM Language_Str MSG_HOME_OFFSETS_APPLIED            = _UxGT("Offsets postavljeni");
   PROGMEM Language_Str MSG_SET_ORIGIN                      = _UxGT("Postavi ishodište");
   #if PREHEAT_COUNT
-    PROGMEM Language_Str MSG_PREHEAT_1                     = _UxGT("Predgrij ") PREHEAT_1_LABEL;
-    PROGMEM Language_Str MSG_PREHEAT_1_H                   = _UxGT("Predgrij ") PREHEAT_1_LABEL " ~";
-    PROGMEM Language_Str MSG_PREHEAT_1_END                 = _UxGT("Predgrij ") PREHEAT_1_LABEL _UxGT(" Dizna");
-    PROGMEM Language_Str MSG_PREHEAT_1_END_E               = _UxGT("Predgrij ") PREHEAT_1_LABEL _UxGT(" Dizna ~");
-    PROGMEM Language_Str MSG_PREHEAT_1_ALL                 = _UxGT("Predgrij ") PREHEAT_1_LABEL _UxGT(" Sve");
-    PROGMEM Language_Str MSG_PREHEAT_1_BEDONLY             = _UxGT("Predgrij ") PREHEAT_1_LABEL _UxGT(" Bed");
-    PROGMEM Language_Str MSG_PREHEAT_1_SETTINGS            = _UxGT("Predgrij ") PREHEAT_1_LABEL _UxGT(" conf");
-
-    PROGMEM Language_Str MSG_PREHEAT_M                     = _UxGT("Predgrij $");
-    PROGMEM Language_Str MSG_PREHEAT_M_H                   = _UxGT("Predgrij $ ~");
-    PROGMEM Language_Str MSG_PREHEAT_M_END                 = _UxGT("Predgrij $ Dizna");
-    PROGMEM Language_Str MSG_PREHEAT_M_END_E               = _UxGT("Predgrij $ Dizna ~");
-    PROGMEM Language_Str MSG_PREHEAT_M_ALL                 = _UxGT("Predgrij $ Sve");
-    PROGMEM Language_Str MSG_PREHEAT_M_BEDONLY             = _UxGT("Predgrij $ Bed");
-    PROGMEM Language_Str MSG_PREHEAT_M_SETTINGS            = _UxGT("Predgrij $ conf");
+      PROGMEM Language_Str MSG_PREHEAT_1                     = _UxGT("Predgrij ") PREHEAT_1_LABEL;
+      PROGMEM Language_Str MSG_PREHEAT_1_H                   = _UxGT("Predgrij ") PREHEAT_1_LABEL " ~";
+      PROGMEM Language_Str MSG_PREHEAT_1_END                 = _UxGT("Predgrij ") PREHEAT_1_LABEL _UxGT(" Dizna");
+      PROGMEM Language_Str MSG_PREHEAT_1_END_E               = _UxGT("Predgrij ") PREHEAT_1_LABEL _UxGT(" Dizna ~");
+      PROGMEM Language_Str MSG_PREHEAT_1_ALL                 = _UxGT("Predgrij ") PREHEAT_1_LABEL _UxGT(" Sve");
+      PROGMEM Language_Str MSG_PREHEAT_1_BEDONLY             = _UxGT("Predgrij ") PREHEAT_1_LABEL _UxGT(" Bed");
+      PROGMEM Language_Str MSG_PREHEAT_1_SETTINGS            = _UxGT("Predgrij ") PREHEAT_1_LABEL _UxGT(" conf");
+  
+      PROGMEM Language_Str MSG_PREHEAT_M                     = _UxGT("Predgrij $");
+      PROGMEM Language_Str MSG_PREHEAT_M_H                   = _UxGT("Predgrij $ ~");
+      PROGMEM Language_Str MSG_PREHEAT_M_END                 = _UxGT("Predgrij $ Dizna");
+      PROGMEM Language_Str MSG_PREHEAT_M_END_E               = _UxGT("Predgrij $ Dizna ~");
+      PROGMEM Language_Str MSG_PREHEAT_M_ALL                 = _UxGT("Predgrij $ Sve");
+      PROGMEM Language_Str MSG_PREHEAT_M_BEDONLY             = _UxGT("Predgrij $ Bed");
+      PROGMEM Language_Str MSG_PREHEAT_M_SETTINGS            = _UxGT("Predgrij $ conf");
   #endif
   PROGMEM Language_Str MSG_COOLDOWN                        = _UxGT("Hlađenje");
   PROGMEM Language_Str MSG_SWITCH_PS_ON                    = _UxGT("Uključi napajanje");
@@ -137,17 +137,17 @@ namespace Language_hr {
   PROGMEM Language_Str MSG_KILL_EXPECTED_PRINTER           = _UxGT("Neispravan pisač");
 
   #if LCD_WIDTH >= 20
-    PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Broj printova");
-    PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Završeni");
-    PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Ukupno printanja");
-    PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Najduži print");
-    PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Extrudirano ukupno");
+      PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Broj printova");
+      PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Završeni");
+      PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Ukupno printanja");
+      PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Najduži print");
+      PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Extrudirano ukupno");
   #else
-    PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Printovi");
-    PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Završeni");
-    PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Ukupno");
-    PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Najduži");
-    PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Extrudirano");
+      PROGMEM Language_Str MSG_INFO_PRINT_COUNT              = _UxGT("Printovi");
+      PROGMEM Language_Str MSG_INFO_COMPLETED_PRINTS         = _UxGT("Završeni");
+      PROGMEM Language_Str MSG_INFO_PRINT_TIME               = _UxGT("Ukupno");
+      PROGMEM Language_Str MSG_INFO_PRINT_LONGEST            = _UxGT("Najduži");
+      PROGMEM Language_Str MSG_INFO_PRINT_FILAMENT           = _UxGT("Extrudirano");
   #endif
 
   PROGMEM Language_Str MSG_INFO_PSU                        = _UxGT("Napajanje");
@@ -159,12 +159,12 @@ namespace Language_hr {
   PROGMEM Language_Str MSG_FILAMENT_CHANGE_RESUME          = _UxGT(MSG_1_LINE("Nastavljam..."));
 
   #if LCD_HEIGHT >= 4
-    // Up to 3 lines allowed
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_3_LINE("Čekaj početak", "filamenta", "promijeni"));
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_3_LINE("Umetni filament", "i pritisni tipku", "za nastavak..."));
+      // Up to 3 lines allowed
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT(MSG_3_LINE("Čekaj početak", "filamenta", "promijeni"));
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT        = _UxGT(MSG_3_LINE("Umetni filament", "i pritisni tipku", "za nastavak..."));
   #else
-    // Up to 2 lines allowed
-    PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT("Pričekaj...");
-    //PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT      = _UxGT(MSG_2_LINE("?", "?"));
+      // Up to 2 lines allowed
+      PROGMEM Language_Str MSG_FILAMENT_CHANGE_INIT          = _UxGT("Pričekaj...");
+      //PROGMEM Language_Str MSG_FILAMENT_CHANGE_INSERT      = _UxGT(MSG_2_LINE("?", "?"));
   #endif
 }

@@ -46,8 +46,8 @@
 #define FTM3_CH6_PIN 37
 #define FTM3_CH7_PIN 38
 #ifdef __MK66FX1M0__ // Teensy3.6
-  #define TPM1_CH0_PIN 16
-  #define TPM1_CH1_PIN 17
+    #define TPM1_CH0_PIN 16
+    #define TPM1_CH1_PIN 17
 #endif
 
 #define IS_ANALOG(P) ((P) >= analogInputToDigitalPin(0) && (P) <= analogInputToDigitalPin(9)) || ((P) >= analogInputToDigitalPin(12) && (P) <= analogInputToDigitalPin(20))

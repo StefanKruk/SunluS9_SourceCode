@@ -28,32 +28,32 @@
  */
 
 #ifdef ARDUINO_ARCH_ESP32
-
-#include "../../inc/MarlinConfig.h"
-#include "HAL.h"
-
-static pin_t tone_pin;
-volatile static int32_t toggles;
-
-void tone(const pin_t _pin, const unsigned int frequency, const unsigned long duration) {
-  tone_pin = _pin;
-  toggles = 2 * frequency * duration / 1000;
-  HAL_timer_start(TONE_TIMER_NUM, 2 * frequency);
-}
-
-void noTone(const pin_t _pin) {
-  HAL_timer_disable_interrupt(TONE_TIMER_NUM);
-  WRITE(_pin, LOW);
-}
-
-HAL_TONE_TIMER_ISR() {
-  HAL_timer_isr_prologue(TONE_TIMER_NUM);
-
-  if (toggles) {
-    toggles--;
-    TOGGLE(tone_pin);
+  
+  #include "../../inc/MarlinConfig.h"
+  #include "HAL.h"
+  
+  static pin_t tone_pin;
+  volatile static int32_t toggles;
+  
+  void tone(const pin_t _pin, const unsigned int frequency, const unsigned long duration) {
+    tone_pin = _pin;
+    toggles = 2 * frequency * duration / 1000;
+    HAL_timer_start(TONE_TIMER_NUM, 2 * frequency);
   }
-  else noTone(tone_pin);                         // turn off interrupt
-}
-
+  
+  void noTone(const pin_t _pin) {
+    HAL_timer_disable_interrupt(TONE_TIMER_NUM);
+    WRITE(_pin, LOW);
+  }
+  
+  HAL_TONE_TIMER_ISR() {
+    HAL_timer_isr_prologue(TONE_TIMER_NUM);
+  
+    if (toggles) {
+      toggles--;
+      TOGGLE(tone_pin);
+    }
+    else noTone(tone_pin);                         // turn off interrupt
+  }
+  
 #endif // ARDUINO_ARCH_ESP32

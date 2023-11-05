@@ -27,7 +27,7 @@
 
 // Cruft removal, makes driver smaller, faster.
 #ifndef MS_WANT_PARSER
-  #define MS_WANT_PARSER 0
+    #define MS_WANT_PARSER 0
 #endif
 
 #include "Usb.h"

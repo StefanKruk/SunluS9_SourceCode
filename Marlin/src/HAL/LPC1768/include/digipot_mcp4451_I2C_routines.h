@@ -27,7 +27,7 @@
  */
 
 #ifdef __cplusplus
-  extern "C" {
+    extern "C" {
 #endif
 
 #include <lpc17xx_i2c.h>
@@ -39,5 +39,5 @@ uint8_t digipot_mcp4451_start(uint8_t sla);
 uint8_t digipot_mcp4451_send_byte(uint8_t data);
 
 #ifdef __cplusplus
-  }
+    }
 #endif

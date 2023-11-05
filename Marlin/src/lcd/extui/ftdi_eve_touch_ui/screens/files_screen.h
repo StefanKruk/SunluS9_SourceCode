@@ -34,21 +34,21 @@ struct FilesScreenData {
   uint8_t   num_page;
   uint8_t   cur_page;
   #if ENABLED(SCROLL_LONG_FILENAMES) && (FTDI_API_LEVEL >= 810)
-    uint16_t  scroll_pos;
-    uint16_t  scroll_max;
+      uint16_t  scroll_pos;
+      uint16_t  scroll_max;
   #endif
 };
 
 class FilesScreen : public BaseScreen, public CachedScreen<FILES_SCREEN_CACHE, FILE_SCREEN_DL_SIZE> {
   private:
     #if ENABLED(TOUCH_UI_PORTRAIT)
-      static constexpr uint8_t header_h       = 2;
-      static constexpr uint8_t footer_h       = 2;
-      static constexpr uint8_t files_per_page = 11;
+        static constexpr uint8_t header_h       = 2;
+        static constexpr uint8_t footer_h       = 2;
+        static constexpr uint8_t files_per_page = 11;
     #else
-      static constexpr uint8_t header_h       = 1;
-      static constexpr uint8_t footer_h       = 1;
-      static constexpr uint8_t files_per_page = 6;
+        static constexpr uint8_t header_h       = 1;
+        static constexpr uint8_t footer_h       = 1;
+        static constexpr uint8_t files_per_page = 6;
     #endif
 
     static uint8_t  getTagForLine(uint8_t line) {return line + 2;}

@@ -124,12 +124,12 @@ typedef struct __attribute__((__packed__)) {
 extern const tImage NoLogo;
 
 #if ENABLED(SHOW_BOOTSCREEN)
-  extern const tImage MarlinLogo112x38x1;
-  extern const tImage MarlinLogo228x255x2;
-  extern const tImage MarlinLogo228x255x4;
-  extern const tImage MarlinLogo195x59x16;
-  extern const tImage MarlinLogo320x240x16;
-  extern const tImage MarlinLogo480x320x16;
+    extern const tImage MarlinLogo112x38x1;
+    extern const tImage MarlinLogo228x255x2;
+    extern const tImage MarlinLogo228x255x4;
+    extern const tImage MarlinLogo195x59x16;
+    extern const tImage MarlinLogo320x240x16;
+    extern const tImage MarlinLogo480x320x16;
 #endif
 extern const tImage Background320x30x16;
 

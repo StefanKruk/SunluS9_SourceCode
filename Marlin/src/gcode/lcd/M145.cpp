@@ -23,41 +23,41 @@
 #include "../../inc/MarlinConfig.h"
 
 #if PREHEAT_COUNT
-
-#include "../gcode.h"
-#include "../../lcd/marlinui.h"
-
-#if HAS_HOTEND
-  #include "../../module/temperature.h"
-#endif
-
-/**
- * M145: Set the heatup state for a material in the LCD menu
- *
- *   S<material>
- *   H<hotend temp>
- *   B<bed temp>
- *   F<fan speed>
- */
-void GcodeSuite::M145() {
-  const uint8_t material = (uint8_t)parser.intval('S');
-  if (material >= PREHEAT_COUNT)
-    SERIAL_ERROR_MSG(STR_ERR_MATERIAL_INDEX);
-  else {
-    preheat_t &mat = ui.material_preset[material];
-    #if HAS_HOTEND
-      if (parser.seenval('H'))
-        mat.hotend_temp = constrain(parser.value_int(), EXTRUDE_MINTEMP, thermalManager.hotend_max_target(0));
-    #endif
-    #if HAS_HEATED_BED
-      if (parser.seenval('B'))
-        mat.bed_temp = constrain(parser.value_int(), BED_MINTEMP, BED_MAX_TARGET);
-    #endif
-    #if HAS_FAN
-      if (parser.seenval('F'))
-        mat.fan_speed = constrain(parser.value_int(), 0, 255);
-    #endif
+  
+  #include "../gcode.h"
+  #include "../../lcd/marlinui.h"
+  
+  #if HAS_HOTEND
+      #include "../../module/temperature.h"
+  #endif
+  
+  /**
+   * M145: Set the heatup state for a material in the LCD menu
+   *
+   *   S<material>
+   *   H<hotend temp>
+   *   B<bed temp>
+   *   F<fan speed>
+   */
+  void GcodeSuite::M145() {
+    const uint8_t material = (uint8_t)parser.intval('S');
+    if (material >= PREHEAT_COUNT)
+      SERIAL_ERROR_MSG(STR_ERR_MATERIAL_INDEX);
+    else {
+      preheat_t &mat = ui.material_preset[material];
+      #if HAS_HOTEND
+          if (parser.seenval('H'))
+            mat.hotend_temp = constrain(parser.value_int(), EXTRUDE_MINTEMP, thermalManager.hotend_max_target(0));
+      #endif
+      #if HAS_HEATED_BED
+          if (parser.seenval('B'))
+            mat.bed_temp = constrain(parser.value_int(), BED_MINTEMP, BED_MAX_TARGET);
+      #endif
+      #if HAS_FAN
+          if (parser.seenval('F'))
+            mat.fan_speed = constrain(parser.value_int(), 0, 255);
+      #endif
+    }
   }
-}
-
+  
 #endif // PREHEAT_COUNT

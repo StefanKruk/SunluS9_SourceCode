@@ -32,7 +32,7 @@
 #include "env_validate.h"
 
 #ifndef BOARD_INFO_NAME
-  #define BOARD_INFO_NAME "PICA"
+    #define BOARD_INFO_NAME "PICA"
 #endif
 
 /*
@@ -96,18 +96,18 @@
 // Heaters / Fans
 //
 #ifndef HEATER_0_PIN
-  #define HEATER_0_PIN                        10  // E0
+    #define HEATER_0_PIN                        10  // E0
 #endif
 #ifndef HEATER_1_PIN
-  #define HEATER_1_PIN                         2  // E1
+    #define HEATER_1_PIN                         2  // E1
 #endif
 #define HEATER_BED_PIN                         8  // HEAT-BED
 
 #ifndef FAN_PIN
-  #define FAN_PIN                              9
+    #define FAN_PIN                              9
 #endif
 #ifndef FAN_2_PIN
-  #define FAN_2_PIN                            7
+    #define FAN_2_PIN                            7
 #endif
 
 #define SDPOWER_PIN                           -1
@@ -119,9 +119,9 @@
 
 // SPI for Max6675 or Max31855 Thermocouple
 #if DISABLED(SDSUPPORT)
-  #define MAX6675_SS_PIN                      66  // Don't use 53 if using Display/SD card
+    #define MAX6675_SS_PIN                      66  // Don't use 53 if using Display/SD card
 #else
-  #define MAX6675_SS_PIN                      66  // Don't use 49 (SD_DETECT_PIN)
+    #define MAX6675_SS_PIN                      66  // Don't use 49 (SD_DETECT_PIN)
 #endif
 
 //
@@ -136,16 +136,16 @@
 #define BEEPER_PIN                            29
 
 #if HAS_WIRED_LCD
-  #define LCD_PINS_RS                         33
-  #define LCD_PINS_ENABLE                     30
-  #define LCD_PINS_D4                         35
-  #define LCD_PINS_D5                         32
-  #define LCD_PINS_D6                         37
-  #define LCD_PINS_D7                         36
-
-  #define BTN_EN1                             47
-  #define BTN_EN2                             48
-  #define BTN_ENC                             31
-
-  #define LCD_SDSS                            53
+    #define LCD_PINS_RS                         33
+    #define LCD_PINS_ENABLE                     30
+    #define LCD_PINS_D4                         35
+    #define LCD_PINS_D5                         32
+    #define LCD_PINS_D6                         37
+    #define LCD_PINS_D7                         36
+  
+    #define BTN_EN1                             47
+    #define BTN_EN2                             48
+    #define BTN_ENC                             31
+  
+    #define LCD_SDSS                            53
 #endif

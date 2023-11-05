@@ -49,69 +49,69 @@
 
 #define MATCH_EILINE(P1,P2)     (P1 != P2 && PIN_TO_EILINE(P1) == PIN_TO_EILINE(P2))
 #if HAS_X_MAX
-  #define MATCH_X_MAX_EILINE(P) MATCH_EILINE(P, X_MAX_PIN)
+    #define MATCH_X_MAX_EILINE(P) MATCH_EILINE(P, X_MAX_PIN)
 #else
-  #define MATCH_X_MAX_EILINE(P) false
+    #define MATCH_X_MAX_EILINE(P) false
 #endif
 #if HAS_X_MIN
-  #define MATCH_X_MIN_EILINE(P) MATCH_EILINE(P, X_MIN_PIN)
+    #define MATCH_X_MIN_EILINE(P) MATCH_EILINE(P, X_MIN_PIN)
 #else
-  #define MATCH_X_MIN_EILINE(P) false
+    #define MATCH_X_MIN_EILINE(P) false
 #endif
 #if HAS_Y_MAX
-   #define MATCH_Y_MAX_EILINE(P) MATCH_EILINE(P, Y_MAX_PIN)
+     #define MATCH_Y_MAX_EILINE(P) MATCH_EILINE(P, Y_MAX_PIN)
 #else
-   #define MATCH_Y_MAX_EILINE(P) false
+     #define MATCH_Y_MAX_EILINE(P) false
 #endif
 #if HAS_Y_MIN
-  #define MATCH_Y_MIN_EILINE(P) MATCH_EILINE(P, Y_MIN_PIN)
+    #define MATCH_Y_MIN_EILINE(P) MATCH_EILINE(P, Y_MIN_PIN)
 #else
-  #define MATCH_Y_MIN_EILINE(P) false
+    #define MATCH_Y_MIN_EILINE(P) false
 #endif
 #if HAS_Z_MAX
-   #define MATCH_Z_MAX_EILINE(P) MATCH_EILINE(P, Z_MAX_PIN)
+     #define MATCH_Z_MAX_EILINE(P) MATCH_EILINE(P, Z_MAX_PIN)
 #else
-  #define MATCH_Z_MAX_EILINE(P) false
+    #define MATCH_Z_MAX_EILINE(P) false
 #endif
 #if HAS_Z_MIN
-  #define MATCH_Z_MIN_EILINE(P) MATCH_EILINE(P, Z_MIN_PIN)
+    #define MATCH_Z_MIN_EILINE(P) MATCH_EILINE(P, Z_MIN_PIN)
 #else
-  #define MATCH_Z_MIN_EILINE(P) false
+    #define MATCH_Z_MIN_EILINE(P) false
 #endif
 #if HAS_Z2_MAX
-  #define MATCH_Z2_MAX_EILINE(P) MATCH_EILINE(P, Z2_MAX_PIN)
+    #define MATCH_Z2_MAX_EILINE(P) MATCH_EILINE(P, Z2_MAX_PIN)
 #else
-  #define MATCH_Z2_MAX_EILINE(P) false
+    #define MATCH_Z2_MAX_EILINE(P) false
 #endif
 #if HAS_Z2_MIN
-  #define MATCH_Z2_MIN_EILINE(P) MATCH_EILINE(P, Z2_MIN_PIN)
+    #define MATCH_Z2_MIN_EILINE(P) MATCH_EILINE(P, Z2_MIN_PIN)
 #else
-  #define MATCH_Z2_MIN_EILINE(P) false
+    #define MATCH_Z2_MIN_EILINE(P) false
 #endif
 #if HAS_Z3_MAX
-  #define MATCH_Z3_MAX_EILINE(P) MATCH_EILINE(P, Z3_MAX_PIN)
+    #define MATCH_Z3_MAX_EILINE(P) MATCH_EILINE(P, Z3_MAX_PIN)
 #else
-  #define MATCH_Z3_MAX_EILINE(P) false
+    #define MATCH_Z3_MAX_EILINE(P) false
 #endif
 #if HAS_Z3_MIN
-  #define MATCH_Z3_MIN_EILINE(P) MATCH_EILINE(P, Z3_MIN_PIN)
+    #define MATCH_Z3_MIN_EILINE(P) MATCH_EILINE(P, Z3_MIN_PIN)
 #else
-  #define MATCH_Z3_MIN_EILINE(P) false
+    #define MATCH_Z3_MIN_EILINE(P) false
 #endif
 #if HAS_Z4_MAX
-  #define MATCH_Z4_MAX_EILINE(P) MATCH_EILINE(P, Z4_MAX_PIN)
+    #define MATCH_Z4_MAX_EILINE(P) MATCH_EILINE(P, Z4_MAX_PIN)
 #else
-  #define MATCH_Z4_MAX_EILINE(P) false
+    #define MATCH_Z4_MAX_EILINE(P) false
 #endif
 #if HAS_Z4_MIN
-  #define MATCH_Z4_MIN_EILINE(P) MATCH_EILINE(P, Z4_MIN_PIN)
+    #define MATCH_Z4_MIN_EILINE(P) MATCH_EILINE(P, Z4_MIN_PIN)
 #else
-  #define MATCH_Z4_MIN_EILINE(P) false
+    #define MATCH_Z4_MIN_EILINE(P) false
 #endif
 #if HAS_Z_MIN_PROBE_PIN
-  #define MATCH_Z_MIN_PROBE_EILINE(P)   MATCH_EILINE(P, Z_MIN_PROBE_PIN)
+    #define MATCH_Z_MIN_PROBE_EILINE(P)   MATCH_EILINE(P, Z_MIN_PROBE_PIN)
 #else
-  #define MATCH_Z_MIN_PROBE_EILINE(P) false
+    #define MATCH_Z_MIN_PROBE_EILINE(P) false
 #endif
 #define AVAILABLE_EILINE(P)     (PIN_TO_EILINE(P) != -1                                 \
                                  && !MATCH_X_MAX_EILINE(P) && !MATCH_X_MIN_EILINE(P)    \
@@ -128,81 +128,81 @@ void endstop_ISR() { endstops.update(); }
 void setup_endstop_interrupts() {
   #define _ATTACH(P) attachInterrupt(P, endstop_ISR, CHANGE)
   #if HAS_X_MAX
-    #if !AVAILABLE_EILINE(X_MAX_PIN)
-      #error "X_MAX_PIN has no EXTINT line available."
-    #endif
-    _ATTACH(X_MAX_PIN);
+      #if !AVAILABLE_EILINE(X_MAX_PIN)
+          #error "X_MAX_PIN has no EXTINT line available."
+      #endif
+      _ATTACH(X_MAX_PIN);
   #endif
   #if HAS_X_MIN
-    #if !AVAILABLE_EILINE(X_MIN_PIN)
-      #error "X_MIN_PIN has no EXTINT line available."
-    #endif
-    _ATTACH(X_MIN_PIN);
+      #if !AVAILABLE_EILINE(X_MIN_PIN)
+          #error "X_MIN_PIN has no EXTINT line available."
+      #endif
+      _ATTACH(X_MIN_PIN);
   #endif
   #if HAS_Y_MAX
-    #if !AVAILABLE_EILINE(Y_MAX_PIN)
-      #error "Y_MAX_PIN has no EXTINT line available."
-    #endif
-    _ATTACH(Y_MAX_PIN);
+      #if !AVAILABLE_EILINE(Y_MAX_PIN)
+          #error "Y_MAX_PIN has no EXTINT line available."
+      #endif
+      _ATTACH(Y_MAX_PIN);
   #endif
   #if HAS_Y_MIN
-    #if !AVAILABLE_EILINE(Y_MIN_PIN)
-      #error "Y_MIN_PIN has no EXTINT line available."
-    #endif
-    _ATTACH(Y_MIN_PIN);
+      #if !AVAILABLE_EILINE(Y_MIN_PIN)
+          #error "Y_MIN_PIN has no EXTINT line available."
+      #endif
+      _ATTACH(Y_MIN_PIN);
   #endif
   #if HAS_Z_MAX
-    #if !AVAILABLE_EILINE(Z_MAX_PIN)
-      #error "Z_MAX_PIN has no EXTINT line available."
-    #endif
-    _ATTACH(Z_MAX_PIN);
+      #if !AVAILABLE_EILINE(Z_MAX_PIN)
+          #error "Z_MAX_PIN has no EXTINT line available."
+      #endif
+      _ATTACH(Z_MAX_PIN);
   #endif
   #if HAS_Z_MIN
-    #if !AVAILABLE_EILINE(Z_MIN_PIN)
-      #error "Z_MIN_PIN has no EXTINT line available."
-    #endif
-    _ATTACH(Z_MIN_PIN);
+      #if !AVAILABLE_EILINE(Z_MIN_PIN)
+          #error "Z_MIN_PIN has no EXTINT line available."
+      #endif
+      _ATTACH(Z_MIN_PIN);
   #endif
   #if HAS_Z2_MAX
-    #if !AVAILABLE_EILINE(Z2_MAX_PIN)
-      #error "Z2_MAX_PIN has no EXTINT line available."
-    #endif
-    _ATTACH(Z2_MAX_PIN);
+      #if !AVAILABLE_EILINE(Z2_MAX_PIN)
+          #error "Z2_MAX_PIN has no EXTINT line available."
+      #endif
+      _ATTACH(Z2_MAX_PIN);
   #endif
   #if HAS_Z2_MIN
-    #if !AVAILABLE_EILINE(Z2_MIN_PIN)
-      #error "Z2_MIN_PIN has no EXTINT line available."
-    #endif
-    _ATTACH(Z2_MIN_PIN);
+      #if !AVAILABLE_EILINE(Z2_MIN_PIN)
+          #error "Z2_MIN_PIN has no EXTINT line available."
+      #endif
+      _ATTACH(Z2_MIN_PIN);
   #endif
   #if HAS_Z3_MAX
-    #if !AVAILABLE_EILINE(Z3_MAX_PIN)
-      #error "Z3_MAX_PIN has no EXTINT line available."
-    #endif
-    _ATTACH(Z3_MAX_PIN);
+      #if !AVAILABLE_EILINE(Z3_MAX_PIN)
+          #error "Z3_MAX_PIN has no EXTINT line available."
+      #endif
+      _ATTACH(Z3_MAX_PIN);
   #endif
   #if HAS_Z3_MIN
-    #if !AVAILABLE_EILINE(Z3_MIN_PIN)
-      #error "Z3_MIN_PIN has no EXTINT line available."
-    #endif
-    _ATTACH(Z3_MIN_PIN);
+      #if !AVAILABLE_EILINE(Z3_MIN_PIN)
+          #error "Z3_MIN_PIN has no EXTINT line available."
+      #endif
+      _ATTACH(Z3_MIN_PIN);
   #endif
   #if HAS_Z4_MAX
-    #if !AVAILABLE_EILINE(Z4_MAX_PIN)
-      #error "Z4_MAX_PIN has no EXTINT line available."
-    #endif
-    _ATTACH(Z4_MAX_PIN);
+      #if !AVAILABLE_EILINE(Z4_MAX_PIN)
+          #error "Z4_MAX_PIN has no EXTINT line available."
+      #endif
+      _ATTACH(Z4_MAX_PIN);
   #endif
   #if HAS_Z4_MIN
-    #if !AVAILABLE_EILINE(Z4_MIN_PIN)
-      #error "Z4_MIN_PIN has no EXTINT line available."
-    #endif
-    _ATTACH(Z4_MIN_PIN);
+      #if !AVAILABLE_EILINE(Z4_MIN_PIN)
+          #error "Z4_MIN_PIN has no EXTINT line available."
+      #endif
+      _ATTACH(Z4_MIN_PIN);
   #endif
   #if HAS_Z_MIN_PROBE_PIN
-    #if !AVAILABLE_EILINE(Z_MIN_PROBE_PIN)
-      #error "Z_MIN_PROBE_PIN has no EXTINT line available."
-    #endif
-    _ATTACH(Z_MIN_PROBE_PIN);
+      #if !AVAILABLE_EILINE(Z_MIN_PROBE_PIN)
+          #error "Z_MIN_PROBE_PIN has no EXTINT line available."
+      #endif
+      _ATTACH(Z_MIN_PROBE_PIN);
   #endif
 }

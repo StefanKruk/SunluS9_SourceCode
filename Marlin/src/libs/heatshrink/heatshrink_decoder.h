@@ -51,19 +51,19 @@ typedef enum {
 } HSD_finish_res;
 
 #if HEATSHRINK_DYNAMIC_ALLOC
-#define HEATSHRINK_DECODER_INPUT_BUFFER_SIZE(BUF) \
-  ((BUF)->input_buffer_size)
-#define HEATSHRINK_DECODER_WINDOW_BITS(BUF) \
-  ((BUF)->window_sz2)
-#define HEATSHRINK_DECODER_LOOKAHEAD_BITS(BUF) \
-  ((BUF)->lookahead_sz2)
+  #define HEATSHRINK_DECODER_INPUT_BUFFER_SIZE(BUF) \
+    ((BUF)->input_buffer_size)
+  #define HEATSHRINK_DECODER_WINDOW_BITS(BUF) \
+    ((BUF)->window_sz2)
+  #define HEATSHRINK_DECODER_LOOKAHEAD_BITS(BUF) \
+    ((BUF)->lookahead_sz2)
 #else
-#define HEATSHRINK_DECODER_INPUT_BUFFER_SIZE(_) \
-  HEATSHRINK_STATIC_INPUT_BUFFER_SIZE
-#define HEATSHRINK_DECODER_WINDOW_BITS(_) \
-  (HEATSHRINK_STATIC_WINDOW_BITS)
-#define HEATSHRINK_DECODER_LOOKAHEAD_BITS(BUF) \
-  (HEATSHRINK_STATIC_LOOKAHEAD_BITS)
+  #define HEATSHRINK_DECODER_INPUT_BUFFER_SIZE(_) \
+    HEATSHRINK_STATIC_INPUT_BUFFER_SIZE
+  #define HEATSHRINK_DECODER_WINDOW_BITS(_) \
+    (HEATSHRINK_STATIC_WINDOW_BITS)
+  #define HEATSHRINK_DECODER_LOOKAHEAD_BITS(BUF) \
+    (HEATSHRINK_STATIC_LOOKAHEAD_BITS)
 #endif
 
 typedef struct {
@@ -77,29 +77,29 @@ typedef struct {
   uint8_t bit_index;          /* current bit index */
 
 #if HEATSHRINK_DYNAMIC_ALLOC
-  /* Fields that are only used if dynamically allocated. */
-  uint8_t window_sz2;         /* window buffer bits */
-  uint8_t lookahead_sz2;      /* lookahead bits */
-  uint16_t input_buffer_size; /* input buffer size */
-
-  /* Input buffer, then expansion window buffer */
-  uint8_t buffers[];
+    /* Fields that are only used if dynamically allocated. */
+    uint8_t window_sz2;         /* window buffer bits */
+    uint8_t lookahead_sz2;      /* lookahead bits */
+    uint16_t input_buffer_size; /* input buffer size */
+  
+    /* Input buffer, then expansion window buffer */
+    uint8_t buffers[];
 #else
-  /* Input buffer, then expansion window buffer */
-  uint8_t buffers[(1 << HEATSHRINK_DECODER_WINDOW_BITS(_)) + HEATSHRINK_DECODER_INPUT_BUFFER_SIZE(_)];
+    /* Input buffer, then expansion window buffer */
+    uint8_t buffers[(1 << HEATSHRINK_DECODER_WINDOW_BITS(_)) + HEATSHRINK_DECODER_INPUT_BUFFER_SIZE(_)];
 #endif
 } heatshrink_decoder;
 
 #if HEATSHRINK_DYNAMIC_ALLOC
-/* Allocate a decoder with an input buffer of INPUT_BUFFER_SIZE bytes,
- * an expansion buffer size of 2^WINDOW_SZ2, and a lookahead
- * size of 2^lookahead_sz2. (The window buffer and lookahead sizes
- * must match the settings used when the data was compressed.)
- * Returns NULL on error. */
-heatshrink_decoder *heatshrink_decoder_alloc(uint16_t input_buffer_size, uint8_t expansion_buffer_sz2, uint8_t lookahead_sz2);
-
-/* Free a decoder. */
-void heatshrink_decoder_free(heatshrink_decoder *hsd);
+  /* Allocate a decoder with an input buffer of INPUT_BUFFER_SIZE bytes,
+   * an expansion buffer size of 2^WINDOW_SZ2, and a lookahead
+   * size of 2^lookahead_sz2. (The window buffer and lookahead sizes
+   * must match the settings used when the data was compressed.)
+   * Returns NULL on error. */
+  heatshrink_decoder *heatshrink_decoder_alloc(uint16_t input_buffer_size, uint8_t expansion_buffer_sz2, uint8_t lookahead_sz2);
+  
+  /* Free a decoder. */
+  void heatshrink_decoder_free(heatshrink_decoder *hsd);
 #endif
 
 /* Reset a decoder. */

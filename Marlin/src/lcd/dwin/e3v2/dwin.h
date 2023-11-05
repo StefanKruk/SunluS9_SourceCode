@@ -32,10 +32,10 @@
 #include "../../../inc/MarlinConfigPre.h"
 
 #if ANY(HAS_HOTEND, HAS_HEATED_BED, HAS_FAN) && PREHEAT_COUNT
-  #define HAS_PREHEAT 1
-  #if PREHEAT_COUNT < 2
-    #error "Creality DWIN requires two material preheat presets."
-  #endif
+    #define HAS_PREHEAT 1
+    #if PREHEAT_COUNT < 2
+        #error "Creality DWIN requires two material preheat presets."
+    #endif
 #endif
 
 enum processID : uint8_t {
@@ -52,8 +52,8 @@ enum processID : uint8_t {
   Info,
   Tune,
   #if HAS_PREHEAT
-    PLAPreheat,
-    ABSPreheat,
+      PLAPreheat,
+      ABSPreheat,
   #endif
   MaxSpeed,
   MaxSpeed_value,
@@ -86,15 +86,15 @@ enum processID : uint8_t {
   Move_Y,
   Move_Z,
   #if HAS_HOTEND
-    Extruder,
-    ETemp,
+      Extruder,
+      ETemp,
   #endif
   Homeoffset,
   #if HAS_HEATED_BED
-    BedTemp,
+      BedTemp,
   #endif
   #if HAS_FAN
-    FanSpeed,
+      FanSpeed,
   #endif
   PrintSpeed,
 
@@ -256,13 +256,13 @@ extern millis_t dwin_heat_time;
 
 typedef struct {
   #if ENABLED(HAS_HOTEND)
-    celsius_t E_Temp = 0;
+      celsius_t E_Temp = 0;
   #endif
   #if ENABLED(HAS_HEATED_BED)
-    celsius_t Bed_Temp = 0;
+      celsius_t Bed_Temp = 0;
   #endif
   #if ENABLED(HAS_FAN)
-    int16_t Fan_speed = 0;
+      int16_t Fan_speed = 0;
   #endif
   int16_t print_speed     = 100;
   float Max_Feedspeed     = 0;
@@ -273,7 +273,7 @@ typedef struct {
   float Move_Y_scaled     = 0;
   float Move_Z_scaled     = 0;
   #if HAS_HOTEND
-    float Move_E_scaled   = 0;
+      float Move_E_scaled   = 0;
   #endif
   float offset_value      = 0;
   int8_t show_mode        = 0; // -1: Temperature control    0: Printing temperature
@@ -297,10 +297,10 @@ typedef struct {
   bool home_flag:1;
   bool heat_flag:1;  // 0: heating done  1: during heating
   #if ENABLED(PREVENT_COLD_EXTRUSION)
-    bool ETempTooLow_flag:1;
+      bool ETempTooLow_flag:1;
   #endif
   #if HAS_LEVELING
-    bool leveling_offset_flag:1;
+      bool leveling_offset_flag:1;
   #endif
   AxisEnum feedspeed_axis, acc_axis, jerk_axis, step_axis;
 } HMI_Flag_t;
@@ -321,12 +321,12 @@ void ICON_Continue(bool show);
 void ICON_Stop(bool show);
 
 #if HAS_HOTEND || HAS_HEATED_BED
-  // Popup message window
-  void DWIN_Popup_Temperature(const bool toohigh);
+    // Popup message window
+    void DWIN_Popup_Temperature(const bool toohigh);
 #endif
 
 #if HAS_HOTEND
-  void Popup_Window_ETempTooLow();
+    void Popup_Window_ETempTooLow();
 #endif
 
 void Popup_Window_Resume();
@@ -345,13 +345,13 @@ void HMI_Move_E();
 void HMI_Zoffset();
 
 #if ENABLED(HAS_HOTEND)
-  void HMI_ETemp();
+    void HMI_ETemp();
 #endif
 #if ENABLED(HAS_HEATED_BED)
-  void HMI_BedTemp();
+    void HMI_BedTemp();
 #endif
 #if ENABLED(HAS_FAN)
-  void HMI_FanSpeed();
+    void HMI_FanSpeed();
 #endif
 
 void HMI_PrintSpeed();
@@ -390,8 +390,8 @@ void HMI_Info();        // Information menu
 void HMI_Tune();        // Adjust the menu
 
 #if HAS_PREHEAT
-  void HMI_PLAPreheatSetting(); // PLA warm-up setting
-  void HMI_ABSPreheatSetting(); // ABS warm-up setting
+    void HMI_PLAPreheatSetting(); // PLA warm-up setting
+    void HMI_ABSPreheatSetting(); // ABS warm-up setting
 #endif
 
 void HMI_MaxSpeed();        // Maximum speed submenu

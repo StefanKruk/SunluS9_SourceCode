@@ -23,11 +23,11 @@
  */
 
 #if MB(BQ_ZUM_MEGA_3D, MINIRAMBO, SCOOVO_X9H, TRIGORILLA_14)
-  #undef NUM_DIGITAL_PINS
-  #define NUM_DIGITAL_PINS            85
+    #undef NUM_DIGITAL_PINS
+    #define NUM_DIGITAL_PINS            85
 #elif MB(MIGHTYBOARD_REVE)
-  #undef NUM_DIGITAL_PINS
-  #define NUM_DIGITAL_PINS            80
+    #undef NUM_DIGITAL_PINS
+    #define NUM_DIGITAL_PINS            80
 #endif
 
 #define PA 1

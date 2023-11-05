@@ -22,11 +22,11 @@
 #include "tft_io.h"
 
 #ifndef TOUCH_SCREEN_CALIBRATION_PRECISION
-  #define TOUCH_SCREEN_CALIBRATION_PRECISION  80
+    #define TOUCH_SCREEN_CALIBRATION_PRECISION  80
 #endif
 
 #ifndef TOUCH_SCREEN_HOLD_TO_CALIBRATE_MS
-  #define TOUCH_SCREEN_HOLD_TO_CALIBRATE_MS   2500
+    #define TOUCH_SCREEN_HOLD_TO_CALIBRATE_MS   2500
 #endif
 
 typedef struct __attribute__((__packed__)) {

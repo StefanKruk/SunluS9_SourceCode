@@ -81,23 +81,23 @@
 // TMC2208 UART pins
 //
 #if HAS_TMC_UART
-  #define X_SERIAL_TX_PIN                  P1_00
-  #define X_SERIAL_RX_PIN                  P1_00
-  #define Y_SERIAL_TX_PIN                  P1_09
-  #define Y_SERIAL_RX_PIN                  P1_09
-  #define Z_SERIAL_TX_PIN                  P1_16
-  #define Z_SERIAL_RX_PIN                  P1_16
-  #define E0_SERIAL_TX_PIN                 P0_04
-  #define E0_SERIAL_RX_PIN                 P0_04
-  #define E1_SERIAL_TX_PIN                 P2_02
-  #define E1_SERIAL_RX_PIN                 P2_02
-  #define E2_SERIAL_TX_PIN                 P2_06
-  #define E2_SERIAL_RX_PIN                 P2_06
-
-  // Reduce baud rate to improve software serial reliability
-  #define TMC_BAUD_RATE                    19200
+    #define X_SERIAL_TX_PIN                  P1_00
+    #define X_SERIAL_RX_PIN                  P1_00
+    #define Y_SERIAL_TX_PIN                  P1_09
+    #define Y_SERIAL_RX_PIN                  P1_09
+    #define Z_SERIAL_TX_PIN                  P1_16
+    #define Z_SERIAL_RX_PIN                  P1_16
+    #define E0_SERIAL_TX_PIN                 P0_04
+    #define E0_SERIAL_RX_PIN                 P0_04
+    #define E1_SERIAL_TX_PIN                 P2_02
+    #define E1_SERIAL_RX_PIN                 P2_02
+    #define E2_SERIAL_TX_PIN                 P2_06
+    #define E2_SERIAL_RX_PIN                 P2_06
+  
+    // Reduce baud rate to improve software serial reliability
+    #define TMC_BAUD_RATE                    19200
 #else
-  #error "TMC2208 UART configuration is required for GMarsh X6."
+    #error "TMC2208 UART configuration is required for GMarsh X6."
 #endif
 
 //
@@ -125,21 +125,21 @@
 // LCD
 //
 #if IS_RRD_SC
-  #define BEEPER_PIN                       P0_19
-  #define BTN_EN1                          P1_23
-  #define BTN_EN2                          P1_24
-  #define BTN_ENC                          P1_25
-  #define LCD_PINS_RS                      P0_20
-  #define LCD_PINS_ENABLE                  P0_21
-  #define LCD_PINS_D4                      P2_11
-  #define LCD_PINS_D5                      P0_22
-  #define LCD_PINS_D6                      P1_29
-  #define LCD_PINS_D7                      P1_28
-
-  #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
-    #define BTN_ENC_EN               LCD_PINS_D7  // Detect the presence of the encoder
-  #endif
-
+    #define BEEPER_PIN                       P0_19
+    #define BTN_EN1                          P1_23
+    #define BTN_EN2                          P1_24
+    #define BTN_ENC                          P1_25
+    #define LCD_PINS_RS                      P0_20
+    #define LCD_PINS_ENABLE                  P0_21
+    #define LCD_PINS_D4                      P2_11
+    #define LCD_PINS_D5                      P0_22
+    #define LCD_PINS_D6                      P1_29
+    #define LCD_PINS_D7                      P1_28
+  
+    #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
+        #define BTN_ENC_EN               LCD_PINS_D7  // Detect the presence of the encoder
+    #endif
+  
 #endif
 
 //
@@ -147,20 +147,20 @@
 //
 
 #ifndef SDCARD_CONNECTION
-  #define SDCARD_CONNECTION                  LCD
+    #define SDCARD_CONNECTION                  LCD
 #endif
 
 #define ONBOARD_SD_CS_PIN                  P0_06  // Chip select for "System" SD card
 
 #if SD_CONNECTION_IS(LCD)
-  #define SD_SCK_PIN                       P0_15
-  #define SD_MISO_PIN                      P0_17
-  #define SD_MOSI_PIN                      P0_18
-  #define SD_SS_PIN                        P0_16
-  #define SD_DETECT_PIN                    P1_22
+    #define SD_SCK_PIN                       P0_15
+    #define SD_MISO_PIN                      P0_17
+    #define SD_MOSI_PIN                      P0_18
+    #define SD_SS_PIN                        P0_16
+    #define SD_DETECT_PIN                    P1_22
 #elif SD_CONNECTION_IS(ONBOARD)
-  #define SD_SCK_PIN                       P0_07
-  #define SD_MISO_PIN                      P0_08
-  #define SD_MOSI_PIN                      P0_09
-  #define SD_SS_PIN            ONBOARD_SD_CS_PIN
+    #define SD_SCK_PIN                       P0_07
+    #define SD_MISO_PIN                      P0_08
+    #define SD_MOSI_PIN                      P0_09
+    #define SD_SS_PIN            ONBOARD_SD_CS_PIN
 #endif

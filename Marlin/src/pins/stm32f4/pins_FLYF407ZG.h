@@ -25,7 +25,7 @@
 #include "env_validate.h"
 
 #if HOTENDS > 6 || E_STEPPERS > 6
-  #error "FLYF407ZG supports up to 6 hotends / E-steppers."
+    #error "FLYF407ZG supports up to 6 hotends / E-steppers."
 #endif
 
 #define BOARD_INFO_NAME      "FLYF407ZG"
@@ -40,21 +40,21 @@
 // EEPROM Emulation
 //
 #if NO_EEPROM_SELECTED
-  #define FLASH_EEPROM_EMULATION
-  //#define SRAM_EEPROM_EMULATION
-  //#define I2C_EEPROM
+    #define FLASH_EEPROM_EMULATION
+    //#define SRAM_EEPROM_EMULATION
+    //#define I2C_EEPROM
 #endif
 
 #if ENABLED(FLASH_EEPROM_EMULATION)
-  // Decrease delays and flash wear by spreading writes across
-  // the 128kB sector allocated for EEPROM emulation.
-  #define FLASH_EEPROM_LEVELING
+    // Decrease delays and flash wear by spreading writes across
+    // the 128kB sector allocated for EEPROM emulation.
+    #define FLASH_EEPROM_LEVELING
 #elif ENABLED(I2C_EEPROM)
-  #define MARLIN_EEPROM_SIZE              0x2000  // 8KB
+    #define MARLIN_EEPROM_SIZE              0x2000  // 8KB
 #endif
 
 #ifndef MARLIN_EEPROM_SIZE
-  #define MARLIN_EEPROM_SIZE              0x1000  // 4KB
+    #define MARLIN_EEPROM_SIZE              0x1000  // 4KB
 #endif
 
 //
@@ -85,63 +85,63 @@
 #define X_DIR_PIN                           PE0
 #define X_ENABLE_PIN                        PE1
 #ifndef X_CS_PIN
-  #define X_CS_PIN                          PG13
+    #define X_CS_PIN                          PG13
 #endif
 
 #define Y_STEP_PIN                          PB8
 #define Y_DIR_PIN                           PG11
 #define Y_ENABLE_PIN                        PG12
 #ifndef Y_CS_PIN
-  #define Y_CS_PIN                          PG10
+    #define Y_CS_PIN                          PG10
 #endif
 
 #define Z_STEP_PIN                          PA8
 #define Z_DIR_PIN                           PD6
 #define Z_ENABLE_PIN                        PD7
 #ifndef Z_CS_PIN
-  #define Z_CS_PIN                          PD5
+    #define Z_CS_PIN                          PD5
 #endif
 
 #define E0_STEP_PIN                         PC7
 #define E0_DIR_PIN                          PD3
 #define E0_ENABLE_PIN                       PD4
 #ifndef E0_CS_PIN
-  #define E0_CS_PIN                         PD1
+    #define E0_CS_PIN                         PD1
 #endif
 
 #define E1_STEP_PIN                         PC6
 #define E1_DIR_PIN                          PA15
 #define E1_ENABLE_PIN                       PD0
 #ifndef E1_CS_PIN
-  #define E1_CS_PIN                         PA14
+    #define E1_CS_PIN                         PA14
 #endif
 
 #define E2_STEP_PIN                         PD15
 #define E2_DIR_PIN                          PG7
 #define E2_ENABLE_PIN                       PG8
 #ifndef E2_CS_PIN
-  #define E2_CS_PIN                         PG6
+    #define E2_CS_PIN                         PG6
 #endif
 
 #define E3_STEP_PIN                         PD14
 #define E3_DIR_PIN                          PG4
 #define E3_ENABLE_PIN                       PG5
 #ifndef E3_CS_PIN
-  #define E3_CS_PIN                         PG3
+    #define E3_CS_PIN                         PG3
 #endif
 
 #define E4_STEP_PIN                         PD13
 #define E4_DIR_PIN                          PD11
 #define E4_ENABLE_PIN                       PG2
 #ifndef E4_CS_PIN
-  #define E4_CS_PIN                         PD10
+    #define E4_CS_PIN                         PD10
 #endif
 
 #define E5_STEP_PIN                         PD12
 #define E5_DIR_PIN                          PD8
 #define E5_ENABLE_PIN                       PD9
 #ifndef E5_CS_PIN
-  #define E5_CS_PIN                         PB12
+    #define E5_CS_PIN                         PB12
 #endif
 
 //
@@ -167,7 +167,7 @@
 #define HEATER_BED_PIN                      PE2
 
 #ifndef FAN_PIN
-  #define FAN_PIN                           PF8
+    #define FAN_PIN                           PF8
 #endif
 #define FAN1_PIN                            PF9
 #define FAN2_PIN                            PA2
@@ -188,28 +188,28 @@
 #define SDIO_CMD_PIN                        PD2
 
 #ifndef SDCARD_CONNECTION
-  #define SDCARD_CONNECTION              ONBOARD
+    #define SDCARD_CONNECTION              ONBOARD
 #endif
 
 #if SD_CONNECTION_IS(ONBOARD)
-
-  #define SDIO_SUPPORT                            // Use SDIO for onboard SD
-  #ifndef SDIO_SUPPORT
-    #define SOFTWARE_SPI                          // Use soft SPI for onboard SD
-    #define SDSS                     SDIO_D3_PIN
-    #define SD_SCK_PIN               SDIO_CK_PIN
-    #define SD_MISO_PIN              SDIO_D0_PIN
-    #define SD_MOSI_PIN             SDIO_CMD_PIN
-  #endif
-
+  
+    #define SDIO_SUPPORT                            // Use SDIO for onboard SD
+    #ifndef SDIO_SUPPORT
+        #define SOFTWARE_SPI                          // Use soft SPI for onboard SD
+        #define SDSS                     SDIO_D3_PIN
+        #define SD_SCK_PIN               SDIO_CK_PIN
+        #define SD_MISO_PIN              SDIO_D0_PIN
+        #define SD_MOSI_PIN             SDIO_CMD_PIN
+    #endif
+  
 #elif SD_CONNECTION_IS(LCD)
-
-  #define SD_SCK_PIN                        PB13
-  #define SD_MISO_PIN                       PB14
-  #define SD_MOSI_PIN                       PB15
-  #define SDSS                              PF11
-  #define SD_DETECT_PIN                     PB2
-
+  
+    #define SD_SCK_PIN                        PB13
+    #define SD_MISO_PIN                       PB14
+    #define SD_MOSI_PIN                       PB15
+    #define SDSS                              PF11
+    #define SD_DETECT_PIN                     PB2
+  
 #endif
 
 //
@@ -217,15 +217,15 @@
 //
 
 #if ENABLED(TMC_USE_SW_SPI)
-  #ifndef TMC_SW_MOSI
-    #define TMC_SW_MOSI                     PB15
-  #endif
-  #ifndef TMC_SW_MISO
-    #define TMC_SW_MISO                     PB14
-  #endif
-  #ifndef TMC_SW_SCK
-    #define TMC_SW_SCK                      PB13
-  #endif
+    #ifndef TMC_SW_MOSI
+        #define TMC_SW_MOSI                     PB15
+    #endif
+    #ifndef TMC_SW_MISO
+        #define TMC_SW_MISO                     PB14
+    #endif
+    #ifndef TMC_SW_SCK
+        #define TMC_SW_SCK                      PB13
+    #endif
 #endif
 
 //
@@ -233,33 +233,33 @@
 //
 
 #if HAS_TMC_UART
-  #define X_SERIAL_TX_PIN                   PG13
-  #define X_SERIAL_RX_PIN                   PG13
-
-  #define Y_SERIAL_TX_PIN                   PG10
-  #define Y_SERIAL_RX_PIN                   PG10
-
-  #define Z_SERIAL_TX_PIN                   PD5
-  #define Z_SERIAL_RX_PIN                   PD5
-
-  #define E0_SERIAL_TX_PIN                  PD1
-  #define E0_SERIAL_RX_PIN                  PD1
-
-  #define E1_SERIAL_TX_PIN                  PA14
-  #define E1_SERIAL_RX_PIN                  PA14
-
-  #define E2_SERIAL_TX_PIN                  PG6
-  #define E2_SERIAL_RX_PIN                  PG6
-
-  #define E3_SERIAL_TX_PIN                  PG3
-  #define E3_SERIAL_RX_PIN                  PG3
-
-  #define E4_SERIAL_TX_PIN                  PD10
-  #define E4_SERIAL_RX_PIN                  PD10
-
-  #define E5_SERIAL_TX_PIN                  PB12
-  #define E5_SERIAL_RX_PIN                  PB12
-
+    #define X_SERIAL_TX_PIN                   PG13
+    #define X_SERIAL_RX_PIN                   PG13
+  
+    #define Y_SERIAL_TX_PIN                   PG10
+    #define Y_SERIAL_RX_PIN                   PG10
+  
+    #define Z_SERIAL_TX_PIN                   PD5
+    #define Z_SERIAL_RX_PIN                   PD5
+  
+    #define E0_SERIAL_TX_PIN                  PD1
+    #define E0_SERIAL_RX_PIN                  PD1
+  
+    #define E1_SERIAL_TX_PIN                  PA14
+    #define E1_SERIAL_RX_PIN                  PA14
+  
+    #define E2_SERIAL_TX_PIN                  PG6
+    #define E2_SERIAL_RX_PIN                  PG6
+  
+    #define E3_SERIAL_TX_PIN                  PG3
+    #define E3_SERIAL_RX_PIN                  PG3
+  
+    #define E4_SERIAL_TX_PIN                  PD10
+    #define E4_SERIAL_RX_PIN                  PD10
+  
+    #define E5_SERIAL_TX_PIN                  PB12
+    #define E5_SERIAL_RX_PIN                  PB12
+  
 #endif
 
 //
@@ -287,11 +287,11 @@
 // ST7920 Delays
 //
 #ifndef BOARD_ST7920_DELAY_1
-  #define BOARD_ST7920_DELAY_1      DELAY_NS(96)
+    #define BOARD_ST7920_DELAY_1      DELAY_NS(96)
 #endif
 #ifndef BOARD_ST7920_DELAY_2
-  #define BOARD_ST7920_DELAY_2      DELAY_NS(48)
+    #define BOARD_ST7920_DELAY_2      DELAY_NS(48)
 #endif
 #ifndef BOARD_ST7920_DELAY_3
-  #define BOARD_ST7920_DELAY_3     DELAY_NS(715)
+    #define BOARD_ST7920_DELAY_3     DELAY_NS(715)
 #endif

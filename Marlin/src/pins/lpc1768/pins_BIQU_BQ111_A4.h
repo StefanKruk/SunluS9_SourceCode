@@ -75,7 +75,7 @@
 #define HEATER_0_PIN                       P2_07
 #define HEATER_BED_PIN                     P2_05
 #ifndef FAN_PIN
-  #define FAN_PIN                          P2_04
+    #define FAN_PIN                          P2_04
 #endif
 
 //
@@ -95,26 +95,26 @@
  * SD card.
  */
 #if HAS_WIRED_LCD
-
-  #define BEEPER_PIN                       P1_31  // EXP1-1
-
-  #define BTN_EN1                          P3_26  // EXP2-3
-  #define BTN_EN2                          P3_25  // EXP2-5
-  #define BTN_ENC                          P1_30  // EXP1-2
-
-  #define SD_DETECT_PIN                    P0_27  // EXP2-7
-  #define LCD_PINS_RS                      P0_16  // EXP1-4
-  #define LCD_PINS_ENABLE                  P0_18  // (MOSI) EXP1-3
-  #define LCD_PINS_D4                      P0_15  // (SCK)  EXP1-5
-
-  #if BOTH(HAS_MARLINUI_HD44780, IS_RRD_SC)
-    #error "REPRAP_DISCOUNT_SMART_CONTROLLER displays aren't supported by the BIQU BQ111-A4"
-  #endif
-
-  #if ENABLED(SDSUPPORT)
-    #error "SDSUPPORT is not supported by the BIQU BQ111-A4 when an LCD controller is used"
-  #endif
-
+  
+    #define BEEPER_PIN                       P1_31  // EXP1-1
+  
+    #define BTN_EN1                          P3_26  // EXP2-3
+    #define BTN_EN2                          P3_25  // EXP2-5
+    #define BTN_ENC                          P1_30  // EXP1-2
+  
+    #define SD_DETECT_PIN                    P0_27  // EXP2-7
+    #define LCD_PINS_RS                      P0_16  // EXP1-4
+    #define LCD_PINS_ENABLE                  P0_18  // (MOSI) EXP1-3
+    #define LCD_PINS_D4                      P0_15  // (SCK)  EXP1-5
+  
+    #if BOTH(HAS_MARLINUI_HD44780, IS_RRD_SC)
+        #error "REPRAP_DISCOUNT_SMART_CONTROLLER displays aren't supported by the BIQU BQ111-A4"
+    #endif
+  
+    #if ENABLED(SDSUPPORT)
+        #error "SDSUPPORT is not supported by the BIQU BQ111-A4 when an LCD controller is used"
+    #endif
+  
 #endif // HAS_WIRED_LCD
 
 /**
@@ -124,13 +124,13 @@
  * Hardware SPI can't be used because P0_17 (MISO) is not brought out on this board.
  */
 #if ENABLED(SDSUPPORT)
-
-  #define SD_SCK_PIN                       P0_15  // EXP1-5
-  #define SD_MISO_PIN                      P0_16  // EXP1-4
-  #define SD_MOSI_PIN                      P0_18  // EXP1-3
-  #define SD_SS_PIN                        P1_30  // EXP1-2
-  #define SDSS                         SD_SS_PIN
-
+  
+    #define SD_SCK_PIN                       P0_15  // EXP1-5
+    #define SD_MISO_PIN                      P0_16  // EXP1-4
+    #define SD_MOSI_PIN                      P0_18  // EXP1-3
+    #define SD_SS_PIN                        P1_30  // EXP1-2
+    #define SDSS                         SD_SS_PIN
+  
 #endif // SDSUPPORT
 
 /**

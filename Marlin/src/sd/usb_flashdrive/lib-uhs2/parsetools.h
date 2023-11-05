@@ -25,7 +25,7 @@
 #pragma once
 
 #ifndef _usb_h_
-  #error "Never include parsetools.h directly; include Usb.h instead"
+    #error "Never include parsetools.h directly; include Usb.h instead"
 #endif
 
 struct MultiValueBuffer {

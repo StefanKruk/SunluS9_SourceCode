@@ -37,15 +37,15 @@
 
 // Alter timing for graphical display
 #if HAS_MARLINUI_U8GLIB
-  #ifndef BOARD_ST7920_DELAY_1
-    #define BOARD_ST7920_DELAY_1 DELAY_NS(125)
-  #endif
-  #ifndef BOARD_ST7920_DELAY_2
-    #define BOARD_ST7920_DELAY_2 DELAY_NS(125)
-  #endif
-  #ifndef BOARD_ST7920_DELAY_3
-    #define BOARD_ST7920_DELAY_3 DELAY_NS(125)
-  #endif
+    #ifndef BOARD_ST7920_DELAY_1
+        #define BOARD_ST7920_DELAY_1 DELAY_NS(125)
+    #endif
+    #ifndef BOARD_ST7920_DELAY_2
+        #define BOARD_ST7920_DELAY_2 DELAY_NS(125)
+    #endif
+    #ifndef BOARD_ST7920_DELAY_3
+        #define BOARD_ST7920_DELAY_3 DELAY_NS(125)
+    #endif
 #endif
 
 #include "pins_MELZI.h"
@@ -68,24 +68,24 @@
 #define LCD_PINS_D4                           30  // ST9720 CLK
 
 #if ENABLED(BLTOUCH)
-  #ifndef SERVO0_PIN
-    #define SERVO0_PIN                        27
-  #endif
-  #if SERVO0_PIN == BEEPER_PIN
-    #undef BEEPER_PIN
-  #endif
+    #ifndef SERVO0_PIN
+        #define SERVO0_PIN                        27
+    #endif
+    #if SERVO0_PIN == BEEPER_PIN
+        #undef BEEPER_PIN
+    #endif
 #elif ENABLED(FILAMENT_RUNOUT_SENSOR)
-  #ifndef FIL_RUNOUT_PIN
-    #define FIL_RUNOUT_PIN                    27
-  #endif
-  #if FIL_RUNOUT_PIN == BEEPER_PIN
-    #undef BEEPER_PIN
-  #endif
+    #ifndef FIL_RUNOUT_PIN
+        #define FIL_RUNOUT_PIN                    27
+    #endif
+    #if FIL_RUNOUT_PIN == BEEPER_PIN
+        #undef BEEPER_PIN
+    #endif
 #endif
 
 #if ENABLED(MINIPANEL)
-  #undef DOGLCD_CS
-  #define DOGLCD_CS                  LCD_PINS_RS
+    #undef DOGLCD_CS
+    #define DOGLCD_CS                  LCD_PINS_RS
 #endif
 
 /**

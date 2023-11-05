@@ -49,80 +49,80 @@
 #define X_DIR_PIN                          P1_01
 #define X_ENABLE_PIN                       P1_00
 #ifndef X_CS_PIN
-  #define X_CS_PIN                         P1_04
+    #define X_CS_PIN                         P1_04
 #endif
 
 #define Y_STEP_PIN                         P2_01
 #define Y_DIR_PIN                          P1_09
 #define Y_ENABLE_PIN                       P1_08
 #ifndef Y_CS_PIN
-  #define Y_CS_PIN                         P1_10
+    #define Y_CS_PIN                         P1_10
 #endif
 
 #define Z_STEP_PIN                         P2_02
 #define Z_DIR_PIN                          P1_15
 #define Z_ENABLE_PIN                       P1_14
 #ifndef Z_CS_PIN
-  #define Z_CS_PIN                         P1_16
+    #define Z_CS_PIN                         P1_16
 #endif
 
 #define E0_STEP_PIN                        P2_03
 #define E0_DIR_PIN                         P4_29
 #define E0_ENABLE_PIN                      P1_17
 #ifndef E0_CS_PIN
-  #define E0_CS_PIN                        P4_28
+    #define E0_CS_PIN                        P4_28
 #endif
 
 #define E1_STEP_PIN                        P2_04
 #define E1_DIR_PIN                         P2_11
 #define E1_ENABLE_PIN                      P0_04
 #ifndef E1_CS_PIN
-  #define E1_CS_PIN                        P2_12
+    #define E1_CS_PIN                        P2_12
 #endif
 
 #define E2_STEP_PIN                        P2_05
 #define E2_DIR_PIN                         P0_11
 #define E2_ENABLE_PIN                      P2_13
 #ifndef E2_CS_PIN
-  #define E2_CS_PIN                        P0_10
+    #define E2_CS_PIN                        P0_10
 #endif
 
 //
 // Software SPI pins for TMC2130 stepper drivers
 //
 #if ENABLED(TMC_USE_SW_SPI)
-  #ifndef TMC_SW_MOSI
-    #define TMC_SW_MOSI                    P0_20
-  #endif
-  #ifndef TMC_SW_MISO
-    #define TMC_SW_MISO                    P0_19
-  #endif
-  #ifndef TMC_SW_SCK
-    #define TMC_SW_SCK                     P0_21
-  #endif
+    #ifndef TMC_SW_MOSI
+        #define TMC_SW_MOSI                    P0_20
+    #endif
+    #ifndef TMC_SW_MISO
+        #define TMC_SW_MISO                    P0_19
+    #endif
+    #ifndef TMC_SW_SCK
+        #define TMC_SW_SCK                     P0_21
+    #endif
 #endif
 
 #if HAS_TMC_UART
-  #define X_SERIAL_TX_PIN                  P1_04
-  #define X_SERIAL_RX_PIN                  P1_04
-
-  #define Y_SERIAL_TX_PIN                  P1_10
-  #define Y_SERIAL_RX_PIN                  P1_10
-
-  #define Z_SERIAL_TX_PIN                  P1_16
-  #define Z_SERIAL_RX_PIN                  P1_16
-
-  #define E0_SERIAL_TX_PIN                 P4_28
-  #define E0_SERIAL_RX_PIN                 P4_28
-
-  #define E1_SERIAL_TX_PIN                 P2_12
-  #define E1_SERIAL_RX_PIN                 P2_12
-
-  #define E2_SERIAL_TX_PIN                 P0_10
-  #define E2_SERIAL_RX_PIN                 P0_10
-
-  // Reduce baud rate to improve software serial reliability
-  #define TMC_BAUD_RATE                    19200
+    #define X_SERIAL_TX_PIN                  P1_04
+    #define X_SERIAL_RX_PIN                  P1_04
+  
+    #define Y_SERIAL_TX_PIN                  P1_10
+    #define Y_SERIAL_RX_PIN                  P1_10
+  
+    #define Z_SERIAL_TX_PIN                  P1_16
+    #define Z_SERIAL_RX_PIN                  P1_16
+  
+    #define E0_SERIAL_TX_PIN                 P4_28
+    #define E0_SERIAL_RX_PIN                 P4_28
+  
+    #define E1_SERIAL_TX_PIN                 P2_12
+    #define E1_SERIAL_RX_PIN                 P2_12
+  
+    #define E2_SERIAL_TX_PIN                 P0_10
+    #define E2_SERIAL_RX_PIN                 P0_10
+  
+    // Reduce baud rate to improve software serial reliability
+    #define TMC_BAUD_RATE                    19200
 #endif
 
 //
@@ -141,7 +141,7 @@
 #define HEATER_1_PIN                       P1_20
 #define HEATER_2_PIN                       P1_23
 #ifndef FAN_PIN
-  #define FAN_PIN                          P1_18
+    #define FAN_PIN                          P1_18
 #endif
 #define FAN1_PIN                           P1_21
 #define FAN2_PIN                           P1_24
@@ -161,19 +161,19 @@
 #define BTN_ENC                            P0_28
 
 #ifndef SDCARD_CONNECTION
-  #define SDCARD_CONNECTION              ONBOARD
+    #define SDCARD_CONNECTION              ONBOARD
 #endif
 
 #if SD_CONNECTION_IS(ONBOARD)
-    #define SD_SS_PIN                      P0_06
-    #define SD_SCK_PIN                     P0_07
-    #define SD_MISO_PIN                    P0_08
-    #define SD_MOSI_PIN                    P0_09
-    #define SD_DETECT_PIN                  P0_05
+      #define SD_SS_PIN                      P0_06
+      #define SD_SCK_PIN                     P0_07
+      #define SD_MISO_PIN                    P0_08
+      #define SD_MOSI_PIN                    P0_09
+      #define SD_DETECT_PIN                  P0_05
 #elif SD_CONNECTION_IS(LCD)
-  #define SD_SCK_PIN                       P0_15
-  #define SD_MISO_PIN                      P0_17
-  #define SD_MOSI_PIN                      P0_18
-  #define SD_SS_PIN                        P0_16
-  #define SD_DETECT_PIN                    P2_06
+    #define SD_SCK_PIN                       P0_15
+    #define SD_MISO_PIN                      P0_17
+    #define SD_MOSI_PIN                      P0_18
+    #define SD_SS_PIN                        P0_16
+    #define SD_DETECT_PIN                    P2_06
 #endif
