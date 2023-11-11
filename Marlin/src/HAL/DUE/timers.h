@@ -51,6 +51,7 @@ typedef uint32_t hal_timer_t;
 #endif
 
 #define TEMP_TIMER_FREQUENCY   1000 // temperature interrupt frequency
+
 #define STEPPER_TIMER_RATE     HAL_TIMER_RATE   // frequency of stepper timer (HAL_TIMER_RATE / STEPPER_TIMER_PRESCALE)
 #define STEPPER_TIMER_TICKS_PER_US ((STEPPER_TIMER_RATE) / 1000000) // stepper timer ticks per µs
 #define STEPPER_TIMER_PRESCALE (CYCLES_PER_MICROSECOND / STEPPER_TIMER_TICKS_PER_US)

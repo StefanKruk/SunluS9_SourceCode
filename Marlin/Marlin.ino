@@ -17,7 +17,7 @@ see if there's a more suitable starting-point for your specific hardware.
 Before diving in, we recommend the following essential links:
 
 Marlin Firmware Official Website
-e
+
   - https://marlinfw.org/
     The official Marlin Firmware website contains the most up-to-date
     documentation. Contributions are always welcome!

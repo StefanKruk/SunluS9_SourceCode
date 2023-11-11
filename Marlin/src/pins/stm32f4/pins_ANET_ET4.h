@@ -22,7 +22,6 @@
 
 #pragma once
 
-
 #include "env_validate.h"
 
 #include "env_validate.h"

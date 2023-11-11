@@ -45,6 +45,5 @@
 #endif
 
 inline void watchdog_refresh() {
-  //ScreenHandler.watchdog_Check();
   TERN_(USE_WATCHDOG, HAL_watchdog_refresh());
 }

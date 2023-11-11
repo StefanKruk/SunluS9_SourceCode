@@ -21,7 +21,6 @@
  */
 #pragma once
 
-
 /**
  * File: pins/pins.h
  *
