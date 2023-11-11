@@ -111,7 +111,6 @@
   static void createChar_P(const char c, const byte * const ptr) {
     byte temp[8];
     LOOP_L_N(i, 8)
-    	ScreenHandler.Address_Beyond_Fun(&ptr[i],40);
       temp[i] = pgm_read_byte(&ptr[i]);
     lcd.createChar(c, temp);
   }
@@ -437,7 +436,6 @@
     
             // Advance to the next UTF8 valid position
             p++;
-    		ScreenHandler.Address_Beyond_Fun(p,41);
             while (!START_OF_UTF8_CHAR(pgm_read_byte(p))) p++;
           }
         }

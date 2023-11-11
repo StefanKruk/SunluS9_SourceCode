@@ -22,7 +22,6 @@
 
 #include "serial.h"
 #include "../inc/MarlinConfig.h"
-#include "../lcd/extui/dgus/DGUSScreenHandler.h"
 
 #if HAS_ETHERNET
     #include "../feature/ethernet.h"
@@ -67,7 +66,6 @@ PGMSTR(SP_X_LBL, " X:"); PGMSTR(SP_Y_LBL, " Y:"); PGMSTR(SP_Z_LBL, " Z:"); PGMST
 #endif
 
 void serialprintPGM(PGM_P str) {
-  ScreenHandler.Address_Beyond_Fun(str,55);
   while (const char c = pgm_read_byte(str++)) SERIAL_CHAR(c);
 }
 

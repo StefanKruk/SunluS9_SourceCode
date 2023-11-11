@@ -382,7 +382,6 @@
     str += len;
   
     while (len--) {
-    	ScreenHandler.Address_Beyond_Fun(str,44);
       char c0 = pgm_read_byte(str--), c1 = rx_buffer[i--];
       if (c0 == c1) continue;
       if (c0 == '\r' && c1 == '\n') continue;  // match cr as lf
@@ -398,8 +397,6 @@
   void MMU2::tx_str_P(const char *str) {
     clear_rx_buffer();
     uint8_t len = strlen_P(str);
-    
-    ScreenHandler.Address_Beyond_Fun(str,45);
     LOOP_L_N(i, len) MMU2_SERIAL.write(pgm_read_byte(str++));
     prev_request = millis();
   }

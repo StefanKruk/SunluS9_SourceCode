@@ -193,7 +193,6 @@
         if (c < 0x21 || c == 0x7F) return false;                  // Check size, non-printable characters
         // Fail for illegal characters
         PGM_P p = PSTR("|<>^+=?/[];,*\"\\");
-        ScreenHandler.Address_Beyond_Fun(p,89);
         while (const uint8_t b = pgm_read_byte(p++)) if (b == c) return false;
         dosName[i++] = c + (WITHIN(c, 'a', 'z') ? 'A' - 'a' : 0); // Uppercase required for 8.3 name
       }
@@ -1797,7 +1796,6 @@
                 case 0 ... 1:
                 TERN_(ARC_SUPPORT, case 2 ... 3:)
                 TERN_(BEZIER_CURVE_SUPPORT, case 5:)
-    	//do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
                   SERIAL_ECHOLNPGM(STR_ERR_STOPPED);
                   LCD_MESSAGEPGM(MSG_STOPPED);
                   break;

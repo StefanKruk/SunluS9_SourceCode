@@ -70,8 +70,6 @@
     uint16_t width = 0;
     const uint8_t *p = (const uint8_t *) str;
     for (;;) {
-    	
-  	ScreenHandler.Address_Beyond_Fun(p,3);
       const uint8_t val = pgm_read_byte(p++); n--;
       if (!val || n == 0) break;
       width += val < 128 ? char_widths[val] : 0;
@@ -147,10 +145,7 @@
            ((a & 0x10) >> 1) | ((a & 0x20) >> 3) |
            ((a & 0x40) >> 5) | ((a & 0x80) >> 7);
   }
-  static inline uint8_t xbm_write(const uint8_t *p) {
-  	ScreenHandler.Address_Beyond_Fun(p,4);
-  
-  	return reverse_byte(pgm_read_byte(p));}
+static inline uint8_t xbm_write(const uint8_t *p) {return reverse_byte(pgm_read_byte(p));}
   
   void CLCD::spi_write_addr(uint32_t reg_address) {
     spi_send((reg_address >> 16) | 0x80);  // Address [21:16]

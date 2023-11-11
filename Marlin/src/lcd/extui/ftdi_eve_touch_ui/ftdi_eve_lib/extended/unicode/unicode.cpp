@@ -47,7 +47,6 @@
     bool FTDI::has_utf8_chars(progmem_str _str) {
       const char *str = (const char *) _str;
       for (;;) {
-  	  ScreenHandler.Address_Beyond_Fun(str,84);
         const char c = pgm_read_byte(str++);
         if (!c) break;
         if ((c & 0xC0) == 0x80) return true;

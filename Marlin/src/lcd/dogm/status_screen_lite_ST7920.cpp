@@ -101,7 +101,6 @@
   
   void ST7920_Lite_Status_Screen::write_str_P(PGM_P const str) {
     PGM_P p_str = (PGM_P)str;
-    ScreenHandler.Address_Beyond_Fun(p_str,59);
     while (char c = pgm_read_byte(p_str++)) write_byte(c);
   }
   
@@ -220,10 +219,8 @@
     const uint16_t *p_word = (const uint16_t *)data;
     set_cgram_address(addr);
     begin_data();
-    for (uint8_t i = 16; i--;){
-    	ScreenHandler.Address_Beyond_Fun(p_word,60);
+  for (uint8_t i = 16; i--;)
       write_word(pgm_read_word(p_word++));
-  	}
   }
   
   /**
@@ -410,7 +407,6 @@
                     y_top   = degree_symbol_y_top,
                     y_bot   = y_top + COUNT(degree_symbol);
       LOOP_S_L_N(i, y_top, y_bot) {
-  	  ScreenHandler.Address_Beyond_Fun(p_bytes,61);
         uint8_t byte = pgm_read_byte(p_bytes++);
         set_gdram_address(x_word, i + y * 16);
         begin_data();

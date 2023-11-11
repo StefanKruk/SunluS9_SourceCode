@@ -29,7 +29,6 @@
       static const uint8_t tbl[] PROGMEM = {
         8, 8, 16, 16, 13, 17, 20, 22, 29, 38, 16, 20, 25, 28, 36, 49, 63, 83, 108
       };
-  	ScreenHandler.Address_Beyond_Fun(&tbl[font - 16],13);
       return pgm_read_byte(&tbl[font - 16]);
     }
   

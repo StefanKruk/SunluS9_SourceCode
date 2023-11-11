@@ -21,7 +21,6 @@
  */
 
 #include "../gcode.h"
-#include "../../lcd/extui/dgus/DGUSScreenHandler.h"
 
 /**
  * M111: Set the debug level
@@ -50,8 +49,6 @@ void GcodeSuite::M111() {
     LOOP_L_N(i, COUNT(debug_strings)) {
       if (TEST(marlin_debug_flags, i)) {
         if (comma++) SERIAL_CHAR(',');
-		
-		ScreenHandler.Address_Beyond_Fun(&debug_strings[i],27);
         SERIAL_ECHOPGM_P((char*)pgm_read_ptr(&debug_strings[i]));
       }
     }

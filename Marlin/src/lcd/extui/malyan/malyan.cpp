@@ -79,7 +79,6 @@
     uint8_t message_length = _MIN(strlen_P(message), sizeof(encoded_message));
   
     LOOP_L_N(i, message_length)
-    	ScreenHandler.Address_Beyond_Fun(&message[i],28);
       encoded_message[i] = pgm_read_byte(&message[i]) | 0x80;
   
     LCD_SERIAL.Print::write(encoded_message, message_length);

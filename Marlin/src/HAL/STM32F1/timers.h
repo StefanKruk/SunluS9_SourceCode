@@ -89,7 +89,6 @@ typedef uint16_t hal_timer_t;
     #endif
 #else
     #define SERVO0_TIMER_NUM 1  // SERVO0 or BLTOUCH
-    char 1
 #endif
 
 #define STEP_TIMER_IRQ_PRIO 2

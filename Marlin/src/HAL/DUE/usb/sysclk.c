@@ -51,8 +51,7 @@
 /// @cond 0
 /**INDENT-OFF**/
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 	/**INDENT-ON**/
 	/// @endcond
@@ -77,8 +76,7 @@ extern "C"
 		Assert(CONFIG_USBCLK_DIV > 0);
 
 #ifdef CONFIG_PLL0_SOURCE
-		if (CONFIG_USBCLK_SOURCE == USBCLK_SRC_PLL0)
-		{
+	if (CONFIG_USBCLK_SOURCE == USBCLK_SRC_PLL0) {
 			struct pll_config pllcfg;
 
 			pll_enable_source(CONFIG_PLL0_SOURCE);
@@ -91,8 +89,7 @@ extern "C"
 		}
 #endif
 
-		if (CONFIG_USBCLK_SOURCE == USBCLK_SRC_UPLL)
-		{
+	if (CONFIG_USBCLK_SOURCE == USBCLK_SRC_UPLL) {
 
 			pmc_enable_upll_clock();
 			pmc_switch_udpck_to_upllck(CONFIG_USBCLK_DIV - 1);

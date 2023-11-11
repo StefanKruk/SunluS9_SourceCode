@@ -87,9 +87,6 @@
       const bool ready_for_next_note = (wait == 0) ? !is_sound_playing() : timer.elapsed(wait);
   
       if (ready_for_next_note) {
-  	  ScreenHandler.Address_Beyond_Fun(&sequence->effect,56);
-  	  ScreenHandler.Address_Beyond_Fun(&sequence->note,57);
-  	  ScreenHandler.Address_Beyond_Fun(&sequence->sixteenths,58);
         const effect_t fx = effect_t(pgm_read_byte(&sequence->effect));
         const note_t   nt =   note_t(pgm_read_byte(&sequence->note));
         const uint32_t ms = uint32_t(pgm_read_byte(&sequence->sixteenths)) * 1000 / 16;

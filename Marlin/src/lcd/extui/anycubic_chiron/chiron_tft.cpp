@@ -318,8 +318,6 @@
     #if ACDEBUG(AC_SOME)
         SERIAL_ECHOPGM_P(str);
     #endif
-    
-    ScreenHandler.Address_Beyond_Fun(str,2);
     while (const char c = pgm_read_byte(str++)) TFTSer.write(c);
   }
   

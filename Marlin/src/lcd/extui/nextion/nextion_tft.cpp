@@ -113,7 +113,6 @@
     #if NEXDEBUG(N_SOME)
         DEBUG_ECHOPGM_P(str);
     #endif
-    ScreenHandler.Address_Beyond_Fun(str,47);
     while (const char c = pgm_read_byte(str++))
       LCD_SERIAL.write(c);
   }

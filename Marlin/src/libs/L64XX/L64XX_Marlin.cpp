@@ -408,20 +408,12 @@
   
       if (single_or_e || one_or_more) {
         for (j = 0; j < MAX_L64XX; j++) {     // Count up the drivers on this axis
-        
-  	    ScreenHandler.Address_Beyond_Fun(&index_to_axis[j],17);
           PGM_P str = (PGM_P)pgm_read_ptr(&index_to_axis[j]); // Get a PGM_P from progmem
-  	    ScreenHandler.Address_Beyond_Fun(str,18);
-          
           const char c = pgm_read_byte(str);                  // Get a char from progmem
           if (axis_mon[0][0] == c) {          // For each stepper on this axis...
             char *mon = axis_mon[driver_count_local];
             *mon++ = c;                        // Copy the 3 letter axis name
-            
-  		  ScreenHandler.Address_Beyond_Fun(&str[1],19);
             *mon++ = pgm_read_byte(&str[1]);   //  to the axis_mon array
-  		  ScreenHandler.Address_Beyond_Fun(&str[2],20);
-            
             *mon   = pgm_read_byte(&str[2]);
             axis_index[driver_count_local] = (L64XX_axis_t)j; // And store the L64XX axis index
             driver_count_local++;
@@ -493,10 +485,7 @@
     LOOP_L_N(k, driver_count) {
       uint8_t not_found = true;
       for (j = 1; j <= L64XX::chain[0]; j++) {
-  	  ScreenHandler.Address_Beyond_Fun(&index_to_axis[L64XX::chain[j]],21);
         PGM_P const str = (PGM_P)pgm_read_ptr(&index_to_axis[L64XX::chain[j]]);
-  	  ScreenHandler.Address_Beyond_Fun(&str[0],22); 
-  	  ScreenHandler.Address_Beyond_Fun(&str[1],23); 
         if (pgm_read_byte(&str[0]) == axis_mon[k][0] && pgm_read_byte(&str[1]) == axis_mon[k][1]) { // See if a L6470 driver
           not_found = false;
           break;
@@ -732,11 +721,7 @@
       };
     
       void L64XX_Marlin::append_stepper_err(char* &p, const uint8_t stepper_index, const char * const err/*=nullptr*/) {
-      	ScreenHandler.Address_Beyond_Fun(&index_to_axis[stepper_index]),24);
         PGM_P const str = (PGM_P)pgm_read_ptr(&index_to_axis[stepper_index]);
-    	
-    	ScreenHandler.Address_Beyond_Fun(&str[0],25); 
-    	ScreenHandler.Address_Beyond_Fun(&str[1],26); 
         p += sprintf_P(p, PSTR("Stepper %c%c "), pgm_read_byte(&str[0]), pgm_read_byte(&str[1]));
         if (err) p += sprintf_P(p, err);
       }

@@ -27,7 +27,6 @@
   
     uint32_t write_rle_data(uint32_t addr, const uint8_t *data, size_t n) {
       for (; n >= 2; n -= 2) {
-  	  ScreenHandler.Address_Beyond_Fun(data,12);
         uint8_t count = pgm_read_byte(data++);
         uint8_t value = pgm_read_byte(data++);
         CLCD::mem_write_fill(addr, value, count);

@@ -49,9 +49,9 @@ bool Stopwatch::pause() {
   Stopwatch::debug(PSTR("pause"));
 
   if (isRunning()) {
+    TERN_(EXTENSIBLE_UI, ExtUI::onPrintTimerPaused());
     state = PAUSED;
     stopTimestamp = millis();
-    TERN_(EXTENSIBLE_UI, ExtUI::onPrintTimerPaused());
     return true;
   }
   else return false;

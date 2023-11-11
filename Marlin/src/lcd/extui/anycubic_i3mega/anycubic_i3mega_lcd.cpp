@@ -65,7 +65,6 @@
   static void sendNewLine(void) { LCD_SERIAL.write('\r'); LCD_SERIAL.write('\n'); }
   static void send(const char *str) { LCD_SERIAL.print(str); }
   static void send_P(PGM_P str) {
-    ScreenHandler.Address_Beyond_Fun(str,1);
     while (const char c = pgm_read_byte(str++))
       LCD_SERIAL.write(c);
   }

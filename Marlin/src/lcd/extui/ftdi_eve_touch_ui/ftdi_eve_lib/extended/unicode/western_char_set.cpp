@@ -305,7 +305,6 @@
       int8_t min = 0, max = NUM_ELEMENTS(char_recipe), index;
       for (;;) {
         index = (min + max)/2;
-  	  ScreenHandler.Address_Beyond_Fun(&char_recipe[index].unicode,85);
         const uint16_t char_at = pgm_read_word(&char_recipe[index].unicode);
         if (char_at == c) break;
         if (min == max) return -1;
@@ -318,10 +317,6 @@
     }
   
     static void get_char_data(uint8_t index, uint8_t &std_char, uint8_t &alt_char, uint8_t &alt_data) {
-    	
-  	ScreenHandler.Address_Beyond_Fun(&char_recipe[index].std_char,86);
-  	ScreenHandler.Address_Beyond_Fun(&char_recipe[index].alt_char,87);
-  	ScreenHandler.Address_Beyond_Fun(&char_recipe[index].alt_data,88);
       std_char = pgm_read_byte(&char_recipe[index].std_char);
       alt_char = pgm_read_byte(&char_recipe[index].alt_char);
       alt_data = pgm_read_byte(&char_recipe[index].alt_data);

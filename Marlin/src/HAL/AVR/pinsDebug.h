@@ -71,10 +71,8 @@
 #define MULTI_NAME_PAD 26 // space needed to be pretty if not first name assigned to a pin
 
 void PRINT_ARRAY_NAME(uint8_t x) {
-  ScreenHandler.Address_Beyond_Fun(&pin_array[x].name,48);
   char *name_mem_pointer = (char*)pgm_read_ptr(&pin_array[x].name);
   LOOP_L_N(y, MAX_NAME_LENGTH) {
-		ScreenHandler.Address_Beyond_Fun(name_mem_pointer + y,49);
     char temp_char = pgm_read_byte(name_mem_pointer + y);
     if (temp_char != 0)
       SERIAL_CHAR(temp_char);

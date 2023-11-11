@@ -8,7 +8,6 @@
  */
 
 #include "../inc/MarlinConfig.h"
-#include "../lcd/extui/dgus/DGUSScreenHandler.h"
 
 #define MAX_UTF8_CHAR_SIZE 4
 
@@ -24,7 +23,6 @@ uint8_t read_byte_ram(uint8_t * str) {
 }
 
 uint8_t read_byte_rom(uint8_t * str) {
-  ScreenHandler.Address_Beyond_Fun(str,11);
   return pgm_read_byte(str);
 }
 

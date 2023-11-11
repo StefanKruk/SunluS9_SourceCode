@@ -99,7 +99,6 @@
     #define DEBUG_ECHOLN(...)         NOOP
     #define DEBUG_ECHOPGM(...)        NOOP
     #define DEBUG_ECHOLNPGM(...)      NOOP
-    #define DEBUG_ECHOPAIR(str, val)       do{ Serial.print(F(str)); Serial.print(val); }while(0)
     #define DEBUG_ECHOPAIR(...)       NOOP
     #define DEBUG_ECHOPAIR_P(...)     NOOP
     #define DEBUG_ECHOPAIR_F(...)     NOOP
