@@ -76,7 +76,7 @@
       #define FONT_STATUSMENU_NAME MENU_FONT_NAME
   #endif
   
-  U8G_CLASS u8g(0);
+U8G_CLASS u8g;
   
   #include LANGUAGE_DATA_INCL(LCD_LANGUAGE)
   
@@ -119,11 +119,8 @@
       
             #if ENABLED(CUSTOM_BOOTSCREEN_ANIMATED)
                 #if ENABLED(CUSTOM_BOOTSCREEN_ANIMATED_FRAME_TIME)
-          		  ScreenHandler.Address_Beyond_Fun(&custom_bootscreen_animation[frame].bitmap,36);
                     const u8g_pgm_uint8_t * const bmp = (u8g_pgm_uint8_t*)pgm_read_ptr(&custom_bootscreen_animation[frame].bitmap);
                 #else
-          		
-          		  ScreenHandler.Address_Beyond_Fun(&custom_bootscreen_animation[frame],37);
                     const u8g_pgm_uint8_t * const bmp = (u8g_pgm_uint8_t*)pgm_read_ptr(&custom_bootscreen_animation[frame]);
                 #endif
             #else
@@ -159,8 +156,6 @@
               {
                 #if ENABLED(CUSTOM_BOOTSCREEN_ANIMATED_FRAME_TIME)
                     const uint8_t fr = _MIN(f, COUNT(custom_bootscreen_animation) - 1);
-        		  
-        		    ScreenHandler.Address_Beyond_Fun(&custom_bootscreen_animation[fr].duration,38);
                     const millis_t frame_time = pgm_read_word(&custom_bootscreen_animation[fr].duration);
                 #endif
                 u8g.firstPage();
@@ -230,7 +225,6 @@
         #else
             constexpr millis_t frame_time = MARLIN_BOOTSCREEN_FRAME_TIME;
             LOOP_L_N(f, COUNT(marlin_bootscreen_animation)) {
-      	  	ScreenHandler.Address_Beyond_Fun(&marlin_bootscreen_animation[f],39);
               draw_bootscreen_bmp((uint8_t*)pgm_read_ptr(&marlin_bootscreen_animation[f]));
               if (frame_time) safe_delay(frame_time);
             }
@@ -265,7 +259,7 @@
   
     static bool did_init_u8g = false;
     if (!did_init_u8g) {
-  //    u8g.init(U8G_PARAM);
+    u8g.init(U8G_PARAM);
       did_init_u8g = true;
     }
   

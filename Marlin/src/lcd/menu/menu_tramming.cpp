@@ -49,7 +49,6 @@
   static bool probe_single_point() {
     do_blocking_move_to_z(TERN(BLTOUCH, Z_CLEARANCE_DEPLOY_PROBE, Z_CLEARANCE_BETWEEN_PROBES));
     // Stow after each point with BLTouch "HIGH SPEED" mode for push-pin safety
-    //do{ MYSERIAL1.println(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
     const float z_probed_height = probe.probe_at_point(screws_tilt_adjust_pos[tram_index], TERN(BLTOUCH_HS_MODE, PROBE_PT_STOW, PROBE_PT_RAISE), 0, true);
     DEBUG_ECHOLNPAIR("probe_single_point: ", z_probed_height, "mm");
     z_measured[tram_index] = z_probed_height;
@@ -76,8 +75,6 @@
   
     // Draw a menu item for each tramming point
     LOOP_L_N(i, G35_PROBE_COUNT)
-    
-      ScreenHandler.Address_Beyond_Fun(&tramming_point_name[i],42);
       SUBMENU_N_P(i, (char*)pgm_read_ptr(&tramming_point_name[i]), []{ _menu_single_probe(MenuItemBase::itemIndex); });
   
     ACTION_ITEM(MSG_BUTTON_DONE, []{

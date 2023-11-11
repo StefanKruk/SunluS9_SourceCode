@@ -34,7 +34,6 @@
  */
 
 #include "../inc/MarlinConfig.h"
-#include "../lcd/extui/dgus/DGUSScreenHandler.h"
 
 #if ENABLED(SDSUPPORT)
   
@@ -400,8 +399,6 @@
       else {
         // Fail for illegal characters
         PGM_P p = PSTR("|<>^+=?/[];,*\"\\");
-        
-  	  ScreenHandler.Address_Beyond_Fun(p,53);
         while (uint8_t b = pgm_read_byte(p++)) if (b == c) return false;
         if (i > n || c < 0x21 || c == 0x7F) return false;       // Check size, non-printable characters
         name[i++] = c + (WITHIN(c, 'a', 'z') ? 'A' - 'a' : 0);  // Uppercase required for 8.3 name
@@ -811,6 +808,59 @@
     return false;
   }
   
+#if 0
+/**
+ * Open a directory's parent directory.
+ *
+ * \param[in] dir Parent of this directory will be opened.  Must not be root.
+ *
+ * \return true for success, false for failure.
+ */
+bool SdBaseFile::openParent(SdBaseFile *dir) {
+  dir_t entry;
+  SdBaseFile file;
+  uint32_t c;
+  uint32_t cluster;
+  uint32_t lbn;
+  // error if already open or dir is root or dir is not a directory
+  if (isOpen() || !dir || dir->isRoot() || !dir->isDir()) return false;
+  vol_ = dir->vol_;
+  // position to '..'
+  if (!dir->seekSet(32)) return false;
+  // read '..' entry
+  if (dir->read(&entry, sizeof(entry)) != 32) return false;
+  // verify it is '..'
+  if (entry.name[0] != '.' || entry.name[1] != '.') return false;
+  // start cluster for '..'
+  cluster = entry.firstClusterLow;
+  cluster |= (uint32_t)entry.firstClusterHigh << 16;
+  if (cluster == 0) return openRoot(vol_);
+  // start block for '..'
+  lbn = vol_->clusterStartBlock(cluster);
+  // first block of parent dir
+  if (!vol_->cacheRawBlock(lbn, SdVolume::CACHE_FOR_READ)) return false;
+
+  dir_t *p = &vol_->cacheBuffer_.dir[1];
+  // verify name for '../..'
+  if (p->name[0] != '.' || p->name[1] != '.') return false;
+  // '..' is pointer to first cluster of parent. open '../..' to find parent
+  if (p->firstClusterHigh == 0 && p->firstClusterLow == 0) {
+    if (!file.openRoot(dir->volume())) return false;
+  }
+  else if (!file.openCachedEntry(1, O_READ))
+    return false;
+
+  // search for parent in '../..'
+  do {
+    if (file.readDir(&entry, nullptr) != 32) return false;
+    c = entry.firstClusterLow;
+    c |= (uint32_t)entry.firstClusterHigh << 16;
+  } while (c != cluster);
+
+  // open parent
+  return open(&file, file.curPosition() / 32 - 1, O_READ);
+}
+#endif
   
   /**
    * Open a volume's root directory.
@@ -952,7 +1002,7 @@
     uint8_t *dst = reinterpret_cast<uint8_t*>(buf);
     uint16_t offset, toRead;
     uint32_t block;  // raw device block number
-    static uint8_t counter_read_line=0;
+
     // error if not open or write only
     if (!isOpen() || !(flags_ & O_READ)) return -1;
   
@@ -993,13 +1043,6 @@
         memcpy(dst, src, n);
       }
       dst += n;
-  	if((++counter_read_line%15)==0)
-  	{
-  		PrecurPosition_= curPosition_;
-  		counter_read_line=0;
-  	//	MYSERIAL1.print("PrecurPosition_:");
-  	//	MYSERIAL1.println(PrecurPosition_);
-  	}
       curPosition_ += n;
       toRead -= n;
     }

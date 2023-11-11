@@ -47,7 +47,6 @@
   void E_Notify(char const * msg, int lvl) {
     if (UsbDEBUGlvl < lvl) return;
     if (!msg) return;
-    ScreenHandler.Address_Beyond_Fun(msg,43);
     while (const char c = pgm_read_byte(msg++)) E_Notifyc(c, lvl);
   }
   

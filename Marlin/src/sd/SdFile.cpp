@@ -34,7 +34,6 @@
 #if ENABLED(SDSUPPORT)
   
   #include "SdFile.h"
-  #include "../lcd/extui/dgus/DGUSScreenHandler.h"
   
   /**
    *  Create a file object and open it in the current working directory.
@@ -87,7 +86,6 @@
    * Use writeError to check for errors.
    */
   void SdFile::write_P(PGM_P str) {
-    ScreenHandler.Address_Beyond_Fun(str,54);
     for (uint8_t c; (c = pgm_read_byte(str)); str++) write(c);
   }
   

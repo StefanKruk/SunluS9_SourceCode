@@ -46,7 +46,7 @@ e-mail   :  support@circuitsathome.com
           if(UsbDEBUGlvl < lvl) return;
           if(!msg) return;
           char c;
-  			  ScreenHandler.Address_Beyond_Fun(msg,83);
+
           while((c = pgm_read_byte(msg++))) E_Notifyc(c, lvl);
   }
   

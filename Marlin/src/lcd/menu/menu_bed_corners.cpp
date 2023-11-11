@@ -223,7 +223,6 @@
     
       bool _lcd_level_bed_corners_probe(bool verify=false) {
         if (verify) do_blocking_move_to_z(current_position.z + LEVEL_CORNERS_Z_HOP); // do clearance if needed
-    	//do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);	
         TERN_(BLTOUCH_SLOW_MODE, bltouch.deploy()); // Deploy in LOW SPEED MODE on every probe action
         do_blocking_move_to_z(last_z - LEVEL_CORNERS_PROBE_TOLERANCE, MMM_TO_MMS(Z_PROBE_FEEDRATE_SLOW)); // Move down to lower tolerance
         if (TEST(endstops.trigger_state(), Z_MIN_PROBE)) { // check if probe triggered
@@ -276,8 +275,6 @@
           current_position -= probe.offset_xy;                // Account for probe offsets
           do_blocking_move_to_xy(current_position);           // Goto corner
     	  
-    	  //do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);  
-    
           TERN_(BLTOUCH_HS_MODE, bltouch.deploy());           // Deploy in HIGH SPEED MODE
           if (!_lcd_level_bed_corners_probe()) {              // Probe down to tolerance
             if (_lcd_level_bed_corners_raise()) {             // Prompt user to raise bed if needed

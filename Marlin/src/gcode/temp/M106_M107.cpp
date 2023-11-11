@@ -89,12 +89,8 @@
       TERN_(LASER_SYNCHRONOUS_M106_M107, planner.buffer_sync_block(BLOCK_FLAG_SYNC_FANS));
   
       if (TERN0(DUAL_X_CARRIAGE, idex_is_duplicating()))  // pfan == 0 when duplicating
-      {
-  //		do{MYSERIAL1.println("enter set_fan_speed:"); }while(0);
-      
         thermalManager.set_fan_speed(1 - pfan, speed);
       }
-    }
   }
   
   /**

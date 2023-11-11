@@ -494,7 +494,7 @@ void _O2 Endstops::report_states() {
       print_es_state(READ(FIL_RUNOUT1_PIN) != FIL_RUNOUT1_STATE, PSTR(STR_FILAMENT_RUNOUT_SENSOR));
   #endif
 
-  TERN_(BLTOUCH, bltouch._reset_SW_mode())
+  TERN_(BLTOUCH, bltouch._reset_SW_mode());
   TERN_(JOYSTICK_DEBUG, joystick.report());
 
 } // Endstops::report_states
@@ -856,7 +856,7 @@ void Endstops::update() {
           #if ENABLED(Z_MULTI_ENDSTOPS)
               PROCESS_ENDSTOP_Z(MAX);
           #elif !HAS_CUSTOM_PROBE_PIN || Z_MAX_PIN != Z_MIN_PROBE_PIN  // No probe or probe is Z_MIN || Probe is not Z_MAX
-             // PROCESS_ENDSTOP(Z, MAX);
+          PROCESS_ENDSTOP(Z, MAX);
           #endif
           #if   CORE_DIAG(XZ, X, MIN)
               PROCESS_CORE_ENDSTOP(X,MIN,Z,MAX);

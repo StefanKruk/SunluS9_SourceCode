@@ -134,7 +134,6 @@
     
         // Probe for Z reference
         ui.wait_for_move = true;
-    	//do{ MYSERIAL1.println(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
         z_offset_ref = probe.probe_at_point(wizard_pos, PROBE_PT_RAISE, 0, true);
         ui.wait_for_move = false;
     

@@ -87,7 +87,7 @@
               bitNotClock = u8g_bitNotClock;
       volatile uint8_t *outData = u8g_outData,
                        *outClock = u8g_outClock;
-      //U8G_ATOMIC_START();
+  U8G_ATOMIC_START();
       LOOP_L_N(i, 8) {
         if (val & 0x80)
           *outData |= bitData;
@@ -97,7 +97,7 @@
         val <<= 1;
         *outClock &= bitNotClock;
       }
-     // U8G_ATOMIC_END();
+  U8G_ATOMIC_END();
     }
     
     void u8g_spiSend_sw_AVR_mode_3(uint8_t val) {
@@ -107,7 +107,7 @@
               bitNotClock = u8g_bitNotClock;
       volatile uint8_t *outData = u8g_outData,
                        *outClock = u8g_outClock;
-     // U8G_ATOMIC_START();
+  U8G_ATOMIC_START();
       LOOP_L_N(i, 8) {
         *outClock &= bitNotClock;
         if (val & 0x80)
@@ -117,7 +117,7 @@
         *outClock |= bitClock;
         val <<= 1;
       }
-     // U8G_ATOMIC_END();
+  U8G_ATOMIC_END();
     }
     
     

@@ -35,10 +35,6 @@
     #include "../../module/stepper.h"
 #endif
 
-#if ENABLED(EXTENSIBLE_UI)
-    #include "../../lcd/extui/ui_api.h"
-#endif
-
 extern xyze_pos_t destination;
 
 #if ENABLED(VARIABLE_G0_FEEDRATE)
@@ -50,8 +46,6 @@ extern xyze_pos_t destination;
  */
 void GcodeSuite::G0_G1(TERN_(HAS_FAST_MOVES, const bool fast_move/*=false*/)) {
 
-	
-  TERN_(EXTENSIBLE_UI, ExtUI::onStartMove());
   if (IsRunning()
     #if ENABLED(NO_MOTION_BEFORE_HOMING)
         && !homing_needed_error(
@@ -71,6 +65,7 @@ void GcodeSuite::G0_G1(TERN_(HAS_FAST_MOVES, const bool fast_move/*=false*/)) {
             }
         #endif
     #endif
+
     get_destination_from_command();                 // Get X Y Z E F (and set cutter power)
 
     #ifdef G0_FEEDRATE
@@ -127,5 +122,4 @@ void GcodeSuite::G0_G1(TERN_(HAS_FAST_MOVES, const bool fast_move/*=false*/)) {
         TERN_(FULL_REPORT_TO_HOST_FEATURE, report_current_grblstate_moving());
     #endif
   }
-  TERN_(EXTENSIBLE_UI, ExtUI::onEndMove());
 }

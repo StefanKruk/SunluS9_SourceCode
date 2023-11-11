@@ -57,7 +57,6 @@
   #include "../core/debug_out.h"
   #include "../libs/hex_print.h"
   
-  #include "../module/stepper.h"
   // extern
   
   PGMSTR(M23_STR, "M23 %s");
@@ -210,11 +209,9 @@
   
     flag.filenameIsDir = DIR_IS_SUBDIR(&p);               // We know it's a File or Folder
     
-  	//do{ MYSERIAL1.print("filelist.count():"); MYSERIAL1.print((char)p.name[8]);  MYSERIAL1.print((char)p.name[9]);  MYSERIAL1.println((char)p.name[10]); }while(0);
     return (
-     // flag.filenameIsDir                                  // All Directories are ok
-       (p.name[8] == 'G' && p.name[9] != '~')           // Non-backup *.G* files are accepted
-      || (p.name[8] == 'g' && p.name[9] != '~')  
+    flag.filenameIsDir                                  // All Directories are ok
+    || (p.name[8] == 'G' && p.name[9] != '~')           // Non-backup *.G* files are accepted
     );
   }
   
@@ -418,9 +415,9 @@
       #endif
     ) SERIAL_ECHO_MSG(STR_SD_INIT_FAIL);
     else if (!volume.init(driver))
-      SERIAL_ECHO_MSG(STR_SD_VOL_INIT_FAIL);
+    SERIAL_ERROR_MSG(STR_SD_VOL_INIT_FAIL);
     else if (!root.openRoot(&volume))
-      SERIAL_ECHO_MSG(STR_SD_OPENROOT_FAIL);
+    SERIAL_ERROR_MSG(STR_SD_OPENROOT_FAIL);
     else {
       flag.mounted = true;
       SERIAL_ECHO_MSG(STR_SD_CARD_OK);
@@ -444,7 +441,7 @@
   #endif
   
   void CardReader::manage_media() {
-    static uint8_t prev_stat = 0;       // First call, no prior state
+  static uint8_t prev_stat = 2;       // First call, no prior state
     uint8_t stat = uint8_t(IS_SD_INSERTED());
     if (stat == prev_stat) return;
   
@@ -475,12 +472,8 @@
       ui.media_changed(old_stat, stat); // Update the UI
   
       if (stat) {
-  //		do{ MYSERIAL1.println(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
         TERN_(SDCARD_EEPROM_EMULATION, settings.first_load());
-        //if (old_stat == 2)
-  	  	{            // First mount?
-        
-  //		do{ MYSERIAL1.println(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
+      if (old_stat == 2) {            // First mount?
           DEBUG_ECHOLNPGM("First mount.");
           #if ENABLED(POWER_LOSS_RECOVERY)
               recovery.check();           // Check for PLR file. (If not there then call autofile_begin)
@@ -708,7 +701,6 @@
     if (!isMounted()) return false;
   
     DEBUG_ECHOLNPAIR("fileExists: ", path);
-    
   
     // Dive to the file's directory and get the base name
     SdFile *diveDir = nullptr;
@@ -731,7 +723,6 @@
   // Delete a file by name in the working directory
   //
   void CardReader::removeFile(const char * const name) {
-  
     if (!isMounted()) return;
   
     //abortFilePrintNow();
@@ -747,7 +738,6 @@
           SERIAL_ECHOLNPAIR("File deleted:", fname);
           sdpos = 0;
           TERN_(SDCARD_SORT_ALPHA, presort());
-    	  
         }
         else
           SERIAL_ECHOLNPAIR("Deletion failed, File: ", fname, ".");
@@ -1282,8 +1272,6 @@
     
       bool CardReader::jobRecoverFileExists() {
         const bool exists = recovery.file.open(&root, recovery.filename, O_READ);
-    	//do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
-    	//do{ MYSERIAL1.print("recovery.filename"); MYSERIAL1.println(recovery.filename); }while(0);
         if (exists) recovery.file.close();
         return exists;
       }

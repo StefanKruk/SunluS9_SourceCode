@@ -48,6 +48,10 @@
   void GcodeSuite::M0_M1() {
     millis_t ms = 0;
     if (parser.seenval('P')) ms = parser.value_millis();              // Milliseconds to wait
+  if (parser.seenval('S')) ms = parser.value_millis_from_seconds(); // Seconds to wait
+
+  planner.synchronize();
+
   #if HAS_LCD_MENU
     
         if (parser.string_arg)
@@ -72,10 +76,6 @@
         }
     
   #endif
-    if (parser.seenval('S')) ms = parser.value_millis_from_seconds(); // Seconds to wait
-  
-    planner.synchronize();
-  
   
     TERN_(HOST_PROMPT_SUPPORT, host_prompt_do(PROMPT_USER_CONTINUE, parser.codenum ? PSTR("M1 Stop") : PSTR("M0 Stop"), CONTINUE_STR));
   

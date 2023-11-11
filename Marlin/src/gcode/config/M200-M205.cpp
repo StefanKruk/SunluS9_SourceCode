@@ -165,13 +165,12 @@ void GcodeSuite::M205() {
       }
   #endif
   #if HAS_CLASSIC_JERK
-     bool seenZ = false;
       if (parser.seenval('X')) planner.set_max_jerk(X_AXIS, parser.value_linear_units());
       if (parser.seenval('Y')) planner.set_max_jerk(Y_AXIS, parser.value_linear_units());
       if (parser.seenval('Z')) {
         planner.set_max_jerk(Z_AXIS, parser.value_linear_units());
         #if HAS_MESH && DISABLED(LIMITED_JERK_EDITING)
-            if (seenZ && planner.max_jerk.z <= 0.1f)
+        if (planner.max_jerk.z <= 0.1f)
               SERIAL_ECHOLNPGM("WARNING! Low Z Jerk may lead to unwanted pauses.");
         #endif
       }

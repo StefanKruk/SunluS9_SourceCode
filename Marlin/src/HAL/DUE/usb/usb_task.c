@@ -57,15 +57,12 @@ static volatile bool main_b_msc_enable = false;
 static volatile bool main_b_cdc_enable = false;
 static volatile bool main_b_dtr_active = false;
 
-void usb_task_idle(void)
-{
+void usb_task_idle(void) {
 #if ENABLED(SDSUPPORT)
   // Attend SD card access from the USB MSD -- Prioritize access to improve speed
   int delay = 2;
-  while (main_b_msc_enable && --delay > 0)
-  {
-    if (udi_msc_process_trans())
-      delay = 10000;
+    while (main_b_msc_enable && --delay > 0) {
+      if (udi_msc_process_trans()) delay = 10000;
 
     // Reset the watchdog, just to be sure
     REG_WDT_CR = WDT_CR_WDRSTT | WDT_CR_KEY(0xA5);
@@ -74,25 +71,13 @@ void usb_task_idle(void)
 }
 
 #if ENABLED(SDSUPPORT)
-bool usb_task_msc_enable(void)
-{
-  return ((main_b_msc_enable = true));
-}
+  bool usb_task_msc_enable(void)                { return ((main_b_msc_enable = true)); }
 void usb_task_msc_disable(void) { main_b_msc_enable = false; }
 bool usb_task_msc_isenabled(void) { return main_b_msc_enable; }
 #endif
 
-bool usb_task_cdc_enable(const uint8_t port)
-{
-  UNUSED(port);
-  return ((main_b_cdc_enable = true));
-}
-void usb_task_cdc_disable(const uint8_t port)
-{
-  UNUSED(port);
-  main_b_cdc_enable = false;
-  main_b_dtr_active = false;
-}
+bool usb_task_cdc_enable(const uint8_t port)  { UNUSED(port); return ((main_b_cdc_enable = true)); }
+void usb_task_cdc_disable(const uint8_t port) { UNUSED(port); main_b_cdc_enable = false; main_b_dtr_active = false; }
 bool usb_task_cdc_isenabled(void) { return main_b_cdc_enable; }
 
 /*! \brief Called by CDC interface
@@ -105,15 +90,13 @@ void usb_task_cdc_rx_notify(const uint8_t port) { UNUSED(port); }
  * \param cfg      line configuration
  */
 static uint16_t dwDTERate = 0;
-void usb_task_cdc_config(const uint8_t port, usb_cdc_line_coding_t *cfg)
-{
+void usb_task_cdc_config(const uint8_t port, usb_cdc_line_coding_t *cfg) {
   UNUSED(port);
   // Store last DTE rate
   dwDTERate = cfg->dwDTERate;
 }
 
-void usb_task_cdc_set_dtr(const uint8_t port, const bool b_enable)
-{
+void usb_task_cdc_set_dtr(const uint8_t port, const bool b_enable) {
   UNUSED(port);
   // Keep DTR status
   main_b_dtr_active = b_enable;
@@ -123,11 +106,9 @@ void usb_task_cdc_set_dtr(const uint8_t port, const bool b_enable)
   //  "Auto-reset into the bootloader is triggered when the port, already
   // open at 1200 bps, is closed."
 
-  if (1200 == dwDTERate)
-  {
+  if (1200 == dwDTERate) {
     // We check DTR state to determine if host port is open (bit 0 of lineState).
-    if (!b_enable)
-    {
+    if (!b_enable) {
 
       // Set RST pin to go low for 65535 clock cycles on reset
       //  This helps restarting when firmware flash ends
@@ -144,8 +125,7 @@ void usb_task_cdc_set_dtr(const uint8_t port, const bool b_enable)
 bool usb_task_cdc_dtr_active(void) { return main_b_dtr_active; }
 
 /// Microsoft WCID descriptor
-typedef struct USB_MicrosoftCompatibleDescriptor_Interface
-{
+typedef struct USB_MicrosoftCompatibleDescriptor_Interface {
   uint8_t bFirstInterfaceNumber;
   uint8_t reserved1;
   uint8_t compatibleID[8];
@@ -153,8 +133,7 @@ typedef struct USB_MicrosoftCompatibleDescriptor_Interface
   uint8_t reserved2[6];
 } __attribute__((packed)) USB_MicrosoftCompatibleDescriptor_Interface;
 
-typedef struct USB_MicrosoftCompatibleDescriptor
-{
+typedef struct USB_MicrosoftCompatibleDescriptor {
   uint32_t dwLength;
   uint16_t bcdVersion;
   uint16_t wIndex;
@@ -178,7 +157,9 @@ static USB_MicrosoftCompatibleDescriptor microsoft_compatible_id_descriptor = {
             .compatibleID = "3DPRINT",
             .subCompatibleID = {0, 0, 0, 0, 0, 0, 0, 0},
             .reserved2 = {0, 0, 0, 0, 0, 0},
-        }}};
+    }
+  }
+};
 
 #define xstr(s) str(s)
 #define str(s) #s
@@ -191,8 +172,7 @@ static USB_MicrosoftCompatibleDescriptor microsoft_compatible_id_descriptor = {
                                                                                       u"Job3DOutputAreaHeight=" xstr(Z_MAX_POS) "000\0" \
                                                                                                                                 u"filamentdiameter=1750\0"
 
-typedef struct USB_MicrosoftExtendedPropertiesDescriptor
-{
+typedef struct USB_MicrosoftExtendedPropertiesDescriptor {
   uint32_t dwLength;
   uint16_t bcdVersion;
   uint16_t wIndex;
@@ -216,22 +196,21 @@ static USB_MicrosoftExtendedPropertiesDescriptor microsoft_extended_properties_d
     .wPropertyNameLength = sizeof(MS3DPRINT_CONFIG),
     .PropertyName = MS3DPRINT_CONFIG,
     .dwPropertyDataLength = sizeof(MS3DPRINT_CONFIG_DATA),
-    .PropertyData = MS3DPRINT_CONFIG_DATA};
+  .PropertyData = MS3DPRINT_CONFIG_DATA
+};
 
 /**************************************************************************************************
 ** WCID configuration information
 ** Hooked into UDC via UDC_GET_EXTRA_STRING #define.
 */
-bool usb_task_extra_string(void)
-{
+bool usb_task_extra_string(void) {
   static uint8_t udi_msft_magic[] = "MSFT100\xEE";
   static uint8_t udi_cdc_name[] = "CDC interface";
 #if ENABLED(SDSUPPORT)
   static uint8_t udi_msc_name[] = "MSC interface";
 #endif
 
-  struct extra_strings_desc_t
-  {
+  struct extra_strings_desc_t {
     usb_str_desc_t header;
 #if ENABLED(SDSUPPORT)
     le16_t string[Max(Max(sizeof(udi_cdc_name) - 1, sizeof(udi_msc_name) - 1), sizeof(udi_msft_magic) - 1)];
@@ -240,14 +219,14 @@ bool usb_task_extra_string(void)
 #endif
   };
   static UDC_DESC_STORAGE struct extra_strings_desc_t extra_strings_desc = {
-      .header.bDescriptorType = USB_DT_STRING};
+    .header.bDescriptorType = USB_DT_STRING
+  };
 
   uint8_t *str;
   uint8_t str_lgt = 0;
 
   // Link payload pointer to the string corresponding at request
-  switch (udd_g_ctrlreq.req.wValue & 0xFF)
-  {
+  switch (udd_g_ctrlreq.req.wValue & 0xFF) {
   case UDI_CDC_IAD_STRING_ID:
     str_lgt = sizeof(udi_cdc_name) - 1;
     str = udi_cdc_name;
@@ -274,8 +253,7 @@ bool usb_task_extra_string(void)
   udd_g_ctrlreq.payload = (uint8_t *)&extra_strings_desc;
 
   // if the string is larger than request length, then cut it
-  if (udd_g_ctrlreq.payload_size > udd_g_ctrlreq.req.wLength)
-  {
+  if (udd_g_ctrlreq.payload_size > udd_g_ctrlreq.req.wLength) {
     udd_g_ctrlreq.payload_size = udd_g_ctrlreq.req.wLength;
   }
 
@@ -285,25 +263,20 @@ bool usb_task_extra_string(void)
 /**************************************************************************************************
 ** Handle device requests that the ASF stack doesn't
 */
-bool usb_task_other_requests(void)
-{
+bool usb_task_other_requests(void) {
   uint8_t *ptr = 0;
   uint16_t size = 0;
 
-  if (Udd_setup_type() == USB_REQ_TYPE_VENDOR)
-  {
+  if (Udd_setup_type() == USB_REQ_TYPE_VENDOR) {
     // if (udd_g_ctrlreq.req.bRequest == 0x30)
-    if (1)
-    {
-      if (udd_g_ctrlreq.req.wIndex == 0x04)
-      {
+    if (1) {
+      if (udd_g_ctrlreq.req.wIndex == 0x04) {
         ptr = (uint8_t *)&microsoft_compatible_id_descriptor;
         size = (udd_g_ctrlreq.req.wLength);
         if (size > microsoft_compatible_id_descriptor.dwLength)
           size = microsoft_compatible_id_descriptor.dwLength;
       }
-      else if (udd_g_ctrlreq.req.wIndex == 0x05)
-      {
+      else if (udd_g_ctrlreq.req.wIndex == 0x05) {
         ptr = (uint8_t *)&microsoft_extended_properties_descriptor;
         size = (udd_g_ctrlreq.req.wLength);
         if (size > microsoft_extended_properties_descriptor.dwLength)
@@ -315,8 +288,7 @@ bool usb_task_other_requests(void)
   }
 
   udd_g_ctrlreq.payload_size = size;
-  if (size == 0)
-  {
+  if (size == 0) {
     udd_g_ctrlreq.callback = 0;
     udd_g_ctrlreq.over_under_run = 0;
   }
@@ -326,8 +298,7 @@ bool usb_task_other_requests(void)
   return true;
 }
 
-void usb_task_init(void)
-{
+void usb_task_init(void) {
 
   uint16_t *ptr;
 
@@ -343,12 +314,10 @@ void usb_task_init(void)
 
   // Patch in filament diameter - Be careful: String is in UNICODE (2bytes per char)
   ptr = &microsoft_extended_properties_descriptor.PropertyData[0];
-  while (ptr[0] || ptr[1])
-  { // Double 0 flags end of resource
+  while (ptr[0] || ptr[1]) { // Double 0 flags end of resource
 
     // Found the filamentdiameter= unicode string
-    if (ptr[0] == 'r' && ptr[1] == '=')
-    {
+    if (ptr[0] == 'r' && ptr[1] == '=') {
       char diam[16];
       char *sptr;
 
@@ -358,8 +327,7 @@ void usb_task_init(void)
       // And copy it to the proper place, expanding it to unicode
       sptr = &diam[0];
       ptr += 2;
-      while (*sptr)
-        *ptr++ = *sptr++;
+      while (*sptr) *ptr++ = *sptr++;
 
       // Done!
       break;

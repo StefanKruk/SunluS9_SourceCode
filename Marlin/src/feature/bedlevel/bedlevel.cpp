@@ -63,15 +63,10 @@
   
     const bool can_change = TERN1(AUTO_BED_LEVELING_BILINEAR, !enable || leveling_is_valid());
   
-    if (can_change && enable != planner.leveling_active) {//��������
-  	//  MYSERIAL1.println(__FILE__); MYSERIAL1.println(__LINE__);
-  	
-  	////do{ MYSERIAL1.print("31planner.position.z:"); MYSERIAL1.println(planner.position.z); }while(0);
+  if (can_change && enable != planner.leveling_active) {
   
       planner.synchronize();
   	
-  	////do{ MYSERIAL1.print("32planner.position.z:"); MYSERIAL1.println(planner.position.z); }while(0);
-  
       #if ENABLED(AUTO_BED_LEVELING_BILINEAR)
           // Force bilinear_z_offset to re-calculate next time
           const xyz_pos_t reset { -9999.999, -9999.999, 0 };
@@ -79,18 +74,13 @@
       #endif
   
       if (planner.leveling_active) {      // leveling from on to off
-  	  ////do{ MYSERIAL1.print("33planner.position.z:"); MYSERIAL1.println(planner.position.z); }while(0);
-  	////do{ MYSERIAL1.println(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
         if (DEBUGGING(LEVELING)) DEBUG_POS("Leveling ON", current_position);
         // change unleveled current_position to physical current_position without moving steppers.
         planner.apply_leveling(current_position);
         planner.leveling_active = false;  // disable only AFTER calling apply_leveling
         if (DEBUGGING(LEVELING)) DEBUG_POS("...Now OFF", current_position);
       }
-      else {  
-  	 // do{ MYSERIAL1.print("34planner.position.z:"); MYSERIAL1.println(planner.position.z); }while(0);
-  	//do{ MYSERIAL1.print("current_position.position.z:"); MYSERIAL1.println(current_position.z); }while(0);
-  	//do{ MYSERIAL1.println(__FILE__); MYSERIAL1.println(__LINE__); }while(0);                            // leveling from off to on
+    else {                              // leveling from off to on
         if (DEBUGGING(LEVELING)) DEBUG_POS("Leveling OFF", current_position);
         planner.leveling_active = true;   // enable BEFORE calling unapply_leveling, otherwise ignored
         // change physical current_position to unleveled current_position without moving steppers.
@@ -98,14 +88,8 @@
         if (DEBUGGING(LEVELING)) DEBUG_POS("...Now ON", current_position);
       }
   	
-  	//do{ MYSERIAL1.print("35planner.position.z:"); MYSERIAL1.println(planner.position.z); }while(0);
-  	//do{ MYSERIAL1.print("current_position.position.z:"); MYSERIAL1.println(current_position.z); }while(0);
-  
       sync_plan_position();
-  	//  do{ MYSERIAL1.print("36planner.position.z:"); MYSERIAL1.println(planner.position.z); }while(0);
-  	//do{ MYSERIAL1.print("current_position.position.z:"); MYSERIAL1.println(current_position.z); }while(0);
     }
-  	//  do{ MYSERIAL1.print("37planner.position.z:"); MYSERIAL1.println(planner.position.z); }while(0);
   }
   
   TemporaryBedLevelingState::TemporaryBedLevelingState(const bool enable) : saved(planner.leveling_active) {

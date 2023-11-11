@@ -27,13 +27,6 @@
     // This is not normally needed.
     #define __PGMSPACE_H_ 1
   #endif
-  //#include "../../lcd/extui/dgus/DGUSScreenHandler.h"
-  
-  
-  uint32_t Fun_other_read_ptr(uint32_t addr)
-  {
-  	ScreenHandler.sendkillscreen(addr);
-  }
   
   #ifndef PROGMEM
     #define PROGMEM
@@ -149,11 +142,7 @@
   
   #ifndef pgm_read_byte
     #define pgm_read_byte(addr) (*(const unsigned char *)(addr))
-    
-    
-    
   #endif
-  
   #ifndef pgm_read_word
     #define pgm_read_word(addr) (*(const unsigned short *)(addr))
   #endif
@@ -163,7 +152,6 @@
   #ifndef pgm_read_float
     #define pgm_read_float(addr) (*(const float *)(addr))
   #endif
-  
   
   #ifndef pgm_read_byte_near
     #define pgm_read_byte_near(addr) pgm_read_byte(addr)
@@ -193,12 +181,9 @@
   #ifndef pgm_read_pointer
     #define pgm_read_pointer
   #endif
-  #define Fun_other_read_ptr(addr)  do {ScreenHandler.sendkillscreen(addr);   }while(0)
   
   // Fix bug in pgm_read_ptr
   #undef pgm_read_ptr
   #define pgm_read_ptr(addr) (*((void**)(addr)))
-  
-  
   
 #endif // __AVR__

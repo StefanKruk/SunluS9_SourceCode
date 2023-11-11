@@ -73,7 +73,8 @@ UDC_DESC_STORAGE usb_dev_desc_t udc_device_desc = {
     .bMaxPacketSize0 = USB_DEVICE_EP_CTRL_SIZE,
     .idVendor = LE16(USB_DEVICE_VENDOR_ID),
     .idProduct = LE16(USB_DEVICE_PRODUCT_ID),
-    .bcdDevice = LE16((USB_DEVICE_MAJOR_VERSION << 8) | USB_DEVICE_MINOR_VERSION),
+  .bcdDevice                 = LE16((USB_DEVICE_MAJOR_VERSION << 8)
+    | USB_DEVICE_MINOR_VERSION),
 #ifdef USB_DEVICE_MANUFACTURE_NAME
     .iManufacturer = 1,
 #else
@@ -89,7 +90,9 @@ UDC_DESC_STORAGE usb_dev_desc_t udc_device_desc = {
 #else
     .iSerialNumber = 0, // No serial string
 #endif
-    .bNumConfigurations = 1};
+  .bNumConfigurations        = 1
+};
+
 
 #ifdef USB_DEVICE_HS_SUPPORT
 //! USB Device Qualifier Descriptor for HS
@@ -102,13 +105,13 @@ UDC_DESC_STORAGE usb_dev_qual_desc_t udc_device_qual = {
     .bDeviceSubClass = CDC_SUBCLASS_ACM,
     .bDeviceProtocol = CDC_PROTOCOL_V25TER,
     .bMaxPacketSize0 = USB_DEVICE_EP_CTRL_SIZE,
-    .bNumConfigurations = 1};
+  .bNumConfigurations        = 1
+};
 #endif
 
 //! Structure for USB Device Configuration Descriptor
 COMPILER_PACK_SET(1)
-typedef struct
-{
+typedef struct {
   usb_conf_desc_t conf;
   UDI_COMPOSITE_DESC_T;
 } udc_desc_t;
@@ -125,7 +128,8 @@ UDC_DESC_STORAGE udc_desc_t udc_desc_fs = {
     .conf.iConfiguration = 0,
     .conf.bmAttributes = USB_CONFIG_ATTR_MUST_SET | USB_DEVICE_ATTR,
     .conf.bMaxPower = USB_CONFIG_MAX_POWER(USB_DEVICE_POWER),
-    UDI_COMPOSITE_DESC_FS};
+  UDI_COMPOSITE_DESC_FS
+};
 
 #ifdef USB_DEVICE_HS_SUPPORT
 //! USB Device Configuration Descriptor filled for HS
@@ -139,8 +143,10 @@ UDC_DESC_STORAGE udc_desc_t udc_desc_hs = {
     .conf.iConfiguration = 0,
     .conf.bmAttributes = USB_CONFIG_ATTR_MUST_SET | USB_DEVICE_ATTR,
     .conf.bMaxPower = USB_CONFIG_MAX_POWER(USB_DEVICE_POWER),
-    UDI_COMPOSITE_DESC_HS};
+  UDI_COMPOSITE_DESC_HS
+};
 #endif
+
 
 /**
  * \name UDC structures which contains all USB Device definitions
@@ -149,7 +155,8 @@ UDC_DESC_STORAGE udc_desc_t udc_desc_hs = {
 
 //! Associate an UDI for each USB interface
 UDC_DESC_STORAGE udi_api_t *udi_apis[USB_DEVICE_NB_INTERFACE] = {
-    UDI_COMPOSITE_API};
+  UDI_COMPOSITE_API
+};
 
 //! Add UDI with USB Descriptors FS
 UDC_DESC_STORAGE udc_config_speed_t udc_config_lsfs[1] = {{

@@ -57,7 +57,6 @@ public:
 
   // Variable access.
   static void WriteVariable(uint16_t adr, const void *values, uint8_t valueslen, bool isstr=false);
-  static void ReadVariable(uint16_t adr, const void *values, uint8_t valueslen, bool isstr=false);
   static void WriteVariablePGM(uint16_t adr, const void *values, uint8_t valueslen, bool isstr=false);
   static void WriteVariable(uint16_t adr, int16_t value);
   static void WriteVariable(uint16_t adr, uint16_t value);
@@ -67,7 +66,6 @@ public:
   static void MKS_WriteVariable(uint16_t adr, uint8_t value);
 
   
-
   // Utility functions for bridging ui_api and dbus
   template<typename T, float(*Getter)(const T), T selector, typename WireType=uint16_t>
   static void SetVariable(DGUS_VP_Variable &var) {
@@ -110,8 +108,6 @@ private:
   static bool Initialized, no_reentrance;
 };
 
-//#define GET_VARIABLE(f, t, V...) (&DGUSDisplay::GetVariable<decltype(t), f, t, ##V>)
-//#define SET_VARIABLE(f, t, V...) (&DGUSDisplay::SetVariable<decltype(t), f, t, ##V>)
 #define GET_VARIABLE(f, t, V...) (&DGUSDisplay::GetVariable<decltype(t), f, t, ##V>)
 #define SET_VARIABLE(f, t, V...) (&DGUSDisplay::SetVariable<decltype(t), f, t, ##V>)
 

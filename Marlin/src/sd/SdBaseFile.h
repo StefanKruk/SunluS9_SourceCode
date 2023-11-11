@@ -200,7 +200,6 @@ class SdBaseFile {
    * \return The current position for a file or directory.
    */
   uint32_t curPosition() const { return curPosition_; }
-  uint32_t PrecurPosition() const { return PrecurPosition_; }
 
   /**
    * \return Current working directory
@@ -361,7 +360,6 @@ class SdBaseFile {
   uint8_t   type_;          // type of file see above for values
   uint32_t  curCluster_;    // cluster for current file position
   uint32_t  curPosition_;   // current file position in bytes from beginning
-  uint32_t  PrecurPosition_;   // Pre current file position in bytes from beginning//david add
   uint32_t  dirBlock_;      // block for this files directory entry
   uint8_t   dirIndex_;      // index of directory entry in dirBlock
   uint32_t  fileSize_;      // file size in bytes
