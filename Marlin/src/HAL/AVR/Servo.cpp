@@ -90,7 +90,6 @@
       }
     }
     
-    
     #ifndef WIRING // Wiring pre-defines signal handlers so don't define any if compiling for the Wiring platform
       
         // Interrupt handlers for Arduino
@@ -109,6 +108,7 @@
         #ifdef _useTimer5
             SIGNAL(TIMER5_COMPA_vect) { handle_interrupts(_timer5, &TCNT5, &OCR5A); }
         #endif
+
     #else // WIRING
       
         // Interrupt handlers for Wiring

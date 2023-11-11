@@ -31,12 +31,10 @@
 #define U8G_I2C_OPT_FAST 16 // from u8g.h
 
 #ifdef __cplusplus
-extern "C"
-{
+  extern "C" {
 #endif
 
-  void configure_i2c(const uint8_t clock_option)
-  {
+void configure_i2c(const uint8_t clock_option) {
     /**
      * Init I2C pin connect
      */

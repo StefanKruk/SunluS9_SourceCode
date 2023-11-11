@@ -26,6 +26,7 @@
   
   #include "../libs/stopwatch.h"
   Stopwatch print_job_timer;      // Global Print Job Timer instance
+
 #else // PRINTCOUNTER
   
   #if ENABLED(EXTENSIBLE_UI)

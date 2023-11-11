@@ -57,7 +57,6 @@
    *   - With no parameters, run recovery commands
    */
   void GcodeSuite::M1000() {
-  	
   
     if (recovery.valid()) {
       if (parser.seen_test('S')) {

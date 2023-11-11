@@ -39,8 +39,6 @@
   #include "../lcd/marlinui.h"
   
   #include "../MarlinCore.h" // for stop(), disable_e_steppers(), wait_for_user_response()
-  #include "../lcd/extui/dgus/DGUSScreenHandler.h"
-  #include "stepper.h"
   
   #if HAS_LEVELING
       #include "../feature/bedlevel/bedlevel.h"
@@ -87,8 +85,6 @@
   #include "../core/debug_out.h"
   
   Probe probe;
-  
-  #define SERIAL_ECHO_TRACK		 do{ MYSERIAL1.println(__FILE__); MYSERIAL1.println(__LINE__); }while(0)
   
   xyz_pos_t Probe::offset; // Initialized by settings.load()
   
@@ -279,7 +275,6 @@
     if (DEBUGGING(LEVELING)) DEBUG_ECHOLNPAIR("Probe::do_z_raise(", z_raise, ")");
     float z_dest = z_raise;
     if (offset.z < 0) z_dest -= offset.z;
-      
     do_z_clearance(z_dest);
   }
   
@@ -310,19 +305,15 @@
   
     #if ENABLED(SOLENOID_PROBE)
     
-    
         #if HAS_SOLENOID_1
             WRITE(SOL1_PIN, deploy);
         #endif
     
     #elif ENABLED(Z_PROBE_SLED)
     
-    
         dock_sled(!deploy);
     
     #elif ENABLED(BLTOUCH)
-    
-      
     
         deploy ? bltouch.deploy() : bltouch.stow();
     
@@ -330,9 +321,7 @@
     
         MOVE_SERVO(Z_PROBE_SERVO_NR, servo_angles[Z_PROBE_SERVO_NR][deploy ? 0 : 1]);
     
-    
     #elif EITHER(TOUCH_MI_PROBE, Z_PROBE_ALLEN_KEY)
-    
     
         deploy ? run_deploy_moves_script() : run_stow_moves_script();
     
@@ -341,6 +330,7 @@
         do_blocking_move_to_x(deploy ? Z_PROBE_DEPLOY_X : Z_PROBE_RETRACT_X);
     
     #elif DISABLED(PAUSE_BEFORE_DEPLOY_STOW)
+
         UNUSED(deploy);
     
     #endif
@@ -410,11 +400,8 @@
       DEBUG_POS("Probe::set_deployed", current_position);
       DEBUG_ECHOLNPAIR("deploy: ", deploy);
     }
-    
-  
   
     if (endstops.z_probe_enabled == deploy) return false;
-    
   
     // Make room for probe to deploy (or stow)
     // Fix-mounted probe should only raise for deploy
@@ -425,13 +412,9 @@
         constexpr bool z_raise_wanted = true;
     #endif
   
-    if (z_raise_wanted){
-  	// ok
+  if (z_raise_wanted)
       do_z_raise(_MAX(Z_CLEARANCE_BETWEEN_PROBES, Z_CLEARANCE_DEPLOY_PROBE));
     	
-    	}
-    
-  
     #if EITHER(Z_PROBE_SLED, Z_PROBE_ALLEN_KEY)
         if (homing_needed_error(TERN_(Z_PROBE_SLED, _BV(X_AXIS)))) {
           SERIAL_ERROR_MSG(STR_STOP_UNHOMED);
@@ -439,7 +422,6 @@
           return true;
         }
     #endif
-    
   
     const xy_pos_t old_xy = current_position;
   
@@ -460,10 +442,12 @@
           stop();
           return true;
         }
+
     #else
+
         probe_specific_action(deploy);
-    #endif
     
+  #endif
   
     // If preheating is required before any probing...
     TERN_(PREHEAT_BEFORE_PROBING, if (deploy) preheat_for_probing(PROBING_NOZZLE_TEMP, PROBING_BED_TEMP));
@@ -501,8 +485,6 @@
     #if BOTH(HAS_TEMP_HOTEND, WAIT_FOR_HOTEND)
         thermalManager.wait_for_hotend_heating(active_extruder);
     #endif
-  
-    
   
     if (TERN0(BLTOUCH_SLOW_MODE, bltouch.deploy())) return true; // Deploy in LOW SPEED MODE on every probe action
   
@@ -606,11 +588,9 @@
   float Probe::run_z_probe(const bool sanity_check/*=true*/) {
     DEBUG_SECTION(log_probe, "Probe::run_z_probe", DEBUGGING(LEVELING));
   
-  
     auto try_to_probe = [&](PGM_P const plbl, const_float_t z_probe_low_point, const feedRate_t fr_mm_s, const bool scheck, const float clearance) -> bool {
       // Tare the probe, if supported
       if (TERN0(PROBE_TARE, tare())) return true;
-  	
   
       // Do a first probe at the fast speed
       const bool probe_fail = probe_down_to_z(z_probe_low_point, fr_mm_s),            // No probe trigger?
@@ -626,10 +606,8 @@
       #else
           UNUSED(plbl);
       #endif
-  	
       return probe_fail || early_fail;
     };
-  
   
     // Stop the probe before it goes too low to prevent damage.
     // If Z isn't known then probe to -10mm.
@@ -638,38 +616,31 @@
     // Double-probing does a fast probe followed by a slow probe
     #if TOTAL_PROBING == 2
     
-    
         // Attempt to tare the probe
         if (TERN0(PROBE_TARE, tare())) return NAN;
-    	
     
         // Do a first probe at the fast speed
-        if (try_to_probe(PSTR("FAST"), z_probe_low_point, z_probe_fast_mm_s,   //no
+    if (try_to_probe(PSTR("FAST"), z_probe_low_point, z_probe_fast_mm_s,
                          sanity_check, Z_CLEARANCE_BETWEEN_PROBES) ) return NAN;
-    	
     
         const float first_probe_z = current_position.z;
-    	
     
         if (DEBUGGING(LEVELING)) DEBUG_ECHOLNPAIR("1st Probe Z:", first_probe_z);
     
         // Raise to give the probe clearance
-        do_blocking_move_to_z(current_position.z + Z_CLEARANCE_MULTI_PROBE, z_probe_fast_mm_s);//no
+    do_blocking_move_to_z(current_position.z + Z_CLEARANCE_MULTI_PROBE, z_probe_fast_mm_s);
     
     #elif Z_PROBE_FEEDRATE_FAST != Z_PROBE_FEEDRATE_SLOW
-    
-      //do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
     
         // If the nozzle is well over the travel height then
         // move down quickly before doing the slow probe
         const float z = Z_CLEARANCE_DEPLOY_PROBE + 5.0 + (offset.z < 0 ? -offset.z : 0);
         if (current_position.z > z) {
           // Probe down fast. If the probe never triggered, raise for probe clearance
-          if (!probe_down_to_z(z, z_probe_fast_mm_s))//no
-            do_blocking_move_to_z(current_position.z + Z_CLEARANCE_BETWEEN_PROBES, z_probe_fast_mm_s);//no
+      if (!probe_down_to_z(z, z_probe_fast_mm_s))
+        do_blocking_move_to_z(current_position.z + Z_CLEARANCE_BETWEEN_PROBES, z_probe_fast_mm_s);
         }
     #endif
-    
   
     #if EXTRA_PROBING > 0
         float probes[TOTAL_PROBING];
@@ -686,10 +657,8 @@
         )
     #endif
       {
-  	  
         // If the probe won't tare, return
         if (TERN0(PROBE_TARE, tare())) return true;
-  	  
   
         // Probe downward slowly to find the bed
         if (try_to_probe(PSTR("SLOW"), z_probe_low_point, MMM_TO_MMS(Z_PROBE_FEEDRATE_SLOW),
@@ -748,14 +717,12 @@
     
     #elif TOTAL_PROBING == 2
     
-    
         const float z2 = current_position.z;
     
         if (DEBUGGING(LEVELING)) DEBUG_ECHOLNPAIR("2nd Probe Z:", z2, " Discrepancy:", first_probe_z - z2);
     
         // Return a weighted average of the fast and slow probes
         const float measured_z = (z2 * 3.0 + first_probe_z * 2.0) * 0.2;
-    	
     
     #else
     
@@ -766,13 +733,7 @@
   
     return measured_z;
   }
-  /*
-  float Probe::probe_at_point_test()
-  {
-      do_blocking_move_to_z(50 , z_probe_fast_mm_s*10);
   	
-  }
-  */
   /**
    * - Move to the given XY
    * - Deploy the probe, if not already deployed
@@ -785,8 +746,6 @@
   float Probe::probe_at_point(const_float_t rx, const_float_t ry, const ProbePtRaise raise_after/*=PROBE_PT_NONE*/, const uint8_t verbose_level/*=0*/, const bool probe_relative/*=true*/, const bool sanity_check/*=true*/) {
     DEBUG_SECTION(log_probe, "Probe::probe_at_point", DEBUGGING(LEVELING));
     
-    do{ MYSERIAL1.print("speedModeSelect111:"); MYSERIAL1.println(stepper.GetPrintSpeedMode()); }while(0);
-  
     if (DEBUGGING(LEVELING)) {
       DEBUG_ECHOLNPAIR(
         "...(", LOGICAL_X_POSITION(rx), ", ", LOGICAL_Y_POSITION(ry),
@@ -801,8 +760,6 @@
         if (bltouch.triggered()) bltouch._reset();
     #endif
   
-  
-  
     // On delta keep Z below clip height or do_blocking_move_to will abort
     xyz_pos_t npos = { rx, ry, _MIN(TERN(DELTA, delta_clip_start_height, current_position.z), current_position.z) };
     if (probe_relative) {                                     // The given position is in terms of the probe
@@ -815,19 +772,14 @@
     else if (!position_is_reachable(npos)) return NAN;        // The given position is in terms of the nozzle
   
     // Move the probe to the starting XYZ
-    if (fast_print_enable) do_blocking_move_to(npos, feedRate_t(XY_PROBE_FEEDRATE_MM_S) / 2);
-    else do_blocking_move_to(npos, feedRate_t(XY_PROBE_FEEDRATE_MM_S));
+  do_blocking_move_to(npos, feedRate_t(XY_PROBE_FEEDRATE_MM_S));
+
     float measured_z = NAN;
-    if (!deploy()) {
-    	measured_z = run_z_probe(sanity_check) + offset.z;
-  	}
+  if (!deploy()) measured_z = run_z_probe(sanity_check) + offset.z;
     if (!isnan(measured_z)) {
       const bool big_raise = raise_after == PROBE_PT_BIG_RAISE;
-      if (big_raise || raise_after == PROBE_PT_RAISE){
-  		MYSERIAL1.println(current_position.z);
-  		MYSERIAL1.println(current_position.z + (big_raise ? 25:Z_CLEARANCE_BETWEEN_PROBES));
-        	do_blocking_move_to_z(current_position.z + (big_raise ?25:Z_CLEARANCE_BETWEEN_PROBES), z_probe_fast_mm_s/4);
-      	}
+    if (big_raise || raise_after == PROBE_PT_RAISE)
+      do_blocking_move_to_z(current_position.z + (big_raise ? 25 : Z_CLEARANCE_BETWEEN_PROBES), z_probe_fast_mm_s);
       else if (raise_after == PROBE_PT_STOW)
         if (stow()) measured_z = NAN;   // Error on stow?
   
@@ -838,16 +790,10 @@
     if (isnan(measured_z)) {
       stow();
       LCD_MESSAGEPGM(MSG_LCD_PROBING_FAILED);
-      //leveling error  abort 2022.2.16
-      kill(PSTR("Leveling Device ERROR"));
       #if DISABLED(G29_RETRY_AND_RECOVER)
           SERIAL_ERROR_MSG(STR_ERR_PROBING_FAILED);
       #endif
     }
-    SERIAL_ECHO_TRACK;
-  
-  
-    do{ MYSERIAL1.print("speedModeSelect222:"); MYSERIAL1.println(stepper.GetPrintSpeedMode()); }while(0);
   
     return measured_z;
   }

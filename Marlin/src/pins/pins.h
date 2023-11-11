@@ -34,6 +34,7 @@
  *  - Analog Input number if used by analogRead or DAC. (e.g., TEMP_n_PIN)
  *    These numbers are the same in any pin mapping.
  */
+
 #if HAS_EXTENDABLE_MMU
     #define MAX_EXTRUDERS 15
 #else
