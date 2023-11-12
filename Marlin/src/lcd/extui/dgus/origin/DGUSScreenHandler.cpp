@@ -78,8 +78,7 @@
         if (!ExtUI::isPrintingFromMedia()) return; // avoid race condition when user stays in this menu and printer finishes.
         switch (swap16(*(uint16_t*)val_ptr)) {
           case 0: { // Resume
-           if(!0){
-           // if (ExtUI::isPrintingFromMediaPaused()) {
+        if (ExtUI::isPrintingFromMediaPaused()) {
               ExtUI::resumePrint();
             }
           } break;

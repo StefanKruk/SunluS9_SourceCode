@@ -57,7 +57,7 @@
     SET_OUTPUT(IIC_EEPROM_SCL);
     IIC_SCL_1();
     IIC_SDA_1();
-  }delayMicroseconds()
+}
   
   // Generate IIC start signal
   void IIC::start() {

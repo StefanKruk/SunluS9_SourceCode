@@ -23,19 +23,9 @@
 
 #include <avr/wdt.h>
 
-extern uint32_t watchdog_cnt;
-extern bool Start_watchdog ;
+// Initialize watchdog with a 4 second interrupt time
 void   watchdog_init();
 
 // Reset watchdog. MUST be called at least every 4 seconds after the
 // first watchdog_init or AVR will go into emergency procedures.
-inline void HAL_watchdog_refresh() { 
-if(Start_watchdog){
-		watchdog_cnt++;
-		if(watchdog_cnt>=watchdog_Error_Num)
-			return;				
-	}
-	else{
-		watchdog_cnt =0;
-	}
-wdt_reset(); }
+inline void HAL_watchdog_refresh() { wdt_reset(); }

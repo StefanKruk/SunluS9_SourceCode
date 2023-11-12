@@ -41,7 +41,7 @@
 #if HAS_CUSTOM_PROBE_PIN
     #define PROBE_TRIGGERED() (READ(Z_MIN_PROBE_PIN) != Z_MIN_PROBE_ENDSTOP_INVERTING)
 #else
-    #define PROBE_TRIGGERED() (READ(Z_MIN_PIN) != Z_MIN_ENDSTOP_INVERTING)//(READ(Z_MIN_PIN) != Z_MIN_ENDSTOP_INVERTING)
+  #define PROBE_TRIGGERED() (READ(Z_MIN_PIN) != Z_MIN_ENDSTOP_INVERTING)
 #endif
 
 #if ENABLED(PREHEAT_BEFORE_LEVELING)
@@ -121,7 +121,6 @@ public:
   static void move_z_after_homing() {
     #ifdef Z_AFTER_HOMING
         do_z_clearance(Z_AFTER_HOMING, true);
-  		111
     #elif BOTH(Z_AFTER_PROBING, HAS_BED_PROBE)
         move_z_after_probing();
     #endif
@@ -257,10 +256,9 @@ public:
       static bool tare();
   #endif
 
-  static void do_z_raise(const float z_raise);
-
 private:
   static bool probe_down_to_z(const_float_t z, const_feedRate_t fr_mm_s);
+  static void do_z_raise(const float z_raise);
   static float run_z_probe(const bool sanity_check=true);
 };
 

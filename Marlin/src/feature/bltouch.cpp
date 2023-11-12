@@ -25,7 +25,6 @@
 #if ENABLED(BLTOUCH)
   
   #include "bltouch.h"
-  #include "../MarlinCore.h"
   
   BLTouch bltouch;
   
@@ -110,8 +109,6 @@
         // The deploy might have failed or the probe is actually triggered (nozzle too low?) again
         if (DEBUGGING(LEVELING)) DEBUG_ECHOLNPGM("BLTouch Recovery Failed");
   	  
-  	  //do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0)   ;
-  	  kill(PSTR("BLTouch Line error Please Check"));
         SERIAL_ERROR_MSG(STR_STOP_BLTOUCH);  // Tell the user something is wrong, needs action
         stop();                              // but it's not too bad, no need to kill, allow restart
   
@@ -155,8 +152,6 @@
   
         if (DEBUGGING(LEVELING)) DEBUG_ECHOLNPGM("BLTouch Recovery Failed");
   	  
-  	  //do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0)   ;
-  
         SERIAL_ERROR_MSG(STR_STOP_BLTOUCH);  // Tell the user something is wrong, needs action
         stop();                              // but it's not too bad, no need to kill, allow restart
   

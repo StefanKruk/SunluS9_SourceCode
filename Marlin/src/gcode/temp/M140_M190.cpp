@@ -29,12 +29,11 @@
 #include "../../inc/MarlinConfig.h"
 
 #if HAS_HEATED_BED
-  
+
   #include "../gcode.h"
   #include "../../module/temperature.h"
   #include "../../lcd/marlinui.h"
-  #include "../queue.h" // for last_N
-  
+
   /**
    * M140 - Set Bed Temperature target and return immediately
    * M190 - Set Bed Temperature target and wait
@@ -57,12 +56,12 @@
    *  (used by printingIsActive, etc.) and turning off heaters will stop the timer.
    */
   void GcodeSuite::M140_M190(const bool isM190) {
-  
+
     if (DEBUGGING(DRYRUN)) return;
-  
+
     bool got_temp = false;
     celsius_t temp = 0;
-  
+
     // Accept 'I' if temperature presets are defined
     #if PREHEAT_COUNT
         got_temp = parser.seenval('I');
@@ -71,7 +70,7 @@
           temp = ui.material_preset[_MIN(index, PREHEAT_COUNT - 1)].bed_temp;
         }
     #endif
-  
+
     // Get the temperature from 'S' or 'R'
     bool no_wait_for_cooling = false;
     if (!got_temp) {
@@ -79,23 +78,18 @@
       got_temp = no_wait_for_cooling || (isM190 && parser.seenval('R'));
       if (got_temp) temp = parser.value_celsius();
     }
-  
+
     if (!got_temp) return;
-  
+
     thermalManager.setTargetBed(temp);
-    if(temp==0)
-    {
-    	GCodeQueue::judge_online_stop();
-    }
-  
+
+
     ui.set_status_P(thermalManager.isHeatingBed() ? GET_TEXT(MSG_BED_HEATING) : GET_TEXT(MSG_BED_COOLING));
-  
-    // with PRINTJOB_TIMER_AUTOSTART, M190 can start the timer, and M140 can stop it
-    TERN_(PRINTJOB_TIMER_AUTOSTART, thermalManager.auto_job_check_timer(isM190, !isM190));
-  
+
+    TERN_(PRINTJOB_TIMER_AUTOSTART, thermalManager.auto_job_check_timer(true, false));
+
     if (isM190)
       thermalManager.wait_for_bed(no_wait_for_cooling);
-  
   }
-  
+
 #endif // HAS_HEATED_BED

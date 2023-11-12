@@ -30,16 +30,16 @@
 #include "../ui_api.h"
 
 #if ENABLED(DGUS_FILAMENT_LOADUNLOAD)
-  
+
     typedef struct  {
       ExtUI::extruder_t extruder; // which extruder to operate
       uint8_t action; // load or unload
       bool heated; // heating done ?
       float purge_length; // the length to extrude before unload, prevent filament jam
     } filament_data_t;
-  
+
     extern filament_data_t filament_data;
-  
+
 #endif
 
 // endianness swap
@@ -58,6 +58,3 @@ inline uint16_t swap16(const uint16_t value) { return (value & 0xFFU) << 8U | (v
 #endif
 
 extern DGUSScreenHandler ScreenHandler;
-extern bool Start_watchdog ;
-
-
