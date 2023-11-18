@@ -31,8 +31,6 @@
   #include "../../../feature/pause.h"
   #include "../../../lcd/marlinui.h"
   
-  //#include "../../../lcd/extui/ui_api.h"
-  
   #if HAS_MULTI_EXTRUDER
       #include "../../../module/tool_change.h"
   #endif
@@ -57,7 +55,6 @@
    */
   void GcodeSuite::M701() {
     xyz_pos_t park_point = NOZZLE_PARK_POINT;
-  
   
     // Don't raise Z if the machine isn't homed
     if (TERN0(NO_MOTION_BEFORE_HOMING, axes_should_home())) park_point.z = 0;
@@ -107,11 +104,10 @@
     #if HAS_PRUSA_MMU2
         mmu2.load_filament_to_nozzle(target_extruder);
     #else
-        constexpr float     purge_length = 0,//ADVANCED_PAUSE_PURGE_LENGTH,
-                        fast_load_length = FILAMENT_CHANGE_SLOW_LOAD_LENGTH;
-            const float slow_load_length = ABS(parser.seen('L') ? parser.value_axis_units(E_AXIS)
+    constexpr float     purge_length = ADVANCED_PAUSE_PURGE_LENGTH,
+                    slow_load_length = FILAMENT_CHANGE_SLOW_LOAD_LENGTH;
+        const float fast_load_length = ABS(parser.seen('L') ? parser.value_axis_units(E_AXIS)
                                                                 : fc_settings[active_extruder].load_length);
-    		
         load_filament(
           slow_load_length, fast_load_length, purge_length,
           FILAMENT_CHANGE_ALERT_BEEPS,
@@ -122,7 +118,6 @@
               , target_extruder                             // Dual X target
           #endif
         );
-    	  
     #endif
   
     // Restore Z axis
@@ -138,7 +133,6 @@
   
     // Show status screen
     ui.pause_show_message(PAUSE_MESSAGE_STATUS);
-    
   }
   
   /**

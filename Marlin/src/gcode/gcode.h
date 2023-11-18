@@ -406,12 +406,12 @@ public:
         PAUSED_FOR_USER,    // Blocking pending any input
         PAUSED_FOR_INPUT    // Blocking pending text input (concept)
       };
-  
+
       static MarlinBusyState busy_state;
       static uint8_t host_keepalive_interval;
-  
+
       static void host_keepalive();
-      static bool host_keepalive_is_paused() { return busy_state >= PAUSED_FOR_USER; }
+static bool host_keepalive_is_paused() { return busy_state >= PAUSED_FOR_USER; }
       #define KEEPALIVE_STATE(N) REMEMBER(_KA_, gcode.busy_state, gcode.N)
   #else
       #define KEEPALIVE_STATE(N) NOOP
@@ -1087,16 +1087,11 @@ private:
 
   #if ENABLED(SDSUPPORT)
       static void M1001();
-  	  #if ENABLED(DGUS_LCD_UI_SUNLU)
-    	    static void M1003();
-  	  #endif
   #endif
 
   #if ENABLED(DGUS_LCD_UI_MKS)
       static void M1002();
   #endif
-  
-  
 
   #if ENABLED(UBL_MESH_WIZARD)
       static void M1004();

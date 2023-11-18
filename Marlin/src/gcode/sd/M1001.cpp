@@ -29,7 +29,6 @@
   #include "../../module/printcounter.h"
   #include "../../sd/cardreader.h"
   
-  #include "../../module/stepper.h"
   #ifdef SD_FINISHED_RELEASECOMMAND
       #include "../queue.h"
   #endif
@@ -111,13 +110,5 @@
     // Re-select the last printed file in the UI
     TERN_(SD_REPRINT_LAST_SELECTED_FILE, ui.reselect_last_file());
   }
-  
-  #if ENABLED(DGUS_LCD_UI_SUNLU)
-    void(* resetFunc) (void) = 0;
-    
-    void GcodeSuite::M1003(){
-    	resetFunc();
-    }
-  #endif
   
 #endif // SDSUPPORT

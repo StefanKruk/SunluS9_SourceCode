@@ -49,8 +49,6 @@
       #include "../../module/tool_change.h"
   #endif
   
-  #include "../queue.h" // for last_N
-  
   /**
    * M104: Set Hotend Temperature target and return immediately
    * M109: Set Hotend Temperature target and wait
@@ -112,10 +110,7 @@
           if (target_extruder != active_extruder) return;
       #endif
       thermalManager.setTargetHotend(temp, target_extruder);
-  	if(temp==0)
-  	{
-  		GCodeQueue::judge_online_stop();
-  	}
+
       #if ENABLED(DUAL_X_CARRIAGE)
           if (idex_is_duplicating() && target_extruder == 0)
             thermalManager.setTargetHotend(temp ? temp + duplicate_extruder_temp_offset : 0, 1);
@@ -132,7 +127,6 @@
   
       if (thermalManager.isHeatingHotend(target_extruder) || !no_wait_for_cooling)
           thermalManager.set_heating_message(target_extruder);
-  
     }
   
     TERN_(AUTOTEMP, planner.autotemp_M104_M109());

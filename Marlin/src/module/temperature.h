@@ -157,7 +157,7 @@ enum ADCSensorState : char {
   #if HAS_ADC_BUTTONS
       Prepare_ADC_KEY, Measure_ADC_KEY,
   #endif
-  //darbox
+//darbox
   #if HAS_TEMP_DRYBOX_PH
       PrepareTemp_DRYBOX_PH, MeasureTemp_DRYBOX_PH,
   #endif
@@ -167,7 +167,7 @@ enum ADCSensorState : char {
   #if HAS_TEMP_DRYBOX_CENTER
       PrepareTemp_DRYBOX_CENTER, MeasureTemp_DRYBOX_CENTER,
   #endif
-  
+
   SensorsReady, // Temperatures ready. Delay the next round of readings to let ADC pins settle.
   StartupDelay  // Startup, delay initial temp reading a tiny bit so the hardware can settle
 };
@@ -175,8 +175,7 @@ enum ADCSensorState : char {
 // Minimum number of Temperature::ISR loops between sensor readings.
 // Multiplied by 16 (OVERSAMPLENR) to obtain the total time to
 // get all oversampled sensor readings
-#define MIN_ADC_ISR_LOOPS 10//16 //zb
-
+#define MIN_ADC_ISR_LOOPS 10
 #define Temperature_Center_Offset 5
 
 #define ACTUAL_ADC_SAMPLES _MAX(int(MIN_ADC_ISR_LOOPS), int(SensorsReady))
@@ -184,7 +183,7 @@ enum ADCSensorState : char {
 #if HAS_PID_HEATING
     #define PID_K2 (1-float(PID_K1))
     #define PID_dT ((OVERSAMPLENR * float(ACTUAL_ADC_SAMPLES)) / TEMP_TIMER_FREQUENCY)
-  
+
     // Apply the scale factors to the PID values
     #define scalePID_i(i)   ( float(i) * PID_dT )
     #define unscalePID_i(i) ( float(i) / PID_dT )
@@ -291,7 +290,7 @@ typedef struct { int16_t raw_min, raw_max; celsius_t mintemp, maxtemp; } temp_ra
 #define THERMISTOR_RESISTANCE_NOMINAL_C 25.0f     // mmmmm comfortable
 
 #if HAS_USER_THERMISTORS
-  
+
     enum CustomThermistorIndex : uint8_t {
       #if TEMP_SENSOR_0_IS_CUSTOM
           CTI_HOTEND_0,
@@ -325,7 +324,7 @@ typedef struct { int16_t raw_min, raw_max; celsius_t mintemp, maxtemp; } temp_ra
       #endif
       USER_THERMISTORS
     };
-  
+
     // User-defined thermistor
     typedef struct {
       bool pre_calc;     // true if pre-calculations update needed
@@ -336,26 +335,26 @@ typedef struct { int16_t raw_min, raw_max; celsius_t mintemp, maxtemp; } temp_ra
             res_25_log,
             beta, beta_recip;
     } user_thermistor_t;
-  
+
 #endif
 
 class Temperature {
 
   public:
-	 static celsius_float_t Temperature_Center_Val ;
+    static celsius_float_t Temperature_Center_Val ;
 
-#if ENABLED(HAS_DRYBOX)
-  	 static uint32_t	 drybox_timer;
-  	 static uint32_t	 dry_time;
-  	 static uint32_t	 drybox_timer_starttime;
-  	 static bool	 drybox_ing;
-  	 static uint16_t	 dry_kick;
-  	 static void stop_dry_work();
-  
-  	 
-  	 static void watch_dry_time();
-  	 static void set_dry_time();
-#endif
+    #if ENABLED(HAS_DRYBOX)
+        static uint32_t	 drybox_timer;
+        static uint32_t	 dry_time;
+        static uint32_t	 drybox_timer_starttime;
+        static bool	 drybox_ing;
+        static uint16_t	 dry_kick;
+        static void stop_dry_work();
+
+
+        static void watch_dry_time();
+        static void set_dry_time();
+    #endif
 
 
     #if HAS_HOTEND
@@ -366,7 +365,7 @@ class Temperature {
         static const celsius_t hotend_maxtemp[HOTENDS];
         static celsius_t keyboard_bed_temp;
         static celsius_t keyboard_nozzle_temp;
-  			
+
         static inline celsius_t hotend_max_target(const uint8_t e) { return hotend_maxtemp[e] - (HOTEND_OVERSHOOT); }
     #endif
     #if ENABLED(HAS_HEATED_BED)
@@ -382,19 +381,19 @@ class Temperature {
         static cooler_info_t temp_cooler;
     #endif
 
-	#if ENABLED(HAS_TEMP_DRYBOX_RTH)
-        static hotend_info_t temp_drybox_rth_hotend[1];
-        //static const celsius_t drybox_rth_hotend_maxtemp[HOTENDS];
-        //static inline celsius_t dryboxhotend_max_target() { return drybox_rth_hotend_maxtemp[0] - (HOTEND_OVERSHOOT); }
-	#endif
-	#if ENABLED(HAS_TEMP_DRYBOX_PH)//?????
-        static hotend_info_t temp_drybox_ph_hotend[1];
-	#endif
-	#if ENABLED(HAS_TEMP_DRYBOX_CENTER)//
-        static hotend_info_t temp_drybox_center_hotend[1];
-        //static inline celsius_t drybox_center_hotend_max_target() { return DRYBOX_MAXTEMP;}//drybox_center_hotend_maxtemp[0] - (HOTEND_OVERSHOOT);
-    	  static int16_t mintemp_raw_drybox,maxtemp_raw_drybox;
-	#endif
+    #if ENABLED(HAS_TEMP_DRYBOX_RTH)
+          static hotend_info_t temp_drybox_rth_hotend[1];
+          //static const celsius_t drybox_rth_hotend_maxtemp[HOTENDS];
+          //static inline celsius_t dryboxhotend_max_target() { return drybox_rth_hotend_maxtemp[0] - (HOTEND_OVERSHOOT); }
+    #endif
+    #if ENABLED(HAS_TEMP_DRYBOX_PH)//?????
+          static hotend_info_t temp_drybox_ph_hotend[1];
+    #endif
+    #if ENABLED(HAS_TEMP_DRYBOX_CENTER)//
+          static hotend_info_t temp_drybox_center_hotend[1];
+          //static inline celsius_t drybox_center_hotend_max_target() { return DRYBOX_MAXTEMP;}//drybox_center_hotend_maxtemp[0] - (HOTEND_OVERSHOOT);
+          static int16_t mintemp_raw_drybox,maxtemp_raw_drybox;
+    #endif
     #if ENABLED(AUTO_POWER_E_FANS)
         static uint8_t autofan_speed[HOTENDS];
     #endif
@@ -435,7 +434,7 @@ class Temperature {
     #endif
 
     #if HEATER_IDLE_HANDLER
-  
+
         // Heater idle handling. Marlin creates one per hotend and one for the heated bed.
         typedef struct {
           millis_t timeout_ms;
@@ -445,45 +444,43 @@ class Temperature {
           inline void reset() { timeout_ms = 0; timed_out = false; }
           inline void expire() { start(0); }
         } heater_idle_t;
-  
+
         // Indices and size for the heater_idle array
         enum IdleIndex : int8_t {
           _II = -1
-  
+
           #define _IDLE_INDEX_E(N) ,IDLE_INDEX_E##N
           REPEAT(HOTENDS, _IDLE_INDEX_E)
           #undef _IDLE_INDEX_E
-  		
-  		//OPTARG(HAS_HEATED_DRYBOX, )
-  
+
           OPTARG(HAS_HEATED_BED, IDLE_INDEX_BED)
-  
+
   		,IDLE_INDEX_DRYBOX
-  
+
           , NR_HEATER_IDLE
         };
-  
+
         // Convert the given heater_id_t to idle array index
         static inline IdleIndex idle_index_for_id(const int8_t heater_id) {
           TERN_(HAS_HEATED_BED, if (heater_id == H_BED) return IDLE_INDEX_BED);
-          TERN_(HAS_HEATED_DRYBOX, if (heater_id == H_DRYBOX) return IDLE_INDEX_DRYBOX);		
+TERN_(HAS_HEATED_DRYBOX, if (heater_id == H_DRYBOX) return IDLE_INDEX_DRYBOX);
           return (IdleIndex)_MAX(heater_id, 0);
         }
-  
+
         static heater_idle_t heater_idle[NR_HEATER_IDLE];
-  
+
     #endif
 
   private:
 
     #if ENABLED(WATCH_HOTENDS)
         static hotend_watch_t watch_hotend[HOTENDS];
-    #endif
+#endif
 //drybox
 	#if WATCH_DRYBOX_CENTER
         static hotend_watch_t watch_drybox_center[1];
-	#endif
-	
+    #endif
+
     #if ENABLED(PID_EXTRUSION_SCALING)
         static int32_t last_e_position, lpq[LPQ_MAX_LEN];
         static lpq_ptr_t lpq_ptr;
@@ -493,7 +490,7 @@ class Temperature {
         static temp_range_t temp_range[HOTENDS];
     #endif
 
-	#if ENABLED(HAS_TEMP_DRYBOX_CENTER)
+#if ENABLED(HAS_TEMP_DRYBOX_CENTER)
         static hotend_watch_t watch_drybox_hotend[1];
 	#endif
     #if HAS_HEATED_BED
@@ -590,13 +587,13 @@ class Temperature {
     #if HAS_HOTEND
         static celsius_float_t analog_to_celsius_hotend(const int16_t raw, const uint8_t e);
     #endif
-	#if HAS_HEATED_DRYBOX
+    #if HAS_HEATED_DRYBOX
         static celsius_float_t analog_to_celsius_DRYBOX(const int16_t raw);
         static celsius_float_t analog_to_celsius_DRYBOX_PH();
         static celsius_float_t analog_to_celsius_DRYBOX_center();
-  	  
-	#endif
-	
+
+	  #endif
+
     #if HAS_HEATED_BED
         static celsius_float_t analog_to_celsius_bed(const int16_t raw);
     #endif
@@ -611,48 +608,48 @@ class Temperature {
     #endif
 
     #if HAS_FAN
-  
+
         static uint8_t fan_speed[FAN_COUNT];
         #define FANS_LOOP(I) LOOP_L_N(I, FAN_COUNT)
-  
+
         static void set_fan_speed(const uint8_t fan, const uint16_t speed);
-  
+
         #if ENABLED(REPORT_FAN_CHANGE)
             static void report_fan_speed(const uint8_t fan);
         #endif
-  
+
         #if EITHER(PROBING_FANS_OFF, ADVANCED_PAUSE_FANS_PAUSE)
             static bool fans_paused;
             static uint8_t saved_fan_speed[FAN_COUNT];
         #endif
-  
+
         #if ENABLED(ADAPTIVE_FAN_SLOWING)
             static uint8_t fan_speed_scaler[FAN_COUNT];
         #endif
-  
+
         static inline uint8_t scaledFanSpeed(const uint8_t fan, const uint8_t fs) {
           UNUSED(fan); // Potentially unused!
           return (fs * uint16_t(TERN(ADAPTIVE_FAN_SLOWING, fan_speed_scaler[fan], 128))) >> 7;
         }
-  
+
         static inline uint8_t scaledFanSpeed(const uint8_t fan) {
           return scaledFanSpeed(fan, fan_speed[fan]);
         }
-  
+
         static constexpr inline uint8_t pwmToPercent(const uint8_t speed) { return ui8_to_percent(speed); }
         static inline uint8_t fanSpeedPercent(const uint8_t fan)          { return ui8_to_percent(fan_speed[fan]); }
         static inline uint8_t scaledFanSpeedPercent(const uint8_t fan)    { return ui8_to_percent(scaledFanSpeed(fan)); }
-  
+
         #if ENABLED(EXTRA_FAN_SPEED)
             typedef struct { uint8_t saved, speed; } extra_fan_t;
             static extra_fan_t extra_fan_speed[FAN_COUNT];
             static void set_temp_fan_speed(const uint8_t fan, const uint16_t command_or_speed);
         #endif
-  
+
         #if EITHER(PROBING_FANS_OFF, ADVANCED_PAUSE_FANS_PAUSE)
             void set_fans_paused(const bool p);
         #endif
-  
+
     #endif // HAS_FAN
 
     static inline void zero_fan_speeds() {
@@ -696,7 +693,7 @@ class Temperature {
     static inline celsius_float_t degHotend(const uint8_t E_NAME) {
       return TERN0(HAS_HOTEND, temp_hotend[HOTEND_INDEX].celsius);
     }
-	#if ENABLED(HAS_DRYBOX)
+    #if ENABLED(HAS_DRYBOX)
       static inline celsius_float_t degHotend_DRYBOX(uint8_t E_NAMEa) {
       	switch(E_NAMEa)
       	{
@@ -707,7 +704,7 @@ class Temperature {
   			break;
       	}
       }
-	#endif
+	  #endif
     #if ENABLED(TEMP_SENSOR_1_AS_REDUNDANT)
         static inline celsius_float_t degHotendRedundant() { return temp_redundant.celsius; }
     #endif
@@ -716,13 +713,13 @@ class Temperature {
       return TERN0(HAS_HOTEND, static_cast<celsius_t>(temp_hotend[HOTEND_INDEX].celsius + 0.5f));
     }
 
-	#if ENABLED(HAS_DRYBOX)
+	  #if ENABLED(HAS_DRYBOX)
       static inline celsius_t wholeDegHotend_drybox(const uint8_t E_NAME) {
       // UNUSED((void)E_NAME);
         return TERN0(HAS_HEATED_DRYBOX, static_cast<celsius_t>(temp_drybox_center_hotend[0].celsius + 0.5f));
       }
-	#endif
-	
+	  #endif
+
 
     #if ENABLED(SHOW_TEMP_ADC_VALUES)
         static inline int16_t rawHotendTemp(const uint8_t E_NAME) {
@@ -749,7 +746,7 @@ class Temperature {
     }
 
     #if HAS_HOTEND
-  
+
         static void setTargetHotend(const celsius_t celsius, const uint8_t E_NAME) {
           const uint8_t ee = HOTEND_INDEX;
           #if MILLISECONDS_PREHEAT_TIME > 0
@@ -760,35 +757,35 @@ class Temperature {
           #endif
           TERN_(AUTO_POWER_CONTROL, if (celsius) powerManager.power_on());
           temp_hotend[ee].target = _MIN(celsius, hotend_max_target(ee));
-          start_watching_hotend(ee);			
+          start_watching_hotend(ee);
         }
-  
+
         static inline bool isHeatingHotend(const uint8_t E_NAME) {
           return temp_hotend[HOTEND_INDEX].target > temp_hotend[HOTEND_INDEX].celsius;
         }
-  
+
         static inline bool isCoolingHotend(const uint8_t E_NAME) {
           return temp_hotend[HOTEND_INDEX].target < temp_hotend[HOTEND_INDEX].celsius;
         }
-  
+
         #if HAS_TEMP_HOTEND
             static bool wait_for_hotend(const uint8_t target_extruder, const bool no_wait_for_cooling=true
               OPTARG(G26_CLICK_CAN_CANCEL, const bool click_to_cancel=false)
             );
-    
+
             #if ENABLED(WAIT_FOR_HOTEND)
                 static void wait_for_hotend_heating(const uint8_t target_extruder);
             #endif
         #endif
-  
+
         static inline bool still_heating(const uint8_t e) {
           return degTargetHotend(e) > TEMP_HYSTERESIS && ABS(wholeDegHotend(e) - degTargetHotend(e)) > TEMP_HYSTERESIS;
         }
-  
+
         static inline bool degHotendNear(const uint8_t e, const celsius_t temp) {
           return ABS(wholeDegHotend(e) - temp) < (TEMP_HYSTERESIS);
         }
-  
+
         // Start watching a Hotend to make sure it's really heating up
         static inline void start_watching_hotend(const uint8_t E_NAME) {
           UNUSED(HOTEND_INDEX);
@@ -796,49 +793,49 @@ class Temperature {
               watch_hotend[HOTEND_INDEX].restart(degHotend(HOTEND_INDEX), degTargetHotend(HOTEND_INDEX));
           #endif
         }
-  
+
     #endif // HAS_HOTEND
-	
-#if HAS_HEATED_DRYBOX
-  
-        static void setTargetHotend_DRYBOX(const celsius_t celsius) {
-          temp_drybox_center_hotend[0].target = _MIN(celsius, (DRYBOX_MAXTEMP+5));
-          start_watching_drybox_hotend(TEMP_DRYBOX_CENTER_PIN);			
-        }	
-  	
-        static inline bool isHeatingHotend_DRYBOX(const uint8_t NAME) {
-          return temp_drybox_center_hotend[0].target > temp_drybox_center_hotend[0].celsius;
-        }
-        static inline bool isCoolingHotend_DRYBOX(const uint8_t NAME) {
-          return temp_drybox_center_hotend[0].target < temp_drybox_center_hotend[0].celsius;
-        }
-  	  static bool wait_for_hotend_drybox(const uint8_t target_extruder, const bool no_wait_for_cooling=true
-            OPTARG(G26_CLICK_CAN_CANCEL, const bool click_to_cancel=false)
-        );
-  	  
-        static inline celsius_float_t degdrybox()  { return temp_drybox_center_hotend[0].celsius; }
-        static inline bool still_heating_drybox(const uint8_t e) {
-          return degTargetHotend_drybox(e) > TEMP_HYSTERESIS && ABS(wholeDegHotend_drybox(e) - degTargetHotend_drybox(e)) > TEMP_HYSTERESIS;
-        }
-  
-        static inline bool degHotendNear_drybox(const uint8_t e, const celsius_t temp) {
-          return ABS(wholeDegHotend_drybox(e) - temp) < (TEMP_HYSTERESIS);
-        }
-  	// Start watching a Hotend to make sure it's really heating up
-  	static inline void start_watching_drybox_hotend(const uint8_t NAME) {
-  	    switch(NAME)
-      	{
-      		case TEMP_DRYBOX_CENTER_PIN:
-  			watch_drybox_center[0].restart(degHotend_DRYBOX(TEMP_DRYBOX_CENTER_PIN), degTargetHotend_drybox(TEMP_DRYBOX_CENTER_PIN));
-  			break;
-  			case TEMP_DRYBOX_RTH_PIN:
-  			break;
-      	}
-  	}
-#endif
+
+    #if HAS_HEATED_DRYBOX
+
+      static void setTargetHotend_DRYBOX(const celsius_t celsius) {
+        temp_drybox_center_hotend[0].target = _MIN(celsius, (DRYBOX_MAXTEMP+5));
+        start_watching_drybox_hotend(TEMP_DRYBOX_CENTER_PIN);
+      }
+
+      static inline bool isHeatingHotend_DRYBOX(const uint8_t NAME) {
+        return temp_drybox_center_hotend[0].target > temp_drybox_center_hotend[0].celsius;
+      }
+      static inline bool isCoolingHotend_DRYBOX(const uint8_t NAME) {
+        return temp_drybox_center_hotend[0].target < temp_drybox_center_hotend[0].celsius;
+      }
+    static bool wait_for_hotend_drybox(const uint8_t target_extruder, const bool no_wait_for_cooling=true
+          OPTARG(G26_CLICK_CAN_CANCEL, const bool click_to_cancel=false)
+      );
+
+      static inline celsius_float_t degdrybox()  { return temp_drybox_center_hotend[0].celsius; }
+      static inline bool still_heating_drybox(const uint8_t e) {
+        return degTargetHotend_drybox(e) > TEMP_HYSTERESIS && ABS(wholeDegHotend_drybox(e) - degTargetHotend_drybox(e)) > TEMP_HYSTERESIS;
+      }
+
+      static inline bool degHotendNear_drybox(const uint8_t e, const celsius_t temp) {
+        return ABS(wholeDegHotend_drybox(e) - temp) < (TEMP_HYSTERESIS);
+      }
+      // Start watching a Hotend to make sure it's really heating up
+      static inline void start_watching_drybox_hotend(const uint8_t NAME) {
+          switch(NAME)
+          {
+            case TEMP_DRYBOX_CENTER_PIN:
+          watch_drybox_center[0].restart(degHotend_DRYBOX(TEMP_DRYBOX_CENTER_PIN), degTargetHotend_drybox(TEMP_DRYBOX_CENTER_PIN));
+          break;
+          case TEMP_DRYBOX_RTH_PIN:
+          break;
+          }
+      }
+    #endif
 
     #if HAS_HEATED_BED
-  
+
         #if ENABLED(SHOW_TEMP_ADC_VALUES)
             static inline int16_t rawBedTemp()    { return temp_bed.raw; }
         #endif
@@ -847,26 +844,26 @@ class Temperature {
         static inline celsius_t degTargetBed()  { return temp_bed.target; }
         static inline bool isHeatingBed()       { return temp_bed.target > temp_bed.celsius; }
         static inline bool isCoolingBed()       { return temp_bed.target < temp_bed.celsius; }
-  
+
         // Start watching the Bed to make sure it's really heating up
         static inline void start_watching_bed() { TERN_(WATCH_BED, watch_bed.restart(degBed(), degTargetBed())); }
-  
+
         static void setTargetBed(const celsius_t celsius) {
           TERN_(AUTO_POWER_CONTROL, if (celsius) powerManager.power_on());
           temp_bed.target = _MIN(celsius, BED_MAX_TARGET);
           start_watching_bed();
         }
-  
+
         static bool wait_for_bed(const bool no_wait_for_cooling=true
           OPTARG(G26_CLICK_CAN_CANCEL, const bool click_to_cancel=false)
         );
-  
+
         static void wait_for_bed_heating();
-  
+
         static inline bool degBedNear(const celsius_t temp) {
           return ABS(wholeDegBed() - temp) < (TEMP_BED_HYSTERESIS);
         }
-  
+
     #endif // HAS_HEATED_BED
 
     #if HAS_TEMP_PROBE
@@ -948,19 +945,19 @@ class Temperature {
      * Perform auto-tuning for hotend or bed in response to M303
      */
     #if HAS_PID_HEATING
-  
+
         #if ANY(PID_DEBUG, PID_BED_DEBUG, PID_CHAMBER_DEBUG)
             static bool pid_debug_flag;
         #endif
-  
+
         static void PID_autotune(const celsius_t target, const heater_id_t heater_id, const int8_t ncycles, const bool set_result=false);
-  
+
         #if ENABLED(NO_FAN_SLOWING_IN_PID_TUNING)
             static bool adaptive_fan_slowing;
         #elif ENABLED(ADAPTIVE_FAN_SLOWING)
             static constexpr bool adaptive_fan_slowing = true;
         #endif
-  
+
         /**
          * Update the temp manager when PID values change
          */
@@ -969,7 +966,7 @@ class Temperature {
               TERN_(PID_EXTRUSION_SCALING, last_e_position = 0);
             }
         #endif
-  
+
     #endif
 
     #if ENABLED(PROBING_HEATERS_OFF)
@@ -977,13 +974,13 @@ class Temperature {
     #endif
 
     #if HEATER_IDLE_HANDLER
-  
+
         static inline void reset_hotend_idle_timer(const uint8_t E_NAME) {
           heater_idle[HOTEND_INDEX].reset();
           start_watching_hotend(HOTEND_INDEX);
         }
-  	 
-  	 	
+
+
         #if HAS_HEATED_DRYBOX
             static inline void reset_drybox_idle_timer() {
               heater_idle[IDLE_INDEX_DRYBOX].reset();
@@ -996,7 +993,7 @@ class Temperature {
               start_watching_bed();
             }
         #endif
-  
+
     #endif // HEATER_IDLE_HANDLER
 
     #if HAS_TEMP_SENSOR
@@ -1049,9 +1046,9 @@ class Temperature {
     #if ENABLED(HAS_HOTEND)
         static float get_pid_output_hotend(const uint8_t e);
     #endif
-	#if ENABLED(HAS_DRYBOX)
+	  #if ENABLED(HAS_DRYBOX)
         static float get_pid_output_drybox_hotend();
-	#endif
+    #endif
     #if ENABLED(PIDTEMPBED)
         static float get_pid_output_bed();
     #endif
@@ -1066,7 +1063,7 @@ class Temperature {
     #define HAS_THERMAL_PROTECTION ANY(THERMAL_PROTECTION_HOTENDS, THERMAL_PROTECTION_CHAMBER, HAS_THERMALLY_PROTECTED_BED, THERMAL_PROTECTION_COOLER,THERMAL_PROTECTION_DRYBOX_CENTER)
 
     #if HAS_THERMAL_PROTECTION
-  
+
         // Indices and size for the tr_state_machine array. One for each protected heater.
         enum RunawayIndex : int8_t {
           _RI = -1
@@ -1076,34 +1073,34 @@ class Temperature {
               #undef _RUNAWAY_IND_E
           #endif
           OPTARG(HAS_THERMALLY_PROTECTED_BED, RUNAWAY_IND_BED)
-          OPTARG(THERMAL_PROTECTION_DRYBOX_CENTER, RUNAWAY_IND_DRYBOX)
+OPTARG(THERMAL_PROTECTION_DRYBOX_CENTER, RUNAWAY_IND_DRYBOX)
           OPTARG(THERMAL_PROTECTION_DRYBOX_RTH, RUNAWAY_IND_DRYBOX_RTH)
           OPTARG(THERMAL_PROTECTION_CHAMBER, RUNAWAY_IND_CHAMBER)
           OPTARG(THERMAL_PROTECTION_COOLER, RUNAWAY_IND_COOLER)
           , NR_HEATER_RUNAWAY
         };
-  
+
         // Convert the given heater_id_t to runaway state array index
         static inline RunawayIndex runaway_index_for_id(const int8_t heater_id) {
           TERN_(HAS_THERMALLY_PROTECTED_CHAMBER, if (heater_id == H_CHAMBER) return RUNAWAY_IND_CHAMBER);
           TERN_(HAS_THERMALLY_PROTECTED_CHAMBER, if (heater_id == H_COOLER)  return RUNAWAY_IND_COOLER);
-          TERN_(THERMAL_PROTECTION_DRYBOX_CENTER, if (heater_id == H_DRYBOX)  return RUNAWAY_IND_DRYBOX);
+TERN_(THERMAL_PROTECTION_DRYBOX_CENTER, if (heater_id == H_DRYBOX)  return RUNAWAY_IND_DRYBOX);
           TERN_(THERMAL_PROTECTION_DRYBOX_RTH, if (heater_id == H_DRYBOX_RTH)  return RUNAWAY_IND_DRYBOX_RTH);
           TERN_(HAS_THERMALLY_PROTECTED_BED,     if (heater_id == H_BED)     return RUNAWAY_IND_BED);
           return (RunawayIndex)_MAX(heater_id, 0);
         }
-  
+
         enum TRState : char { TRInactive, TRFirstHeating, TRStable, TRRunaway };
-  
+
         typedef struct {
           millis_t timer = 0;
           TRState state = TRInactive;
           float running_temp;
           void run(const_celsius_float_t current, const_celsius_float_t target, const heater_id_t heater_id, const uint16_t period_seconds, const celsius_t hysteresis_degc);
         } tr_state_machine_t;
-  
+
         static tr_state_machine_t tr_state_machine[NR_HEATER_RUNAWAY];
-  
+
     #endif // HAS_THERMAL_PROTECTION
 };
 

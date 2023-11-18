@@ -66,7 +66,7 @@ GcodeSuite gcode;
 #endif
 
 #include "../MarlinCore.h" // for idle, kill
-#include "../module/planner.h"
+
 // Inactivity shutdown
 millis_t GcodeSuite::previous_move_ms = 0,
          GcodeSuite::max_inactive_time = 0,
@@ -120,7 +120,7 @@ int8_t GcodeSuite::get_target_extruder_from_command() {
  * Return -1 if the T parameter is out of range or unspecified
  */
 int8_t GcodeSuite::get_target_e_stepper_from_command() {
-  const int8_t e = parser.intval('T', -1);//zb_ok
+  const int8_t e = parser.intval('T', -1);
   if (WITHIN(e, 0, E_STEPPERS - 1)) return e;
 
   SERIAL_ECHO_START();
@@ -132,17 +132,6 @@ int8_t GcodeSuite::get_target_e_stepper_from_command() {
   return -1;
 }
 
-static float dis_count = 0.0;
-static float dis_count_x = 0.0;
-static float dis_count_y = 0.0;
-static float dis_count_e = 0.0;
-float acceleration_Back = 0.0;
-static float free_speed_back = 35.0;
-
-void Adjust_Print_Speed()
-{
-
-}
 /**
  * Set XYZE destination and feedrate from the current GCode command
  *
@@ -187,10 +176,8 @@ void GcodeSuite::get_destination_from_command() {
   #endif
 
   if (parser.linearval('F') > 0)
-    if (!fast_print_enable)
     feedrate_mm_s = parser.value_feedrate();
 
-  Adjust_Print_Speed(); // david
   #if ENABLED(PRINTCOUNTER)
       if (!DEBUGGING(DRYRUN) && !skip_move)
         print_job_timer.incFilamentUsed(destination.e - current_position.e);
@@ -284,7 +271,6 @@ void GcodeSuite::dwell(millis_t time) {
 /**
  * Process the parsed command and dispatch it to its handler
  */
- 
 void GcodeSuite::process_parsed_command(const bool no_ok/*=false*/) {
   KEEPALIVE_STATE(IN_HANDLER);
 
@@ -308,7 +294,9 @@ void GcodeSuite::process_parsed_command(const bool no_ok/*=false*/) {
   #endif
 
   // Handle a known command or reply "unknown command"
+
   switch (parser.command_letter) {
+
     case 'G': switch (parser.codenum) {
 
       case 0: case 1:                                             // G0: Fast Move, G1: Linear Move
@@ -432,7 +420,6 @@ void GcodeSuite::process_parsed_command(const bool no_ok/*=false*/) {
       #if ENABLED(DEBUG_GCODE_PARSER)
           case 800: parser.debug(); break;                          // G800: GCode Parser Test for G
       #endif
-	  case 1000:  break;									// G61:  Apply/restore saved coordinates.
 
       default: parser.unknown_command_warning(); break;
     }
@@ -818,9 +805,7 @@ void GcodeSuite::process_parsed_command(const bool no_ok/*=false*/) {
           case 486: M486(); break;                                  // M486: Identify and cancel objects
       #endif
 
-      case 500:
-//	  	do{ MYSERIAL1.println(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
-	  	M500(); break;                                    // M500: Store settings in EEPROM
+      case 500: M500(); break;                                    // M500: Store settings in EEPROM
       case 501: M501(); break;                                    // M501: Read settings from EEPROM
       case 502: M502(); break;                                    // M502: Revert to default settings
       #if DISABLED(DISABLE_M503)
@@ -1014,10 +999,6 @@ void GcodeSuite::process_parsed_command(const bool no_ok/*=false*/) {
           case 1002: M1002(); break;                                // M1002: [INTERNAL] Tool-change and Relative E Move
       #endif
 
-	  #if ENABLED(DGUS_LCD_UI_SUNLU)
-  	  	case 1003:M1003();break;
-	  #endif
-	  
       #if ENABLED(UBL_MESH_WIZARD)
           case 1004: M1004(); break;                                // M1004: UBL Mesh Wizard
       #endif
