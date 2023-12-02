@@ -34,15 +34,13 @@
     #include "scara.h"
 #endif
 
-
-extern bool relative_mode;
-extern bool ignore_e_all;
-extern xyze_pos_t current_position,  // High-level current tool position
-                  destination;       // Destination for a move
-extern float max_point[2];
-extern float min_point[2];
 // Error margin to work around float imprecision
 constexpr float fslop = 0.0001;
+
+extern bool relative_mode;
+
+extern xyze_pos_t current_position,  // High-level current tool position
+                  destination;       // Destination for a move
 
 // G60/G61 Position Save and Return
 #if SAVED_POSITIONS
@@ -68,9 +66,7 @@ extern xyz_pos_t cartes;
 #endif
 
 #if HAS_BED_PROBE
-    constexpr feedRate_t z_probe_fast_mm_s = MMM_TO_MMS(Z_PROBE_FEEDRATE_SLOW);//MMM_TO_MMS(Z_PROBE_FEEDRATE_FAST);
-    constexpr feedRate_t z_probe_Up_mm_s   = MMM_TO_MMS(Z_PROBE_FEEDRATE_UP);//MMM_TO_MMS(Z_PROBE_FEEDRATE_FAST);
-  
+  constexpr feedRate_t z_probe_fast_mm_s = MMM_TO_MMS(Z_PROBE_FEEDRATE_FAST);
 #endif
 
 /**
@@ -104,9 +100,6 @@ extern feedRate_t feedrate_mm_s;
  * Feedrate scaling is applied to all G0/G1, G2/G3, and G5 moves
  */
 extern int16_t feedrate_percentage;
-extern int16_t key_Input_feedrate_percentage;
-
-
 #define MMS_SCALED(V) ((V) * 0.01f * feedrate_percentage)
 
 // The active extruder (tool). Set with T<extruder> command.
