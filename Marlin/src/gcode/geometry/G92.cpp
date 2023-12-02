@@ -23,7 +23,6 @@
 #include "../gcode.h"
 #include "../../module/motion.h"
 #include "../../module/stepper.h"
-#include "../queue.h" // for online_print_bit
 
 #if ENABLED(I2C_POSITION_ENCODERS)
     #include "../../feature/encoder_i2c.h"
@@ -114,7 +113,6 @@ void GcodeSuite::G92() {
 
   if   (sync_XYZE) sync_plan_position();
   else if (sync_E) sync_plan_position_e();
-  GCodeQueue::online_print_bit|=1<<2;
-  GCodeQueue::judge_online_print();
+
   IF_DISABLED(DIRECT_STEPPING, report_current_position());
 }
