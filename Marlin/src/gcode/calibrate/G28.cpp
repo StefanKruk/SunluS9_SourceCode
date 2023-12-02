@@ -22,8 +22,6 @@
 
 #include "../../inc/MarlinConfig.h"
 
-#include "../queue.h" // for online_print_bit
-
 #include "../gcode.h"
 
 #include "../../module/stepper.h"
@@ -145,7 +143,6 @@
       TERN_(HOMING_Z_WITH_PROBE, destination -= probe.offset_xy);
   
       if (position_is_reachable(destination)) {
-  		
   
         if (DEBUGGING(LEVELING)) DEBUG_POS("home_z_safely", destination);
   
@@ -156,15 +153,6 @@
   
         do_blocking_move_to_xy(destination);
         homeaxis(Z_AXIS);
-  	//  do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
-  	//  do{ MYSERIAL1.print("planner.position.z:"); MYSERIAL1.println(planner.position.z); }while(0);
-  	  //planner.position.z+=ExtUI::getZ_compensate();
-  	 // do{ MYSERIAL1.print("planner.position.z:"); MYSERIAL1.println(planner.position.z); }while(0);
-  	  xyz_pos_t raa;
-  	  raa.x=155;
-  	  raa.y=155;
-  	  do_blocking_move_to_xy_z(raa,0);
-  	 // do{ MYSERIAL1.print("planner.position.z:"); MYSERIAL1.println(planner.position.z); }while(0);
       }
       else {
         LCD_MESSAGEPGM(MSG_ZPROBE_OUT);
@@ -219,12 +207,7 @@
  */
 void GcodeSuite::G28() {
   DEBUG_SECTION(log_G28, "G28", DEBUGGING(LEVELING));
-  //TERN_(EXTENSIBLE_UI, ExtUI::onHomingStart());
   if (DEBUGGING(LEVELING)) log_machine_info();
-
-  TERN_(DWIN_CREALITY_LCD, DWIN_StartHoming());
-  //if(ExtUI::isPrintingFromMedia())
-  TERN_(EXTENSIBLE_UI, ExtUI::onHomingStart());
 
   TERN_(LASER_MOVE_G28_OFF, cutter.set_inline_enabled(false));  // turn off laser
 
@@ -235,8 +218,6 @@ void GcodeSuite::G28() {
       DualXMode IDEX_saved_mode = dual_x_carriage_mode;
   #endif
   
-  //do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
-
   #if ENABLED(MARLIN_DEV_MODE)
       if (parser.seen_test('S')) {
         LOOP_LINEAR_AXES(a) set_axis_is_at_home((AxisEnum)a);
@@ -247,14 +228,14 @@ void GcodeSuite::G28() {
       }
   #endif
   
-  //do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
-
   // Home (O)nly if position is unknown
   if (!axes_should_home() && parser.boolval('O')) {
     if (DEBUGGING(LEVELING)) DEBUG_ECHOLNPGM("> homing not needed, skip");
     return;
   }
 
+  TERN_(DWIN_CREALITY_LCD, DWIN_StartHoming());
+  TERN_(EXTENSIBLE_UI, ExtUI::onHomingStart());
 
   planner.synchronize();          // Wait for planner moves to finish!
 
@@ -368,8 +349,6 @@ void GcodeSuite::G28() {
     
       #endif
   
-  	//do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
-  
       // Home Y (before X)
       if (ENABLED(HOME_Y_BEFORE_X) && (doY || TERN0(CODEPENDENT_XY_HOMING, doX)))
         homeaxis(Y_AXIS);
@@ -414,27 +393,15 @@ void GcodeSuite::G28() {
                 stepper.set_separate_multi_axis(false);
             #endif
     		
-    	//	do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
-    
             TERN(Z_SAFE_HOMING, home_z_safely(), homeaxis(Z_AXIS));
-    	//do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
             probe.move_z_after_homing();
-    	//do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
           }
       #endif
   	
-  	//do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
-  
-  //	do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
-  //	do{ MYSERIAL1.print("current_position:"); MYSERIAL1.println(current_position.z); }while(0);
-  
       sync_plan_position();
-  //	  do{ MYSERIAL1.print("planner.position.z:"); MYSERIAL1.println(planner.position.z); }while(0);
   
   #endif
   
- // do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
-
   /**
    * Preserve DXC mode across a G28 for IDEX printers in DXC_DUPLICATION_MODE.
    * This is important because it lets a user use the LCD Panel to set an IDEX Duplication mode, and
@@ -467,45 +434,27 @@ void GcodeSuite::G28() {
         TERN_(IMPROVE_HOMING_RELIABILITY, end_slow_homing(slow_homing));
       }
   	
-  	//do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
-  
   #endif // DUAL_X_CARRIAGE
   
-  //do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
-  
-//  do{ MYSERIAL1.print("1planner.position.z:"); MYSERIAL1.println(planner.position.z); }while(0);
-
   endstops.not_homing();
   
-//	  do{ MYSERIAL1.print("2planner.position.z:"); MYSERIAL1.println(planner.position.z); }while(0);
- // do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
-
   // Clear endstop state for polled stallGuard endstops
   TERN_(SPI_ENDSTOPS, endstops.clear_endstop_state());
 
   #if BOTH(DELTA, DELTA_HOME_TO_SAFE_ZONE)
       // move to a height where we can use the full xy-area
-      do_blocking_move_to_z(delta_clip_start_height)
+    do_blocking_move_to_z(delta_clip_start_height);
   #endif
   
-  //do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
-
   TERN_(HAS_LEVELING, set_bed_leveling_enabled(leveling_restore_state));
   
-//	  do{ MYSERIAL1.print("3planner.position.z:"); MYSERIAL1.println(planner.position.z); }while(0);
-  //do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
-
   restore_feedrate_and_scaling();
   
-  //do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
-
   // Restore the active tool after homing
   #if HAS_MULTI_HOTEND && (DISABLED(DELTA) || ENABLED(DELTA_HOME_TO_SAFE_ZONE))
       tool_change(old_tool_index, TERN(PARKING_EXTRUDER, !pe_final_change_must_unpark, DISABLED(DUAL_X_CARRIAGE)));   // Do move if one of these
   #endif
   
-//  do{ MYSERIAL1.print("4planner.position.z:"); MYSERIAL1.println(planner.position.z); }while(0);
-
   #if HAS_HOMING_CURRENT
       if (DEBUGGING(LEVELING)) DEBUG_ECHOLNPGM("Restore driver current...");
       #if HAS_CURRENT_HOME(X)
@@ -522,22 +471,13 @@ void GcodeSuite::G28() {
       #endif
   #endif
   
-  //do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
-  
-  //do{ MYSERIAL1.print(__FILE__); MYSERIAL1.println(__LINE__); }while(0);
-
   ui.refresh();
   
- // do{ MYSERIAL1.print("5planner.position.z:"); MYSERIAL1.println(planner.position.z); }while(0);
-
   TERN_(DWIN_CREALITY_LCD, DWIN_CompletedHoming());
-  if(doZ)  TERN_(EXTENSIBLE_UI, ExtUI::onHomingComplete(true));
-  else	TERN_(EXTENSIBLE_UI, ExtUI::onHomingComplete(false));
+  TERN_(EXTENSIBLE_UI, ExtUI::onHomingComplete());
 
   report_current_position();
   
- // do{ MYSERIAL1.print("6planner.position.z:"); MYSERIAL1.println(planner.position.z); }while(0);
-
   if (ENABLED(NANODLP_Z_SYNC) && (doZ || ENABLED(NANODLP_ALL_AXIS)))
     SERIAL_ECHOLNPGM(STR_Z_MOVE_COMP);
 
@@ -557,23 +497,4 @@ void GcodeSuite::G28() {
         L64xxManager.set_param((L64XX_axis_t)cv, L6470_ABS_POS, stepper.position(L64XX_axis_xref[cv]));
       }
   #endif
-  GCodeQueue::online_print_bit|=1<<3;
-  max_point[1]=max_point[0]=-999.0;
-  min_point[1]=min_point[0]=999.0;
-  if(ExtUI::isPrintingFromMedia() && (ui.auto_level==1)&&doZ) TERN(G29_RETRY_AND_RECOVER, G29_with_retry, G29)();
-
-  if(GCodeQueue::is_online_print)
-  {
-	  GCodeQueue::online_print_bit_Second|=1<<0;
-
-	  if(GCodeQueue::online_print_bit_Second>=3)
-	  {
-	  	  GCodeQueue::online_print_bit_Second =0;
-		  GCodeQueue::is_online_print =0;
-		  GCodeQueue::online_print_Enable =0;
-		  
-//		  LCD_SERIAL.println("G28:");
-		  GCodeQueue::Check_online_stop();
-	  }
-  }
 }

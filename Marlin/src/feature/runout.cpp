@@ -32,11 +32,8 @@
   
   FilamentMonitor runout;
   
-  static uint16_t interrupt_timer_pre,interrupt_timer;
-  
-  int8_t   FilamentMonitorBase::enabled = 0x3;
-  bool     FilamentMonitorBase::filament_ran_out;  // = false
-  volatile bool FilamentMonitorBase::test_filament_ran_out=false;  // = false
+bool FilamentMonitorBase::enabled = true,
+     FilamentMonitorBase::filament_ran_out;  // = false
   
   #if ENABLED(HOST_ACTION_COMMANDS)
       bool FilamentMonitorBase::host_handling; // = false
@@ -50,13 +47,9 @@
   
   #if HAS_FILAMENT_RUNOUT_DISTANCE
       float RunoutResponseDelayed::runout_distance_mm = FILAMENT_RUNOUT_DISTANCE_MM;
-      volatile float FilamentSensorEncoder::runout_mm_countdown[NUM_RUNOUT_SENSORS]={0};
+  volatile float RunoutResponseDelayed::runout_mm_countdown[NUM_RUNOUT_SENSORS];
       #if ENABLED(FILAMENT_MOTION_SENSOR)
-          uint8_t FilamentSensorEncoder::motion_detected=0;
-        volatile	int8_t FilamentSensorEncoder::counter_change=0;
-      	uint8_t FilamentSensorEncoder::direction_bits=0;
-      	uint8_t FilamentSensorEncoder::filament_err_num=0;
-      	uint8_t FilamentSensorEncoder::Has_Filament_Err=0;
+    uint8_t FilamentSensorEncoder::motion_detected;
       #endif
   #else
       int8_t RunoutResponseDebounced::runout_count[NUM_RUNOUT_SENSORS]; // = 0
@@ -77,7 +70,7 @@
       #include "../lcd/extui/ui_api.h"
   #endif
   
-  void event_filament_runout(const uint8_t extruder,uint8_t err_code) {
+void event_filament_runout(const uint8_t extruder) {
   
     if (did_pause_print) return;  // Action already in progress. Purge triggered repeated runout. 
   
@@ -92,8 +85,7 @@
         }
     #endif
     
-  
-    TERN_(EXTENSIBLE_UI, ExtUI::onFilamentRunout(ExtUI::getTool(extruder),err_code));
+    TERN_(EXTENSIBLE_UI, ExtUI::onFilamentRunout(ExtUI::getTool(extruder)));
   
     #if ANY(HOST_PROMPT_SUPPORT, HOST_ACTION_COMMANDS, MULTI_FILAMENT_SENSOR)
         const char tool = '0' + TERN0(MULTI_FILAMENT_SENSOR, extruder);
@@ -145,13 +137,9 @@
               SERIAL_ECHOPGM("Runout Command: ");
               SERIAL_ECHOLNPGM(FILAMENT_RUNOUT_SCRIPT);
           #endif
-          queue.inject("M25");
+      queue.inject_P(PSTR(FILAMENT_RUNOUT_SCRIPT));
       #endif
     }
-  }
-  void poll_runout_pins() {
-    runout.add_change();
-  
   }
   
 #endif // HAS_FILAMENT_SENSOR
