@@ -97,7 +97,6 @@ Stepper stepper; // Singleton
 #include "../MarlinCore.h"
 #include "../HAL/shared/Delay.h"
 
-
 #if ENABLED(INTEGRATED_BABYSTEPPING)
     #include "../feature/babystep.h"
 #endif
@@ -176,7 +175,7 @@ bool Stepper::abort_current_block;
       #endif
     ;
 #endif
-//bool Stepper::speedModeSelect = false; // zcj
+
 uint32_t Stepper::acceleration_time, Stepper::deceleration_time;
 uint8_t Stepper::steps_per_isr;
 
@@ -418,9 +417,7 @@ xyze_int8_t Stepper::count_direction{0};
     #endif
 #else
     #define Z_APPLY_DIR(v,Q) Z_DIR_WRITE(v)
-    #define Z_APPLY_STEP(v,Q) do{\
-    	Z_STEP_WRITE(v); \
-  	}while(0)
+  #define Z_APPLY_STEP(v,Q) Z_STEP_WRITE(v)
 #endif
 
 #if DISABLED(MIXING_EXTRUDER)
@@ -457,11 +454,6 @@ xyze_int8_t Stepper::count_direction{0};
 #else
     #define DIR_WAIT_AFTER()
 #endif
-
-bool getFast_mode(void) {
-  return (stepper.speedModeSelect);
-}
-
 
 /**
  * Set the stepper direction of each axis
@@ -1391,19 +1383,11 @@ void Stepper::isr() {
   // We need this variable here to be able to use it in the following loop
   hal_timer_t min_ticks;
   do {
-  	
     // Enable ISRs to reduce USART processing latency
     ENABLE_ISRS();
 	
-/*	if(tarck_debug){
-		tarck_debug=false;
-		do{ MYSERIAL1.print(__FILE__); MYSERIAL1.print(__LINE__); MYSERIAL1.print("  :nextMainISR:");MYSERIAL1.println(nextMainISR); }while(0);
-	}*/
-	
-
     if (!nextMainISR) pulse_phase_isr();                            // 0 = Do coordinated axes Stepper pulses
     
-
     #if ENABLED(LIN_ADVANCE)
         if (!nextAdvanceISR) nextAdvanceISR = advance_isr();          // 0 = Do Linear Advance E Stepper pulses
     #endif
@@ -1417,7 +1401,6 @@ void Stepper::isr() {
 
     if (!nextMainISR) nextMainISR = block_phase_isr();  // Manage acc/deceleration, get next block
     	
-
     #if ENABLED(INTEGRATED_BABYSTEPPING)
         if (is_babystep)                                  // Avoid ANY stepping too soon after baby-stepping
           NOLESS(nextMainISR, (BABYSTEP_TICKS) / 8);      // FULL STOP for 125µs after a baby-step
@@ -1523,7 +1506,6 @@ void Stepper::isr() {
   // Set the next ISR to fire at the proper time
   HAL_timer_set_compare(STEP_TIMER_NUM, hal_timer_t(next_isr_ticks));
 
-
   // Don't forget to finally reenable interrupts
   ENABLE_ISRS();
 }
@@ -1544,7 +1526,6 @@ void Stepper::isr() {
  */
 void Stepper::pulse_phase_isr() {
 	
-
   // If we must abort the current block, do so!
   if (abort_current_block) {
     abort_current_block = false;
@@ -1554,11 +1535,9 @@ void Stepper::pulse_phase_isr() {
   // If there is no current block, do nothing
   if (!current_block) return;
   
-
   // Skipping step processing causes motion to freeze
   if (TERN0(HAS_FREEZE_PIN, frozen)) return;
   
-
   // Count of pending loops and events for this iteration
   const uint32_t pending_events = step_event_count - step_events_completed;
   uint8_t events_to_do = _MIN(pending_events, steps_per_isr);
@@ -1605,7 +1584,7 @@ void Stepper::pulse_phase_isr() {
     const bool is_page = IS_PAGE(current_block);
 
     #if ENABLED(DIRECT_STEPPING)
-  #if 0
+
           if (is_page) {
     
             #if STEPPER_PAGE_FORMAT == SP_4x4D_128
@@ -1707,10 +1686,8 @@ void Stepper::pulse_phase_isr() {
                 #error "Unknown direct stepping page format!"
             #endif
           }
-  	#endif
+
     #endif // DIRECT_STEPPING
-
-
 
     if (!is_page) {
       // Determine if pulses are needed
@@ -1722,10 +1699,6 @@ void Stepper::pulse_phase_isr() {
       #endif
       #if HAS_Z_STEP
           PULSE_PREP(Z);
-  	  
-  	//  if (step_needed[_AXIS(Z)]&& testzcount==500){ 
-    	//	do{ MYSERIAL1.println(__FILE__); MYSERIAL1.println(__LINE__); }while(0); 
-      //  	} 
       #endif
 
       #if EITHER(LIN_ADVANCE, MIXING_EXTRUDER)
@@ -1741,7 +1714,6 @@ void Stepper::pulse_phase_isr() {
             #endif
           }
       #elif HAS_E0_STEP
-  	  if(!ignore_e_all)//It must be optimized here. It's just a temporary process. david
           PULSE_PREP(E);
       #endif
     }
@@ -1768,7 +1740,6 @@ void Stepper::pulse_phase_isr() {
         #if ENABLED(MIXING_EXTRUDER)
             if (step_needed.e) E_STEP_WRITE(mixer.get_next_stepper(), !INVERT_E_STEP_PIN);
         #elif HAS_E0_STEP
-    	  if(!ignore_e_all)//It must be optimized here. It's just a temporary process. david
             PULSE_START(E);
         #endif
     #endif
@@ -2165,8 +2136,9 @@ uint32_t Stepper::block_phase_isr() {
       delta_error = -int32_t(step_event_count);
 
       // Calculate Bresenham dividends and divisors
-      advance_dividend = current_block->steps << 1;//This is passed in from outside this document, which determines whether to move the Z axis//david
+      advance_dividend = current_block->steps << 1;
       advance_divisor = step_event_count << 1;
+
       // No step events completed so far
       step_events_completed = 0;
 
@@ -2920,7 +2892,6 @@ void Stepper::report_positions() {
               BABYSTEP_CORE(Y, Z, BABYSTEP_INVERT_Z, direction, (CORESIGN(1)<0));
           #elif DISABLED(DELTA)
               BABYSTEP_AXIS(Z, BABYSTEP_INVERT_Z, direction);
-    								  
     
           #else // DELTA
     

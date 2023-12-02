@@ -758,8 +758,8 @@
             TERN_(EXTENSIBLE_UI, ExtUI::onMeshUpdate(best.pos, ExtUI::G29_POINT_START));
             const float measured_z = probe.probe_at_point(
                           best.meshpos(),
-                           PROBE_PT_RAISE, param.V_verbosity
-                        );//stow_probe ? PROBE_PT_STOW :
+                      stow_probe ? PROBE_PT_STOW : PROBE_PT_RAISE, param.V_verbosity
+                    );
             z_values[best.pos.x][best.pos.y] = measured_z;
             #if ENABLED(EXTENSIBLE_UI)
                 ExtUI::onMeshUpdate(best.pos, ExtUI::G29_POINT_FINISH);
@@ -785,7 +785,6 @@
           constrain(nearby.x - probe.offset_xy.x, MESH_MIN_X, MESH_MAX_X),
           constrain(nearby.y - probe.offset_xy.y, MESH_MIN_Y, MESH_MAX_Y)
         );
-        
       }
     
   #endif // HAS_BED_PROBE
@@ -1394,14 +1393,7 @@
     static const smart_fill_info * const info[] PROGMEM = { &info0, &info1, &info2, &info3 };
   
     LOOP_L_N(i, COUNT(info)) {
-    	ScreenHandler.Address_Beyond_Fun(&info[i],77);
       const smart_fill_info *f = (smart_fill_info*)pgm_read_ptr(&info[i]);
-  	
-  	ScreenHandler.Address_Beyond_Fun(&f->sx,78);
-  	ScreenHandler.Address_Beyond_Fun(&f->sy,79);
-  	ScreenHandler.Address_Beyond_Fun(&f->ex,80);
-  	ScreenHandler.Address_Beyond_Fun(&f->ey,81);
-  	ScreenHandler.Address_Beyond_Fun(&f->yfirst,82);
       const int8_t sx = pgm_read_byte(&f->sx), sy = pgm_read_byte(&f->sy),
                    ex = pgm_read_byte(&f->ex), ey = pgm_read_byte(&f->ey);
       if (pgm_read_byte(&f->yfirst)) {

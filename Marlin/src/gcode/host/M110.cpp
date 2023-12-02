@@ -31,9 +31,9 @@ void GcodeSuite::M110() {
   if (parser.seenval('N'))
   {
     queue.set_current_line_number(parser.value_long());
-	GCodeQueue::online_print_bit|=1<<0;
-	GCodeQueue::judge_online_print();
+    GCodeQueue::online_print_bit|=1<<0;
+	  GCodeQueue::judge_online_print();
   }
-  
+
 
 }

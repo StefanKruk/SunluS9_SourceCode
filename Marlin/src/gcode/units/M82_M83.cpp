@@ -23,18 +23,18 @@
 #include "../../inc/MarlinConfigPre.h"
 
 #if HAS_EXTRUDERS
-  
+
   #include "../gcode.h"
-  #include "../queue.h" // for online_print_bit
-  
+#include "../queue.h" // for online_print_bit
+
   /**
    * M82: Set E codes absolute (default)
    */
-  void GcodeSuite::M82() { set_e_absolute(); GCodeQueue::online_print_bit|=1<<1;}
-  
+void GcodeSuite::M82() { set_e_absolute(); GCodeQueue::online_print_bit|=1<<1;}
+
   /**
    * M83: Set E codes relative while in Absolute Coordinates (G90) mode
    */
   void GcodeSuite::M83() { set_e_relative(); }
-  
+
 #endif // HAS_EXTRUDERS

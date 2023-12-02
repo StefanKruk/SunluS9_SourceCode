@@ -22,7 +22,6 @@
 
 #include "../gcode.h"
 #include "../../module/temperature.h"
-#include "../queue.h" // for last_N
 
 /**
  * M105: Read hot end and bed temperature

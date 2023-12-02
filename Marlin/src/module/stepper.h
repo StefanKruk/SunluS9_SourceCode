@@ -45,8 +45,6 @@
 
 #include "planner.h"
 #include "stepper/indirection.h"
-#include "../lcd/extui/dgus/DGUSScreenHandler.h"
-
 #ifdef __AVR__
     #include "speed_lookuptable.h"
 #endif
@@ -235,7 +233,7 @@
 // This does not account for the possibility of multi-stepping.
 // Perhaps DISABLE_MULTI_STEPPING should be required with ADAPTIVE_STEP_SMOOTHING.
 #define MIN_STEP_ISR_FREQUENCY (MAX_STEP_ISR_FREQUENCY_1X / 2)
-bool getFast_mode(void) ;
+
 //
 // Stepper class definition
 //
@@ -268,10 +266,6 @@ class Stepper {
         static constexpr uint8_t last_moved_extruder = 0;
     #endif
 
-    bool speedModeSelect =false; // zcj
-    void setPrintSpeedMode(bool flag) { speedModeSelect = flag; } // zcj
-    bool GetPrintSpeedMode(void) { return speedModeSelect;  } // zcj
-    
     #if HAS_FREEZE_PIN
         static bool frozen;                   // Set this flag to instantly freeze motion
     #endif
@@ -577,44 +571,18 @@ class Stepper {
           timer = uint32_t(STEPPER_TIMER_RATE) / step_rate;
       #else
           constexpr uint32_t min_step_rate = (F_CPU) / 500000U;
-          //constexpr uint32_t min_step_rate = (8000000) / 500000U;//8m no  9m no
           NOLESS(step_rate, min_step_rate);
           step_rate -= min_step_rate; // Correct for minimal speed
-          //do{ MYSERIAL1.print("F_CPU111:"); MYSERIAL1.println(F_CPU); }while(0);
           if (step_rate >= (8 * 256)) { // higher step rate
-             uint8_t tmp_step_rate = (step_rate & 0x00FF);   
-  		   uint16_t table_address=0;
-  		
-  		  if(0){
-  			    table_address = (uint16_t)&Fast_speed_lookuptable_fast[(uint8_t)(step_rate >> 8)][0];
-  		  	    
-  		  //do{ MYSERIAL1.print("speedModeSelec333:"); MYSERIAL1.println(getFast_mode()); }while(0);
-  		  }
-  		  else{
-  			    table_address = (uint16_t)&speed_lookuptable_fast[(uint8_t)(step_rate >> 8)][0];
-  				
-  		  //do{ MYSERIAL1.print("speedModeSelec444:"); MYSERIAL1.println(getFast_mode()); }while(0);
-  		  	
-  		  }
-  					ScreenHandler.Address_Beyond_Fun(table_address + 2,62);
-            const uint16_t gain = (uint16_t)pgm_read_word(table_address + 2);
+          const uint8_t tmp_step_rate = (step_rate & 0x00FF);
+          const uint16_t table_address = (uint16_t)&speed_lookuptable_fast[(uint8_t)(step_rate >> 8)][0],
+                         gain = (uint16_t)pgm_read_word(table_address + 2);
             timer = MultiU16X8toH16(tmp_step_rate, gain);
-  					ScreenHandler.Address_Beyond_Fun(table_address,63);
-  					
             timer = (uint16_t)pgm_read_word(table_address) - timer;
-  		  
           }
           else { // lower step rates
-            uint16_t table_address=0;
-  		  if(0){
-  			   table_address = (uint16_t)&Slow_speed_lookuptable_slow[0][0];
-  		  }
-  		  else{
-  			   table_address = (uint16_t)&speed_lookuptable_slow[0][0];		  	
-  		  }
+          uint16_t table_address = (uint16_t)&speed_lookuptable_slow[0][0];
             table_address += ((step_rate) >> 1) & 0xFFFC;
-  					ScreenHandler.Address_Beyond_Fun(table_address,64);
-  					
             timer = (uint16_t)pgm_read_word(table_address)
                   - (((uint16_t)pgm_read_word(table_address + 2) * (uint8_t)(step_rate & 0x0007)) >> 3);
           }

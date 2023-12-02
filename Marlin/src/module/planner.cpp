@@ -129,10 +129,6 @@ volatile uint8_t Planner::block_buffer_head,    // Index of the next block to be
                  Planner::block_buffer_tail;    // Index of the busy block, if any
 uint16_t Planner::cleaning_buffer_counter;      // A counter to disable queuing of blocks
 uint8_t  Planner::delay_before_delivering;       // This counter delays delivery of blocks when queue becomes empty to allow the opportunity of merging blocks
-bool     Planner::plan_ignore_e;
-
-
-
 
 planner_settings_t Planner::settings;           // Initialized by settings.load()
 
@@ -144,9 +140,6 @@ uint32_t Planner::max_acceleration_steps_per_s2[DISTINCT_AXES]; // (steps/s^2) D
 
 float Planner::steps_to_mm[DISTINCT_AXES];      // (mm) Millimeters per step
 
-bool fast_print_enable=false;
-bool fast_print_enable_pre=false;
-bool fast_print_enable_change=false;
 #if HAS_JUNCTION_DEVIATION
     float Planner::junction_deviation_mm;         // (mm) M205 J
     #if HAS_LINEAR_E_JERK
@@ -1282,9 +1275,6 @@ void Planner::recalculate() {
       #define FAN_SET(F) do{ kickstart_fan(fan_speed, ms, F); _FAN_SET(F); }while(0)
   
       const millis_t ms = millis();
-  	
-  	//TERN_(HAS_FAN0, analogWrite(pin_t(FAN_PIN), 255));
-  	//do{ MYSERIAL1.print("fan_speed[f]="); MYSERIAL1.println(FAN_COUNT); }while(0);
       TERN_(HAS_FAN0, FAN_SET(0));
       TERN_(HAS_FAN1, FAN_SET(1));
       TERN_(HAS_FAN2, FAN_SET(2));
@@ -1657,10 +1647,6 @@ void Planner::quick_stop() {
   if (was_enabled) stepper.wake_up();
 
   // And stop the stepper ISR
-//	if(tarck_debug)
-		{
-		//do{ MYSERIAL1.print(__FILE__); MYSERIAL1.print(__LINE__);}while(0);
-	}
   stepper.quick_stop();
 }
 
@@ -1780,14 +1766,11 @@ bool Planner::_buffer_steps(const xyze_long_t &target
   uint8_t next_buffer_head;
   block_t * const block = get_next_free_block(next_buffer_head);
   
-
   // If we are cleaning, do not accept queuing of movements
   // This must be after get_next_free_block() because it calls idle()
   // where cleaning_buffer_counter can be changed
   if (cleaning_buffer_counter) return false;
   
-  
-
   // Fill the block with the specified movement
   if (!_populate_block(block, false, target
     #if HAS_POSITION_FLOAT
@@ -1803,8 +1786,6 @@ bool Planner::_buffer_steps(const xyze_long_t &target
     return true;
   }
 	
-
-
   // If this is the first added movement, reload the delay, otherwise, cancel it.
   if (block_buffer_head == block_buffer_tail) {
     // If it was the first queued block, restart the 1st block delivery delay, to
@@ -1815,15 +1796,12 @@ bool Planner::_buffer_steps(const xyze_long_t &target
     delay_before_delivering = BLOCK_DELAY_FOR_1ST_MOVE;
   }
   
-
   // Move buffer head
   block_buffer_head = next_buffer_head;
   
-
   // Recalculate and optimize trapezoidal speed profiles
   recalculate();
   
-
   // Movement successfully queued!
   return true;
 }
@@ -1849,7 +1827,6 @@ bool Planner::_populate_block(block_t * const block, bool split_move,
   const int32_t da = target.a - position.a,
                 db = target.b - position.b,
                 dc = target.c - position.c;
-
 
   #if HAS_EXTRUDERS
       int32_t de = target.e - position.e;
@@ -1970,7 +1947,7 @@ bool Planner::_populate_block(block_t * const block, bool split_move,
       block->steps.set(ABS(da), ABS(db), ABS(dc));
   #else
       // default non-h-bot planning
-      block->steps.set(ABS(da), ABS(db), ABS(dc));//david ���︴�Ƹ�steps�ļ���������Ϣ
+    block->steps.set(ABS(da), ABS(db), ABS(dc));
   #endif
 
   /**
@@ -2714,7 +2691,6 @@ bool Planner::_populate_block(block_t * const block, bool split_move,
   previous_nominal_speed_sqr = block->nominal_speed_sqr;
 
   position = target;  // Update the position
-  change_e_stepper_mm();
 
   TERN_(HAS_POSITION_FLOAT, position_float = target_float);
   TERN_(GRADIENT_MIX, mixer.gradient_control(target_float.z));
@@ -2764,45 +2740,6 @@ void Planner::buffer_sync_block(TERN_(LASER_SYNCHRONOUS_M106_M107, uint8_t sync_
   stepper.wake_up();
 } // buffer_sync_block()
 
-#define ALIM(I,ARR) _MIN(I, (signed)COUNT(ARR) - 1)
-static const float	   _DASU[] PROGMEM = DEFAULT_AXIS_STEPS_PER_UNIT;
-
-void Planner::resume_e_stepper_mm(float e)
-{
-		current_position.e=e;
-		if(fast_print_enable)
-		{
-	  		planner.settings.axis_steps_per_mm[E_AXIS]= pgm_read_float(&_DASU[ALIM(E_AXIS, _DASU)])*1.1;
-			position.e=e*settings.axis_steps_per_mm[E_AXIS];
-		}
-		else
-		{
-	  		planner.settings.axis_steps_per_mm[E_AXIS]= pgm_read_float(&_DASU[ALIM(E_AXIS, _DASU)]);
-			position.e=e*settings.axis_steps_per_mm[E_AXIS];
-		}	
-}
-
-void Planner::change_e_stepper_mm()//float current_position_e
-{
-	
-    
-	if(fast_print_enable_change)
-	{
-		fast_print_enable_change=false;
-		if(fast_print_enable)
-		{
-	  		planner.settings.axis_steps_per_mm[E_AXIS]= pgm_read_float(&_DASU[ALIM(E_AXIS, _DASU)])*1.1;
-			position.e=current_position.e*settings.axis_steps_per_mm[E_AXIS];
-		}
-		else
-		{
-	  		planner.settings.axis_steps_per_mm[E_AXIS]= pgm_read_float(&_DASU[ALIM(E_AXIS, _DASU)]);
-			position.e=current_position.e*settings.axis_steps_per_mm[E_AXIS];
-		}
-	}
-	
-	
-}
 /**
  * Planner::buffer_segment
  *
@@ -2883,7 +2820,6 @@ bool Planner::buffer_segment(const_float_t a, const_float_t b, const_float_t c, 
     SERIAL_ECHOLNPGM(")");
   //*/
 
-  
   // Queue the movement. Return 'false' if the move was not queued.
   if (!_buffer_steps(target
       #if HAS_POSITION_FLOAT
@@ -2893,8 +2829,7 @@ bool Planner::buffer_segment(const_float_t a, const_float_t b, const_float_t c, 
           , cart_dist_mm
       #endif
       , fr_mm_s, extruder, millimeters)
-  ) { return false;}
-	  
+  ) return false;
 
   stepper.wake_up();
   return true;
@@ -2956,7 +2891,6 @@ bool Planner::buffer_line(const_float_t rx, const_float_t ry, const_float_t rz, 
       else
         return false;
   #else
-    
       return buffer_segment(machine, fr_mm_s, extruder, millimeters);
   #endif
 } // buffer_line()

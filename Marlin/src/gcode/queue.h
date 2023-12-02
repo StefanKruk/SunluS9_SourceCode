@@ -30,20 +30,20 @@
 
 class GCodeQueue {
 public:
-	
+
   static uint8_t online_print_bit;
   static uint8_t online_print_bit_Second;
   static uint8_t online_print_cnt;
   static uint8_t online_print_Enable;
-  
+
   static void judge_online_print();
   static void judge_online_stop();
   static void Check_online_stop();
   static bool pause_online_print();
-  
-  
+
+
   static bool is_online_print;
-  
+
   /**
    * The buffers per serial port.
    */
@@ -82,9 +82,9 @@ public:
    * A handy ring buffer type
    */
   struct RingBuffer {
-    uint8_t length, length_tmp   ,             //!< Number of commands in the queue
-            index_r, index_r_tmp  ,              //!< Ring buffer's read position
-            index_w,index_w_tmp;                //!< Ring buffer's write position
+    uint8_t length,                 //!< Number of commands in the queue
+            index_r,                //!< Ring buffer's read position
+            index_w;                //!< Ring buffer's write position
     CommandLine commands[BUFSIZE];  //!< The ring buffer of commands
 
     inline serial_index_t command_port() const { return TERN0(HAS_MULTI_SERIAL, commands[index_r].port); }
@@ -110,8 +110,6 @@ public:
     inline bool empty() const { return !occupied(); }
 
     inline CommandLine& peek_next_command() { return commands[index_r]; }
-
-
 
     inline char* peek_next_command_string() { return peek_next_command().buffer; }
   };

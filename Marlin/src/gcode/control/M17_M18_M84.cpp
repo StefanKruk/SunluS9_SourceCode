@@ -66,20 +66,4 @@ void GcodeSuite::M18_M84() {
 
     TERN_(AUTO_BED_LEVELING_UBL, ubl.steppers_were_disabled());
   }
-  if(GCodeQueue::is_online_print)
-  {
-	  GCodeQueue::online_print_bit_Second|=1<<1;
-
-	  if(GCodeQueue::online_print_bit_Second>=3)
-	  {
-	  	  GCodeQueue::online_print_bit_Second =0;
-		  GCodeQueue::is_online_print =0;
-		  
-//		  LCD_SERIAL.println("M84:");
-		  GCodeQueue::online_print_Enable =0;
-		  GCodeQueue::Check_online_stop();
-	  }
-  }
-  
-  
 }

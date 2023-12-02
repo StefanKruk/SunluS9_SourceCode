@@ -35,7 +35,6 @@
   #include "../../../module/stepper.h"
   #include "../../../module/probe.h"
   #include "../../queue.h"
-  //#include "../../module/settings.h"
   
   #if ENABLED(PROBE_TEMP_COMPENSATION)
       #include "../../../feature/probe_temp_comp.h"
@@ -218,17 +217,6 @@
    *     There's no extra effect if you have a fixed Z probe.
    */
   G29_TYPE GcodeSuite::G29() {
-  
-    if(ExtUI::isPrintingFromMedia() && (ui.auto_level==0))	return;
-    float back_acc=planner.settings.acceleration;
-    float speed_back=feedrate_mm_s;
-    bool fast_enable=fast_print_enable;
-    if(fast_enable){
-  	//  back_acc=planner.settings.acceleration;
-  	  planner.settings.acceleration=300;
-  	 // speed_back=feedrate_mm_s;
-  	  feedrate_mm_s=15;
-    }
     TERN_(PROBE_MANUALLY, static) G29_State abl;
   
     TERN_(FULL_REPORT_TO_HOST_FEATURE, set_and_report_grblstate(M_PROBE));
@@ -437,8 +425,8 @@
   	
       // Deploy certain probes before starting probing
       #if HAS_BED_PROBE
-          if (ENABLED(BLTOUCH)){
-            do_z_clearance(Z_CLEARANCE_DEPLOY_PROBE);}
+      if (ENABLED(BLTOUCH))
+        do_z_clearance(Z_CLEARANCE_DEPLOY_PROBE);
           else if (probe.deploy()) {
             set_bed_leveling_enabled(abl.reenable);
             G29_RETURN(false);
@@ -609,7 +597,6 @@
     
     #else // !PROBE_MANUALLY
       {
-      	
         const ProbePtRaise raise_after = parser.boolval('E') ? PROBE_PT_STOW : PROBE_PT_RAISE;
     
         abl.measured_z = 0;
@@ -645,7 +632,6 @@
               // Inner loop is Y with PROBE_Y_FIRST enabled
               // Inner loop is X with PROBE_Y_FIRST disabled
               for (PR_INNER_VAR = inStart; PR_INNER_VAR != inStop; pt_index++, PR_INNER_VAR += inInc) {
-      			
       
                 abl.probePos = abl.probe_position_lf + abl.gridSpacing * abl.meshCount.asFloat();
       
@@ -657,9 +643,7 @@
                 if (abl.verbose_level) SERIAL_ECHOLNPAIR("Probing mesh point ", pt_index, "/", abl.abl_points, ".");
                 TERN_(HAS_STATUS_MESSAGE, ui.status_printf_P(0, PSTR(S_FMT " %i/%i"), GET_TEXT(MSG_PROBING_MESH), int(pt_index), int(abl.abl_points)));
       
-      
                 abl.measured_z = faux ? 0.001f * random(-100, 101) : probe.probe_at_point(abl.probePos, raise_after, abl.verbose_level);
-      		  
       
                 if (isnan(abl.measured_z)) {
                   set_bed_leveling_enabled(abl.reenable);
@@ -684,9 +668,9 @@
         
                 #elif ENABLED(AUTO_BED_LEVELING_BILINEAR)
         
-                    const float z = abl.measured_z + abl.Z_offset;//+ExtUI::getZ_compensate();
+            const float z = abl.measured_z + abl.Z_offset;
                     z_values[abl.meshCount.x][abl.meshCount.y] = z;
-                    TERN_(EXTENSIBLE_UI, ExtUI::onMeshUpdate(z,pt_index));
+            TERN_(EXTENSIBLE_UI, ExtUI::onMeshUpdate(abl.meshCount, z));
         
                 #endif
       
@@ -763,7 +747,6 @@
     
           TERN_(ABL_BILINEAR_SUBDIVISION, print_bilinear_leveling_grid_virt());
     
-    	ScreenHandler.save_par=true;//zb
       #elif ENABLED(AUTO_BED_LEVELING_LINEAR)
     
           // For LINEAR leveling calculate matrix, print reports, correct the position
@@ -872,14 +855,8 @@
             current_position = converted;
     
             if (DEBUGGING(LEVELING)) DEBUG_POS("G29 corrected XYZ", current_position);
-            abl.reenable = true;//zb_ok
           }
     
-          // Auto Bed Leveling is complete! Enable if possible.
-          if (abl.reenable) {
-            planner.leveling_active = true;
-            sync_plan_position();
-          }
       #elif ENABLED(AUTO_BED_LEVELING_BILINEAR)
     
           if (!abl.dryrun) {
@@ -924,10 +901,6 @@
     TERN_(FULL_REPORT_TO_HOST_FEATURE, set_and_report_grblstate(M_IDLE));
   
     G29_RETURN(isnan(abl.measured_z));
-    if(fast_enable){
-  	  planner.settings.acceleration=back_acc;
-  	  feedrate_mm_s=speed_back;
-    }
   
   }
   

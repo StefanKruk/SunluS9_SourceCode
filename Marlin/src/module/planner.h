@@ -236,7 +236,6 @@ typedef struct block_t {
 
   #if ENABLED(POWER_LOSS_RECOVERY)
       uint32_t sdpos;
-      xyze_pos_t start_position;
   #endif
 
   #if ENABLED(LASER_POWER_INLINE)
@@ -327,7 +326,6 @@ class Planner {
                             block_buffer_tail;      // Index of the busy block, if any
     static uint16_t cleaning_buffer_counter;        // A counter to disable queuing of blocks
     static uint8_t delay_before_delivering;         // This counter delays delivery of blocks when queue becomes empty to allow the opportunity of merging blocks
-	static bool plan_ignore_e;
 
 
     #if ENABLED(DISTINCT_E_FACTORS)
@@ -470,8 +468,6 @@ class Planner {
 
     void init();
 
-	static void change_e_stepper_mm();
-	void resume_e_stepper_mm(float e);
     /**
      * Static (class) Methods
      */
@@ -1018,8 +1014,3 @@ class Planner {
 #define PLANNER_XY_FEEDRATE() _MIN(planner.settings.max_feedrate_mm_s[X_AXIS], planner.settings.max_feedrate_mm_s[Y_AXIS])
 
 extern Planner planner;
-extern bool fast_print_enable;
-extern bool fast_print_enable_change;
-extern bool fast_print_enable_pre;
-extern bool fast_print_enable;
-
